@@ -4,7 +4,6 @@ import Footer from "../components/Footer.jsx";
 import Icon from "../components/Icon.jsx";
 
 const SCH = "'Schibsted Grotesk',sans-serif";
-const HATCH = "repeating-linear-gradient(135deg,#E4ECF8,#E4ECF8 12px,#EEF3FC 12px,#EEF3FC 24px)";
 const labelStyle = { display: "block", fontSize: 13, fontWeight: 700, color: "#344054", marginBottom: 7 };
 
 function InfoCard({ icon, label, children }) {
@@ -101,9 +100,14 @@ export default function Contact() {
               <div style={{ fontSize: 16, lineHeight: 1.6, color: "#0E1A2B", fontWeight: 600 }}>Monday to Friday, 9 AM to 5 PM CT</div>
               <div style={{ fontSize: 13.5, lineHeight: 1.5, color: "#667085", marginTop: 4 }}>After hours, leave a message and we'll call you back the next business day.</div>
             </InfoCard>
-            <div style={{ height: 160, borderRadius: 16, overflow: "hidden", background: HATCH, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span style={{ fontFamily: "ui-monospace,monospace", fontSize: 12, color: "#7E8DA3", background: "rgba(255,255,255,0.8)", padding: "6px 11px", borderRadius: 6 }}>map embed</span>
-            </div>
+            <a href="https://www.openstreetmap.org/?mlat=30.3078075&mlon=-97.93361#map=17/30.3078/-97.93361" target="_blank" rel="noopener noreferrer" style={{ display: "block", borderRadius: 16, overflow: "hidden", border: "1px solid #E6E9EF" }}>
+              <iframe
+                title="USAM I Fund office, Bee Cave, TX"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-97.9396%2C30.3048%2C-97.9276%2C30.3108&layer=mapnik&marker=30.3078075%2C-97.93361"
+                style={{ width: "100%", height: 160, border: 0, display: "block", pointerEvents: "none" }}
+                loading="lazy"
+              />
+            </a>
           </div>
 
         </div>

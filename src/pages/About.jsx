@@ -3,7 +3,6 @@ import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 
 const SCH = "'Schibsted Grotesk',sans-serif";
-const HATCH = "repeating-linear-gradient(135deg,#E4ECF8,#E4ECF8 12px,#EEF3FC 12px,#EEF3FC 24px)";
 
 const VALUES = [
   ["Direct", "We are the lender", "No broker layer between you and a yes. We underwrite and fund, so decisions are fast and final."],
@@ -27,10 +26,26 @@ const STATS = [
   ["50", "states served"],
 ];
 
-function PhotoPlaceholder() {
+const AVATAR_BG = [
+  "linear-gradient(150deg,#1A56C4,#123E96)",
+  "linear-gradient(150deg,#2C68D6,#1A56C4)",
+];
+
+function initials(name) {
+  return name
+    .split(/\s+/)
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+}
+
+// Branded monogram avatar. Stands in cleanly for a real headshot and swaps out
+// for a photo when one is provided.
+function Avatar({ name, i }) {
   return (
-    <div style={{ height: 220, background: HATCH, display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <span style={{ fontFamily: "ui-monospace,monospace", fontSize: 12, color: "#7E8DA3", background: "rgba(255,255,255,0.8)", padding: "6px 11px", borderRadius: 6 }}>team photo</span>
+    <div style={{ height: 220, background: AVATAR_BG[i % AVATAR_BG.length], display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <span style={{ fontFamily: SCH, fontWeight: 800, fontSize: 60, color: "#fff", letterSpacing: "0.02em" }}>{initials(name)}</span>
     </div>
   );
 }
@@ -88,9 +103,9 @@ export default function About() {
           </div>
 
           <div className="team-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24 }}>
-            {TEAM.map(([name, role, email]) => (
+            {TEAM.map(([name, role, email], i) => (
               <div key={name} style={{ background: "#fff", border: "1px solid #E6E9EF", borderRadius: 16, overflow: "hidden" }}>
-                <PhotoPlaceholder />
+                <Avatar name={name} i={i} />
                 <div style={{ padding: 22 }}>
                   <h3 style={{ fontFamily: SCH, fontWeight: 700, fontSize: 19, color: "#0E1A2B", margin: "0 0 3px" }}>{name}</h3>
                   <div style={{ fontSize: 14, fontWeight: 700, color: "#1A56C4", marginBottom: 10 }}>{role}</div>

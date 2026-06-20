@@ -52,7 +52,7 @@ export default function Footer() {
 
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 20, flexWrap: "wrap", paddingTop: 26, fontSize: 13, color: "#6E7E92" }}>
           <span>© {year} USAM I Fund. All rights reserved.</span>
-          <span>Equal Housing Lender · Loans for business purpose only · Not a commitment to lend.</span>
+          <span>Loans for business purpose only · Not a commitment to lend.</span>
         </div>
       </div>
     </footer>

@@ -36,12 +36,12 @@ export default function Header() {
           className="hdr-sec"
           style={{ maxWidth: 1240, margin: "0 auto", padding: "9px 32px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 24 }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: 9 }}>
-            <span style={{ display: "inline-block", width: 7, height: 7, borderRadius: "50%", background: "#C9362E" }} />
-            <span>Direct private lending, nationwide in all 50 states</span>
+          <div style={{ display: "flex", alignItems: "center", gap: 9, minWidth: 0 }}>
+            <span style={{ flex: "none", display: "inline-block", width: 7, height: 7, borderRadius: "50%", background: "#C9362E" }} />
+            <span className="u-tagline">Direct private lending, nationwide in all 50 states</span>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
-            <a href="tel:512-617-9400" style={{ color: "#E7ECF3", textDecoration: "none", fontWeight: 600 }}>512-617-9400</a>
+          <div style={{ display: "flex", alignItems: "center", gap: 22, flex: "none" }}>
+            <a href="tel:512-617-9400" style={{ color: "#E7ECF3", textDecoration: "none", fontWeight: 600, whiteSpace: "nowrap" }}>512-617-9400</a>
             <a href="mailto:jack@usam.net" className="u-email" style={{ color: "#AEB9C9", textDecoration: "none" }}>jack@usam.net</a>
           </div>
         </div>

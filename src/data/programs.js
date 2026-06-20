@@ -29,10 +29,10 @@ export const programs = [
       "Auction and on-market deals",
     ],
     terms: [
-      ["Loan amount", "$75K – $5M"],
+      ["Loan amount", "$75K to $5M"],
       ["Purchase leverage", "Up to 90% LTP"],
       ["Rehab funding", "Up to 100%"],
-      ["Term", "12 – 18 months"],
+      ["Term", "12 to 18 months"],
       ["Rate", "From 9.50%*"],
       ["Payments", "Interest-only or deferred"],
     ],
@@ -71,7 +71,7 @@ export const programs = [
       "Rate/term and cash-out refi",
     ],
     terms: [
-      ["Loan amount", "$75K – $3M"],
+      ["Loan amount", "$75K to $3M"],
       ["Max leverage", "Up to 80% LTV"],
       ["DSCR", "From 1.00"],
       ["Term", "30-yr fixed / 5-7-10 ARM"],
@@ -115,7 +115,7 @@ export const programs = [
     terms: [
       ["Loan amount", "Up to $5M"],
       ["Leverage", "Up to 80% LTV / 85% LTC"],
-      ["Term", "12 – 24 months"],
+      ["Term", "12 to 24 months"],
       ["Draws", "Per build schedule"],
       ["Rate", "From 10.00%*"],
       ["Use", "Spec or build-to-rent"],
@@ -157,7 +157,7 @@ export const programs = [
     terms: [
       ["Loan amount", "Up to $10M"],
       ["Max leverage", "Up to 75% LTV"],
-      ["Term", "Up to 24 – 36 months"],
+      ["Term", "Up to 24 to 36 months"],
       ["Rate", "From 8.00%*"],
       ["Payments", "Interest-only"],
       ["Structure", "Bridge or cash-out"],
@@ -182,7 +182,7 @@ export const programs = [
     tagline: "Same-day capital for double closings.",
     desc: "For wholesalers and assignment deals, we fund the A-to-B leg so you can close the B-to-C. Short-term transactional capital that bridges the gap and keeps your deal on schedule.",
     heroImg:
-      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1100&q=80",
+      "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1100&q=80",
     stats: [
       ["Same-day", "funding"],
       ["100%", "of purchase"],
@@ -239,7 +239,7 @@ export const programs = [
       "Personal name or LLC",
     ],
     terms: [
-      ["Loan amount", "$100K – $3M"],
+      ["Loan amount", "$100K to $3M"],
       ["Income docs", "Bank statements or none"],
       ["Property", "Investment / business-purpose"],
       ["Term", "Short-term or 30-yr"],
@@ -266,7 +266,7 @@ export const programs = [
     tagline: "Conventional financing for investment property.",
     desc: "Standard, competitively priced financing for non-owner-occupied investment property when your file fits the box. Often the lowest-cost option for a long-term hold, in exchange for full documentation. We'll compare it against DSCR so you take the structure that fits.",
     heroImg:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1100&q=80",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1100&q=80",
     stats: [
       ["Non-owner", "occupied"],
       ["30-yr", "fixed avail."],
@@ -308,7 +308,7 @@ export const programs = [
     tagline: "One loan across your whole rental portfolio.",
     desc: "Custom portfolio-level financing for investors who own multiple properties. Roll several rentals into a single blanket loan with one payment, simplify your financing, and free up capital to keep scaling.",
     heroImg:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1100&q=80",
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1100&q=80",
     stats: [
       ["5+", "properties"],
       ["1", "blanket loan"],
@@ -350,7 +350,7 @@ export const programs = [
     tagline: "Long-term permanent commercial financing.",
     desc: "Long-term, permanent financing for stabilized commercial real estate. We place loans through agency multifamily channels (Fannie Mae and Freddie Mac), insurance funds, and other wholesale sources to land you the right long-term debt.",
     heroImg:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1100&q=80",
+      "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1100&q=80",
     stats: [
       ["Agency", "Fannie/Freddie"],
       ["Long-term", "fixed"],
@@ -407,7 +407,7 @@ export const programs = [
       "Partner or stock buyout",
     ],
     terms: [
-      ["Loan amount", "$350K – $5M+"],
+      ["Loan amount", "$350K to $5M+"],
       ["Financing", "Up to 90%"],
       ["Term", "Up to 25 years"],
       ["Rate", "Market SBA rates"],
