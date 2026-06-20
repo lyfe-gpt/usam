@@ -4,6 +4,8 @@ import Footer from "../components/Footer.jsx";
 import CtaBand from "../components/CtaBand.jsx";
 import Icon from "../components/Icon.jsx";
 import { programs } from "../data/programs.js";
+import heroVideo from "../assets/home-hero.mp4";
+import heroPoster from "../assets/home-hero-poster.jpg";
 
 const SCH = "'Schibsted Grotesk',sans-serif";
 
@@ -56,7 +58,16 @@ export default function Home() {
 
           <div style={{ position: "relative" }}>
             <div className="u-heroimg" style={{ position: "relative", height: 440, borderRadius: 20, overflow: "hidden", boxShadow: "0 24px 60px -20px rgba(14,26,43,0.34)", background: "#0E1A2B" }}>
-              <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1200&q=80" alt="Renovated residential property" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+              <video
+                src={heroVideo}
+                poster={heroPoster}
+                autoPlay
+                loop
+                muted
+                playsInline
+                aria-label="Renovated residential property"
+                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+              />
             </div>
             <div className="u-termcard" style={{ position: "absolute", left: -26, bottom: -26, width: 280, background: "#fff", border: "1px solid #E6E9EF", borderRadius: 16, boxShadow: "0 18px 44px -14px rgba(14,26,43,0.28)", padding: 20 }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
