@@ -61,10 +61,10 @@ export default function About() {
           <div>
             <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#1A56C4", marginBottom: 14 }}>About USAM I Fund</div>
             <h1 style={{ fontFamily: SCH, fontWeight: 800, fontSize: "clamp(38px,4.6vw,58px)", lineHeight: 1.0, letterSpacing: "-0.02em", color: "#0E1A2B", margin: "0 0 18px" }}>A dedicated team with 30 years of experience.</h1>
-            <p style={{ fontSize: 19, lineHeight: 1.6, color: "#475467", maxWidth: 560, margin: 0 }}>Based in Lakeway, Texas and lending nationwide, we're a direct private lender built by people who've spent careers in real estate finance. We make our own decisions, fund our own loans, and treat every project with the respect it deserves, until you're satisfied.</p>
+            <p style={{ fontSize: 19, lineHeight: 1.6, color: "#475467", maxWidth: 560, margin: 0 }}>Based in Bee Cave, Texas and lending nationwide, we're a direct private lender built by people who've spent careers in real estate finance. We make our own decisions, fund our own loans, and treat every project with the respect it deserves, until you're satisfied.</p>
           </div>
           <div style={{ height: 320, borderRadius: 20, overflow: "hidden", boxShadow: "0 24px 60px -20px rgba(14,26,43,0.3)" }}>
-            <img src="https://images.unsplash.com/photo-1554469384-e58fbf2e7da7?auto=format&fit=crop&w=900&q=80" alt="Modern home exterior" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=900&q=80" alt="Modern home exterior" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </div>
         </div>
       </section>
