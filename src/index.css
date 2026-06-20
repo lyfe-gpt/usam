@@ -117,7 +117,6 @@ img { display: block; }
   .u-stats { grid-template-columns: 1fr 1fr !important; }
   .u-prog { grid-template-columns: 1fr !important; }
   .u-why2 { grid-template-columns: 1fr !important; }
-  .u-heroimg { height: 300px !important; }
   #top { padding-top: 44px !important; padding-bottom: 44px !important; }
   .u-cta { padding: 36px 22px !important; }
 }

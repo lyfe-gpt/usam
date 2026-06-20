@@ -36,7 +36,7 @@ export default function Home() {
 
       {/* Hero */}
       <section id="top" className="sec" style={{ background: "linear-gradient(180deg,#F6F8FB 0%,#ffffff 70%)", padding: "84px 32px 64px" }}>
-        <div className="u-hero" style={{ maxWidth: 1240, margin: "0 auto", display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: 64, alignItems: "center" }}>
+        <div className="u-hero" style={{ maxWidth: 1240, margin: "0 auto", display: "grid", gridTemplateColumns: "0.85fr 1.15fr", gap: 64, alignItems: "center" }}>
           <div>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 9, background: "#EEF3FC", border: "1px solid #DCE6F9", color: "#1A56C4", fontWeight: 700, fontSize: 12.5, letterSpacing: "0.08em", textTransform: "uppercase", padding: "7px 14px", borderRadius: 999, marginBottom: 26 }}>
               <span style={{ display: "inline-block", width: 6, height: 6, borderRadius: "50%", background: "#1A56C4" }} />
@@ -57,7 +57,7 @@ export default function Home() {
           </div>
 
           <div style={{ position: "relative" }}>
-            <div className="u-heroimg" style={{ position: "relative", height: 440, borderRadius: 20, overflow: "hidden", boxShadow: "0 24px 60px -20px rgba(14,26,43,0.34)", background: "#0E1A2B" }}>
+            <div className="u-heroimg" style={{ position: "relative", aspectRatio: "16 / 9", borderRadius: 20, overflow: "hidden", boxShadow: "0 24px 60px -20px rgba(14,26,43,0.34)", background: "#0E1A2B" }}>
               <video
                 src={heroVideo}
                 poster={heroPoster}
