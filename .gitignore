@@ -1,0 +1,12 @@
+.DS_Store
+*.log
+node_modules/
+dist/
+
+# Local editor/agent config
+.claude/
+
+# Original design source + internal chat logs from the handoff zip;
+# not part of the app and should not be published to a public repo.
+chats/
+project/

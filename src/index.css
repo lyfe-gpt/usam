@@ -1,0 +1,182 @@
+/* USAM I Fund — shared styles.
+   Fonts (Schibsted Grotesk display, Hanken Grotesk body) are loaded per-page
+   via <link> in the document head. This file holds the base reset, the hover
+   states that the design expressed as inline `style-hover`, and every
+   responsive media query, which can't live inline. */
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  color: #475467;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+::selection { background: #1A56C4; color: #fff; }
+img { display: block; }
+
+/* ---- Buttons / link hover states ------------------------------------ */
+.btn-primary:hover { background: #123E96 !important; }
+.btn-primary-bright:hover { background: #2C68D6 !important; }
+.btn-outline:hover { border-color: #1A56C4 !important; color: #1A56C4 !important; }
+.btn-white:hover { background: #EEF3FC !important; }
+.btn-ghost-light:hover { border-color: #fff !important; background: rgba(255,255,255,0.08) !important; }
+
+/* ---- Program cards --------------------------------------------------- */
+.card-prog { transition: all .18s ease; }
+.card-prog:hover {
+  border-color: #1A56C4 !important;
+  box-shadow: 0 14px 34px -16px rgba(26,86,196,0.4) !important;
+  transform: translateY(-3px);
+}
+.card-link { transition: all .16s ease; }
+.card-link:hover {
+  border-color: #1A56C4 !important;
+  box-shadow: 0 12px 28px -16px rgba(26,86,196,0.45) !important;
+  transform: translateY(-2px);
+}
+
+.link-blue:hover { color: #1A56C4 !important; }
+
+/* ---- Form fields ----------------------------------------------------- */
+.ci {
+  width: 100%;
+  font-family: inherit;
+  font-size: 16px;
+  color: #0E1A2B;
+  background: #fff;
+  border: 1.5px solid #E0E5EC;
+  border-radius: 11px;
+  padding: 13px 15px;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.ci:focus { border-color: #1A56C4; box-shadow: 0 0 0 4px rgba(26,86,196,0.12); }
+.ci::placeholder { color: #98A2B3; }
+
+/* ===================================================================== */
+/* HEADER                                                                 */
+/* ===================================================================== */
+.hdr * { box-sizing: border-box; font-family: 'Hanken Grotesk', system-ui, sans-serif; }
+.nav-dd-wrap { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 16px; opacity: 0; visibility: hidden; transition: opacity .16s ease, visibility .16s; z-index: 60; }
+.nav-dd:hover .nav-dd-wrap { opacity: 1; visibility: visible; }
+.nav-dd-card { transform: translateY(6px); transition: transform .16s ease; }
+.nav-dd:hover .nav-dd-card { transform: translateY(0); }
+.nav-dd-chev { transition: transform .16s ease; }
+.nav-dd:hover .nav-dd-chev { transform: rotate(180deg); }
+.nav-dd-item:hover { background: #F6F8FB !important; }
+.nav-lnk:hover { color: #1A56C4 !important; }
+.prog-sub:hover { color: #1A56C4 !important; }
+.phone-dd-wrap { position: absolute; top: 100%; right: 0; padding-top: 14px; opacity: 0; visibility: hidden; transition: opacity .16s ease, visibility .16s; z-index: 60; }
+.phone-dd:hover .phone-dd-wrap { opacity: 1; visibility: visible; }
+.phone-dd-card { transform: translateY(6px); transition: transform .16s ease; }
+.phone-dd:hover .phone-dd-card { transform: translateY(0); }
+.phone-icon-btn { transition: box-shadow .16s ease, transform .16s ease; }
+.phone-dd:hover .phone-icon-btn { box-shadow: 0 10px 26px -8px rgba(14,26,43,0.4); transform: translateY(-1px); }
+.u-burger { display: none; }
+@media (min-width: 981px) { .u-menu { display: none !important; } }
+@media (max-width: 980px) {
+  .u-nav, .u-phone { display: none !important; }
+  .u-burger { display: flex !important; }
+}
+@media (max-width: 640px) {
+  .hdr-sec { padding-left: 18px !important; padding-right: 18px !important; }
+  .u-email { display: none !important; }
+  .u-logo { height: 38px !important; }
+}
+
+/* ===================================================================== */
+/* FOOTER                                                                 */
+/* ===================================================================== */
+.ftr * { box-sizing: border-box; font-family: 'Hanken Grotesk', system-ui, sans-serif; }
+.ftr-lnk:hover { color: #ffffff !important; }
+@media (max-width: 980px) { .ftr-grid { grid-template-columns: 1fr 1fr !important; gap: 30px !important; } }
+@media (max-width: 640px) { .ftr-grid { grid-template-columns: 1fr !important; gap: 28px !important; } .ftr-sec { padding-left: 18px !important; padding-right: 18px !important; } }
+
+/* ===================================================================== */
+/* HOME                                                                   */
+/* ===================================================================== */
+@media (max-width: 980px) {
+  .u-hero { grid-template-columns: 1fr !important; gap: 36px !important; }
+  .u-why { grid-template-columns: 1fr !important; gap: 36px !important; }
+  .u-prog { grid-template-columns: 1fr 1fr !important; }
+  .u-steps { grid-template-columns: 1fr !important; gap: 30px !important; }
+  .u-cta { padding: 44px 36px !important; }
+  .u-termcard { position: static !important; left: auto !important; bottom: auto !important; width: auto !important; margin-top: 18px !important; }
+}
+@media (max-width: 640px) {
+  .sec { padding-left: 18px !important; padding-right: 18px !important; }
+  .u-stats { grid-template-columns: 1fr 1fr !important; }
+  .u-prog { grid-template-columns: 1fr !important; }
+  .u-why2 { grid-template-columns: 1fr !important; }
+  .u-heroimg { height: 300px !important; }
+  #top { padding-top: 44px !important; padding-bottom: 44px !important; }
+  .u-cta { padding: 36px 22px !important; }
+}
+
+/* ===================================================================== */
+/* PROGRAMS HUB                                                           */
+/* ===================================================================== */
+@media (max-width: 920px) { .pg-grid { grid-template-columns: 1fr 1fr !important; } .phero { grid-template-columns: 1fr !important; gap: 26px !important; } }
+@media (max-width: 600px) { .sec { padding-left: 18px !important; padding-right: 18px !important; } .pg-grid { grid-template-columns: 1fr !important; } }
+
+/* ===================================================================== */
+/* PROGRAM DETAIL                                                         */
+/* ===================================================================== */
+@media (max-width: 920px) {
+  .ph-hero { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .ph-main { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .ph-termcard { position: static !important; }
+  .ph-other { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 560px) {
+  .sec { padding-left: 18px !important; padding-right: 18px !important; }
+  .ph-stats { grid-template-columns: 1fr 1fr !important; }
+  .ph-other { grid-template-columns: 1fr !important; }
+  .ph-heroimg { height: 260px !important; }
+}
+
+/* ===================================================================== */
+/* ABOUT                                                                  */
+/* ===================================================================== */
+@media (max-width: 900px) { .about-hero { grid-template-columns: 1fr !important; gap: 36px !important; } .team-grid { grid-template-columns: 1fr 1fr !important; } .val-grid { grid-template-columns: 1fr !important; } }
+@media (max-width: 560px) { .sec { padding-left: 18px !important; padding-right: 18px !important; } .team-grid { grid-template-columns: 1fr !important; } }
+
+/* ===================================================================== */
+/* CONTACT                                                                */
+/* ===================================================================== */
+@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr !important; gap: 36px !important; } .crow { grid-template-columns: 1fr !important; } }
+@media (max-width: 560px) { .sec { padding-left: 18px !important; padding-right: 18px !important; } }
+
+/* ===================================================================== */
+/* APPLY FLOW                                                             */
+/* ===================================================================== */
+.opt { display: flex; align-items: center; gap: 16px; width: 100%; text-align: left; background: #fff; border: 1.5px solid #E6E9EF; border-radius: 14px; padding: 18px 20px; cursor: pointer; font-family: inherit; transition: all .15s ease; }
+.opt:hover { border-color: #1A56C4; box-shadow: 0 8px 22px -12px rgba(26,86,196,0.5); transform: translateY(-1px); }
+.opt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 560px) { .opt-grid { grid-template-columns: 1fr !important; } .flow-pad { padding-left: 18px !important; padding-right: 18px !important; } }
+
+/* Apply uses a tinted page background. */
+body.apply-page { background: #F6F8FB; }
+body.apply-page .ci { font-size: 17px; border-radius: 12px; padding: 15px 16px; }
+
+/* ===================================================================== */
+/* FAQ                                                                    */
+/* ===================================================================== */
+.faq-pill { transition: background .14s ease, border-color .14s ease; }
+.faq-pill:hover { background: #DCE6F9 !important; border-color: #1A56C4 !important; }
+.faq-q:hover { color: #1A56C4 !important; }
+.faq-q:hover .faq-chev { background: #DCE6F9 !important; }
+.faq-a a { color: #1A56C4; text-decoration: underline; text-underline-offset: 2px; }
+.faq-a a:hover { color: #123E96; }
+.faq-a strong { color: #0E1A2B; font-weight: 700; }
+.faq-a p { margin: 0 0 12px; }
+.faq-a p:last-child { margin-bottom: 0; }
+.faq-a ul { margin: 8px 0 12px; padding-left: 20px; }
+.faq-a li { margin-bottom: 6px; }
+@media (max-width: 760px) {
+  .faq-cols { grid-template-columns: 1fr !important; gap: 8px !important; }
+  .faq-side { position: static !important; }
+}
