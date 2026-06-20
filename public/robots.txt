@@ -1,0 +1,6 @@
+# PRE-LAUNCH: disallow all crawling until ready to publish.
+# When launching, replace with:
+#   User-agent: *
+#   Allow: /
+User-agent: *
+Disallow: /
