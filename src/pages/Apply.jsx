@@ -49,10 +49,71 @@ const TIMELINE = [
   ["Just exploring", "Just exploring"],
 ];
 
+// The "numbers" step (step 2) asks different questions per program. Each entry
+// is the ordered list of fields to render. Currency keys "purchase", "rehab",
+// "arv" reuse the existing Airtable columns (the primary amount flexes by
+// program); "monthlyRent" and "loanAmount" have their own columns; everything
+// else (noi, downPayment, etc.) is folded into Notes in finish().
+const DEFAULT_NUMBERS = [
+  { key: "purchase", label: "Purchase price", type: "currency" },
+  { key: "rehab", label: "Rehab budget", type: "currency", hint: "(if any)" },
+  { key: "arv", label: "After-repair value (ARV)", type: "currency", hint: "(if known)" },
+];
+
+const NUMBERS_BY_PROGRAM = {
+  "Fix & Flip": DEFAULT_NUMBERS,
+  "Ground-Up Construction": [
+    { key: "purchase", label: "Land / lot cost", type: "currency" },
+    { key: "rehab", label: "Construction budget", type: "currency" },
+    { key: "arv", label: "Completed value", type: "currency", hint: "(if known)" },
+  ],
+  "Rental / DSCR": [
+    { key: "purchase", label: "Purchase price", type: "currency" },
+    { key: "monthlyRent", label: "Expected monthly rent", type: "currency" },
+    { key: "rehab", label: "Light rehab budget", type: "currency", hint: "(if any)" },
+  ],
+  "CRE Bridge": [
+    { key: "loanAmount", label: "Loan amount needed", type: "currency" },
+    { key: "purchase", label: "Property value", type: "currency" },
+    { key: "noi", label: "Annual net operating income (NOI)", type: "currency", hint: "(if known)" },
+  ],
+  "CRE Permanent": [
+    { key: "loanAmount", label: "Loan amount needed", type: "currency" },
+    { key: "purchase", label: "Property value", type: "currency" },
+    { key: "noi", label: "Annual net operating income (NOI)", type: "currency", hint: "(if known)" },
+  ],
+  "Transactional": [
+    { key: "purchase", label: "Your purchase price (A to B)", type: "currency" },
+    { key: "resalePrice", label: "Resale price (B to C)", type: "currency" },
+  ],
+  "Bank Statement / No-Doc": [
+    { key: "purchase", label: "Purchase price", type: "currency" },
+    { key: "downPayment", label: "Down payment", type: "select", options: ["25% or more", "20%", "15%", "10% or less"] },
+    { key: "avgDeposits", label: "Avg monthly bank deposits", type: "currency", hint: "(if known)" },
+  ],
+  "Conventional Investment": [
+    { key: "purchase", label: "Purchase price", type: "currency" },
+    { key: "downPayment", label: "Down payment", type: "select", options: ["25% or more", "20%", "15%", "Less than 15%"] },
+    { key: "creditBand", label: "Estimated credit score", type: "select", options: ["740+", "700-739", "660-699", "Below 660"] },
+  ],
+  "Portfolio Loans": [
+    { key: "numProperties", label: "Number of properties", type: "number", placeholder: "e.g. 6" },
+    { key: "purchase", label: "Total portfolio value", type: "currency" },
+    { key: "monthlyRent", label: "Total monthly rent", type: "currency", hint: "(if known)" },
+  ],
+  "SBA Financing": [
+    { key: "loanAmount", label: "Loan amount", type: "currency" },
+    { key: "useOfFunds", label: "Use of funds", type: "select", options: ["Owner-occupied real estate", "Business acquisition", "Equipment", "Working capital"] },
+    { key: "timeInBusiness", label: "Time in business", type: "select", options: ["Startup / pre-revenue", "Less than 2 years", "2-5 years", "5+ years"] },
+  ],
+};
+
 export default function Apply() {
   const [s, setS] = useState({
-    step: 0, loanType: "", address: "", propType: "", purchase: "", rehab: "",
-    arv: "", experience: "", timeline: "", name: "", email: "", phone: "",
+    step: 0, loanType: "", address: "", propType: "", purchase: "", rehab: "", arv: "",
+    monthlyRent: "", loanAmount: "", resalePrice: "", downPayment: "", numProperties: "",
+    noi: "", creditBand: "", useOfFunds: "", timeInBusiness: "", avgDeposits: "",
+    experience: "", timeline: "", name: "", email: "", phone: "",
   });
 
   useEffect(() => {
@@ -66,22 +127,46 @@ export default function Apply() {
   const back = () => setS((st) => ({ ...st, step: Math.max(0, st.step - 1) }));
 
   // Final step: push the completed lead to the CRM, then show the result.
-  const finish = () => {
+  // Accepts an override (e.g. the just-clicked timeline) so the value is
+  // included even though setS hasn't flushed yet.
+  const finish = (override = {}) => {
+    const st = { ...s, ...override };
+    const money = (v) => {
+      const n = toNumber(v);
+      return n === undefined ? "" : "$" + n.toLocaleString();
+    };
+    // Program-specific inputs without their own CRM column are folded into
+    // Notes so the sales team still sees every number the lead provided.
+    const extras = [
+      ["Annual NOI", money(st.noi)],
+      ["Resale price (B to C)", money(st.resalePrice)],
+      ["Down payment", st.downPayment],
+      ["Number of properties", st.numProperties],
+      ["Avg monthly deposits", money(st.avgDeposits)],
+      ["Estimated credit", st.creditBand],
+      ["Use of funds", st.useOfFunds],
+      ["Time in business", st.timeInBusiness],
+    ].filter(([, v]) => v);
+    const notes = extras.length ? extras.map(([k, v]) => `${k}: ${v}`).join("\n") : undefined;
+
     submitLead({
-      name: s.name,
-      email: s.email,
-      phone: s.phone,
+      name: st.name,
+      email: st.email,
+      phone: st.phone,
       leadSource: "Website apply / quote",
-      loanProgram: s.loanType,
-      propertyAddress: s.address,
-      propertyType: s.propType,
-      purchasePrice: toNumber(s.purchase),
-      rehabBudget: toNumber(s.rehab),
-      arv: toNumber(s.arv),
-      experience: s.experience,
-      timeline: s.timeline,
+      loanProgram: st.loanType,
+      propertyAddress: st.address,
+      propertyType: st.propType,
+      purchasePrice: toNumber(st.purchase),
+      rehabBudget: toNumber(st.rehab),
+      arv: toNumber(st.arv),
+      monthlyRent: toNumber(st.monthlyRent),
+      loanAmount: toNumber(st.loanAmount),
+      experience: st.experience,
+      timeline: st.timeline,
+      notes,
     });
-    next();
+    setS((cur) => ({ ...cur, ...override, step: cur.step + 1 }));
   };
 
   const stepNum = s.step + 1;
@@ -121,8 +206,29 @@ export default function Apply() {
           </button>
         )}
 
-        {/* STEP 0: Loan type */}
+        {/* STEP 0: Borrower — captured first so the lead is saved even if they drop off later */}
         {s.step === 0 && (
+          <div>
+            <h1 style={h1Style}>First, who are we preparing this for?</h1>
+            <p style={subStyle}>We'll use this to send your terms and follow up. No hard credit pull.</p>
+            <div style={{ marginBottom: 18 }}>
+              <label style={labelStyle}>Full name</label>
+              <input className="ci" type="text" placeholder="Your name" value={s.name} onChange={set("name")} />
+            </div>
+            <div style={{ marginBottom: 18 }}>
+              <label style={labelStyle}>Email</label>
+              <input className="ci" type="email" placeholder="you@email.com" value={s.email} onChange={set("email")} />
+            </div>
+            <div style={{ marginBottom: 30 }}>
+              <label style={labelStyle}>Phone</label>
+              <input className="ci" type="tel" placeholder="(512) 555-0100" value={s.phone} onChange={set("phone")} />
+            </div>
+            <button onClick={next} className="btn-primary" style={continueBtn}>Continue</button>
+          </div>
+        )}
+
+        {/* STEP 1: Loan type */}
+        {s.step === 1 && (
           <div>
             <h1 style={h1Style}>What kind of financing do you need?</h1>
             <p style={subStyle}>Pick the closest fit. We'll tailor the rest around it.</p>
@@ -142,8 +248,8 @@ export default function Apply() {
           </div>
         )}
 
-        {/* STEP 1: Property */}
-        {s.step === 1 && (
+        {/* STEP 2: Property */}
+        {s.step === 2 && (
           <div>
             <h1 style={h1Style}>Tell us about the property.</h1>
             <p style={subStyle}>Where is the deal, and what type of property?</p>
@@ -167,29 +273,33 @@ export default function Apply() {
           </div>
         )}
 
-        {/* STEP 2: Numbers */}
-        {s.step === 2 && (
+        {/* STEP 3: Numbers — fields adapt to the chosen program */}
+        {s.step === 3 && (
           <div>
             <h1 style={h1Style}>What are the numbers?</h1>
             <p style={subStyle}>Estimates are fine. We'll firm them up together.</p>
-            <div style={{ marginBottom: 18 }}>
-              <label style={labelStyle}>Purchase price</label>
-              <input className="ci" type="text" inputMode="numeric" placeholder="$ 0" value={s.purchase} onChange={set("purchase")} />
-            </div>
-            <div style={{ marginBottom: 18 }}>
-              <label style={labelStyle}>Rehab budget <span style={{ fontWeight: 500, color: "#98A2B3" }}>(if any)</span></label>
-              <input className="ci" type="text" inputMode="numeric" placeholder="$ 0" value={s.rehab} onChange={set("rehab")} />
-            </div>
-            <div style={{ marginBottom: 30 }}>
-              <label style={labelStyle}>After-repair value (ARV) <span style={{ fontWeight: 500, color: "#98A2B3" }}>(if known)</span></label>
-              <input className="ci" type="text" inputMode="numeric" placeholder="$ 0" value={s.arv} onChange={set("arv")} />
-            </div>
+            {(NUMBERS_BY_PROGRAM[s.loanType] || DEFAULT_NUMBERS).map((f, i, arr) => (
+              <div key={f.key} style={{ marginBottom: i === arr.length - 1 ? 30 : 18 }}>
+                <label style={labelStyle}>
+                  {f.label}
+                  {f.hint && <span style={{ fontWeight: 500, color: "#98A2B3" }}> {f.hint}</span>}
+                </label>
+                {f.type === "select" ? (
+                  <select className="ci" value={s[f.key]} onChange={set(f.key)}>
+                    <option value="">Select an option</option>
+                    {f.options.map((o) => <option key={o} value={o}>{o}</option>)}
+                  </select>
+                ) : (
+                  <input className="ci" type="text" inputMode="numeric" placeholder={f.placeholder || "$ 0"} value={s[f.key]} onChange={set(f.key)} />
+                )}
+              </div>
+            ))}
             <button onClick={next} className="btn-primary" style={continueBtn}>Continue</button>
           </div>
         )}
 
-        {/* STEP 3: Experience */}
-        {s.step === 3 && (
+        {/* STEP 4: Experience */}
+        {s.step === 4 && (
           <div>
             <h1 style={h1Style}>How many deals have you done?</h1>
             <p style={subStyle}>Completed in the last 36 months. It helps us tailor leverage.</p>
@@ -203,40 +313,19 @@ export default function Apply() {
           </div>
         )}
 
-        {/* STEP 4: Timeline */}
-        {s.step === 4 && (
+        {/* STEP 5: Timeline — final step; selecting submits the lead */}
+        {s.step === 5 && (
           <div>
             <h1 style={h1Style}>How soon do you need to close?</h1>
             <p style={subStyle}>We can move in as few as 5-7 days when needed.</p>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {TIMELINE.map(([label, value]) => (
-                <button key={value} className="opt" onClick={choose("timeline", value)}>
+                <button key={value} className="opt" onClick={() => finish({ timeline: value })}>
                   <span style={{ fontSize: 16, fontWeight: 700, color: "#0E1A2B" }}>{label}</span>
                 </button>
               ))}
             </div>
-          </div>
-        )}
-
-        {/* STEP 5: Contact */}
-        {s.step === 5 && (
-          <div>
-            <h1 style={h1Style}>Where should we send your terms?</h1>
-            <p style={subStyle}>No hard credit pull. We'll only reach out about this deal.</p>
-            <div style={{ marginBottom: 18 }}>
-              <label style={labelStyle}>Full name</label>
-              <input className="ci" type="text" placeholder="Your name" value={s.name} onChange={set("name")} />
-            </div>
-            <div style={{ marginBottom: 18 }}>
-              <label style={labelStyle}>Email</label>
-              <input className="ci" type="email" placeholder="you@email.com" value={s.email} onChange={set("email")} />
-            </div>
-            <div style={{ marginBottom: 30 }}>
-              <label style={labelStyle}>Phone</label>
-              <input className="ci" type="tel" placeholder="(512) 555-0100" value={s.phone} onChange={set("phone")} />
-            </div>
-            <button onClick={finish} className="btn-primary" style={continueBtn}>See my estimate</button>
-            <p style={{ fontSize: 13, color: "#98A2B3", textAlign: "center", margin: "14px 0 0" }}>By continuing you agree to be contacted about your inquiry.</p>
+            <p style={{ fontSize: 13, color: "#98A2B3", textAlign: "center", margin: "18px 0 0" }}>By continuing you agree to be contacted about your inquiry.</p>
           </div>
         )}
 

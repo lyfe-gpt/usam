@@ -23,6 +23,8 @@ const FIELD_IDS = {
   purchasePrice: "fldI1bFhETTgp1qNL",
   rehabBudget: "fldpRdZDpjmCGQqQ2",
   arv: "fldD9rBU97vVpcOEk",
+  loanAmount: "fld0d6DC9z6cwBPXo",
+  monthlyRent: "fldrcnjalB79Csjwk",
   experience: "fldOPFP1f2RFDx6Ll",
   timeline: "fldGv7FXGaivnKIFd",
   salesStage: "fldRFOBTo95UgYeco",
