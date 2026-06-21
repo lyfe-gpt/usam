@@ -1,6 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Icon from "../components/Icon.jsx";
+import { submitLead } from "../lib/crm.js";
+
+// Strips "$", commas, and spaces from a currency input, returning a number
+// (or undefined when empty) so Airtable's currency fields receive clean values.
+function toNumber(v) {
+  const n = parseFloat(String(v).replace(/[^0-9.]/g, ""));
+  return Number.isFinite(n) ? n : undefined;
+}
 
 const SCH = "'Schibsted Grotesk',sans-serif";
 
@@ -56,6 +64,25 @@ export default function Apply() {
   const choose = (k, v) => () => setS((st) => ({ ...st, [k]: v, step: st.step + 1 }));
   const next = () => setS((st) => ({ ...st, step: st.step + 1 }));
   const back = () => setS((st) => ({ ...st, step: Math.max(0, st.step - 1) }));
+
+  // Final step: push the completed lead to the CRM, then show the result.
+  const finish = () => {
+    submitLead({
+      name: s.name,
+      email: s.email,
+      phone: s.phone,
+      leadSource: "Website apply / quote",
+      loanProgram: s.loanType,
+      propertyAddress: s.address,
+      propertyType: s.propType,
+      purchasePrice: toNumber(s.purchase),
+      rehabBudget: toNumber(s.rehab),
+      arv: toNumber(s.arv),
+      experience: s.experience,
+      timeline: s.timeline,
+    });
+    next();
+  };
 
   const stepNum = s.step + 1;
   const showProgress = s.step < 6;
@@ -208,7 +235,7 @@ export default function Apply() {
               <label style={labelStyle}>Phone</label>
               <input className="ci" type="tel" placeholder="(512) 555-0100" value={s.phone} onChange={set("phone")} />
             </div>
-            <button onClick={next} className="btn-primary" style={continueBtn}>See my estimate</button>
+            <button onClick={finish} className="btn-primary" style={continueBtn}>See my estimate</button>
             <p style={{ fontSize: 13, color: "#98A2B3", textAlign: "center", margin: "14px 0 0" }}>By continuing you agree to be contacted about your inquiry.</p>
           </div>
         )}

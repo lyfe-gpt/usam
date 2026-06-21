@@ -10,3 +10,8 @@ dist/
 # not part of the app and should not be published to a public repo.
 chats/
 project/
+
+# Local env files (Airtable token, etc.) — never commit secrets
+.env
+.env.local
+.env.*.local

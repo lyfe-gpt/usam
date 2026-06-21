@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import Icon from "../components/Icon.jsx";
+import { submitLead } from "../lib/crm.js";
 
 const SCH = "'Schibsted Grotesk',sans-serif";
 const labelStyle = { display: "block", fontSize: 13, fontWeight: 700, color: "#344054", marginBottom: 7 };
@@ -23,7 +24,18 @@ export default function Contact() {
   const [sent, setSent] = useState(false);
 
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
-  const submit = () => setSent(true);
+  const submit = () => {
+    setSent(true);
+    submitLead({
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      leadSource: "Website contact",
+      notes: form.subject
+        ? `Subject: ${form.subject}\n\n${form.message}`
+        : form.message,
+    });
+  };
   const reset = () => {
     setForm({ name: "", phone: "", email: "", subject: "", message: "" });
     setSent(false);

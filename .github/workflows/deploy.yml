@@ -30,6 +30,11 @@ jobs:
           enablement: true
       - run: npm ci
       - run: npm run build
+        env:
+          # Airtable PAT (write-only, this base) injected at build time so it
+          # is never committed to the repo. Set in repo Settings → Secrets and
+          # variables → Actions → New repository secret.
+          VITE_AIRTABLE_TOKEN: ${{ secrets.VITE_AIRTABLE_TOKEN }}
       # SPA fallback: GitHub Pages serves 404.html for unknown deep links
       # (e.g. /usam/faq); reusing the app shell lets React Router handle them.
       - run: cp dist/index.html dist/404.html
