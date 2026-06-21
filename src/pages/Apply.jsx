@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Icon from "../components/Icon.jsx";
 import { submitLead } from "../lib/crm.js";
@@ -7,7 +7,7 @@ function AddressAutocomplete({ value, onChange }) {
   const [query, setQuery] = useState(value || "");
   const [suggestions, setSuggestions] = useState([]);
   const [open, setOpen] = useState(false);
-  const timer = useRef(null);
+  const timerRef = useRef(null);
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -20,10 +20,13 @@ function AddressAutocomplete({ value, onChange }) {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  const search = useCallback((q) => {
-    clearTimeout(timer.current);
-    if (q.length < 4) { setSuggestions([]); setOpen(false); return; }
-    timer.current = setTimeout(async () => {
+  const handleChange = (e) => {
+    const q = e.target.value;
+    setQuery(q);
+    onChange(q);
+    clearTimeout(timerRef.current);
+    if (q.length < 2) { setSuggestions([]); setOpen(false); return; }
+    timerRef.current = setTimeout(async () => {
       try {
         const res = await fetch(
           `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q)}&format=json&addressdetails=1&countrycodes=us&limit=5`,
@@ -35,13 +38,7 @@ function AddressAutocomplete({ value, onChange }) {
       } catch {
         setSuggestions([]); setOpen(false);
       }
-    }, 350);
-  }, []);
-
-  const handleChange = (e) => {
-    setQuery(e.target.value);
-    onChange(e.target.value);
-    search(e.target.value);
+    }, 200);
   };
 
   const pick = (addr) => {
@@ -198,7 +195,7 @@ export default function Apply() {
     step: 0, loanType: "", address: "", propType: "", purchase: "", rehab: "", arv: "",
     monthlyRent: "", loanAmount: "", resalePrice: "", downPayment: "", numProperties: "",
     noi: "", creditBand: "", useOfFunds: "", timeInBusiness: "", avgDeposits: "",
-    experience: "", timeline: "", name: "", email: "", phone: "",
+    experience: "", timeline: "", name: "", email: "", phone: "", leadCaptured: false, step0Error: "",
   });
 
   useEffect(() => {
@@ -210,6 +207,15 @@ export default function Apply() {
   const choose = (k, v) => () => setS((st) => ({ ...st, [k]: v, step: st.step + 1 }));
   const next = () => setS((st) => ({ ...st, step: st.step + 1 }));
   const back = () => setS((st) => ({ ...st, step: Math.max(0, st.step - 1) }));
+
+  const captureStep0 = () => {
+    if (!s.name.trim() || !s.email.trim() || !s.phone.trim()) {
+      setS((st) => ({ ...st, step0Error: "Please fill in all three fields to continue." }));
+      return;
+    }
+    submitLead({ name: s.name, email: s.email, phone: s.phone, leadSource: "Website apply / quote", salesStage: "Inquiry" });
+    setS((st) => ({ ...st, step: 1, leadCaptured: true, step0Error: "" }));
+  };
 
   // Final step: push the completed lead to the CRM, then show the result.
   // Accepts an override (e.g. the just-clicked timeline) so the value is
@@ -298,17 +304,20 @@ export default function Apply() {
             <p style={subStyle}>We'll use this to send your terms and follow up. No hard credit pull.</p>
             <div style={{ marginBottom: 18 }}>
               <label style={labelStyle}>Full name</label>
-              <input className="ci" type="text" placeholder="Your name" value={s.name} onChange={set("name")} />
+              <input className="ci" type="text" placeholder="Your name" value={s.name} onChange={set("name")} disabled={s.leadCaptured} />
             </div>
             <div style={{ marginBottom: 18 }}>
               <label style={labelStyle}>Email</label>
-              <input className="ci" type="email" placeholder="you@email.com" value={s.email} onChange={set("email")} />
+              <input className="ci" type="email" placeholder="you@email.com" value={s.email} onChange={set("email")} disabled={s.leadCaptured} />
             </div>
-            <div style={{ marginBottom: 30 }}>
+            <div style={{ marginBottom: s.step0Error ? 12 : 30 }}>
               <label style={labelStyle}>Phone</label>
-              <input className="ci" type="tel" placeholder="(512) 555-0100" value={s.phone} onChange={set("phone")} />
+              <input className="ci" type="tel" placeholder="(512) 555-0100" value={s.phone} onChange={set("phone")} disabled={s.leadCaptured} />
             </div>
-            <button onClick={next} className="btn-primary" style={continueBtn}>Continue</button>
+            {s.step0Error && (
+              <p style={{ color: "#C0392B", fontSize: 14, margin: "0 0 18px" }}>{s.step0Error}</p>
+            )}
+            <button onClick={captureStep0} className="btn-primary" style={continueBtn}>Continue</button>
           </div>
         )}
 
