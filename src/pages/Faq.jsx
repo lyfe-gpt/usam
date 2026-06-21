@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
-import CtaBand from "../components/CtaBand.jsx";
 import Icon from "../components/Icon.jsx";
 import Faq from "../components/Faq.jsx";
 import JsonLd, { faqPageSchema } from "../components/JsonLd.jsx";
@@ -76,7 +75,7 @@ export default function FaqPage() {
       ))}
 
       {/* Still have questions */}
-      <section className="sec" style={{ background: "#fff", padding: "40px 32px 8px" }}>
+      <section className="sec" style={{ background: "#fff", padding: "56px 32px 56px" }}>
         <div style={{ maxWidth: 880, margin: "0 auto" }}>
           <div style={{ background: "linear-gradient(150deg,#123E96,#1A56C4)", borderRadius: 20, padding: "36px 40px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 28, flexWrap: "wrap" }}>
             <div style={{ maxWidth: 520 }}>
@@ -93,11 +92,6 @@ export default function FaqPage() {
           </div>
         </div>
       </section>
-
-      <CtaBand
-        title="Ready to fund your next deal?"
-        text="Get a real rate in minutes. No obligation, no hard credit pull to start."
-      />
 
       <Footer />
     </div>
