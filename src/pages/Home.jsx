@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
@@ -31,6 +32,32 @@ const STATS = [
 ];
 
 export default function Home() {
+  const videoRef = useRef(null);
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    let timer;
+    const setRate = () => {
+      v.playbackRate = 0.75;
+    };
+    const onEnded = () => {
+      timer = setTimeout(() => {
+        v.currentTime = 0;
+        v.play().catch(() => {});
+      }, 2000);
+    };
+    setRate();
+    v.addEventListener("loadedmetadata", setRate);
+    v.addEventListener("play", setRate);
+    v.addEventListener("ended", onEnded);
+    return () => {
+      clearTimeout(timer);
+      v.removeEventListener("loadedmetadata", setRate);
+      v.removeEventListener("play", setRate);
+      v.removeEventListener("ended", onEnded);
+    };
+  }, []);
+
   return (
     <div>
       <Header />
@@ -60,9 +87,9 @@ export default function Home() {
           <div style={{ position: "relative" }}>
             <div className="u-heroimg" style={{ position: "relative", aspectRatio: "16 / 9", borderRadius: 20, overflow: "hidden", boxShadow: "0 24px 60px -20px rgba(14,26,43,0.34)", background: "#0E1A2B" }}>
               <video
+                ref={videoRef}
                 poster={heroPoster}
                 autoPlay
-                loop
                 muted
                 playsInline
                 aria-label="Renovated residential property"
