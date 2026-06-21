@@ -14,7 +14,7 @@ export default function CtaBand({
   uClass = false,
 }) {
   return (
-    <section className="sec" style={{ background: "#fff", padding: "32px 32px 88px" }}>
+    <section className="sec" style={{ background: "#fff", padding: "48px 32px 48px" }}>
       <div
         className={uClass ? "u-cta" : undefined}
         style={{ maxWidth, margin: "0 auto", background: "linear-gradient(120deg,#123E96 0%,#1A56C4 100%)", borderRadius: 24, padding, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 40, flexWrap: "wrap", boxShadow: "0 24px 60px -24px rgba(26,86,196,0.55)" }}
