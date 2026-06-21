@@ -31,7 +31,7 @@ function metaFor(pathname) {
   }
   if (pathname.startsWith("/about")) return [`About | ${BASE}`, "A direct private lender based in Bee Cave, Texas, lending nationwide with 30 years of real estate finance experience."];
   if (pathname.startsWith("/faq")) return [`FAQ | ${BASE}`, "Answers to common questions about private and hard-money loan programs, rates, terms, and how to get funded."];
-  if (pathname.startsWith("/contact")) return [`Contact | ${BASE}`, "Talk to a real person about your deal. Call 512-617-9400 or send a message to USAM I Fund."];
+  if (pathname.startsWith("/contact")) return [`Contact | ${BASE}`, "Talk to a real person about your deal. Call 512-566-1803 or send a message to USAM I Fund."];
   if (pathname.startsWith("/apply")) return [`Apply | ${BASE}`, "Get a real rate in minutes. No obligation and no hard credit pull to start your USAM I Fund application."];
   return [`${BASE} | Hard Money, Soft Terms`, DEFAULT_DESC];
 }

@@ -41,7 +41,7 @@ export default function Header() {
             <span className="u-tagline">Direct private lending, nationwide in all 50 states</span>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 22, flex: "none" }}>
-            <a href="tel:512-617-9400" style={{ color: "#E7ECF3", textDecoration: "none", fontWeight: 600, whiteSpace: "nowrap" }}>512-617-9400</a>
+            <a href="tel:512-566-1803" style={{ color: "#E7ECF3", textDecoration: "none", fontWeight: 600, whiteSpace: "nowrap" }}>512-566-1803</a>
             <a href="mailto:jack@usam.net" className="u-email" style={{ color: "#AEB9C9", textDecoration: "none" }}>jack@usam.net</a>
           </div>
         </div>
@@ -111,14 +111,14 @@ export default function Header() {
 
           <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
             <div className="phone-dd u-phone" style={{ position: "relative" }}>
-              <a href="tel:512-617-9400" className="phone-icon-btn" aria-label="Call us at 512-617-9400" style={{ width: 46, height: 46, borderRadius: "50%", background: "#F3F1E9", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", padding: 0 }}>
+              <a href="tel:512-566-1803" className="phone-icon-btn" aria-label="Call us at 512-566-1803" style={{ width: 46, height: 46, borderRadius: "50%", background: "#F3F1E9", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", padding: 0 }}>
                 <Icon name="phone" size={23} color="#0E1A2B" filled />
               </a>
               <div className="phone-dd-wrap">
                 <div className="phone-dd-card" style={{ background: "#fff", border: "1px solid #E6E9EF", borderRadius: 16, boxShadow: "0 24px 50px -16px rgba(14,26,43,0.28)", padding: "20px 24px", width: "max-content" }}>
                   <div style={{ fontSize: 16, color: "#475467", fontWeight: 500, whiteSpace: "nowrap" }}>
                     Call us anytime at{" "}
-                    <a href="tel:512-617-9400" className="link-blue" style={{ color: "#0E1A2B", fontWeight: 700, textDecoration: "underline", textUnderlineOffset: 3 }}>512-617-9400</a>
+                    <a href="tel:512-566-1803" className="link-blue" style={{ color: "#0E1A2B", fontWeight: 700, textDecoration: "underline", textUnderlineOffset: 3 }}>512-566-1803</a>
                   </div>
                 </div>
               </div>
@@ -150,7 +150,7 @@ export default function Header() {
               <Link to="/about" onClick={() => setMenuOpen(false)} style={{ padding: "14px 6px", color: "#0E1A2B", textDecoration: "none", fontWeight: 600, fontSize: 16, borderBottom: "1px solid #F1F3F7" }}>About</Link>
               <Link to="/faq" onClick={() => setMenuOpen(false)} style={{ padding: "14px 6px", color: "#0E1A2B", textDecoration: "none", fontWeight: 600, fontSize: 16, borderBottom: "1px solid #F1F3F7" }}>FAQ</Link>
               <Link to="/contact" onClick={() => setMenuOpen(false)} style={{ padding: "14px 6px", color: "#0E1A2B", textDecoration: "none", fontWeight: 600, fontSize: 16, borderBottom: "1px solid #F1F3F7" }}>Contact</Link>
-              <a href="tel:512-617-9400" style={{ padding: "14px 6px", color: "#475467", textDecoration: "none", fontWeight: 600, fontSize: 15 }}>Call 512-617-9400</a>
+              <a href="tel:512-566-1803" style={{ padding: "14px 6px", color: "#475467", textDecoration: "none", fontWeight: 600, fontSize: 15 }}>Call 512-566-1803</a>
               <Link to="/apply" onClick={() => setMenuOpen(false)} style={{ marginTop: 12, background: "#1A56C4", color: "#fff", textAlign: "center", padding: 15, borderRadius: 999, fontWeight: 700, fontSize: 16, textDecoration: "none" }}>Apply now</Link>
             </div>
           </div>

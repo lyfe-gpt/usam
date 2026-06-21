@@ -52,7 +52,7 @@ export default function Contact() {
                   <Icon name="check" size={32} color="#1A56C4" width={2.6} />
                 </div>
                 <h2 style={{ fontFamily: SCH, fontWeight: 800, fontSize: 26, color: "#0E1A2B", margin: "0 0 10px" }}>Thanks, we got it.</h2>
-                <p style={{ fontSize: 16, lineHeight: 1.55, color: "#667085", margin: "0 0 22px" }}>A member of the team will reach out shortly. Need a faster answer? Call 512-617-9400.</p>
+                <p style={{ fontSize: 16, lineHeight: 1.55, color: "#667085", margin: "0 0 22px" }}>A member of the team will reach out shortly. Need a faster answer? Call 512-566-1803.</p>
                 <button onClick={reset} style={{ background: "#fff", color: "#1A56C4", border: "1.5px solid #D6DDE8", borderRadius: 999, padding: "12px 24px", fontWeight: 700, fontSize: 15, fontFamily: "inherit", cursor: "pointer" }}>Send another message</button>
               </div>
             ) : (
@@ -88,7 +88,7 @@ export default function Contact() {
           {/* Info */}
           <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
             <InfoCard icon="phone" label="Call">
-              <a href="tel:512-617-9400" className="link-blue" style={{ fontFamily: SCH, fontWeight: 700, fontSize: 21, color: "#0E1A2B", textDecoration: "none" }}>512-617-9400</a>
+              <a href="tel:512-566-1803" className="link-blue" style={{ fontFamily: SCH, fontWeight: 700, fontSize: 21, color: "#0E1A2B", textDecoration: "none" }}>512-566-1803</a>
             </InfoCard>
             <InfoCard icon="mail" label="Email">
               <a href="mailto:jack@usam.net" className="link-blue" style={{ fontWeight: 700, fontSize: 17, color: "#0E1A2B", textDecoration: "none" }}>jack@usam.net</a>

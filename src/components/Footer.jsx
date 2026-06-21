@@ -43,7 +43,7 @@ export default function Footer() {
             <div style={head}>Main office</div>
             <div style={{ fontSize: 14.5, lineHeight: 1.7, color: "#AEB9C9" }}>
               3821 Juniper Trace, Suite 210<br />Bee Cave, TX 78738<br />
-              <a href="tel:512-617-9400" className="ftr-lnk" style={{ color: "#E7ECF3", textDecoration: "none", fontWeight: 600 }}>512-617-9400</a><br />
+              <a href="tel:512-566-1803" className="ftr-lnk" style={{ color: "#E7ECF3", textDecoration: "none", fontWeight: 600 }}>512-566-1803</a><br />
               <a href="mailto:jack@usam.net" className="ftr-lnk" style={lnk}>jack@usam.net</a><br />
               <span style={{ color: "#6E7E92" }}>Mon to Fri, 9 AM to 5 PM CT</span>
             </div>
