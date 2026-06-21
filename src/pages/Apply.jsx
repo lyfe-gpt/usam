@@ -235,7 +235,7 @@ export default function Apply() {
 
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, flexWrap: "wrap" }}>
               <a href={LENDINGWISE_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: "15px 28px", borderRadius: 999, boxShadow: "0 6px 20px rgba(26,86,196,0.28)" }}>Complete your application</a>
-              <a href="tel:512-566-1803" className="btn-outline" style={{ background: "#fff", color: "#0E1A2B", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: "14px 26px", borderRadius: 999, border: "1.5px solid #D6DDE8" }}>Call to fast-track</a>
+              <a href="tel:512-488-6087" className="btn-outline" style={{ background: "#fff", color: "#0E1A2B", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: "14px 26px", borderRadius: 999, border: "1.5px solid #D6DDE8" }}>Call to fast-track</a>
             </div>
             <div style={{ marginTop: 18 }}>
               <Link to="/" className="link-blue" style={{ fontSize: 14.5, fontWeight: 700, color: "#667085", textDecoration: "none" }}>Back to home</Link>

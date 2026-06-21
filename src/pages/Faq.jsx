@@ -54,7 +54,7 @@ export default function FaqPage() {
         <div style={{ maxWidth: 880, margin: "0 auto" }}>
           <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#1A56C4", marginBottom: 14 }}>Help center</div>
           <h1 style={{ fontFamily: SCH, fontWeight: 800, fontSize: "clamp(38px,4.6vw,58px)", lineHeight: 1.0, letterSpacing: "-0.02em", color: "#0E1A2B", margin: "0 0 16px" }}>Questions, answered.</h1>
-          <p style={{ fontSize: 19, lineHeight: 1.55, color: "#475467", maxWidth: 620, margin: 0 }}>How private lending works, what each program offers, and what it takes to get funded. Do not see your question here? Call us at <a href="tel:512-566-1803" className="link-blue" style={{ color: "#0E1A2B", fontWeight: 700, textDecoration: "underline", textUnderlineOffset: 3 }}>512-566-1803</a> and a real person will answer.</p>
+          <p style={{ fontSize: 19, lineHeight: 1.55, color: "#475467", maxWidth: 620, margin: 0 }}>How private lending works, what each program offers, and what it takes to get funded. Do not see your question here? Call us at <a href="tel:512-488-6087" className="link-blue" style={{ color: "#0E1A2B", fontWeight: 700, textDecoration: "underline", textUnderlineOffset: 3 }}>512-488-6087</a> and a real person will answer.</p>
 
           {/* Jump nav */}
           <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 28 }}>
@@ -85,9 +85,9 @@ export default function FaqPage() {
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
               <Link to="/contact" className="btn-white" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#fff", color: "#123E96", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: "14px 24px", borderRadius: 999 }}>Contact us</Link>
-              <a href="tel:512-566-1803" className="btn-ghost-light" style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: "13px 22px", borderRadius: 999, border: "1.5px solid rgba(255,255,255,0.5)" }}>
+              <a href="tel:512-488-6087" className="btn-ghost-light" style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: "13px 22px", borderRadius: 999, border: "1.5px solid rgba(255,255,255,0.5)" }}>
                 <Icon name="phone" size={18} color="#fff" filled />
-                512-566-1803
+                512-488-6087
               </a>
             </div>
           </div>

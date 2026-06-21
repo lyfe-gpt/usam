@@ -26,7 +26,7 @@ export default function CtaBand({
         <div style={{ display: "flex", alignItems: "center", gap: withPhone ? 14 : 16, flexWrap: "wrap" }}>
           <Link to="/apply" className="btn-white" style={{ background: "#fff", color: "#123E96", textDecoration: "none", fontWeight: 800, fontSize: 17, padding: "17px 32px", borderRadius: 999 }}>Get my rate</Link>
           {withPhone && (
-            <a href="tel:512-566-1803" className="btn-ghost-light" style={{ color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "16px 28px", borderRadius: 999, border: "1.5px solid rgba(255,255,255,0.5)" }}>512-566-1803</a>
+            <a href="tel:512-488-6087" className="btn-ghost-light" style={{ color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "16px 28px", borderRadius: 999, border: "1.5px solid rgba(255,255,255,0.5)" }}>512-488-6087</a>
           )}
         </div>
       </div>
