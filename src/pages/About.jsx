@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
+import CtaBand from "../components/CtaBand.jsx";
 
 const SCH = "'Schibsted Grotesk',sans-serif";
 
@@ -123,14 +124,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="sec" style={{ background: "#F6F8FB", padding: "64px 32px" }}>
-        <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
-          <h2 style={{ fontFamily: SCH, fontWeight: 800, fontSize: "clamp(28px,3.4vw,40px)", lineHeight: 1.08, letterSpacing: "-0.02em", color: "#0E1A2B", margin: "0 0 14px" }}>Ready to fund your next deal?</h2>
-          <p style={{ fontSize: 18, lineHeight: 1.55, color: "#475467", margin: "0 0 28px" }}>Get a real rate in minutes, with no obligation and no hard credit pull to start.</p>
-          <Link to="/apply" className="btn-primary" style={{ display: "inline-block", background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "16px 32px", borderRadius: 999, boxShadow: "0 6px 20px rgba(26,86,196,0.28)" }}>Get my rate</Link>
-        </div>
-      </section>
+      <CtaBand title="Ready to fund your next deal?" text="Get a real rate in minutes, with no obligation and no hard credit pull to start." />
 
       <Footer />
     </div>

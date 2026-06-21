@@ -63,7 +63,7 @@ export default function Home() {
       <Header />
 
       {/* Hero */}
-      <section id="top" className="sec" style={{ background: "linear-gradient(180deg,#F6F8FB 0%,#ffffff 70%)", padding: "84px 32px 64px" }}>
+      <section id="top" className="sec" style={{ background: "linear-gradient(180deg,#F6F8FB 0%,#ffffff 70%)", padding: "72px 32px 64px" }}>
         <div className="u-hero" style={{ maxWidth: 1240, margin: "0 auto", display: "grid", gridTemplateColumns: "0.85fr 1.15fr", gap: 64, alignItems: "center" }}>
           <div>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 9, background: "#EEF3FC", border: "1px solid #DCE6F9", color: "#1A56C4", fontWeight: 700, fontSize: 12.5, letterSpacing: "0.08em", textTransform: "uppercase", padding: "7px 14px", borderRadius: 999, marginBottom: 26 }}>
