@@ -209,8 +209,12 @@ export default function Apply() {
   const back = () => setS((st) => ({ ...st, step: Math.max(0, st.step - 1) }));
 
   const captureStep0 = () => {
-    if (!s.name.trim() || !s.email.trim() || !s.phone.trim()) {
-      setS((st) => ({ ...st, step0Error: "Please fill in all three fields to continue." }));
+    if (!s.name.trim()) {
+      setS((st) => ({ ...st, step0Error: "Please enter your name." }));
+      return;
+    }
+    if (!s.email.trim() && !s.phone.trim()) {
+      setS((st) => ({ ...st, step0Error: "Please provide an email or phone number so we can reach you." }));
       return;
     }
     submitLead({ name: s.name, email: s.email, phone: s.phone, leadSource: "Website apply / quote", salesStage: "Inquiry" });

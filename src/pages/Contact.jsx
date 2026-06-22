@@ -26,6 +26,10 @@ export default function Contact() {
 
   const set = (k) => (e) => { setForm((f) => ({ ...f, [k]: e.target.value })); setError(""); };
   const submit = () => {
+    if (!form.name.trim()) {
+      setError("Please enter your name.");
+      return;
+    }
     if (!form.email.trim() && !form.phone.trim()) {
       setError("Please provide an email or phone number so we can reach you.");
       return;
