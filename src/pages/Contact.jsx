@@ -77,16 +77,16 @@ export default function Contact() {
                 <div className="crow" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
                   <div>
                     <label style={labelStyle}>Name</label>
-                    <input className="ci" type="text" placeholder="Your name" value={form.name} onChange={set("name")} />
+                    <input className="ci" type="text" autoComplete="name" placeholder="Your name" value={form.name} onChange={set("name")} />
                   </div>
                   <div>
                     <label style={labelStyle}>Phone</label>
-                    <input className="ci" type="tel" placeholder="(512) 555-0100" value={form.phone} onChange={set("phone")} />
+                    <input className="ci" type="tel" autoComplete="tel" placeholder="(512) 555-0100" value={form.phone} onChange={set("phone")} />
                   </div>
                 </div>
                 <div style={{ marginBottom: 16 }}>
                   <label style={labelStyle}>Email</label>
-                  <input className="ci" type="email" placeholder="you@email.com" value={form.email} onChange={set("email")} />
+                  <input className="ci" type="email" autoComplete="email" placeholder="you@email.com" value={form.email} onChange={set("email")} />
                 </div>
                 <div style={{ marginBottom: 16 }}>
                   <label style={labelStyle}>Subject</label>

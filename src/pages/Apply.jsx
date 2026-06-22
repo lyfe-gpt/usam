@@ -304,15 +304,15 @@ export default function Apply() {
             <p style={subStyle}>We'll use this to send your terms and follow up. No hard credit pull.</p>
             <div style={{ marginBottom: 18 }}>
               <label style={labelStyle}>Full name</label>
-              <input className="ci" type="text" placeholder="Your name" value={s.name} onChange={set("name")} disabled={s.leadCaptured} />
+              <input className="ci" type="text" autoComplete="name" placeholder="Your name" value={s.name} onChange={set("name")} disabled={s.leadCaptured} />
             </div>
             <div style={{ marginBottom: 18 }}>
               <label style={labelStyle}>Email</label>
-              <input className="ci" type="email" placeholder="you@email.com" value={s.email} onChange={set("email")} disabled={s.leadCaptured} />
+              <input className="ci" type="email" autoComplete="email" placeholder="you@email.com" value={s.email} onChange={set("email")} disabled={s.leadCaptured} />
             </div>
             <div style={{ marginBottom: s.step0Error ? 12 : 30 }}>
               <label style={labelStyle}>Phone</label>
-              <input className="ci" type="tel" placeholder="(512) 555-0100" value={s.phone} onChange={set("phone")} disabled={s.leadCaptured} />
+              <input className="ci" type="tel" autoComplete="tel" placeholder="(512) 555-0100" value={s.phone} onChange={set("phone")} disabled={s.leadCaptured} />
             </div>
             {s.step0Error && (
               <p style={{ color: "#C0392B", fontSize: 14, margin: "0 0 18px" }}>{s.step0Error}</p>
