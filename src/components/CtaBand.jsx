@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 
 const SCH = "'Schibsted Grotesk',sans-serif";
 
-// The blue gradient call-to-action band. `withPhone` adds the secondary phone
-// button; `uClass` applies the Home page's responsive padding rules.
+// The blue gradient call-to-action band. `withSecondary` adds the secondary
+// "Talk to us" button; `uClass` applies the Home page's responsive padding rules.
 export default function CtaBand({
   title,
   text,
   maxWidth = 1140,
   padding = "56px 48px",
   titleClamp = "clamp(28px,3.4vw,40px)",
-  withPhone = true,
+  withSecondary = true,
   uClass = false,
 }) {
   return (
@@ -23,10 +23,10 @@ export default function CtaBand({
           <h2 style={{ fontFamily: SCH, fontWeight: 800, fontSize: titleClamp, lineHeight: 1.05, letterSpacing: "-0.02em", color: "#fff", margin: "0 0 12px" }}>{title}</h2>
           <p style={{ fontSize: 18, lineHeight: 1.5, color: "#D6E2FA", margin: 0 }}>{text}</p>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: withPhone ? 14 : 16, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: withSecondary ? 14 : 16, flexWrap: "wrap" }}>
           <Link to="/apply" className="btn-white" style={{ background: "#fff", color: "#123E96", textDecoration: "none", fontWeight: 800, fontSize: 17, padding: "17px 32px", borderRadius: 999 }}>Get my rate</Link>
-          {withPhone && (
-            <a href="tel:512-488-6087" className="btn-ghost-light" style={{ color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "16px 28px", borderRadius: 999, border: "1.5px solid rgba(255,255,255,0.5)" }}>512-488-6087</a>
+          {withSecondary && (
+            <Link to="/contact" className="btn-ghost-light" style={{ color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "16px 28px", borderRadius: 999, border: "1.5px solid rgba(255,255,255,0.5)" }}>Talk to us</Link>
           )}
         </div>
       </div>

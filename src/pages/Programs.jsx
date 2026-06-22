@@ -50,7 +50,7 @@ export default function Programs() {
       <CtaBand
         title="Not sure which program fits?"
         text="Tell us about the deal and we'll point you to the right loan with a real rate."
-        withPhone={false}
+        withSecondary={false}
       />
 
       <Footer />
