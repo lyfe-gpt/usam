@@ -14,7 +14,7 @@ const VALUES = [
 const TEAM = [
   ["Jack Lieberman", "Founder", "jack@usam.net"],
   ["Jack Brewer", "Loan Officer", "jackbrewer@usam.net"],
-  ["Harrison String", "Loan Officer", "jack@usam.net"],
+  ["Harrison String", "Loan Officer Assistant", "harrison@usam.net"],
   ["Krystle Garza", "Funder & Closer", "krystle@usam.net"],
   ["Dustin Kinney", "Funder & Closer", "dustin@usam.net"],
   ["Roselea Payne", "Administrator", "roselea@usam.net"],
