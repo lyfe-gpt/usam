@@ -14,6 +14,11 @@ export const guides = [
     readMins: 5,
     datePublished: "2026-06-23",
     related: ["rental-dscr", "conventional-investment", "portfolio"],
+    faqs: [
+      { q: "What does DSCR stand for?", a: "DSCR stands for debt service coverage ratio. It compares a property's rental income to its loan payment to see whether the rent covers the debt." },
+      { q: "What DSCR do you need to qualify?", a: "Most lenders want a DSCR of at least 1.00, meaning the rent covers the payment. USAM Fund lends with a DSCR as low as 1.00." },
+      { q: "Do DSCR loans require tax returns?", a: "No. A DSCR loan qualifies on the property's rent versus its payment, so there are no W-2s or tax returns required." },
+    ],
     body: `
 <p>A <strong>DSCR loan</strong> (debt service coverage ratio loan) is a business-purpose mortgage for investment property that qualifies on the <strong>property's rental income</strong> rather than your personal income. There are no W-2s and no tax returns. For self-employed investors and anyone scaling a portfolio, it is often the difference between a yes and a no.</p>
 
@@ -51,6 +56,11 @@ export const guides = [
     readMins: 6,
     datePublished: "2026-06-23",
     related: ["fix-flip", "construction", "transactional"],
+    faqs: [
+      { q: "What credit score do you need for a fix and flip loan?", a: "Fix and flip loans are asset-based, so credit carries less weight than at a bank. A reasonable profile helps your rate and leverage, and weaker credit can often be offset with more equity." },
+      { q: "How much can you borrow on a fix and flip?", a: "Up to 90% of the purchase price and up to 100% of the rehab budget, with total exposure capped under a percentage of the after-repair value (ARV)." },
+      { q: "Can first-time flippers get a loan?", a: "Yes. Experience helps leverage and pricing, but a first-timer with a sound deal, a realistic budget, and a clear exit can still get funded." },
+    ],
     body: `
 <p>A <strong>fix and flip loan</strong> is short-term, business-purpose financing that funds both the <strong>purchase</strong> and the <strong>rehab</strong> of a property you intend to renovate and sell. Because it is asset-based, approval hinges less on your paystubs and more on the deal.</p>
 
@@ -87,6 +97,11 @@ export const guides = [
     readMins: 6,
     datePublished: "2026-06-23",
     related: ["fix-flip", "rental-dscr", "portfolio"],
+    faqs: [
+      { q: "What does BRRRR stand for?", a: "Buy, Rehab, Rent, Refinance, Repeat, a strategy for building a rental portfolio while recycling the same capital across deals." },
+      { q: "What loans do you use for BRRRR?", a: "A short-term fix and flip or bridge loan for the buy and rehab, then a long-term DSCR loan to refinance and pull your capital back out." },
+      { q: "Can you pull all your money back out with BRRRR?", a: "Sometimes. A cash-out DSCR refinance can return much or all of your capital if the property's new value and rent support it." },
+    ],
     body: `
 <p><strong>BRRRR</strong> stands for <strong>Buy, Rehab, Rent, Refinance, Repeat</strong> — a strategy for building a rental portfolio while recycling the same down payment across multiple deals. The whole model lives or dies on financing, so getting the two loans right is everything.</p>
 
@@ -116,6 +131,11 @@ export const guides = [
     readMins: 5,
     datePublished: "2026-06-23",
     related: ["rental-dscr", "conventional-investment", "bank-statement"],
+    faqs: [
+      { q: "Is a DSCR loan better than conventional?", a: "Neither is universally better. Conventional is usually cheaper if you can document income and your file fits the box; DSCR is faster, qualifies on the property, and has no property-count cap." },
+      { q: "Can you refinance a DSCR loan into a conventional loan later?", a: "Often yes, if your situation changes and the property and your file qualify conventionally. Many investors move between the two over time." },
+      { q: "Do DSCR loans have higher rates than conventional?", a: "Usually modestly higher, in exchange for speed, no income documentation, and qualifying on the asset instead of you." },
+    ],
     body: `
 <p>Both a <strong>DSCR loan</strong> and a <strong>conventional investment loan</strong> can finance a rental, but they qualify you in opposite ways. The right choice depends on your tax returns, your timeline, and how many properties you already own.</p>
 
@@ -516,6 +536,511 @@ export const guides = [
       { q: "How long does a hard money loan take to close?", a: "Often 5 to 7 business days for bridge and fix and flip loans, compared with 30 to 60+ days for a bank. DSCR rental loans take a little longer, and SBA loans much longer." },
       { q: "What slows down a hard money closing?", a: "Usually title issues, insurance, or slow document turnaround from the borrower, not the lender's underwriting. A clean file closes fast." },
       { q: "Can a hard money loan close in 48 hours?", a: "A term sheet or approval can come within about 48 hours on a complete file, but the actual funding still depends on title and insurance, which is why a full close typically takes 5 to 7 days." },
+    ],
+  },
+  {
+    slug: "dscr-loan-credit-score",
+    title: "What Credit Score Do You Need for a DSCR Loan?",
+    metaTitle: "DSCR Loan Credit Score Requirements | USAM Fund",
+    description:
+      "DSCR loans qualify on the property, but credit still affects your rate and leverage. Here's the typical minimum score and how to improve your terms.",
+    category: "Rental / DSCR",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["rental-dscr", "conventional-investment"],
+    body: `
+<p>Most DSCR lenders look for a credit score of around <strong>660 to 680</strong> at minimum. A DSCR loan qualifies on the property's rent rather than your income, but your credit still influences the rate you get and how much leverage you can access.</p>
+
+<h2>Why credit still matters on a no-income-doc loan</h2>
+<p>There is no personal income test on a DSCR loan, so credit becomes the main read on you as a borrower. A stronger score signals lower risk, which earns a better rate and higher loan-to-value. A weaker score does not automatically disqualify you, but it usually means a lower rate tier and a larger down payment.</p>
+
+<h2>How to improve your DSCR terms</h2>
+<ul>
+  <li>Raise your score before applying (pay down revolving balances, clear collections).</li>
+  <li>Put more down to lower the loan-to-value and de-risk the file.</li>
+  <li>Bring a property with a strong DSCR, more rent cushion offsets a thinner credit profile.</li>
+</ul>
+
+<h2>The bottom line</h2>
+<p>Credit is a lever, not a gate. A solid property and sensible leverage can carry a borrower whose score is on the edge.</p>
+`,
+    faqs: [
+      { q: "What is the minimum credit score for a DSCR loan?", a: "Most lenders look for around 660 to 680. A higher score earns a better rate and more leverage; a lower score can sometimes be offset with a larger down payment." },
+      { q: "Do DSCR lenders check personal income?", a: "No. A DSCR loan qualifies on the property's rent versus its payment, so there is no personal income or tax-return test. Credit and the property carry the file." },
+      { q: "Can you get a DSCR loan with bad credit?", a: "It is harder and pricier, but possible with a strong property and a larger down payment. The lower the credit, the more the deal has to carry." },
+    ],
+  },
+  {
+    slug: "fix-and-flip-down-payment",
+    title: "How Much Down Payment Do You Need for a Fix and Flip?",
+    metaTitle: "Fix and Flip Down Payment: How Much? | USAM Fund",
+    description:
+      "Most fix and flip lenders fund up to 90% of purchase, so plan on roughly 10% down plus closing costs and your share of rehab. Here's how the cash adds up.",
+    category: "Fix & Flip",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["fix-flip", "construction"],
+    body: `
+<p>On a fix and flip, plan on roughly <strong>10% of the purchase price as a down payment</strong>, plus closing costs. Lenders fund up to 90% of purchase and up to 100% of the rehab, so the purchase down payment is usually your biggest cash item.</p>
+
+<h2>What you actually bring to closing</h2>
+<ul>
+  <li><strong>Down payment</strong> — about 10% of the purchase price.</li>
+  <li><strong>Closing costs</strong> — title, valuation, legal, and lender fees (points).</li>
+  <li><strong>Rehab carry</strong> — you typically fund each rehab stage and get reimbursed by draw, so you float the work short-term.</li>
+  <li><strong>Reserves</strong> — a cushion for overruns and carrying costs.</li>
+</ul>
+
+<h2>How to reduce your cash in the deal</h2>
+<p>Buy further below market so the equity offsets cash, bring a partner or private money for the down payment, or use an interest reserve so you make no payments during the hold. Experienced flippers can also earn higher leverage, which lowers the down payment.</p>
+`,
+    faqs: [
+      { q: "How much down do you need for a fix and flip loan?", a: "Usually around 10% of the purchase price, since lenders fund up to 90% of purchase. You also cover closing costs and float the rehab between draws." },
+      { q: "Do fix and flip lenders fund the rehab?", a: "Yes, up to 100% of the rehab budget, reimbursed in draws as work is completed and inspected. You typically fund each stage first and get reimbursed." },
+      { q: "Can you reduce the down payment on a flip?", a: "Yes, with a strong below-market purchase, a partner or private money, or higher leverage earned through experience." },
+    ],
+  },
+  {
+    slug: "hard-money-vs-private-money",
+    title: "Hard Money vs Private Money: What's the Difference?",
+    metaTitle: "Hard Money vs Private Money Loans | USAM Fund",
+    description:
+      "The terms overlap, but they're not identical. Learn how hard money and private money differ in source, structure, and what it means for your deal.",
+    category: "Rates & Costs",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["fix-flip", "cre-bridge"],
+    body: `
+<p><strong>Hard money</strong> and <strong>private money</strong> overlap heavily and are often used interchangeably. The difference is mostly the source and structure: hard money comes from a professional lender with set programs, while private money comes from an individual or relationship with negotiable, ad hoc terms.</p>
+
+<h2>What is hard money?</h2>
+<p>A hard money loan comes from a dedicated private lender (like USAM Fund) that funds asset-based loans as a business. Terms, leverage, and pricing are defined, the process is repeatable, and closings are fast and reliable.</p>
+
+<h2>What is private money?</h2>
+<p>Private money comes from an individual investor, a friend, a family member, or your own network, lending their own capital. Terms are whatever the two of you negotiate, which can be flexible but is less predictable and depends on the relationship.</p>
+
+<h2>Which should you use?</h2>
+<ul>
+  <li><strong>Hard money</strong> for reliable, repeatable funding with defined terms and fast closings.</li>
+  <li><strong>Private money</strong> to fill a gap, such as the down payment, with flexible terms from someone you know.</li>
+</ul>
+<p>Many investors stack both: a hard money loan for the bulk of the deal and private money for the remaining cash.</p>
+`,
+    faqs: [
+      { q: "Is hard money the same as private money?", a: "They overlap. Hard money is asset-based lending from a professional lender with set programs; private money is from an individual with negotiable, relationship-based terms. People often use the terms interchangeably." },
+      { q: "Which is cheaper, hard money or private money?", a: "It depends. Private money from someone you know can be cheaper or more flexible, but hard money offers defined terms, reliability, and fast, repeatable closings." },
+      { q: "Can you combine hard money and private money?", a: "Yes. A common structure uses a hard money loan for most of the deal and private money for the down payment or a gap." },
+    ],
+  },
+  {
+    slug: "proof-of-funds-letter",
+    title: "What Is a Proof of Funds Letter and How Do You Get One?",
+    metaTitle: "Proof of Funds Letter for Investors | USAM Fund",
+    description:
+      "A proof of funds letter shows sellers you can close. Learn what it is, what it should say, and how to get one fast before you make offers.",
+    category: "Strategy",
+    readMins: 3,
+    datePublished: "2026-06-23",
+    related: ["fix-flip", "transactional"],
+    body: `
+<p>A <strong>proof of funds (POF) letter</strong> is a document showing a seller or agent that you have the capital, or the financing, to close on a deal. For investors using a lender, it is usually a letter from that lender confirming you are approved to fund up to a certain amount.</p>
+
+<h2>Why you need one</h2>
+<p>Sellers, agents, and auctions want confidence you can perform before they accept your offer, especially on cash or fast-close deals. A POF letter makes your offer credible and competitive.</p>
+
+<h2>What a strong POF letter includes</h2>
+<ul>
+  <li>Your name or entity</li>
+  <li>The lender's confirmation that you are approved to fund</li>
+  <li>A maximum amount or price range</li>
+  <li>A recent date and lender contact</li>
+</ul>
+
+<h2>How to get one</h2>
+<p>A private lender can often issue a proof-of-funds letter after a short pre-qualification, sometimes before you are even under contract. Have your basics ready, the kind of deals you target, your entity, and your typical price range, and a lender can turn one around quickly.</p>
+`,
+    faqs: [
+      { q: "What is a proof of funds letter?", a: "A document showing a seller or agent that you have the capital or financing to close. For investors, it is usually a lender letter confirming you are approved to fund up to a set amount." },
+      { q: "How do you get a proof of funds letter?", a: "Get pre-qualified with a lender and request the letter. A private lender can often issue one after a short application, sometimes before you are under contract." },
+      { q: "Does a proof of funds letter guarantee a loan?", a: "No. It confirms you are approved to fund up to an amount, but the specific deal still goes through underwriting, title, and insurance before it closes." },
+    ],
+  },
+  {
+    slug: "how-to-scale-a-rental-portfolio",
+    title: "How to Scale a Rental Portfolio",
+    metaTitle: "How to Scale a Rental Portfolio | USAM Fund",
+    description:
+      "Growing past a few rentals runs into financing limits. Learn how DSCR loans, the BRRRR method, and portfolio loans let investors keep scaling.",
+    category: "Strategy",
+    readMins: 5,
+    datePublished: "2026-06-23",
+    related: ["rental-dscr", "portfolio"],
+    body: `
+<p>Scaling a rental portfolio is mostly a financing problem. The way to grow past the point where conventional limits and your debt-to-income ratio stop you is to switch to <strong>business-purpose loans that qualify on the properties</strong>, not on you.</p>
+
+<h2>The wall most investors hit</h2>
+<p>Conventional lenders cap the number of financed properties and weigh your personal debt-to-income ratio. After a few doors, the next loan gets hard, even when your real cash flow is strong. That is the wall.</p>
+
+<h2>The financing playbook to scale</h2>
+<ul>
+  <li><strong>DSCR loans</strong> qualify on each property's rent, with no property-count cap, so you keep adding doors.</li>
+  <li><strong>The BRRRR method</strong> recycles the same capital across deals by refinancing your cash back out.</li>
+  <li><strong>Portfolio (blanket) loans</strong> roll several rentals into one loan with a single payment, simplifying your debt and freeing capital.</li>
+</ul>
+
+<h2>Hold properties in entities</h2>
+<p>Holding rentals in LLCs keeps liability and books clean and is standard for these loan types. As you grow, a portfolio loan can consolidate them.</p>
+
+<h2>The mindset shift</h2>
+<p>Stop qualifying as a consumer and start qualifying as a business. Once the assets carry the loans, the constraint becomes deal flow, not your personal balance sheet.</p>
+`,
+    faqs: [
+      { q: "How do investors finance more than 10 rentals?", a: "By moving to business-purpose loans like DSCR and portfolio loans, which qualify on the properties rather than counting against conventional property limits or your debt-to-income ratio." },
+      { q: "What is the fastest way to scale a rental portfolio?", a: "The BRRRR method, recycling the same capital by refinancing it back out after each deal, combined with DSCR loans that have no property-count cap." },
+      { q: "Should you hold rentals in an LLC to scale?", a: "Most investors do, for liability separation and clean books, and because DSCR and portfolio loans are built to close in an entity's name." },
+    ],
+  },
+  {
+    slug: "what-is-a-blanket-loan",
+    title: "What Is a Blanket Loan?",
+    metaTitle: "What Is a Blanket Loan? Portfolio Loans Explained | USAM Fund",
+    description:
+      "A blanket loan finances multiple properties under one loan and one payment. Learn how blanket (portfolio) loans work and when they make sense.",
+    category: "Portfolio",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["portfolio", "rental-dscr"],
+    body: `
+<p>A <strong>blanket loan</strong> (also called a portfolio loan) finances <strong>multiple properties under a single loan</strong> with one payment, instead of a separate mortgage on each. It is how investors with several rentals simplify their financing and free up capital.</p>
+
+<h2>How does a blanket loan work?</h2>
+<p>The lender combines several properties into one loan secured by all of them. You make one payment and manage one loan instead of many. Many blanket loans include a release clause, letting you sell an individual property and pay down a portion without unwinding the whole loan.</p>
+
+<h2>Why investors use them</h2>
+<ul>
+  <li><strong>Simplicity</strong> — one loan, one payment, one renewal instead of a stack of mortgages.</li>
+  <li><strong>Capital efficiency</strong> — consolidating can free equity to keep buying.</li>
+  <li><strong>Scale</strong> — it is built for investors growing past a handful of doors.</li>
+</ul>
+
+<h2>When it makes sense</h2>
+<p>A blanket loan fits once you hold several stabilized rentals and want to streamline. If you are still acquiring one property at a time, individual DSCR loans may be the better tool until you have enough to consolidate.</p>
+`,
+    faqs: [
+      { q: "What is a blanket loan in real estate?", a: "A single loan secured by multiple properties, with one payment, used by investors to finance or consolidate several rentals at once." },
+      { q: "What is a release clause on a blanket loan?", a: "A provision that lets you sell one property out of the group and pay down a portion of the loan without paying off or refinancing the entire blanket loan." },
+      { q: "Is a blanket loan the same as a portfolio loan?", a: "Often yes. Both describe financing multiple properties under one loan. Terms vary by lender, but the idea is the same." },
+    ],
+  },
+  {
+    slug: "cash-out-refinance-investment-property",
+    title: "Cash-Out Refinance on an Investment Property",
+    metaTitle: "Cash-Out Refinance on Investment Property | USAM Fund",
+    description:
+      "A cash-out refinance turns your property's equity into capital for the next deal. Learn how it works on a rental, what you can pull, and when to use it.",
+    category: "Rental / DSCR",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["rental-dscr", "cre-bridge", "portfolio"],
+    body: `
+<p>A <strong>cash-out refinance</strong> replaces your current loan with a larger one and gives you the difference in cash, turning built-up equity into capital you can redeploy. On an investment property, it is one of the most powerful tools for scaling.</p>
+
+<h2>How does it work on a rental?</h2>
+<p>If your property is worth more than you owe, a new loan pays off the old balance and returns the extra equity as cash. With a <strong>DSCR cash-out refinance</strong>, the new loan qualifies on the property's rent, so you can pull equity without your personal income limiting you.</p>
+
+<h2>When investors use it</h2>
+<ul>
+  <li>The final leg of a <strong>BRRRR</strong> deal, recovering your original capital.</li>
+  <li>Pulling equity from a stabilized rental to fund the next purchase.</li>
+  <li>Replacing a short-term bridge loan with long-term debt and taking cash out at the same time.</li>
+</ul>
+
+<h2>What you can pull</h2>
+<p>The amount depends on the property's value, the loan-to-value limit, and, for DSCR, whether the rent supports the new payment. A higher value and stronger rent let you pull more.</p>
+`,
+    faqs: [
+      { q: "Can you do a cash-out refinance on a rental property?", a: "Yes. A DSCR cash-out refinance qualifies on the property's rent, so you can convert equity to cash without a personal income test." },
+      { q: "How much can you cash out on an investment property?", a: "It depends on the property's value, the lender's loan-to-value limit, and whether the rent covers the new payment. Stronger value and rent let you pull more." },
+      { q: "When should you do a cash-out refinance?", a: "Common uses are the refinance leg of a BRRRR deal, pulling equity to fund the next purchase, or replacing a bridge loan with long-term debt." },
+    ],
+  },
+  {
+    slug: "interest-only-investment-loan",
+    title: "What Is Interest-Only Financing for Investors?",
+    metaTitle: "Interest-Only Investor Loans Explained | USAM Fund",
+    description:
+      "Interest-only loans keep payments low by deferring principal. Learn how they work for investors, the trade-offs, and when they make sense.",
+    category: "Rates & Costs",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["rental-dscr", "fix-flip", "cre-bridge"],
+    body: `
+<p>An <strong>interest-only loan</strong> lets you pay only the interest for a set period, with no principal, which keeps the monthly payment low and your cash flow high. It is common on short-term investor loans and an option on many DSCR rental loans.</p>
+
+<h2>How does interest-only work?</h2>
+<p>During the interest-only period, your payment covers only the interest on the balance. The principal does not amortize, so the payment is smaller than a fully amortizing loan. You repay the principal at the exit, through a sale or refinance, or when the loan converts to amortizing.</p>
+
+<h2>Why investors use it</h2>
+<ul>
+  <li><strong>Higher cash flow</strong> on a rental, which also improves your DSCR.</li>
+  <li><strong>Lower carry</strong> on a flip or bridge deal, where you are holding only months.</li>
+  <li><strong>Flexibility</strong> to put cash toward rehab or the next deal instead of principal.</li>
+</ul>
+
+<h2>The trade-off</h2>
+<p>You are not building equity through principal paydown during the interest-only period, so you rely on appreciation or the exit to repay. For short-term deals that is ideal; for a long-term hold, weigh it against amortizing.</p>
+`,
+    faqs: [
+      { q: "What does interest-only mean on a loan?", a: "You pay only the interest for a set period, with no principal, which lowers the payment. The principal is repaid later at sale, refinance, or when the loan starts amortizing." },
+      { q: "Why do investors use interest-only loans?", a: "Lower payments mean higher cash flow on rentals (and a better DSCR) and lower carrying cost on short-term flip or bridge deals." },
+      { q: "Is interest-only good for a long-term rental?", a: "It boosts cash flow but builds no equity through principal during the interest-only period. It suits short holds best; for long holds, compare it to an amortizing option." },
+    ],
+  },
+  {
+    slug: "fix-and-flip-vs-buy-and-hold",
+    title: "Fix and Flip vs Buy and Hold: Which Strategy Is Right for You?",
+    metaTitle: "Fix and Flip vs Buy and Hold | USAM Fund",
+    description:
+      "Flipping creates quick cash; holding builds long-term wealth. Compare the two strategies on income, risk, taxes, and financing to choose your path.",
+    category: "Strategy",
+    readMins: 5,
+    datePublished: "2026-06-23",
+    related: ["fix-flip", "rental-dscr"],
+    body: `
+<p><strong>Fix and flip</strong> generates fast, active income by renovating and selling. <strong>Buy and hold</strong> builds long-term wealth through rental cash flow and appreciation. Neither is better; they serve different goals, and many investors do both.</p>
+
+<h2>Fix and flip: fast capital</h2>
+<ul>
+  <li>Profit realized in months at the sale.</li>
+  <li>Active, project-driven; income stops when you stop flipping.</li>
+  <li>Financed with short-term fix and flip loans (up to 90% purchase, 100% rehab).</li>
+  <li>Taxed as ordinary income, not long-term capital gains.</li>
+</ul>
+
+<h2>Buy and hold: long-term wealth</h2>
+<ul>
+  <li>Monthly cash flow plus appreciation and loan paydown over time.</li>
+  <li>Passive once stabilized; compounds as you add doors.</li>
+  <li>Financed with long-term DSCR or conventional loans.</li>
+  <li>Tax advantages through depreciation.</li>
+</ul>
+
+<h2>How to choose</h2>
+<p>Flip when you need capital now or want to fund your holds. Hold when you want durable, growing income. The <strong>BRRRR method</strong> blends both: renovate like a flipper, then keep and refinance like a holder.</p>
+`,
+    faqs: [
+      { q: "Is flipping or renting more profitable?", a: "Flipping produces larger lump sums faster; renting produces smaller, recurring income that compounds over time. Which wins depends on your goals and time horizon." },
+      { q: "Which is less risky, flipping or holding?", a: "Holding is generally lower risk because it does not depend on a single quick sale, but it ties up capital longer. Flipping is faster but more exposed to market timing and rehab overruns." },
+      { q: "Can you do both fix and flip and buy and hold?", a: "Yes. Many investors flip for capital and hold for wealth, and the BRRRR method deliberately combines the two." },
+    ],
+  },
+  {
+    slug: "construction-loan-draw-schedule",
+    title: "What Is a Draw Schedule on a Construction Loan?",
+    metaTitle: "Construction Loan Draw Schedule Explained | USAM Fund",
+    description:
+      "A draw schedule releases construction funds in stages as work is completed. Learn how draws and inspections work and how to keep them on time.",
+    category: "Construction",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["construction", "fix-flip"],
+    body: `
+<p>A <strong>draw schedule</strong> is the agreed plan for releasing construction or rehab funds in stages as the work gets done, rather than all at once. Each stage is a "draw," and you only pay interest on the money that has actually been released.</p>
+
+<h2>How does a draw work?</h2>
+<p>The budget is divided into milestones, foundation, framing, roof, mechanicals, finish. As each milestone is completed and inspected, the lender reimburses that portion of the budget. You fund the work first, then get reimbursed, which is why you keep some working capital on hand.</p>
+
+<h2>Why lenders use draws</h2>
+<p>Releasing money in stages protects everyone: funds track real progress, so the loan stays aligned with the value being built and there is no large unspent balance sitting idle.</p>
+
+<h2>How to keep draws on time</h2>
+<ul>
+  <li>Match your budget to the draw schedule before you start.</li>
+  <li>Document completed work and request inspections promptly.</li>
+  <li>Keep enough working capital to fund each stage ahead of reimbursement.</li>
+</ul>
+`,
+    faqs: [
+      { q: "How does a construction loan draw work?", a: "Funds release in stages tied to completed, inspected milestones. You pay interest only on the amount drawn so far, and you typically fund each stage before reimbursement." },
+      { q: "How many draws are in a construction loan?", a: "It varies, but draws usually map to major milestones such as foundation, framing, roof, mechanicals, and finish, often a handful across the project." },
+      { q: "Do you pay interest on the full construction loan?", a: "No. You pay interest only on funds that have been drawn, which keeps early-stage carrying costs lower." },
+    ],
+  },
+  {
+    slug: "how-to-calculate-dscr",
+    title: "How to Calculate DSCR (With Examples)",
+    metaTitle: "How to Calculate DSCR With Examples | USAM Fund",
+    description:
+      "DSCR equals rental income divided by the loan payment. Learn the formula, see worked examples, and find out what ratio you need to qualify.",
+    category: "Rental / DSCR",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["rental-dscr", "conventional-investment"],
+    body: `
+<p>To calculate <strong>DSCR (debt service coverage ratio)</strong>, divide the property's income by its loan payment: <strong>DSCR = monthly rent ÷ monthly payment (PITIA)</strong>. A result of 1.00 means the rent exactly covers the payment.</p>
+
+<h2>The formula</h2>
+<p>PITIA is the full payment: principal, interest, taxes, insurance, and any HOA or association dues. Use the property's market or lease rent for income.</p>
+
+<h2>Worked examples</h2>
+<ul>
+  <li>Rent $2,400, payment $2,000 → <strong>DSCR 1.20</strong> (positive cash flow).</li>
+  <li>Rent $2,000, payment $2,000 → <strong>DSCR 1.00</strong> (breakeven, the common floor).</li>
+  <li>Rent $1,800, payment $2,000 → <strong>DSCR 0.90</strong> (rent does not fully cover the payment).</li>
+</ul>
+
+<h2>What ratio do you need?</h2>
+<p>Most lenders want at least 1.00. USAM Fund lends with a DSCR as low as 1.00. A higher ratio improves your rate and leverage because it shows more cushion. If a property comes in below the floor, more down payment lowers the payment and raises the ratio.</p>
+`,
+    faqs: [
+      { q: "What is the formula for DSCR?", a: "DSCR = monthly rent divided by the monthly payment (PITIA: principal, interest, taxes, insurance, and association dues). A DSCR of 1.00 means the rent exactly covers the payment." },
+      { q: "What is a good DSCR for a rental?", a: "1.00 is the common floor (breakeven). Above that is positive cash flow; 1.20 or higher gives comfortable cushion and better loan terms." },
+      { q: "How do you raise a property's DSCR?", a: "Increase rent, or lower the payment with a larger down payment or a longer term or interest-only structure. Both raise the ratio." },
+    ],
+  },
+  {
+    slug: "commercial-bridge-vs-permanent-financing",
+    title: "Commercial Bridge vs Permanent Financing",
+    metaTitle: "Commercial Bridge vs Permanent Financing | USAM Fund",
+    description:
+      "Bridge loans are fast and short; permanent loans are cheap and long. Learn when to use each on commercial real estate and how investors move between them.",
+    category: "Bridge",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["cre-bridge", "cre-permanent"],
+    body: `
+<p>On commercial real estate, a <strong>bridge loan</strong> is fast, flexible, and short-term, used to acquire or reposition a property. <strong>Permanent financing</strong> is cheaper and long-term, used once the property is stabilized. Most projects use a bridge first, then refinance into permanent debt.</p>
+
+<h2>When to use a bridge loan</h2>
+<ul>
+  <li>Close fast on an opportunity before permanent financing is possible.</li>
+  <li>Reposition or stabilize a property (lease-up, renovation) that does not yet qualify for permanent debt.</li>
+  <li>Pull equity (cash-out) to move on the next deal.</li>
+</ul>
+
+<h2>When to use permanent financing</h2>
+<ul>
+  <li>The property is stabilized with steady, documented income.</li>
+  <li>You want the lowest long-term rate and a longer term.</li>
+  <li>You are holding for the long run, not transitioning.</li>
+</ul>
+
+<h2>The typical path</h2>
+<p>Acquire with a bridge loan, execute your business plan to stabilize the asset, then refinance into permanent debt, agency, insurance, or wholesale, at a lower long-term rate. The bridge wins the deal; the permanent loan keeps it.</p>
+`,
+    faqs: [
+      { q: "What is the difference between a bridge loan and permanent financing?", a: "A bridge loan is short-term, fast, and flexible for acquiring or repositioning a property. Permanent financing is long-term and cheaper, for stabilized property held for the long run." },
+      { q: "Can you refinance a bridge loan into a permanent loan?", a: "Yes, that is the standard path. You use a bridge to acquire and stabilize, then refinance into long-term permanent debt at a lower rate." },
+      { q: "Why not just use permanent financing from the start?", a: "Permanent lenders require stabilized, documented income and close slower. If a property is not yet stabilized or you need speed, a bridge loan fills the gap." },
+    ],
+  },
+  {
+    slug: "hard-money-loan-documents",
+    title: "What Documents Do You Need for a Hard Money Loan?",
+    metaTitle: "Hard Money Loan Document Checklist | USAM Fund",
+    description:
+      "Hard money is light on paperwork, but a few documents speed your close. Here's the checklist of what to have ready before you apply.",
+    category: "Rates & Costs",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["fix-flip", "cre-bridge"],
+    body: `
+<p>A <strong>hard money loan</strong> needs far less paperwork than a bank loan, because it is asset-based, no W-2s or tax returns. What the lender does need centers on the deal, the property, and your entity. Having it ready is the single biggest factor in a fast close.</p>
+
+<h2>The document checklist</h2>
+<ul>
+  <li><strong>Purchase contract</strong> (or current value/payoff for a refinance)</li>
+  <li><strong>Scope of work and rehab budget</strong> for a fix and flip</li>
+  <li><strong>Entity documents</strong> — LLC formation and operating agreement</li>
+  <li><strong>Bank statements / proof of reserves</strong> (not income docs, just liquidity)</li>
+  <li><strong>Insurance</strong> — a binder for the property</li>
+  <li><strong>ID</strong> and basic borrower info, plus authorization to pull credit</li>
+  <li><strong>Exit plan</strong> — how the loan gets paid off (sale or refinance)</li>
+</ul>
+
+<h2>What you do not need</h2>
+<p>No tax returns, no W-2s, and no pay stubs on most asset-based programs. The lender underwrites the property and your plan, not your personal income.</p>
+
+<h2>Why it matters</h2>
+<p>Title, insurance, and your documents are what drive the timeline, not the lender's decision. A complete file closes in days; a thin one drags.</p>
+`,
+    faqs: [
+      { q: "What documents do you need for a hard money loan?", a: "The purchase contract, a scope of work and budget for a rehab, entity documents, bank statements showing reserves, an insurance binder, ID, and an exit plan. No tax returns or W-2s on most programs." },
+      { q: "Do hard money lenders require tax returns?", a: "Generally no. Asset-based loans qualify on the property and your plan, so they skip tax returns and pay stubs, though they verify reserves and the entity." },
+      { q: "What slows down a hard money closing?", a: "Usually title issues, insurance, or slow document turnaround from the borrower, not the lender. A complete file closes in days." },
+    ],
+  },
+  {
+    slug: "construction-loan-vs-renovation-loan",
+    title: "New Construction Loan vs Renovation Loan: What's the Difference?",
+    metaTitle: "Construction Loan vs Renovation Loan | USAM Fund",
+    description:
+      "A construction loan funds a build from the ground up; a renovation loan funds improving an existing structure. Learn how they differ and which fits your project.",
+    category: "Construction",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["construction", "fix-flip"],
+    body: `
+<p>A <strong>ground-up construction loan</strong> funds building a brand-new structure from the dirt up. A <strong>renovation loan</strong> (the rehab portion of a fix and flip or bridge loan) funds improving a property that already exists. Both release money in draws, but they are sized and underwritten differently.</p>
+
+<h2>Ground-up construction</h2>
+<ul>
+  <li>Funds land plus vertical construction of a new building.</li>
+  <li>Sized on <strong>loan-to-cost (LTC)</strong>, because there is no existing value yet.</li>
+  <li>Draws follow build milestones from foundation to finish.</li>
+  <li>Fits spec builders and developers.</li>
+</ul>
+
+<h2>Renovation / rehab</h2>
+<ul>
+  <li>Funds improvements to a standing structure (the rehab budget on a flip).</li>
+  <li>Often paired with purchase leverage and capped against <strong>ARV</strong>.</li>
+  <li>Draws follow the scope of work.</li>
+  <li>Fits flippers and value-add investors.</li>
+</ul>
+
+<h2>Which do you need?</h2>
+<p>Building new on a lot or after a teardown? Construction loan. Buying a property to renovate and sell or hold? A fix and flip loan with rehab funding. The deciding factor is whether you are creating a structure or improving one.</p>
+`,
+    faqs: [
+      { q: "What is the difference between a construction loan and a renovation loan?", a: "A construction loan funds building a new structure from the ground up and is sized on loan-to-cost. A renovation loan funds improving an existing property and is usually paired with purchase leverage and capped against ARV." },
+      { q: "Do both use draws?", a: "Yes. Both release funds in stages as work is completed and inspected, but construction follows build milestones while renovation follows the scope of work." },
+      { q: "Which loan is for a teardown and rebuild?", a: "A ground-up construction loan, since you are creating a new structure. Improving a standing building uses a renovation or fix and flip loan." },
+    ],
+  },
+  {
+    slug: "how-to-estimate-a-rehab-budget",
+    title: "How to Estimate a Rehab Budget",
+    metaTitle: "How to Estimate a Rehab Budget for a Flip | USAM Fund",
+    description:
+      "A realistic rehab budget makes or breaks a flip and your loan. Learn how to build a scope of work, price it, and add the right contingency.",
+    category: "Fix & Flip",
+    readMins: 5,
+    datePublished: "2026-06-23",
+    related: ["fix-flip", "construction"],
+    body: `
+<p>To estimate a <strong>rehab budget</strong>, build a detailed scope of work, price each line from real quotes or known costs, and add a contingency for surprises. Lenders fund the rehab against this budget, so a realistic number protects both your deal and your draws.</p>
+
+<h2>1. Build a scope of work</h2>
+<p>Walk the property and list every item, by area and system: roof, HVAC, electrical, plumbing, kitchen, baths, flooring, paint, exterior, landscaping. The scope is the backbone of both your budget and your draw schedule.</p>
+
+<h2>2. Price each line</h2>
+<ul>
+  <li>Get contractor quotes for big-ticket and specialty work.</li>
+  <li>Use known per-unit costs for repeatable items (flooring per square foot, paint per room).</li>
+  <li>Separate materials from labor where it helps accuracy.</li>
+</ul>
+
+<h2>3. Add contingency and carrying costs</h2>
+<p>Add a contingency (commonly 10-20%) for the things you cannot see until walls open up. Then account for carrying costs during the hold, interest, insurance, taxes, utilities, so your numbers reflect the true cost to the finish line.</p>
+
+<h2>4. Sanity-check against ARV</h2>
+<p>Your purchase plus rehab needs to leave room under the after-repair value for profit and the lender's ARV cap. If the budget pushes you past that, re-scope or renegotiate the buy.</p>
+`,
+    faqs: [
+      { q: "How do you estimate a rehab budget?", a: "Build a detailed scope of work by area and system, price each line from contractor quotes or known unit costs, and add a contingency (often 10-20%) plus carrying costs." },
+      { q: "How much contingency should a rehab budget include?", a: "Commonly 10-20%, to cover hidden problems that surface once work begins, like wiring, plumbing, or structural issues behind walls." },
+      { q: "Why does the lender care about my rehab budget?", a: "The lender funds the rehab in draws against your budget and caps total loan exposure under the after-repair value, so a realistic budget keeps the deal and your draws on track." },
     ],
   },
 ];

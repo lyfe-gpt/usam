@@ -130,7 +130,7 @@ export default function Home() {
                 <div style={{ height: 1, background: "#EEF1F5" }} />
                 <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}><span style={{ fontSize: 14, color: "#667085" }}>Rehab</span><span style={{ fontFamily: SCH, fontWeight: 700, fontSize: 17, color: "#0E1A2B" }}>up to 100%</span></div>
                 <div style={{ height: 1, background: "#EEF1F5" }} />
-                <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}><span style={{ fontSize: 14, color: "#667085" }}>Term sheet</span><span style={{ fontFamily: SCH, fontWeight: 800, fontSize: 17, color: "#1A56C4" }}>48 hrs</span></div>
+                <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}><span style={{ fontSize: 14, color: "#667085" }}>Term</span><span style={{ fontFamily: SCH, fontWeight: 700, fontSize: 17, color: "#0E1A2B" }}>12-18 mo</span></div>
               </div>
             </div>
           </div>

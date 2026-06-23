@@ -7,6 +7,7 @@ import Faq from "../components/Faq.jsx";
 import JsonLd, { faqPageSchema, breadcrumbSchema } from "../components/JsonLd.jsx";
 import { programs, bySlug } from "../data/programs.js";
 import { programFaqs } from "../data/faqs.js";
+import { guides } from "../data/guides.js";
 
 const SCH = "'Schibsted Grotesk',sans-serif";
 
@@ -14,6 +15,7 @@ export default function ProgramDetail({ slug }) {
   const p = bySlug[slug];
   const others = programs.filter((x) => x.slug !== slug);
   const faqs = programFaqs[slug] || [];
+  const relatedGuides = guides.filter((g) => (g.related || []).includes(slug)).slice(0, 4);
 
   return (
     <div>
@@ -108,6 +110,33 @@ export default function ProgramDetail({ slug }) {
             <div style={{ marginTop: 26 }}>
               <Link to="/faq" className="link-blue" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 15, fontWeight: 700, color: "#1A56C4", textDecoration: "none" }}>
                 See all frequently asked questions
+                <Icon name="chevronRight" size={15} color="#1A56C4" width={2.6} />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Related guides */}
+      {relatedGuides.length > 0 && (
+        <section className="sec" style={{ background: "#fff", padding: "8px 32px 64px" }}>
+          <div style={{ maxWidth: 880, margin: "0 auto" }}>
+            <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#1A56C4", marginBottom: 12 }}>Resources</div>
+            <h2 style={{ fontFamily: SCH, fontWeight: 800, fontSize: "clamp(26px,3vw,36px)", lineHeight: 1.06, letterSpacing: "-0.02em", color: "#0E1A2B", margin: "0 0 22px" }}>Guides for {p.title}</h2>
+            <div className="ph-other" style={{ display: "grid", gridTemplateColumns: relatedGuides.length >= 2 ? "repeat(2,1fr)" : "1fr", gap: 14 }}>
+              {relatedGuides.map((g) => (
+                <Link key={g.slug} to={`/resources/${g.slug}`} className="card-link" style={{ textDecoration: "none", display: "block", background: "#fff", border: "1px solid #E6E9EF", borderRadius: 14, padding: "20px 22px" }}>
+                  <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", color: "#1A56C4", marginBottom: 8 }}>{g.category} · {g.readMins} min read</div>
+                  <div style={{ fontFamily: SCH, fontWeight: 700, fontSize: 17, lineHeight: 1.25, color: "#0E1A2B", marginBottom: 10 }}>{g.title}</div>
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 700, color: "#1A56C4" }}>
+                    Read the guide <Icon name="chevronRight" size={14} color="#1A56C4" width={2.6} />
+                  </span>
+                </Link>
+              ))}
+            </div>
+            <div style={{ marginTop: 22 }}>
+              <Link to="/resources" className="link-blue" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 15, fontWeight: 700, color: "#1A56C4", textDecoration: "none" }}>
+                Browse all guides
                 <Icon name="chevronRight" size={15} color="#1A56C4" width={2.6} />
               </Link>
             </div>
