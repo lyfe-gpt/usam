@@ -242,5 +242,6 @@ Defined in `index.css` media queries:
 - Match the **inline-style + index.css-for-media-queries** split already in use; don't introduce a CSS framework.
 - Reuse the `SCH` constant for any heading font-family.
 - Reuse `CtaBand`, `Header`, `Footer`, `Icon`, and the `.ci` / `.btn-*` / `.opt` classes rather than re-styling.
-- Program content is data-driven from `src/data/programs.js` (single source for hub, 6 detail pages, nav, footer, home preview). FAQ content from `src/data/faqs.js`.
+- Program content is data-driven from `src/data/programs.js` (single source for hub, 6 detail pages, nav, footer, home preview). FAQ content from `src/data/faqs.js`; guides from `src/data/guides.js`.
 - Respect the no-en-dash rule and the "name + one contact channel" form-validation pattern.
+- **Bold the key terms inside FAQ answers and resource/guide bodies.** In `data/faqs.js` and `data/guides.js`, wrap the term being defined, the crux of the answer, and important figures (rates, leverage, DSCR, timeframes) in `<strong>` so readers scanning can land on them fast. Use it deliberately — a sentence or two of bold per answer, not whole paragraphs. The `.faq-a strong` and `.guide-body strong` styles render it bold in ink (`#0E1A2B`).
