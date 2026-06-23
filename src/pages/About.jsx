@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import CtaBand from "../components/CtaBand.jsx";
+import aboutBanner from "../assets/banners/about.webp";
 import jackLiebermanImg from "../assets/team/jack-lieberman.webp";
 import jackBrewerImg from "../assets/team/jack-brewer.webp";
 import dustinImg from "../assets/team/dustin.webp";
@@ -17,9 +18,9 @@ const VALUES = [
 const TEAM = [
   ["Jack Lieberman", "Founder", "jack@usam.net", jackLiebermanImg],
   ["Jack Brewer", "Loan Officer", "jackbrewer@usam.net", jackBrewerImg],
+  ["Dustin Kinney", "Funder & Closer", "dustin@usam.net", dustinImg],
   ["Harrison String", "Loan Officer Assistant", "harrison@usam.net"],
   ["Krystle Garza", "Funder & Closer", "krystle@usam.net"],
-  ["Dustin Kinney", "Funder & Closer", "dustin@usam.net", dustinImg],
   ["Roselea Payne", "Administrator", "roselea@usam.net"],
 ];
 
@@ -75,7 +76,7 @@ export default function About() {
             <p style={{ fontSize: 19, lineHeight: 1.6, color: "#475467", maxWidth: 560, margin: 0 }}>Based in Bee Cave, Texas and lending nationwide, we're a direct private lender built by people who've spent careers in real estate finance. We make our own decisions, fund our own loans, and treat every project with the respect it deserves, until you're satisfied.</p>
           </div>
           <div style={{ height: 320, borderRadius: 20, overflow: "hidden", boxShadow: "0 24px 60px -20px rgba(14,26,43,0.3)" }}>
-            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=900&q=80" alt="Modern single-family home financed by USAM Fund" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <img src={aboutBanner} alt="The USAM Fund private lending team reviewing a real estate deal" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </div>
         </div>
       </section>

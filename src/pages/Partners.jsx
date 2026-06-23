@@ -7,6 +7,7 @@ import JsonLd, { faqPageSchema } from "../components/JsonLd.jsx";
 import { submitPartner } from "../lib/crm.js";
 import { Link } from "react-router-dom";
 import { guides } from "../data/guides.js";
+import partnersBanner from "../assets/banners/partners.webp";
 
 const SCH = "'Schibsted Grotesk',sans-serif";
 const partnerGuides = guides.filter((g) => g.category === "For Partners");
@@ -61,14 +62,19 @@ export default function Partners() {
       <JsonLd id="partners-faq" data={faqPageSchema(PARTNER_FAQS)} />
 
       {/* Hero */}
-      <section className="sec" style={{ background: "linear-gradient(180deg,#F6F8FB 0%,#ffffff 100%)", padding: "72px 32px 36px" }}>
-        <div style={{ maxWidth: 880, margin: "0 auto" }}>
-          <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#1A56C4", marginBottom: 14 }}>Partner program</div>
-          <h1 style={{ fontFamily: SCH, fontWeight: 800, fontSize: "clamp(38px,4.6vw,58px)", lineHeight: 1.0, letterSpacing: "-0.02em", color: "#0E1A2B", margin: "0 0 16px" }}>Send us your investors. We'll fund them fast.</h1>
-          <p style={{ fontSize: 19, lineHeight: 1.55, color: "#475467", maxWidth: 640, margin: 0 }}>If you wholesale deals, work with investor buyers, or move off-market property, partner with a direct lender who closes. Your buyers get funded fast, your deals close, and you look like the reliable one.</p>
-          <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap", marginTop: 30 }}>
-            <a href="#apply" className="btn-primary" style={{ background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "16px 30px", borderRadius: 999, boxShadow: "0 6px 20px rgba(26,86,196,0.28)" }}>Become a partner</a>
-            <a href="tel:512-488-6087" className="btn-outline" style={{ background: "#fff", color: "#0E1A2B", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "15px 28px", borderRadius: 999, border: "1.5px solid #D6DDE8" }}>Call us</a>
+      <section className="sec" style={{ background: "linear-gradient(180deg,#F6F8FB 0%,#ffffff 100%)", padding: "72px 32px 56px" }}>
+        <div className="about-hero" style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1.15fr 0.85fr", gap: 56, alignItems: "center" }}>
+          <div>
+            <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#1A56C4", marginBottom: 14 }}>Partner program</div>
+            <h1 style={{ fontFamily: SCH, fontWeight: 800, fontSize: "clamp(38px,4.6vw,58px)", lineHeight: 1.0, letterSpacing: "-0.02em", color: "#0E1A2B", margin: "0 0 16px" }}>Send us your investors. We'll fund them fast.</h1>
+            <p style={{ fontSize: 19, lineHeight: 1.55, color: "#475467", maxWidth: 560, margin: 0 }}>If you wholesale deals, work with investor buyers, or move off-market property, partner with a direct lender who closes. Your buyers get funded fast, your deals close, and you look like the reliable one.</p>
+            <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap", marginTop: 30 }}>
+              <a href="#apply" className="btn-primary" style={{ background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "16px 30px", borderRadius: 999, boxShadow: "0 6px 20px rgba(26,86,196,0.28)" }}>Become a partner</a>
+              <a href="tel:512-488-6087" className="btn-outline" style={{ background: "#fff", color: "#0E1A2B", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "15px 28px", borderRadius: 999, border: "1.5px solid #D6DDE8" }}>Call us</a>
+            </div>
+          </div>
+          <div style={{ height: 320, borderRadius: 20, overflow: "hidden", boxShadow: "0 24px 60px -20px rgba(14,26,43,0.3)" }}>
+            <img src={partnersBanner} alt="A USAM Fund lender shaking hands with a real estate partner" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%" }} />
           </div>
         </div>
       </section>

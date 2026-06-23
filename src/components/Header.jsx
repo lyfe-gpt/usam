@@ -44,7 +44,7 @@ export default function Header() {
             <span style={{ flex: "none", display: "inline-block", width: 7, height: 7, borderRadius: "50%", background: "#C9362E" }} />
             <span className="u-tagline">Direct private lending, nationwide in all 50 states</span>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 22, flex: "none" }}>
+          <div className="u-bar-contact" style={{ display: "flex", alignItems: "center", gap: 22, flex: "none" }}>
             <a href="tel:512-488-6087" style={{ color: "#E7ECF3", textDecoration: "none", fontWeight: 600, whiteSpace: "nowrap" }}>512-488-6087</a>
             <a href="mailto:jack@usam.net" className="u-email" style={{ color: "#AEB9C9", textDecoration: "none" }}>jack@usam.net</a>
           </div>

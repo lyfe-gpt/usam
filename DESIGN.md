@@ -202,14 +202,21 @@ Custom inline-SVG component `Icon.jsx`. Props: `name`, `size`, `color`, `width` 
   style, thick dark-navy outlines (`#0E1A2B`), cel-shaded, warm cream background (`#F7F4ED`),
   clean white sticker outline + soft drop shadow + rounded oval base, royal/deep-blue accents.
   16:9, head-and-shoulders, centered with even cream margin and a gap beneath. Export 500×281 WebP.
-- **Photorealistic** — program detail heroes. Editorial real-estate photography, bright natural
-  daylight, blue sky + cool-blue tones over warm neutrals, royal-blue accents — one cohesive grade
-  across all 10 programs. Hero slot is right-column **~5:4** (≈480×380), `border-radius: 20`,
-  `object-fit: cover`; generate 4:3 (1280×960), export WebP ≤500px, set `heroImg` in `data/programs.js`.
+- **Photorealistic** — program heroes and page banners (About, Partners, Programs). Editorial
+  real-estate / business photography, bright natural daylight, blue sky + cool-blue tones over warm
+  neutrals, royal-blue accents — one cohesive grade across the whole set. **Always generate 4:3** so
+  every photoreal image matches the program set; export **4:3 WebP** to `src/assets/<group>/`
+  (program heroes `1200×900`, e.g. `src/assets/programs/<slug>.webp`; page banners capped at
+  **1000×750** to keep weight down, in `src/assets/banners/`). Display slots use
+  `object-fit: cover` + `border-radius: 20`, so the 4:3 source can be cropped per layout in CSS
+  without re-exporting. Program heroes set `heroImg` in `data/programs.js`. Every photoreal prompt
+  ends with a negative prompt (no text, no logos, no watermarks, no distortion) and leaves calm
+  negative space for any overlaid headline.
 
 > **Paste-ready ElevenLabs prompts are kept in the vault, not in the repo:**
 > `USAM / 06 - Website Redesign / Image Prompts — ElevenLabs (usam.net).md`
-> — one self-contained prompt per program, plus the home-hero and team-portrait prompts.
+> — one self-contained prompt per program and page banner, plus the home-hero and team-portrait
+> prompts. All photoreal prompts specify 4:3.
 
 ---
 

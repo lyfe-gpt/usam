@@ -76,15 +76,21 @@ img { display: block; }
 .phone-icon-btn { transition: box-shadow .16s ease, transform .16s ease; }
 .phone-dd:hover .phone-icon-btn { box-shadow: 0 10px 26px -8px rgba(14,26,43,0.4); transform: translateY(-1px); }
 .u-burger { display: none; }
+/* Banner phone + email: hidden on desktop, shown on mobile where the header's
+   phone icon collapses into the burger menu. */
+.u-bar-contact { display: none !important; }
 @media (min-width: 981px) { .u-menu { display: none !important; } }
 @media (max-width: 980px) {
   .u-nav, .u-phone { display: none !important; }
   .u-burger { display: flex !important; }
+  .u-bar-contact { display: flex !important; }
 }
 @media (max-width: 640px) {
   .hdr-sec { padding-left: 18px !important; padding-right: 18px !important; }
-  .u-email { display: none !important; }
   .u-logo { height: 38px !important; }
+}
+@media (max-width: 400px) {
+  .u-bar-contact { gap: 14px !important; }
 }
 @media (max-width: 560px) {
   .u-tagline { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

@@ -4,6 +4,7 @@ import Footer from "../components/Footer.jsx";
 import CtaBand from "../components/CtaBand.jsx";
 import Icon from "../components/Icon.jsx";
 import { programs } from "../data/programs.js";
+import programsBanner from "../assets/banners/programs.webp";
 
 const SCH = "'Schibsted Grotesk',sans-serif";
 
@@ -13,16 +14,19 @@ export default function Programs() {
       <Header />
 
       {/* Hero */}
-      <section className="sec" style={{ background: "linear-gradient(180deg,#F6F8FB 0%,#ffffff 100%)", padding: "72px 32px 48px" }}>
-        <div className="phero" style={{ maxWidth: 1140, margin: "0 auto", display: "grid", gridTemplateColumns: "1.3fr 0.7fr", gap: 48, alignItems: "end" }}>
+      <section className="sec" style={{ background: "linear-gradient(180deg,#F6F8FB 0%,#ffffff 100%)", padding: "72px 32px 56px" }}>
+        <div className="about-hero" style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1.15fr 0.85fr", gap: 56, alignItems: "center" }}>
           <div>
             <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#1A56C4", marginBottom: 14 }}>Our programs</div>
             <h1 style={{ fontFamily: SCH, fontWeight: 800, fontSize: "clamp(38px,4.6vw,60px)", lineHeight: 1.0, letterSpacing: "-0.02em", color: "#0E1A2B", margin: "0 0 18px" }}>Financing for the whole deal lifecycle.</h1>
             <p style={{ fontSize: 19, lineHeight: 1.55, color: "#475467", maxWidth: 560, margin: 0 }}>Programs covering acquisition, rehab, construction, hold, and exit. Pick the one that fits, or get a real rate in minutes.</p>
+            <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap", marginTop: 30 }}>
+              <Link to="/apply" className="btn-primary" style={{ textAlign: "center", background: "#1A56C4", color: "#fff", borderRadius: 999, padding: "15px 28px", textDecoration: "none", fontWeight: 700, fontSize: 16, boxShadow: "0 6px 20px rgba(26,86,196,0.28)" }}>Get my rate</Link>
+              <Link to="/contact" className="btn-outline" style={{ textAlign: "center", background: "#fff", color: "#0E1A2B", border: "1.5px solid #D6DDE8", borderRadius: 999, padding: "14px 26px", textDecoration: "none", fontWeight: 700, fontSize: 16 }}>Talk to us</Link>
+            </div>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-            <Link to="/apply" className="btn-primary" style={{ textAlign: "center", background: "#1A56C4", color: "#fff", borderRadius: 999, padding: 15, textDecoration: "none", fontWeight: 700, fontSize: 16, boxShadow: "0 6px 20px rgba(26,86,196,0.28)" }}>Get my rate</Link>
-            <Link to="/contact" className="btn-outline" style={{ textAlign: "center", background: "#fff", color: "#0E1A2B", border: "1.5px solid #D6DDE8", borderRadius: 999, padding: 14, textDecoration: "none", fontWeight: 700, fontSize: 16 }}>Talk to us</Link>
+          <div style={{ height: 320, borderRadius: 20, overflow: "hidden", boxShadow: "0 24px 60px -20px rgba(14,26,43,0.3)" }}>
+            <img src={programsBanner} alt="A neighborhood streetscape showing a renovation, a ground-up build, and a finished home" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 65%" }} />
           </div>
         </div>
       </section>
