@@ -95,15 +95,12 @@ export default function Home() {
               Hard money.<br /><span style={{ color: "#1A56C4" }}>Soft terms.</span>
             </h1>
             <p style={{ fontSize: 19, lineHeight: 1.55, color: "#475467", maxWidth: 540, margin: "0 0 34px" }}>A direct private lending partner financing real estate investors, operators, and developers across the country. Fast closings, flexible structure, and real people who answer the phone.</p>
-            <div style={{ display: "flex", alignItems: "flex-start", gap: 14, flexWrap: "wrap", marginBottom: 26 }}>
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 8 }}>
-                <Link to="/apply" className="btn-primary" style={{ background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "16px 30px", borderRadius: 999, boxShadow: "0 6px 20px rgba(26,86,196,0.28)" }}>Get my rate</Link>
-                <span style={{ fontSize: 13, fontWeight: 600, color: "#8A97A8", paddingLeft: 4 }}>Term sheet within 48 hrs</span>
-              </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap", marginBottom: 26 }}>
+              <Link to="/apply" className="btn-primary" style={{ background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "16px 30px", borderRadius: 999, boxShadow: "0 6px 20px rgba(26,86,196,0.28)" }}>Get my rate</Link>
               <Link to="/programs" className="btn-outline" style={{ background: "#fff", color: "#0E1A2B", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "15px 28px", borderRadius: 999, border: "1.5px solid #D6DDE8" }}>See loan programs</Link>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 22, flexWrap: "wrap", fontSize: 14.5, fontWeight: 600, color: "#667085" }}>
-              <span style={{ display: "flex", alignItems: "center", gap: 8 }}><Icon name="check" size={17} color="#1A56C4" width={2.4} /> Close in as few as 5-7 days</span>
+              <span style={{ display: "flex", alignItems: "center", gap: 8 }}><Icon name="check" size={17} color="#1A56C4" width={2.4} /> Term sheet within 48 hrs</span>
               <span style={{ display: "flex", alignItems: "center", gap: 8 }}><Icon name="check" size={17} color="#1A56C4" width={2.4} /> Loans up to $10M</span>
             </div>
           </div>
