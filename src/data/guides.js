@@ -535,7 +535,7 @@ export const guides = [
     faqs: [
       { q: "How long does a hard money loan take to close?", a: "Often 5 to 7 business days for bridge and fix and flip loans, compared with 30 to 60+ days for a bank. DSCR rental loans take a little longer, and SBA loans much longer." },
       { q: "What slows down a hard money closing?", a: "Usually title issues, insurance, or slow document turnaround from the borrower, not the lender's underwriting. A clean file closes fast." },
-      { q: "Can a hard money loan close in 48 hours?", a: "A term sheet or approval can come within about 48 hours on a complete file, but the actual funding still depends on title and insurance, which is why a full close typically takes 5 to 7 days." },
+      { q: "Can a hard money loan close in 48 hours?", a: "A term sheet can come within about 48 hours on a complete file, and we fund within 48 hours of clear title. The main variable is how fast title and insurance come together, which is why a full close typically takes 5 to 7 days." },
     ],
   },
   {
@@ -1041,6 +1041,208 @@ export const guides = [
       { q: "How do you estimate a rehab budget?", a: "Build a detailed scope of work by area and system, price each line from contractor quotes or known unit costs, and add a contingency (often 10-20%) plus carrying costs." },
       { q: "How much contingency should a rehab budget include?", a: "Commonly 10-20%, to cover hidden problems that surface once work begins, like wiring, plumbing, or structural issues behind walls." },
       { q: "Why does the lender care about my rehab budget?", a: "The lender funds the rehab in draws against your budget and caps total loan exposure under the after-repair value, so a realistic budget keeps the deal and your draws on track." },
+    ],
+  },
+  {
+    slug: "how-to-get-your-cash-buyers-funded-fast",
+    title: "How to Get Your Cash Buyers Funded Fast",
+    metaTitle: "How to Get Your Cash Buyers Funded Fast | USAM Fund",
+    description:
+      "A buyer who can't close costs you the deal. Here's how wholesalers and dispo teams line up fast financing so their cash buyers actually perform.",
+    category: "For Partners",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["fix-flip", "transactional"],
+    body: `
+<p>The fastest way to get your buyers funded is to <strong>line up a direct lender before the deal, not after</strong>. When your buyer already has a relationship with a fast, asset-based lender, they can get a term sheet in about 48 hours and fund within 48 hours of clear title, so your assignment or double close stays on schedule.</p>
+
+<h2>Why "cash buyer" rarely means actual cash</h2>
+<p>Most of your "cash" buyers are really using short-term hard money. They look like cash to the seller because they close fast and skip the bank, but the financing still has to perform. If their lender is slow, your deal slips.</p>
+
+<h2>How to set your buyers up to close</h2>
+<ul>
+  <li><strong>Point them to a direct lender</strong> that underwrites in house and funds on the asset, not the bank's timeline.</li>
+  <li><strong>Get a proof-of-funds letter</strong> in hand before they offer, so the seller takes them seriously.</li>
+  <li><strong>Pre-qualify the buyer early</strong>, so the only variable left is title and insurance.</li>
+  <li><strong>Send the deal details up front</strong>, the purchase price, rehab, and exit, so the term sheet comes back fast.</li>
+</ul>
+
+<h2>The partner advantage</h2>
+<p>When you bring a preferred lender to your buyers, you stop losing deals at the finish line and you become the wholesaler whose contracts actually close. That reputation is what fills your buyers list.</p>
+`,
+    faqs: [
+      { q: "How do wholesalers get their buyers funded quickly?", a: "By connecting buyers with a direct, asset-based lender before the deal. Pre-qualified buyers with a proof-of-funds letter can get a term sheet in about 48 hours and fund within 48 hours of clear title." },
+      { q: "Do cash buyers really pay all cash?", a: "Often not. Many cash buyers use short-term hard money that closes fast and skips the bank, which looks like cash to the seller. The financing still has to perform on time." },
+      { q: "How can I keep deals from falling through at financing?", a: "Line up a fast lender up front, get a proof-of-funds letter before offers, and pre-qualify the buyer so the only remaining variable is title and insurance." },
+    ],
+  },
+  {
+    slug: "why-real-estate-deals-fall-through-at-financing",
+    title: "Why Real Estate Deals Fall Through at Financing (and How to Prevent It)",
+    metaTitle: "Why Deals Fall Through at Financing | USAM Fund",
+    description:
+      "Most dead investor deals die at the financing stage. Learn the common reasons and the simple steps wholesalers and agents can take to prevent it.",
+    category: "For Partners",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["fix-flip", "rental-dscr"],
+    body: `
+<p>Most investor deals that fall apart die at the <strong>financing stage</strong>, and the cause is usually a slow or wrong-fit lender, not a bad deal. The fix is to control the financing variable before you go under contract.</p>
+
+<h2>The common reasons deals die</h2>
+<ul>
+  <li><strong>Slow lender</strong> — a bank or a slow private lender misses the contract date.</li>
+  <li><strong>Wrong loan type</strong> — a buyer tries to use consumer financing on an investment deal.</li>
+  <li><strong>No proof of funds</strong> — the offer never gets taken seriously.</li>
+  <li><strong>Buyer not pre-qualified</strong> — surprises surface late and blow the timeline.</li>
+  <li><strong>Title or insurance delays</strong> — the one variable nobody managed up front.</li>
+</ul>
+
+<h2>How to prevent it</h2>
+<p>Get your buyer with a <strong>direct, asset-based lender</strong> early, secure a proof-of-funds letter before they offer, and order title the moment you are under contract. When the lender underwrites in house and funds within 48 hours of clear title, the only thing left to manage is the title file.</p>
+
+<h2>Who this matters to</h2>
+<p>If you wholesale or represent investor buyers, a dead deal is your lost paycheck. Controlling financing is the highest-leverage thing you can do to protect your spread.</p>
+`,
+    faqs: [
+      { q: "Why do investor deals fall through?", a: "Most often at financing, due to a slow or wrong-fit lender, no proof of funds, an unqualified buyer, or unmanaged title and insurance. The deal itself is usually fine." },
+      { q: "How do you prevent a deal from dying at financing?", a: "Line up a fast, asset-based lender early, get a proof-of-funds letter before offers, pre-qualify the buyer, and order title as soon as you are under contract." },
+      { q: "What is the biggest closing-timeline variable?", a: "Title and insurance. With a lender that funds within 48 hours of clear title, how fast the title file comes together is the main thing left to manage." },
+    ],
+  },
+  {
+    slug: "preferred-lender-for-wholesalers",
+    title: "What Is a Preferred Lender, and Why Wholesalers Need One",
+    metaTitle: "Preferred Lender for Wholesalers | USAM Fund",
+    description:
+      "A preferred lender is the financing partner you point your buyers to. Here's why having one makes your deals close and your buyers list stronger.",
+    category: "For Partners",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["fix-flip", "transactional"],
+    body: `
+<p>A <strong>preferred lender</strong> is the financing partner a wholesaler or dispo team points their buyers to by default. Having one matters because it turns the riskiest part of your deal, whether the buyer can actually close, into a known, reliable outcome.</p>
+
+<h2>What a preferred lender does for you</h2>
+<ul>
+  <li><strong>Closes your buyers fast</strong>, so your contracts perform on time.</li>
+  <li><strong>Issues proof-of-funds letters</strong> for your buyers, making their offers credible.</li>
+  <li><strong>Gives you one named contact</strong> who knows your pipeline and answers the phone.</li>
+  <li><strong>Keeps you in the loop</strong> on each deal's status, so you are never guessing.</li>
+</ul>
+
+<h2>Why it strengthens your buyers list</h2>
+<p>When your buyers know the financing will perform, they bid with confidence and come back for your next deal. A buyers list that closes is worth far more than a big list that flakes, and a preferred lender is what makes the difference.</p>
+
+<h2>How to choose one</h2>
+<p>Look for a <strong>direct lender</strong> (not a broker) that underwrites in house, funds on the asset, and moves fast, term sheet in about 48 hours, funding within 48 hours of clear title. Speed and certainty are the whole point.</p>
+`,
+    faqs: [
+      { q: "What is a preferred lender?", a: "The financing partner a wholesaler or agent points their buyers to by default, chosen because they close fast and reliably, turning the buyer's ability to close into a known outcome." },
+      { q: "Why do wholesalers need a preferred lender?", a: "Because a buyer who cannot close costs you the deal. A preferred lender funds your buyers fast, issues proof-of-funds letters, and keeps your contracts performing." },
+      { q: "Should a preferred lender be a direct lender or a broker?", a: "A direct lender. They underwrite and fund in house, so there is no middle layer slowing the close, which is the entire value of a preferred-lender relationship." },
+    ],
+  },
+  {
+    slug: "how-to-build-a-cash-buyers-list",
+    title: "How to Build a Cash Buyers List That Actually Closes",
+    metaTitle: "How to Build a Cash Buyers List | USAM Fund",
+    description:
+      "A big buyers list means nothing if the buyers flake. Learn how to build a list of investors who actually close, and how financing plays a role.",
+    category: "For Partners",
+    readMins: 5,
+    datePublished: "2026-06-23",
+    related: ["fix-flip", "rental-dscr"],
+    body: `
+<p>The goal is not the biggest <strong>cash buyers list</strong>, it is a list of buyers who actually close. You build one by sourcing real, active investors, qualifying them, and making sure their financing can perform.</p>
+
+<h2>Where to find real buyers</h2>
+<ul>
+  <li>Investors who have <strong>bought recently</strong> in your market (public records, MLS sold data).</li>
+  <li>Local <strong>REIA meetings</strong> and investor meetups.</li>
+  <li>Active flippers and landlords you can verify by their track record.</li>
+  <li>Referrals from a lender, who knows which investors are funding deals right now.</li>
+</ul>
+
+<h2>Qualify before you add them</h2>
+<p>Ask what they buy, where, their price range, and how they fund. A buyer who can show a proof-of-funds letter or a lender relationship is worth ten who say "I pay cash" and disappear.</p>
+
+<h2>Why financing belongs on your list</h2>
+<p>The most common reason a "qualified" buyer flakes is financing. If you point your buyers to a fast, reliable lender, more of them close, which is the only metric that matters. A list that closes earns you repeat business and better deals from sellers.</p>
+
+<h2>Keep the list warm</h2>
+<p>Send real deals, follow up, and track who actually closes. Over time you will know your top buyers cold, and you can take them your best deals first.</p>
+`,
+    faqs: [
+      { q: "How do you build a cash buyers list?", a: "Source active investors from recent sales records, REIA meetups, and lender referrals; qualify them on what and where they buy and how they fund; and prioritize buyers who can show proof of funds." },
+      { q: "What makes a buyers list valuable?", a: "Buyers who actually close, not the size of the list. A small list of verified, funded buyers beats a large list that flakes at financing." },
+      { q: "How does financing affect my buyers list?", a: "The top reason qualified buyers flake is slow or failed financing. Pointing buyers to a fast, reliable lender raises your close rate, which is the only metric that matters." },
+    ],
+  },
+  {
+    slug: "how-agents-win-investor-clients",
+    title: "How Real Estate Agents Win (and Keep) Investor Clients",
+    metaTitle: "How Agents Win Investor Clients | USAM Fund",
+    description:
+      "Investor clients transact often and refer well, but they expect speed and know-how. Here's how agents win them and keep them coming back.",
+    category: "For Partners",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["rental-dscr", "fix-flip"],
+    body: `
+<p>Agents win <strong>investor clients</strong> by speaking their language, deals and numbers, and by surrounding them with a team that moves fast. Investors transact far more often than retail buyers and refer other investors, so they are worth building a practice around.</p>
+
+<h2>What investors actually want from an agent</h2>
+<ul>
+  <li><strong>Deal flow</strong> — properties that pencil, not just listings.</li>
+  <li><strong>Speed</strong> — they compete on fast closings and expect you to keep up.</li>
+  <li><strong>A team</strong> — a lender, a title company, and contractors who perform.</li>
+  <li><strong>Numbers fluency</strong> — ARV, rent, cap rate, DSCR, you can talk shop.</li>
+</ul>
+
+<h2>Bring the financing relationship</h2>
+<p>One of the highest-value things you can offer an investor client is a <strong>fast, reliable lender</strong>. When your client's financing performs, your deals close, you look like a pro, and they bring you the next one. A slow lender, by contrast, makes you look slow.</p>
+
+<h2>Keep them for life</h2>
+<p>Track their goals, send deals that fit, and stay close between transactions. An investor who trusts your team will transact with you for years and refer their network.</p>
+`,
+    faqs: [
+      { q: "How do real estate agents get investor clients?", a: "By offering real deal flow, moving fast, speaking the numbers (ARV, rent, DSCR), and surrounding the client with a team, lender, title, contractors, that performs." },
+      { q: "Why are investor clients valuable to agents?", a: "They transact far more often than retail buyers, close fast, and refer other investors, so a few good investor relationships can anchor a practice." },
+      { q: "How does a lender relationship help an agent?", a: "When a client's financing performs, the deal closes and the agent looks like a pro. A fast, reliable lender is one of the most valuable things an agent can bring an investor client." },
+    ],
+  },
+  {
+    slug: "lender-partnership-grow-wholesale-business",
+    title: "How a Lender Partnership Grows Your Wholesale Business",
+    metaTitle: "How a Lender Partnership Grows Wholesaling | USAM Fund",
+    description:
+      "The right lender partner does more than fund your buyers. Learn how a lender relationship raises your close rate, your reputation, and your deal flow.",
+    category: "For Partners",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["fix-flip", "transactional"],
+    body: `
+<p>A <strong>lender partnership</strong> grows a wholesale business in one fundamental way: it raises your <strong>close rate</strong>. More of your contracts perform, which compounds into reputation, repeat buyers, and better deals from sellers.</p>
+
+<h2>The compounding effect</h2>
+<ul>
+  <li><strong>Higher close rate</strong> — buyers funded fast means contracts actually close.</li>
+  <li><strong>Stronger reputation</strong> — the wholesaler whose deals close gets the next deal first.</li>
+  <li><strong>Repeat buyers</strong> — buyers who close come back, so your list gets stronger.</li>
+  <li><strong>Better seller relationships</strong> — sellers trust you to perform, so they bring you more.</li>
+</ul>
+
+<h2>What a good lender partner provides</h2>
+<p>Beyond fast funding, look for co-branded proof-of-funds letters for your buyers, fast pre-quals, one named contact, and status updates on every deal. Those tools make you faster and more credible without adding work.</p>
+
+<h2>It is a relationship, not a transaction</h2>
+<p>The best partnerships are built on reliability over time. When your lender consistently funds your buyers within 48 hours of clear title, you can promise sellers and buyers a close and actually deliver, which is the whole game.</p>
+`,
+    faqs: [
+      { q: "How does a lender partnership help a wholesaler?", a: "It raises your close rate. When buyers are funded fast, more contracts perform, which compounds into reputation, repeat buyers, and better deals from sellers." },
+      { q: "What should a wholesaler look for in a lender partner?", a: "Fast, in-house funding plus practical tools: co-branded proof-of-funds letters, fast pre-quals, one named contact, and status updates on every deal." },
+      { q: "Is a lender partnership a one-time thing?", a: "No, the value comes from reliability over time. A lender that consistently funds your buyers lets you promise a close and deliver, deal after deal." },
     ],
   },
 ];

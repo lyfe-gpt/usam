@@ -5,12 +5,15 @@ import Icon from "../components/Icon.jsx";
 import Faq from "../components/Faq.jsx";
 import JsonLd, { faqPageSchema } from "../components/JsonLd.jsx";
 import { submitLead } from "../lib/crm.js";
+import { Link } from "react-router-dom";
+import { guides } from "../data/guides.js";
 
 const SCH = "'Schibsted Grotesk',sans-serif";
+const partnerGuides = guides.filter((g) => g.category === "For Partners");
 const labelStyle = { display: "block", fontSize: 13, fontWeight: 700, color: "#344054", marginBottom: 7 };
 
 const VALUE = [
-  ["clock", "We fund your buyers fast", "Term sheet in about 48 hours, funding in 5-7 days. Your deals don't die waiting on financing."],
+  ["clock", "We fund your buyers fast", "Term sheet in about 48 hours, and we fund within 48 hours of clear title. Your deals don't die waiting on financing."],
   ["check", "A smooth, simple system", "Co-branded proof-of-funds letters, fast pre-quals, and one named contact who knows your pipeline."],
   ["phone", "We make you look good", "Reliable closings and real people who answer the phone, so your investors keep coming back to you."],
 ];
@@ -63,7 +66,7 @@ export default function Partners() {
           <p style={{ fontSize: 19, lineHeight: 1.55, color: "#475467", maxWidth: 640, margin: 0 }}>If you wholesale deals, work with investor buyers, or move off-market property, partner with a direct lender who closes. Your buyers get funded fast, your deals close, and you look like the reliable one.</p>
           <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap", marginTop: 30 }}>
             <a href="#apply" className="btn-primary" style={{ background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "16px 30px", borderRadius: 999, boxShadow: "0 6px 20px rgba(26,86,196,0.28)" }}>Become a partner</a>
-            <a href="tel:512-488-6087" className="btn-outline" style={{ background: "#fff", color: "#0E1A2B", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "15px 28px", borderRadius: 999, border: "1.5px solid #D6DDE8" }}>512-488-6087</a>
+            <a href="tel:512-488-6087" className="btn-outline" style={{ background: "#fff", color: "#0E1A2B", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "15px 28px", borderRadius: 999, border: "1.5px solid #D6DDE8" }}>Call us</a>
           </div>
         </div>
       </section>
@@ -172,6 +175,27 @@ export default function Partners() {
           </div>
         </div>
       </section>
+
+      {/* Resources for partners */}
+      {partnerGuides.length > 0 && (
+        <section className="sec" style={{ background: "#fff", padding: "8px 32px 56px" }}>
+          <div style={{ maxWidth: 1040, margin: "0 auto" }}>
+            <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#1A56C4", marginBottom: 12 }}>For partners</div>
+            <h2 style={{ fontFamily: SCH, fontWeight: 800, fontSize: "clamp(26px,3vw,36px)", lineHeight: 1.06, letterSpacing: "-0.02em", color: "#0E1A2B", margin: "0 0 22px" }}>Resources to close more deals.</h2>
+            <div className="pg-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 14 }}>
+              {partnerGuides.map((g) => (
+                <Link key={g.slug} to={`/resources/${g.slug}`} className="card-link" style={{ textDecoration: "none", display: "block", background: "#fff", border: "1px solid #E6E9EF", borderRadius: 14, padding: "22px 24px" }}>
+                  <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", color: "#1A56C4", marginBottom: 8 }}>{g.readMins} min read</div>
+                  <div style={{ fontFamily: SCH, fontWeight: 700, fontSize: 17, lineHeight: 1.25, color: "#0E1A2B", marginBottom: 10 }}>{g.title}</div>
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 700, color: "#1A56C4" }}>
+                    Read the guide <Icon name="chevronRight" size={14} color="#1A56C4" width={2.6} />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* FAQ */}
       <section className="sec" style={{ background: "#F6F8FB", padding: "56px 32px" }}>

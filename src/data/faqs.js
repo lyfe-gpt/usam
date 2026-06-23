@@ -66,7 +66,7 @@ export const programFaqs = {
     },
     {
       q: "How fast can a fix and flip loan close?",
-      a: "We can get you a term sheet in <strong>as little as 48 hours</strong> from a complete application, and fund most fix and flip loans in <strong>5 to 7 business days</strong> once title and insurance are in. The exact timeline depends on how quickly your file comes together. Because we are the lender and underwrite in house, there is no second layer of approval to wait on.",
+      a: "We can get you a term sheet in <strong>as little as 48 hours</strong> from a complete application, and we <strong>fund within 48 hours of clear title</strong>. The main variable is how fast title and insurance come together, which is why a full close usually runs <strong>5 to 7 business days</strong>. Because we are the lender and underwrite in house, there is no second layer of approval to wait on.",
     },
     {
       q: "Is there a prepayment penalty if I sell quickly?",

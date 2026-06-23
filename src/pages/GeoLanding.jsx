@@ -30,7 +30,7 @@ export default function GeoLanding({ slug }) {
           <p style={{ fontSize: 18, lineHeight: 1.6, color: "#475467", maxWidth: 640, margin: "0 0 30px" }}>{g.intro}</p>
           <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
             <Link to="/apply" className="btn-primary" style={{ background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "15px 28px", borderRadius: 999, boxShadow: "0 6px 20px rgba(26,86,196,0.28)" }}>Get my rate</Link>
-            <a href="tel:512-488-6087" className="btn-outline" style={{ background: "#fff", color: "#0E1A2B", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "14px 26px", borderRadius: 999, border: "1.5px solid #D6DDE8" }}>512-488-6087</a>
+            <a href="tel:512-488-6087" className="btn-outline" style={{ background: "#fff", color: "#0E1A2B", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "14px 26px", borderRadius: 999, border: "1.5px solid #D6DDE8" }}>Call us</a>
           </div>
         </div>
       </section>

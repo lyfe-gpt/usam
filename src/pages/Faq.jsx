@@ -86,7 +86,7 @@ export default function FaqPage() {
               <Link to="/contact" className="btn-white" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#fff", color: "#123E96", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: "14px 24px", borderRadius: 999 }}>Contact us</Link>
               <a href="tel:512-488-6087" className="btn-ghost-light" style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: "13px 22px", borderRadius: 999, border: "1.5px solid rgba(255,255,255,0.5)" }}>
                 <Icon name="phone" size={18} color="#fff" filled />
-                512-488-6087
+                Call us
               </a>
             </div>
           </div>

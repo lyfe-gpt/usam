@@ -31,7 +31,7 @@ export const programs = [
       ["48 hrs", "to term sheet"],
       ["$5M", "max loan"],
     ],
-    how: "Draws are reimbursed quickly as work is completed, and a dedicated closer stays with your file from term sheet to payoff. You can get a term sheet in as few as 48 hours, and most flips fund in 5-7 days once we have a complete application and title insurance.",
+    how: "Draws are reimbursed quickly as work is completed, and a dedicated closer stays with your file from term sheet to payoff. You can get a term sheet in as few as 48 hours, and we fund within 48 hours of clear title, so most flips close in 5-7 days as soon as title and insurance come together.",
     who: [
       "Active fix & flip investors",
       "Single-family and 1-4 units",

@@ -7,6 +7,9 @@ import { guides } from "../data/guides.js";
 
 const SCH = "'Schibsted Grotesk',sans-serif";
 
+// The hub is for investor education; partner-program guides live on /partners.
+const investorGuides = guides.filter((g) => g.category !== "For Partners");
+
 export default function Resources() {
   return (
     <div>
@@ -25,7 +28,7 @@ export default function Resources() {
       <section className="sec" style={{ background: "#fff", padding: "32px 32px 64px" }}>
         <div style={{ maxWidth: 1040, margin: "0 auto" }}>
           <div className="pg-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 22 }}>
-            {guides.map((g) => (
+            {investorGuides.map((g) => (
               <Link key={g.slug} to={`/resources/${g.slug}`} className="card-link" style={{ textDecoration: "none", display: "block", background: "#fff", border: "1px solid #E6E9EF", borderRadius: 16, padding: 28 }}>
                 <div style={{ fontSize: 12.5, fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: "#1A56C4", marginBottom: 12 }}>{g.category} · {g.readMins} min read</div>
                 <h2 style={{ fontFamily: SCH, fontWeight: 700, fontSize: 22, lineHeight: 1.2, color: "#0E1A2B", margin: "0 0 10px" }}>{g.title}</h2>

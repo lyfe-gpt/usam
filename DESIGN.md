@@ -146,6 +146,8 @@ All radius `999px`, font-weight 700–800, `font-family: inherit`.
 
 Typical padding: `14–17px` vertical × `22–32px` horizontal. Primary CTA copy: **"Get my rate"** / **"Apply now"**; secondary: **"Talk to us"** (→ `/contact`) or **"See loan programs"**.
 
+**Rule: never put a phone number on a button.** The button label is never the number itself. Show phone numbers as plain text or links (header utility bar, the header phone hover popover, the footer), or as a `tel:` button labeled **"Call us"** / **"Talk to us"**. (Keeps CTAs verb-led and on-voice, and avoids a raw number as a primary action.)
+
 ---
 
 ## 6. Form fields
