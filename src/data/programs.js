@@ -3,6 +3,17 @@
 // Per-context copy (home / hub / detail / nav) is preserved exactly from the
 // original design files.
 
+import hero_fix_flip from "../assets/programs/fix-flip.webp";
+import hero_rental_dscr from "../assets/programs/rental-dscr.webp";
+import hero_construction from "../assets/programs/construction.webp";
+import hero_cre_bridge from "../assets/programs/cre-bridge.webp";
+import hero_transactional from "../assets/programs/transactional.webp";
+import hero_bank_statement from "../assets/programs/bank-statement.webp";
+import hero_conventional_investment from "../assets/programs/conventional-investment.webp";
+import hero_portfolio from "../assets/programs/portfolio.webp";
+import hero_cre_permanent from "../assets/programs/cre-permanent.webp";
+import hero_sba from "../assets/programs/sba.webp";
+
 export const programs = [
   {
     slug: "fix-flip",
@@ -13,8 +24,7 @@ export const programs = [
     navSub: "Up to 90% / 100% rehab",
     tagline: "Acquisition and rehab in one fast-closing loan.",
     desc: "Built for the active flipper. We fund up to 90% of the purchase price and up to 100% of the rehab budget, and when the ARV supports the interest reserve we can structure no payments for the life of the loan, so your cash stays in the deal.",
-    heroImg:
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1100&q=80",
+    heroImg: hero_fix_flip,
     stats: [
       ["90%", "of purchase"],
       ["100%", "of rehab"],
@@ -55,8 +65,7 @@ export const programs = [
     navSub: "30-yr fixed, DSCR 1.00",
     tagline: "Long-term financing that qualifies on the property.",
     desc: "Hold your rentals with financing that underwrites the asset, not just you. DSCR as low as 1.00, rates from 5.5% interest-only, and 30-year fixed options for single properties or whole portfolios.",
-    heroImg:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1100&q=80",
+    heroImg: hero_rental_dscr,
     stats: [
       ["1.00", "min DSCR"],
       ["5.5%", "rates from"],
@@ -97,8 +106,7 @@ export const programs = [
     navSub: "Up to 80% LTV",
     tagline: "Capital to build from the dirt up.",
     desc: "Whether you're buying a lot or tearing down to rebuild, our construction program funds new builds nationwide up to 80% LTV. Ideal for spec home builders and developers who need draws that keep pace with the job.",
-    heroImg:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1100&q=80",
+    heroImg: hero_construction,
     stats: [
       ["80%", "max LTV"],
       ["85%", "of cost"],
@@ -139,8 +147,7 @@ export const programs = [
     navSub: "Up to $10M",
     tagline: "Flexible commercial bridge and cash-out.",
     desc: "Access equity or finance a project before permanent financing. Flexible commercial bridge across property types, with terms up to 24-36 months and loan sizes up to $10M.",
-    heroImg:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1100&q=80",
+    heroImg: hero_cre_bridge,
     stats: [
       ["$10M", "max loan"],
       ["24-36 mo", "terms"],
@@ -181,8 +188,7 @@ export const programs = [
     navSub: "Same-day capital",
     tagline: "Same-day capital for double closings.",
     desc: "For wholesalers and assignment deals, we fund the A-to-B leg so you can close the B-to-C. Short-term transactional capital that bridges the gap and keeps your deal on schedule.",
-    heroImg:
-      "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1100&q=80",
+    heroImg: hero_transactional,
     stats: [
       ["Same-day", "funding"],
       ["100%", "of purchase"],
@@ -223,8 +229,7 @@ export const programs = [
     navSub: "No tax returns",
     tagline: "Financing that skips the income paperwork.",
     desc: "Built for self-employed investors whose tax returns don't tell the whole story. We qualify on bank-statement cash flow or on the asset itself, with no W-2s and no tax returns, so write-offs and a complex return don't work against a strong borrower.",
-    heroImg:
-      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1100&q=80",
+    heroImg: hero_bank_statement,
     stats: [
       ["0", "tax returns"],
       ["No-doc", "options"],
@@ -265,8 +270,7 @@ export const programs = [
     navSub: "Non-owner-occupied",
     tagline: "Conventional financing for investment property.",
     desc: "Standard, competitively priced financing for non-owner-occupied investment property when your file fits the box. Often the lowest-cost option for a long-term hold, in exchange for full documentation. We'll compare it against DSCR so you take the structure that fits.",
-    heroImg:
-      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1100&q=80",
+    heroImg: hero_conventional_investment,
     stats: [
       ["Non-owner", "occupied"],
       ["30-yr", "fixed avail."],
@@ -307,8 +311,7 @@ export const programs = [
     navSub: "Multiple properties, one loan",
     tagline: "One loan across your whole rental portfolio.",
     desc: "Custom portfolio-level financing for investors who own multiple properties. Roll several rentals into a single blanket loan with one payment, simplify your financing, and free up capital to keep scaling.",
-    heroImg:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1100&q=80",
+    heroImg: hero_portfolio,
     stats: [
       ["5+", "properties"],
       ["1", "blanket loan"],
@@ -349,8 +352,7 @@ export const programs = [
     navSub: "Long-term agency & perm",
     tagline: "Long-term permanent commercial financing.",
     desc: "Long-term, permanent financing for stabilized commercial real estate. We place loans through agency multifamily channels (Fannie Mae and Freddie Mac), insurance funds, and other wholesale sources to land you the right long-term debt.",
-    heroImg:
-      "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1100&q=80",
+    heroImg: hero_cre_permanent,
     stats: [
       ["Agency", "Fannie/Freddie"],
       ["Long-term", "fixed"],
@@ -391,8 +393,7 @@ export const programs = [
     navSub: "7(a) & 504",
     tagline: "7(a) and 504 for owner-occupied real estate.",
     desc: "When a deal calls for long-term, government-backed financing, we place SBA 7(a) and 504 loans through relationships with more than 20 SBA lenders, matching your scenario to the right program and the best terms.",
-    heroImg:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1100&q=80",
+    heroImg: hero_sba,
     stats: [
       ["7(a) & 504", "programs"],
       ["90%", "financing"],
