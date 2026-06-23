@@ -3,6 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- SPA redirect decode: pairs with public/404.html so deep links restored
+         from the GitHub Pages 404 fallback land on the correct route. -->
+    <script type="text/javascript">
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      })(window.location);
+    </script>
     <!-- PRE-LAUNCH: blocks all search-engine indexing. REMOVE these two robots
          meta tags (and flip robots.txt) when ready to publish publicly. -->
     <meta name="robots" content="noindex, nofollow" />
@@ -12,6 +28,12 @@
       name="description"
       content="USAM I Fund is a direct private and hard-money lender for real estate investors, operators, and developers nationwide. Fast closings, flexible structure."
     />
+    <!-- Favicons (flag emblem from the USAM logo) -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0E1A2B" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
