@@ -4,7 +4,7 @@ import Footer from "../components/Footer.jsx";
 import Icon from "../components/Icon.jsx";
 import Faq from "../components/Faq.jsx";
 import JsonLd, { faqPageSchema } from "../components/JsonLd.jsx";
-import { submitLead } from "../lib/crm.js";
+import { submitPartner } from "../lib/crm.js";
 import { Link } from "react-router-dom";
 import { guides } from "../data/guides.js";
 
@@ -42,14 +42,16 @@ export default function Partners() {
     if (!form.name.trim()) { setError("Please enter your name."); return; }
     if (!form.email.trim() && !form.phone.trim()) { setError("Please provide an email or phone number so we can reach you."); return; }
     setSent(true);
-    const notes = [
-      form.company && `Company: ${form.company}`,
-      form.type && `Partner type: ${form.type}`,
-      form.market && `Market: ${form.market}`,
-      form.volume && `Typical deals/month: ${form.volume}`,
-      form.message && `\n${form.message}`,
-    ].filter(Boolean).join("\n");
-    submitLead({ name: form.name, email: form.email, phone: form.phone, leadSource: "Partner application", notes });
+    submitPartner({
+      name: form.name,
+      company: form.company,
+      email: form.email,
+      phone: form.phone,
+      partnerType: form.type,
+      market: form.market,
+      dealsPerMonth: form.volume,
+      notes: form.message,
+    });
   };
   const reset = () => { setForm({ name: "", company: "", email: "", phone: "", type: "", market: "", volume: "", message: "" }); setSent(false); };
 

@@ -208,6 +208,10 @@ export default function Apply() {
   const next = () => setS((st) => ({ ...st, step: st.step + 1 }));
   const back = () => setS((st) => ({ ...st, step: Math.max(0, st.step - 1) }));
 
+  // Referral attribution: a partner link like /apply?ref=CODE tags the lead so
+  // it can be matched to a partner in the CRM.
+  const partnerCode = new URLSearchParams(window.location.search).get("ref") || undefined;
+
   const captureStep0 = () => {
     if (!s.name.trim()) {
       setS((st) => ({ ...st, step0Error: "Please enter your name." }));
@@ -217,7 +221,7 @@ export default function Apply() {
       setS((st) => ({ ...st, step0Error: "Please provide an email or phone number so we can reach you." }));
       return;
     }
-    submitLead({ name: s.name, email: s.email, phone: s.phone, leadSource: "Website apply / quote", salesStage: "Inquiry" });
+    submitLead({ name: s.name, email: s.email, phone: s.phone, leadSource: "Website apply / quote", salesStage: "Inquiry", partnerCode });
     setS((st) => ({ ...st, step: 1, leadCaptured: true, step0Error: "" }));
   };
 
@@ -260,6 +264,7 @@ export default function Apply() {
       experience: st.experience,
       timeline: st.timeline,
       notes,
+      partnerCode,
     });
     setS((cur) => ({ ...cur, ...override, step: cur.step + 1 }));
   };
