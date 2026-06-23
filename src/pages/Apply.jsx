@@ -195,7 +195,7 @@ export default function Apply() {
     step: 0, loanType: "", address: "", propType: "", purchase: "", rehab: "", arv: "",
     monthlyRent: "", loanAmount: "", resalePrice: "", downPayment: "", numProperties: "",
     noi: "", creditBand: "", useOfFunds: "", timeInBusiness: "", avgDeposits: "",
-    experience: "", timeline: "", name: "", email: "", phone: "", leadCaptured: false, step0Error: "",
+    experience: "", timeline: "", name: "", email: "", phone: "", smsConsent: false, leadCaptured: false, step0Error: "",
   });
 
   useEffect(() => {
@@ -221,7 +221,7 @@ export default function Apply() {
       setS((st) => ({ ...st, step0Error: "Please provide an email or phone number so we can reach you." }));
       return;
     }
-    submitLead({ name: s.name, email: s.email, phone: s.phone, leadSource: "Website apply / quote", salesStage: "Inquiry", partnerCode });
+    submitLead({ name: s.name, email: s.email, phone: s.phone, smsConsent: s.smsConsent, leadSource: "Website apply / quote", salesStage: "Inquiry", partnerCode });
     setS((st) => ({ ...st, step: 1, leadCaptured: true, step0Error: "" }));
   };
 
@@ -265,6 +265,7 @@ export default function Apply() {
       timeline: st.timeline,
       notes,
       partnerCode,
+      smsConsent: st.smsConsent,
     });
     setS((cur) => ({ ...cur, ...override, step: cur.step + 1 }));
   };
@@ -319,10 +320,14 @@ export default function Apply() {
               <label style={labelStyle}>Email</label>
               <input className="ci" type="email" autoComplete="email" placeholder="you@email.com" value={s.email} onChange={set("email")} disabled={s.leadCaptured} />
             </div>
-            <div style={{ marginBottom: s.step0Error ? 12 : 30 }}>
+            <div style={{ marginBottom: 18 }}>
               <label style={labelStyle}>Phone</label>
               <input className="ci" type="tel" autoComplete="tel" placeholder="(512) 555-0100" value={s.phone} onChange={set("phone")} disabled={s.leadCaptured} />
             </div>
+            <label style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: s.step0Error ? 12 : 30, cursor: s.leadCaptured ? "default" : "pointer" }}>
+              <input type="checkbox" checked={s.smsConsent} onChange={(e) => setS((st) => ({ ...st, smsConsent: e.target.checked }))} disabled={s.leadCaptured} style={{ marginTop: 3, flex: "none", width: 16, height: 16, accentColor: "#1A56C4", cursor: "inherit" }} />
+              <span style={{ fontSize: 12.5, lineHeight: 1.5, color: "#667085" }}>I agree to receive text messages from USAM Fund about my inquiry. Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to opt out, HELP for help. See our <Link to="/privacy" target="_blank" onClick={(e) => e.stopPropagation()} style={{ color: "#1A56C4", fontWeight: 600 }}>Privacy Policy</Link>.</span>
+            </label>
             {s.step0Error && (
               <p style={{ color: "#C0392B", fontSize: 14, margin: "0 0 18px" }}>{s.step0Error}</p>
             )}

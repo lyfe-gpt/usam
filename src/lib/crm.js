@@ -31,6 +31,9 @@ const FIELD_IDS = {
   lastContact: "fldwG5l0QJ8ID78ud",
   notes: "fldyNqmtvb4R7Az5r",
   partnerCode: "fldaDER9xotXel3kd", // ?ref=CODE attribution to the Partners table
+  smsConsent: "fld86sRfGN6vRODUb",
+  smsConsentAt: "fldNI7vVzoMowsQz2",
+  consentVersion: "fldaakMHa1niFBSnb",
 };
 
 // Referral-partner fields (Partners table).
@@ -46,11 +49,26 @@ const PARTNER_FIELD_IDS = {
   status: "fldCiYvCG4ajlUnje",
   notes: "fldO09oad4XxGAXIO",
   appliedDate: "fldwJuzIKp4E0NBTa",
+  smsConsent: "fldmSAuQ3iqVg2dXw",
+  smsConsentAt: "fldThXBvw0FusOWuk",
+  consentVersion: "fldiINURaxlCGsDVB",
 };
+
+// Version tag for the SMS consent wording shown on the forms. Bump this whenever
+// the consent text changes so the Airtable record matches what the user agreed
+// to (needed for A2P 10DLC / TCR audits).
+export const SMS_CONSENT_VERSION = "v1-2026-06";
 
 // Today's date as YYYY-MM-DD.
 function today() {
   return new Date().toISOString().slice(0, 10);
+}
+
+// When a form passes smsConsent: true, stamp the consent date + version so the
+// record is audit-ready. A false/absent value leaves the consent fields blank.
+function withConsent(payload) {
+  if (!payload.smsConsent) return payload;
+  return { ...payload, smsConsentAt: today(), consentVersion: SMS_CONSENT_VERSION };
 }
 
 // Posts one record to a table. Translates camelCase keys to field IDs, drops
@@ -83,10 +101,10 @@ async function postRecord(tableId, fieldMap, payload) {
 
 // Sends a borrower lead to the Sales Deals table.
 export async function submitLead(payload) {
-  return postRecord(TABLE_ID, FIELD_IDS, { salesStage: "Qualification", lastContact: today(), ...payload });
+  return postRecord(TABLE_ID, FIELD_IDS, withConsent({ salesStage: "Qualification", lastContact: today(), ...payload }));
 }
 
 // Sends a partner application to the Partners table.
 export async function submitPartner(payload) {
-  return postRecord(PARTNERS_TABLE_ID, PARTNER_FIELD_IDS, { status: "Applied", appliedDate: today(), ...payload });
+  return postRecord(PARTNERS_TABLE_ID, PARTNER_FIELD_IDS, withConsent({ status: "Applied", appliedDate: today(), ...payload }));
 }

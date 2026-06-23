@@ -34,11 +34,12 @@ const PARTNER_FAQS = [
 ];
 
 export default function Partners() {
-  const [form, setForm] = useState({ name: "", company: "", email: "", phone: "", type: "", market: "", volume: "", message: "" });
+  const [form, setForm] = useState({ name: "", company: "", email: "", phone: "", type: "", market: "", volume: "", message: "", smsConsent: false });
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
 
   const set = (k) => (e) => { setForm((f) => ({ ...f, [k]: e.target.value })); setError(""); };
+  const toggle = (k) => (e) => { setForm((f) => ({ ...f, [k]: e.target.checked })); };
   const submit = () => {
     if (!form.name.trim()) { setError("Please enter your name."); return; }
     if (!form.email.trim() && !form.phone.trim()) { setError("Please provide an email or phone number so we can reach you."); return; }
@@ -52,9 +53,10 @@ export default function Partners() {
       market: form.market,
       dealsPerMonth: form.volume,
       notes: form.message,
+      smsConsent: form.smsConsent,
     });
   };
-  const reset = () => { setForm({ name: "", company: "", email: "", phone: "", type: "", market: "", volume: "", message: "" }); setSent(false); };
+  const reset = () => { setForm({ name: "", company: "", email: "", phone: "", type: "", market: "", volume: "", message: "", smsConsent: false }); setSent(false); };
 
   return (
     <div>
@@ -175,6 +177,10 @@ export default function Partners() {
                   <label style={labelStyle}>Anything else?</label>
                   <textarea className="ci" rows={4} style={{ resize: "vertical" }} placeholder="Tell us about your business and the investors you work with." value={form.message} onChange={set("message")} />
                 </div>
+                <label style={{ display: "flex", alignItems: "flex-start", gap: 10, margin: "0 0 18px", cursor: "pointer" }}>
+                  <input type="checkbox" checked={form.smsConsent} onChange={toggle("smsConsent")} style={{ marginTop: 3, flex: "none", width: 16, height: 16, accentColor: "#1A56C4", cursor: "pointer" }} />
+                  <span style={{ fontSize: 12.5, lineHeight: 1.5, color: "#667085" }}>I agree to receive text messages from USAM Fund about my inquiry. Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to opt out, HELP for help. See our <Link to="/privacy" target="_blank" onClick={(e) => e.stopPropagation()} style={{ color: "#1A56C4", fontWeight: 600 }}>Privacy Policy</Link>.</span>
+                </label>
                 {error && <p style={{ color: "#C0392B", fontSize: 14, margin: "0 0 12px" }}>{error}</p>}
                 <button onClick={submit} className="btn-primary" style={{ width: "100%", background: "#1A56C4", color: "#fff", border: "none", borderRadius: 999, padding: 16, fontWeight: 700, fontSize: 17, fontFamily: "inherit", cursor: "pointer", boxShadow: "0 6px 20px rgba(26,86,196,0.28)" }}>Apply to partner</button>
                 <p style={{ fontSize: 13, color: "#98A2B3", textAlign: "center", margin: "14px 0 0" }}>We'll never share your information.</p>
