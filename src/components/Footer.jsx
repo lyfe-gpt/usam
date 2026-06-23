@@ -34,6 +34,7 @@ export default function Footer() {
               <Link to="/about" className="ftr-lnk" style={lnk}>About us</Link>
               <Link to="/programs" className="ftr-lnk" style={lnk}>Programs</Link>
               <Link to="/resources" className="ftr-lnk" style={lnk}>Resources</Link>
+              <Link to="/partners" className="ftr-lnk" style={lnk}>Partners</Link>
               <Link to="/faq" className="ftr-lnk" style={lnk}>FAQ</Link>
               <Link to="/contact" className="ftr-lnk" style={lnk}>Contact</Link>
               <Link to="/texas-hard-money-lender" className="ftr-lnk" style={lnk}>Texas hard money</Link>

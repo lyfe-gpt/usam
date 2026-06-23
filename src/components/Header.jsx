@@ -21,6 +21,8 @@ export default function Header() {
       ? "about"
       : pathname.startsWith("/resources")
       ? "resources"
+      : pathname.startsWith("/partners")
+      ? "partners"
       : pathname.startsWith("/faq")
       ? "faq"
       : pathname.startsWith("/contact")
@@ -108,6 +110,7 @@ export default function Header() {
 
             <Link to="/about" className="nav-lnk" style={{ color: navColor(active, "about"), textDecoration: "none" }}>About</Link>
             <Link to="/resources" className="nav-lnk" style={{ color: navColor(active, "resources"), textDecoration: "none" }}>Resources</Link>
+            <Link to="/partners" className="nav-lnk" style={{ color: navColor(active, "partners"), textDecoration: "none" }}>Partners</Link>
             <Link to="/faq" className="nav-lnk" style={{ color: navColor(active, "faq"), textDecoration: "none" }}>FAQ</Link>
             <Link to="/contact" className="nav-lnk" style={{ color: navColor(active, "contact"), textDecoration: "none" }}>Contact</Link>
           </nav>
@@ -152,6 +155,7 @@ export default function Header() {
               </div>
               <Link to="/about" onClick={() => setMenuOpen(false)} style={{ padding: "14px 6px", color: "#0E1A2B", textDecoration: "none", fontWeight: 600, fontSize: 16, borderBottom: "1px solid #F1F3F7" }}>About</Link>
               <Link to="/resources" onClick={() => setMenuOpen(false)} style={{ padding: "14px 6px", color: "#0E1A2B", textDecoration: "none", fontWeight: 600, fontSize: 16, borderBottom: "1px solid #F1F3F7" }}>Resources</Link>
+              <Link to="/partners" onClick={() => setMenuOpen(false)} style={{ padding: "14px 6px", color: "#0E1A2B", textDecoration: "none", fontWeight: 600, fontSize: 16, borderBottom: "1px solid #F1F3F7" }}>Partners</Link>
               <Link to="/faq" onClick={() => setMenuOpen(false)} style={{ padding: "14px 6px", color: "#0E1A2B", textDecoration: "none", fontWeight: 600, fontSize: 16, borderBottom: "1px solid #F1F3F7" }}>FAQ</Link>
               <Link to="/contact" onClick={() => setMenuOpen(false)} style={{ padding: "14px 6px", color: "#0E1A2B", textDecoration: "none", fontWeight: 600, fontSize: 16, borderBottom: "1px solid #F1F3F7" }}>Contact</Link>
               <a href="tel:512-488-6087" style={{ padding: "14px 6px", color: "#475467", textDecoration: "none", fontWeight: 600, fontSize: 15 }}>Call 512-488-6087</a>

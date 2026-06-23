@@ -9,6 +9,7 @@ import Apply from "./pages/Apply.jsx";
 import FaqPage from "./pages/Faq.jsx";
 import Resources from "./pages/Resources.jsx";
 import Guide from "./pages/Guide.jsx";
+import Partners from "./pages/Partners.jsx";
 import GeoLanding from "./pages/GeoLanding.jsx";
 import JsonLd, { organizationSchema, localBusinessSchema, SITE_URL } from "./components/JsonLd.jsx";
 import { programs, bySlug } from "./data/programs.js";
@@ -39,6 +40,7 @@ function metaFor(pathname) {
   if (pathname.startsWith("/faq")) return [`FAQ | ${BASE}`, "Answers to common questions about private and hard-money loan programs, rates, terms, and how to get funded."];
   if (pathname.startsWith("/contact")) return [`Contact | ${BASE}`, "Talk to a real person about your deal. Call 512-488-6087 or send a message to USAM Fund."];
   if (pathname.startsWith("/apply")) return [`Apply | ${BASE}`, "Get a real rate in minutes. No obligation and no hard credit pull to start your USAM Fund application."];
+  if (pathname.startsWith("/partners")) return [`Partner Program | ${BASE}`, "Partner with a direct lender that closes. We fund your investor buyers fast, so your deals close. For wholesalers, investor agents, and off-market marketplaces."];
   if (pathname === "/resources") return [`Investor Guides | ${BASE}`, "Plain-English guides on DSCR loans, fix and flip financing, the BRRRR method, and more from USAM Fund."];
   if (pathname.startsWith("/resources/")) {
     const g = guideBySlug[pathname.split("/")[2]];
@@ -116,6 +118,7 @@ export default function App() {
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/apply" element={<Apply />} />
+        <Route path="/partners" element={<Partners />} />
         <Route path="/resources" element={<Resources />} />
         {guides.map((g) => (
           <Route key={g.slug} path={`/resources/${g.slug}`} element={<Guide slug={g.slug} />} />
