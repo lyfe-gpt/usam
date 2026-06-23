@@ -13,8 +13,8 @@ const SCH = "'Schibsted Grotesk',sans-serif";
 
 const STEPS = [
   ["STEP 01", "Tell us about your deal", "Answer a few quick questions about the property and the numbers. About two minutes, no credit pull to start."],
-  ["STEP 02", "Get a same-day term sheet", "A real underwriter reviews your scenario and sends clear terms: rate, leverage, and structure, in plain English."],
-  ["STEP 03", "Close in 5-7 days", "We handle docs and funding fast so you hit your contract date, and we're here for the next deal too."],
+  ["STEP 02", "Get a term sheet in 48 hours", "A real underwriter reviews your scenario and sends clear terms: rate, leverage, and structure, in plain English."],
+  ["STEP 03", "Close in 5-7 days", "We fund within 48 hours of clear title, so most deals close in 5-7 days. We handle docs and funding fast so you hit your contract date, and we're here for the next deal too."],
 ];
 
 const WHY = [
