@@ -189,8 +189,24 @@ Custom inline-SVG component `Icon.jsx`. Props: `name`, `size`, `color`, `width` 
 
 - **Logo:** hosted on `lirp.cdn-website.com` — horizontal (header) and white (footer) variants.
 - **Hero video:** `src/assets/home-hero.{webm,mp4}` + `home-hero-poster.jpg`, played at `0.75×`, loops with a 2s pause.
+- **Team headshots:** illustrated "sticker" portraits in `src/assets/team/*.webp`, 500×281 (16:9), ~7-8KB each. See the illustration style below.
 - **Photography:** Unsplash stock property photos (flag for real photos pre/post-launch — see Launch Readiness Checklist).
 - Phone CTA uses `tel:512-488-6087`; email `mailto:` (public address pending confirmation — see checklist).
+
+### 9a. Image-generation style (two looks)
+
+- **Illustrated "sticker"** — team portraits and optional hero art. Bold flat vector / comic
+  style, thick dark-navy outlines (`#0E1A2B`), cel-shaded, warm cream background (`#F7F4ED`),
+  clean white sticker outline + soft drop shadow + rounded oval base, royal/deep-blue accents.
+  16:9, head-and-shoulders, centered with even cream margin and a gap beneath. Export 500×281 WebP.
+- **Photorealistic** — program detail heroes. Editorial real-estate photography, bright natural
+  daylight, blue sky + cool-blue tones over warm neutrals, royal-blue accents — one cohesive grade
+  across all 10 programs. Hero slot is right-column **~5:4** (≈480×380), `border-radius: 20`,
+  `object-fit: cover`; generate 4:3 (1280×960), export WebP ≤500px, set `heroImg` in `data/programs.js`.
+
+> **Paste-ready ElevenLabs prompts are kept in the vault, not in the repo:**
+> `USAM / 06 - Website Redesign / Image Prompts — ElevenLabs (usam.net).md`
+> — one self-contained prompt per program, plus the home-hero and team-portrait prompts.
 
 ---
 
