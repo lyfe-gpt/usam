@@ -15,9 +15,9 @@ export const guides = [
     datePublished: "2026-06-23",
     related: ["rental-dscr", "conventional-investment", "portfolio"],
     faqs: [
-      { q: "What does DSCR stand for?", a: "DSCR stands for debt service coverage ratio. It compares a property's rental income to its loan payment to see whether the rent covers the debt." },
-      { q: "What DSCR do you need to qualify?", a: "Most lenders want a DSCR of at least 1.00, meaning the rent covers the payment. USAM Fund lends with a DSCR as low as 1.00." },
-      { q: "Do DSCR loans require tax returns?", a: "No. A DSCR loan qualifies on the property's rent versus its payment, so there are no W-2s or tax returns required." },
+      { q: "What does DSCR stand for?", a: "DSCR stands for <strong>debt service coverage ratio</strong>. It compares a property's <strong>rental income</strong> to its <strong>loan payment</strong> to see whether the rent covers the debt." },
+      { q: "What DSCR do you need to qualify?", a: "Most lenders want a <strong>DSCR of at least 1.00</strong>, meaning the <strong>rent covers the payment</strong>. USAM Fund lends with a <strong>DSCR as low as 1.00</strong>." },
+      { q: "Do DSCR loans require tax returns?", a: "<strong>No.</strong> A DSCR loan <strong>qualifies on the property's rent</strong> versus its payment, so there are <strong>no W-2s or tax returns required</strong>." },
     ],
     body: `
 <p>A <strong>DSCR loan</strong> (debt service coverage ratio loan) is a business-purpose mortgage for investment property that qualifies on the <strong>property's rental income</strong> rather than your personal income. There are no W-2s and no tax returns. For self-employed investors and anyone scaling a portfolio, it is often the difference between a yes and a no.</p>
@@ -57,9 +57,9 @@ export const guides = [
     datePublished: "2026-06-23",
     related: ["fix-flip", "construction", "transactional"],
     faqs: [
-      { q: "What credit score do you need for a fix and flip loan?", a: "Fix and flip loans are asset-based, so credit carries less weight than at a bank. A reasonable profile helps your rate and leverage, and weaker credit can often be offset with more equity." },
-      { q: "How much can you borrow on a fix and flip?", a: "Up to 90% of the purchase price and up to 100% of the rehab budget, with total exposure capped under a percentage of the after-repair value (ARV)." },
-      { q: "Can first-time flippers get a loan?", a: "Yes. Experience helps leverage and pricing, but a first-timer with a sound deal, a realistic budget, and a clear exit can still get funded." },
+      { q: "What credit score do you need for a fix and flip loan?", a: "Fix and flip loans are <strong>asset-based</strong>, so <strong>credit carries less weight</strong> than at a bank. A reasonable profile helps your rate and leverage, and weaker credit can often be <strong>offset with more equity</strong>." },
+      { q: "How much can you borrow on a fix and flip?", a: "<strong>Up to 90% of the purchase price</strong> and <strong>up to 100% of the rehab budget</strong>, with total exposure capped under a percentage of the <strong>after-repair value (ARV)</strong>." },
+      { q: "Can first-time flippers get a loan?", a: "<strong>Yes.</strong> Experience helps leverage and pricing, but a <strong>first-timer</strong> with a <strong>sound deal, a realistic budget, and a clear exit</strong> can still get funded." },
     ],
     body: `
 <p>A <strong>fix and flip loan</strong> is short-term, business-purpose financing that funds both the <strong>purchase</strong> and the <strong>rehab</strong> of a property you intend to renovate and sell. Because it is asset-based, approval hinges less on your paystubs and more on the deal.</p>
@@ -98,9 +98,9 @@ export const guides = [
     datePublished: "2026-06-23",
     related: ["fix-flip", "rental-dscr", "portfolio"],
     faqs: [
-      { q: "What does BRRRR stand for?", a: "Buy, Rehab, Rent, Refinance, Repeat, a strategy for building a rental portfolio while recycling the same capital across deals." },
-      { q: "What loans do you use for BRRRR?", a: "A short-term fix and flip or bridge loan for the buy and rehab, then a long-term DSCR loan to refinance and pull your capital back out." },
-      { q: "Can you pull all your money back out with BRRRR?", a: "Sometimes. A cash-out DSCR refinance can return much or all of your capital if the property's new value and rent support it." },
+      { q: "What does BRRRR stand for?", a: "<strong>Buy, Rehab, Rent, Refinance, Repeat</strong>, a strategy for building a <strong>rental portfolio</strong> while <strong>recycling the same capital</strong> across deals." },
+      { q: "What loans do you use for BRRRR?", a: "A <strong>short-term fix and flip or bridge loan</strong> for the buy and rehab, then a <strong>long-term DSCR loan</strong> to refinance and <strong>pull your capital back out</strong>." },
+      { q: "Can you pull all your money back out with BRRRR?", a: "<strong>Sometimes.</strong> A <strong>cash-out DSCR refinance</strong> can <strong>return much or all of your capital</strong> if the property's new value and rent support it." },
     ],
     body: `
 <p><strong>BRRRR</strong> stands for <strong>Buy, Rehab, Rent, Refinance, Repeat</strong> — a strategy for building a rental portfolio while recycling the same down payment across multiple deals. The whole model lives or dies on financing, so getting the two loans right is everything.</p>
@@ -132,9 +132,9 @@ export const guides = [
     datePublished: "2026-06-23",
     related: ["rental-dscr", "conventional-investment", "bank-statement"],
     faqs: [
-      { q: "Is a DSCR loan better than conventional?", a: "Neither is universally better. Conventional is usually cheaper if you can document income and your file fits the box; DSCR is faster, qualifies on the property, and has no property-count cap." },
-      { q: "Can you refinance a DSCR loan into a conventional loan later?", a: "Often yes, if your situation changes and the property and your file qualify conventionally. Many investors move between the two over time." },
-      { q: "Do DSCR loans have higher rates than conventional?", a: "Usually modestly higher, in exchange for speed, no income documentation, and qualifying on the asset instead of you." },
+      { q: "Is a DSCR loan better than conventional?", a: "<strong>Neither is universally better.</strong> <strong>Conventional is usually cheaper</strong> if you can document income and your file fits the box; <strong>DSCR is faster</strong>, qualifies on the property, and has <strong>no property-count cap</strong>." },
+      { q: "Can you refinance a DSCR loan into a conventional loan later?", a: "<strong>Often yes</strong>, if your situation changes and the property and your file <strong>qualify conventionally</strong>. Many investors <strong>move between the two over time</strong>." },
+      { q: "Do DSCR loans have higher rates than conventional?", a: "<strong>Usually modestly higher</strong>, in exchange for speed, <strong>no income documentation</strong>, and <strong>qualifying on the asset</strong> instead of you." },
     ],
     body: `
 <p>Both a <strong>DSCR loan</strong> and a <strong>conventional investment loan</strong> can finance a rental, but they qualify you in opposite ways. The right choice depends on your tax returns, your timeline, and how many properties you already own.</p>
@@ -187,9 +187,9 @@ export const guides = [
 <p>A common screen is the 70% rule: <strong>Max offer ≈ (ARV × 0.70) − rehab budget</strong>. It is a starting filter, not a substitute for real comps and a real budget.</p>
 `,
     faqs: [
-      { q: "What does ARV stand for?", a: "ARV stands for after-repair value, the estimated market value of a property once the planned renovation is complete." },
-      { q: "How is ARV different from the purchase price?", a: "The purchase price is what you pay for the property as-is. ARV is what it will be worth after the rehab, based on comparable sold properties in finished condition." },
-      { q: "What is the 70% rule in house flipping?", a: "The 70% rule says an investor should pay at most 70% of a property's ARV minus the rehab budget. It is a quick screening filter, not a precise underwriting tool." },
+      { q: "What does ARV stand for?", a: "ARV stands for <strong>after-repair value</strong>, the <strong>estimated market value</strong> of a property <strong>once the planned renovation is complete</strong>." },
+      { q: "How is ARV different from the purchase price?", a: "The <strong>purchase price</strong> is what you pay for the property as-is. ARV is what it will be <strong>worth after the rehab</strong>, based on <strong>comparable sold properties</strong> in finished condition." },
+      { q: "What is the 70% rule in house flipping?", a: "The <strong>70% rule</strong> says an investor should pay <strong>at most 70% of a property's ARV minus the rehab budget</strong>. It is a <strong>quick screening filter</strong>, not a precise underwriting tool." },
     ],
   },
   {
@@ -223,9 +223,9 @@ export const guides = [
 <p>Compare the all-in cost of the loan against the profit the speed unlocks. If a fast close wins a deal a bank would have lost, the higher rate pays for itself.</p>
 `,
     faqs: [
-      { q: "Why are hard money loans more expensive than bank loans?", a: "You pay more because the lender funds fast, takes on more risk, and lends against the asset and your plan rather than your income. The premium buys speed, flexibility, and certainty." },
-      { q: "What is a point on a hard money loan?", a: "A point equals 1% of the loan amount, paid at closing as origination. A 2-point fee on a $300,000 loan is $6,000." },
-      { q: "Are hard money rates fixed or variable?", a: "Most short-term hard money loans are fixed, interest-only for the term. Because the loan lasts months, the total carry cost matters more than the headline rate." },
+      { q: "Why are hard money loans more expensive than bank loans?", a: "You pay more because the lender <strong>funds fast</strong>, takes on more risk, and <strong>lends against the asset</strong> and your plan rather than your income. The premium buys <strong>speed, flexibility, and certainty</strong>." },
+      { q: "What is a point on a hard money loan?", a: "A <strong>point equals 1% of the loan amount</strong>, paid at closing as origination. A <strong>2-point fee</strong> on a <strong>$300,000 loan is $6,000</strong>." },
+      { q: "Are hard money rates fixed or variable?", a: "Most short-term hard money loans are <strong>fixed, interest-only</strong> for the term. Because the loan lasts months, the <strong>total carry cost</strong> matters more than the <strong>headline rate</strong>." },
     ],
   },
   {
@@ -256,9 +256,9 @@ export const guides = [
 <p>Bridge debt is fast, flexible, and short, with a higher rate. Permanent financing is cheaper and long-term but slower to close and stricter to qualify for. Many investors use a bridge to win the deal, then refinance into permanent debt once the property supports it.</p>
 `,
     faqs: [
-      { q: "How long is a bridge loan?", a: "Bridge loans are short-term, commonly 12 to 36 months, and are paid off when the property sells or refinances into permanent financing." },
-      { q: "Can you get cash out with a bridge loan?", a: "Yes. A common use of a commercial bridge loan is a cash-out against existing equity to fund another project before permanent financing is in place." },
-      { q: "Is a bridge loan the same as a hard money loan?", a: "They overlap. Bridge describes the purpose (covering a gap), while hard money describes the asset-based, fast-funding style. Most bridge loans from a private lender are hard money loans." },
+      { q: "How long is a bridge loan?", a: "Bridge loans are <strong>short-term</strong>, commonly <strong>12 to 36 months</strong>, and are paid off when the property sells or <strong>refinances into permanent financing</strong>." },
+      { q: "Can you get cash out with a bridge loan?", a: "<strong>Yes.</strong> A common use of a commercial bridge loan is a <strong>cash-out against existing equity</strong> to fund another project <strong>before permanent financing is in place</strong>." },
+      { q: "Is a bridge loan the same as a hard money loan?", a: "<strong>They overlap.</strong> <strong>Bridge describes the purpose</strong> (covering a gap), while <strong>hard money describes the asset-based, fast-funding style</strong>. Most bridge loans from a private lender are hard money loans." },
     ],
   },
   {
@@ -292,9 +292,9 @@ export const guides = [
 <p>When the build is done, you either sell or refinance into a permanent loan or a DSCR rental loan if you are keeping it. Planning the exit up front keeps the project from stalling at the finish line.</p>
 `,
     faqs: [
-      { q: "What is a draw on a construction loan?", a: "A draw is a scheduled release of loan funds tied to a completed and inspected stage of construction, such as foundation or framing. You pay interest only on funds drawn so far." },
-      { q: "What is the difference between LTV and LTC on a construction loan?", a: "LTC (loan-to-cost) sizes the loan against total project cost during the build. LTV (loan-to-value) measures the loan against the finished or as-is value. Construction loans lead with LTC." },
-      { q: "Can first-time builders get a construction loan?", a: "Yes, with a sound budget, permits, and a realistic plan, though experienced builders typically qualify for higher leverage and better pricing." },
+      { q: "What is a draw on a construction loan?", a: "A draw is a <strong>scheduled release of loan funds</strong> tied to a <strong>completed and inspected stage</strong> of construction, such as foundation or framing. You pay <strong>interest only on funds drawn so far</strong>." },
+      { q: "What is the difference between LTV and LTC on a construction loan?", a: "<strong>LTC (loan-to-cost)</strong> sizes the loan against <strong>total project cost</strong> during the build. <strong>LTV (loan-to-value)</strong> measures the loan against the finished or as-is value. Construction loans <strong>lead with LTC</strong>." },
+      { q: "Can first-time builders get a construction loan?", a: "<strong>Yes</strong>, with a <strong>sound budget, permits, and a realistic plan</strong>, though experienced builders typically qualify for <strong>higher leverage and better pricing</strong>." },
     ],
   },
   {
@@ -325,9 +325,9 @@ export const guides = [
 <p>Pricing is a flat fee rather than an annual rate, because the loan lasts a day. The fee is small relative to your assignment spread, and you keep the deal on schedule without tying up your own capital.</p>
 `,
     faqs: [
-      { q: "What is the difference between transactional funding and an assignment?", a: "An assignment transfers your purchase contract to the end buyer for a fee. Transactional funding instead funds an actual purchase and resale (a double close), useful when the end buyer's lender will not allow an assignment." },
-      { q: "How long is transactional funding outstanding?", a: "Usually hours. The A-to-B and B-to-C closings happen back to back, often the same day, so the capital is repaid almost immediately from the end buyer's funds." },
-      { q: "Do you need good credit for transactional funding?", a: "Credit matters far less than on a normal loan because the financing is repaid the same day from the resale. The deal and the end buyer drive the approval." },
+      { q: "What is the difference between transactional funding and an assignment?", a: "An <strong>assignment transfers your purchase contract</strong> to the end buyer for a fee. <strong>Transactional funding</strong> instead funds an actual purchase and resale (a <strong>double close</strong>), useful when the end buyer's lender will not allow an assignment." },
+      { q: "How long is transactional funding outstanding?", a: "<strong>Usually hours.</strong> The <strong>A-to-B and B-to-C closings</strong> happen back to back, often the <strong>same day</strong>, so the capital is <strong>repaid almost immediately</strong> from the end buyer's funds." },
+      { q: "Do you need good credit for transactional funding?", a: "<strong>Credit matters far less</strong> than on a normal loan because the financing is <strong>repaid the same day</strong> from the resale. The <strong>deal and the end buyer drive the approval</strong>." },
     ],
   },
   {
@@ -357,9 +357,9 @@ export const guides = [
 <p>For pure investment property, qualifying on the asset (its value or its rent, as with a DSCR loan) can be cleaner than documenting income at all. The right path depends on whether the strength is in your cash flow or in the deal.</p>
 `,
     faqs: [
-      { q: "What is a bank statement loan?", a: "A bank statement loan qualifies a self-employed borrower using 12 to 24 months of bank deposits to show real cash flow, instead of tax returns or W-2s." },
-      { q: "Is a no-doc loan really no documentation?", a: "Not literally. No-doc means no income documentation; the loan qualifies on the asset (value or rent). You will still verify identity, the entity, the property, and reserves." },
-      { q: "Who should consider a bank statement loan?", a: "Self-employed investors, business owners, and anyone whose tax returns understate their true income because of write-offs." },
+      { q: "What is a bank statement loan?", a: "A <strong>bank statement loan</strong> qualifies a self-employed borrower using <strong>12 to 24 months of bank deposits</strong> to show real cash flow, <strong>instead of tax returns or W-2s</strong>." },
+      { q: "Is a no-doc loan really no documentation?", a: "<strong>Not literally.</strong> <strong>No-doc means no income documentation</strong>; the loan <strong>qualifies on the asset</strong> (value or rent). You will still verify identity, the entity, the property, and reserves." },
+      { q: "Who should consider a bank statement loan?", a: "<strong>Self-employed investors</strong>, <strong>business owners</strong>, and anyone whose <strong>tax returns understate their true income</strong> because of <strong>write-offs</strong>." },
     ],
   },
   {
@@ -392,9 +392,9 @@ export const guides = [
 <p>A single-purpose LLC per property (or per group) is common, quick, and inexpensive to form. If you do not have one yet, set it up before closing.</p>
 `,
     faqs: [
-      { q: "Can you get a mortgage in an LLC name?", a: "Yes, with business-purpose loans like DSCR or portfolio loans, which are designed to close in an entity's name. Most conventional consumer mortgages cannot." },
-      { q: "Do you need a personal guarantee on an LLC loan?", a: "Usually yes. The loan and title sit with the LLC, but the lender typically asks the principal to personally guarantee it." },
-      { q: "Should each rental be in its own LLC?", a: "Many investors use a single-purpose LLC per property for liability separation and clean books, though some group properties. Confirm structure with your attorney and CPA." },
+      { q: "Can you get a mortgage in an LLC name?", a: "<strong>Yes</strong>, with <strong>business-purpose loans</strong> like DSCR or portfolio loans, which are designed to <strong>close in an entity's name</strong>. Most conventional consumer mortgages cannot." },
+      { q: "Do you need a personal guarantee on an LLC loan?", a: "<strong>Usually yes.</strong> The <strong>loan and title sit with the LLC</strong>, but the lender typically asks the principal to <strong>personally guarantee</strong> it." },
+      { q: "Should each rental be in its own LLC?", a: "Many investors use a <strong>single-purpose LLC per property</strong> for <strong>liability separation</strong> and clean books, though some group properties. Confirm structure with your <strong>attorney and CPA</strong>." },
     ],
   },
   {
@@ -427,9 +427,9 @@ export const guides = [
 <p>Two loans can both say "80%" and mean very different cash out of your pocket. Always ask whether a quoted percentage is against value or against cost.</p>
 `,
     faqs: [
-      { q: "What is the difference between LTV and LTC?", a: "LTV measures the loan against the property's value; LTC measures it against the total cost of the project. LTC is used during a build or rehab, LTV on a finished or stabilized property." },
-      { q: "Which is used for a construction loan?", a: "Construction loans lead with LTC (loan-to-cost), because the finished value does not exist yet. Leverage is sized against land plus construction costs." },
-      { q: "Can a loan use both LTV and LTC?", a: "Yes. Fix and flip loans often combine purchase leverage and rehab funding while also capping total exposure at a percentage of after-repair value (ARV)." },
+      { q: "What is the difference between LTV and LTC?", a: "<strong>LTV measures the loan against the property's value</strong>; <strong>LTC measures it against the total cost</strong> of the project. LTC is used <strong>during a build or rehab</strong>, LTV on a finished or stabilized property." },
+      { q: "Which is used for a construction loan?", a: "Construction loans <strong>lead with LTC (loan-to-cost)</strong>, because the <strong>finished value does not exist yet</strong>. Leverage is sized against <strong>land plus construction costs</strong>." },
+      { q: "Can a loan use both LTV and LTC?", a: "<strong>Yes.</strong> Fix and flip loans often <strong>combine purchase leverage and rehab funding</strong> while also capping total exposure at a percentage of <strong>after-repair value (ARV)</strong>." },
     ],
   },
   {
@@ -460,9 +460,9 @@ export const guides = [
 <p>Bring a sound deal, a realistic budget, and a clear exit. Maximize lender leverage, then fill the small remaining gap with a partner or private money. That is how experienced flippers get as close to no money down as it gets.</p>
 `,
     faqs: [
-      { q: "Can you really flip a house with no money down?", a: "Truly zero out of pocket is uncommon. Investors get close by combining high-leverage financing (up to 90% of purchase, 100% of rehab) with a partner, private money, or a strong below-market purchase." },
-      { q: "What is an interest reserve?", a: "An interest reserve is loan proceeds set aside to cover the interest payments during the project, so you make no out-of-pocket payments until the exit, when the value supports it." },
-      { q: "Do you need cash for a fix and flip?", a: "Usually some, for the down payment and closing costs, but a below-market deal, high leverage, and a partner can shrink that to a minimum." },
+      { q: "Can you really flip a house with no money down?", a: "<strong>Truly zero out of pocket is uncommon.</strong> Investors get close by combining high-leverage financing (<strong>up to 90% of purchase, 100% of rehab</strong>) with a <strong>partner, private money, or a strong below-market purchase</strong>." },
+      { q: "What is an interest reserve?", a: "An <strong>interest reserve</strong> is loan proceeds set aside to <strong>cover the interest payments</strong> during the project, so you make <strong>no out-of-pocket payments until the exit</strong>, when the value supports it." },
+      { q: "Do you need cash for a fix and flip?", a: "<strong>Usually some</strong>, for the <strong>down payment and closing costs</strong>, but a <strong>below-market deal, high leverage, and a partner</strong> can shrink that to a minimum." },
     ],
   },
   {
@@ -495,9 +495,9 @@ export const guides = [
 <p>Both programs require your business to occupy the majority of the property. SBA financing is for the building your business operates from, not for passive investment real estate.</p>
 `,
     faqs: [
-      { q: "What is the main difference between SBA 7(a) and 504?", a: "The 504 is built for fixed assets like owner-occupied real estate, combining a bank loan, a CDC loan, and roughly 10% down. The 7(a) is a flexible general-purpose loan that can also fund working capital and business acquisition." },
-      { q: "Can you use an SBA loan for investment property?", a: "No. SBA 7(a) and 504 require the business to occupy the majority of the property. They finance owner-occupied real estate, not passive rentals." },
-      { q: "How much is the down payment on an SBA 504?", a: "Typically around 10% for a standard owner-occupied purchase, though it can be higher for special-purpose properties or startups." },
+      { q: "What is the main difference between SBA 7(a) and 504?", a: "The <strong>504</strong> is built for fixed assets like <strong>owner-occupied real estate</strong>, combining a bank loan, a CDC loan, and roughly <strong>10% down</strong>. The <strong>7(a)</strong> is a flexible general-purpose loan that can also fund working capital and business acquisition." },
+      { q: "Can you use an SBA loan for investment property?", a: "<strong>No.</strong> SBA 7(a) and 504 require the business to <strong>occupy the majority of the property</strong>. They finance <strong>owner-occupied real estate, not passive rentals</strong>." },
+      { q: "How much is the down payment on an SBA 504?", a: "Typically <strong>around 10%</strong> for a standard <strong>owner-occupied purchase</strong>, though it can be higher for <strong>special-purpose properties or startups</strong>." },
     ],
   },
   {
@@ -533,9 +533,9 @@ export const guides = [
 <p>Note that loan types differ: bridge and fix and flip close fastest, DSCR rental loans take a bit longer for the appraisal and rent verification, and SBA runs much longer because it is fully documented.</p>
 `,
     faqs: [
-      { q: "How long does a hard money loan take to close?", a: "Often 5 to 7 business days for bridge and fix and flip loans, compared with 30 to 60+ days for a bank. DSCR rental loans take a little longer, and SBA loans much longer." },
-      { q: "What slows down a hard money closing?", a: "Usually title issues, insurance, or slow document turnaround from the borrower, not the lender's underwriting. A clean file closes fast." },
-      { q: "Can a hard money loan close in 48 hours?", a: "A term sheet can come within about 48 hours on a complete file, and we fund within 48 hours of clear title. The main variable is how fast title and insurance come together, which is why a full close typically takes 5 to 7 days." },
+      { q: "How long does a hard money loan take to close?", a: "Often <strong>5 to 7 business days</strong> for bridge and fix and flip loans, compared with <strong>30 to 60+ days for a bank</strong>. DSCR rental loans take a little longer, and <strong>SBA loans much longer</strong>." },
+      { q: "What slows down a hard money closing?", a: "Usually <strong>title issues, insurance, or slow document turnaround</strong> from the borrower, <strong>not the lender's underwriting</strong>. A <strong>clean file closes fast</strong>." },
+      { q: "Can a hard money loan close in 48 hours?", a: "A term sheet can come <strong>within about 48 hours</strong> on a complete file, and we <strong>fund within 48 hours of clear title</strong>. The main variable is how fast title and insurance come together, which is why a full close typically takes <strong>5 to 7 days</strong>." },
     ],
   },
   {
@@ -565,9 +565,9 @@ export const guides = [
 <p>Credit is a lever, not a gate. A solid property and sensible leverage can carry a borrower whose score is on the edge.</p>
 `,
     faqs: [
-      { q: "What is the minimum credit score for a DSCR loan?", a: "Most lenders look for around 660 to 680. A higher score earns a better rate and more leverage; a lower score can sometimes be offset with a larger down payment." },
-      { q: "Do DSCR lenders check personal income?", a: "No. A DSCR loan qualifies on the property's rent versus its payment, so there is no personal income or tax-return test. Credit and the property carry the file." },
-      { q: "Can you get a DSCR loan with bad credit?", a: "It is harder and pricier, but possible with a strong property and a larger down payment. The lower the credit, the more the deal has to carry." },
+      { q: "What is the minimum credit score for a DSCR loan?", a: "Most lenders look for <strong>around 660 to 680</strong>. A <strong>higher score earns a better rate and more leverage</strong>; a lower score can sometimes be offset with a <strong>larger down payment</strong>." },
+      { q: "Do DSCR lenders check personal income?", a: "<strong>No.</strong> A DSCR loan <strong>qualifies on the property's rent</strong> versus its payment, so there is <strong>no personal income or tax-return test</strong>. Credit and the property carry the file." },
+      { q: "Can you get a DSCR loan with bad credit?", a: "It is <strong>harder and pricier, but possible</strong> with a <strong>strong property and a larger down payment</strong>. The lower the credit, <strong>the more the deal has to carry</strong>." },
     ],
   },
   {
@@ -595,9 +595,9 @@ export const guides = [
 <p>Buy further below market so the equity offsets cash, bring a partner or private money for the down payment, or use an interest reserve so you make no payments during the hold. Experienced flippers can also earn higher leverage, which lowers the down payment.</p>
 `,
     faqs: [
-      { q: "How much down do you need for a fix and flip loan?", a: "Usually around 10% of the purchase price, since lenders fund up to 90% of purchase. You also cover closing costs and float the rehab between draws." },
-      { q: "Do fix and flip lenders fund the rehab?", a: "Yes, up to 100% of the rehab budget, reimbursed in draws as work is completed and inspected. You typically fund each stage first and get reimbursed." },
-      { q: "Can you reduce the down payment on a flip?", a: "Yes, with a strong below-market purchase, a partner or private money, or higher leverage earned through experience." },
+      { q: "How much down do you need for a fix and flip loan?", a: "Usually <strong>around 10% of the purchase price</strong>, since lenders fund <strong>up to 90% of purchase</strong>. You also cover closing costs and <strong>float the rehab between draws</strong>." },
+      { q: "Do fix and flip lenders fund the rehab?", a: "<strong>Yes</strong>, <strong>up to 100% of the rehab budget</strong>, <strong>reimbursed in draws</strong> as work is completed and inspected. You typically fund each stage first and get reimbursed." },
+      { q: "Can you reduce the down payment on a flip?", a: "<strong>Yes</strong>, with a strong <strong>below-market purchase</strong>, a <strong>partner or private money</strong>, or <strong>higher leverage</strong> earned through experience." },
     ],
   },
   {
@@ -627,9 +627,9 @@ export const guides = [
 <p>Many investors stack both: a hard money loan for the bulk of the deal and private money for the remaining cash.</p>
 `,
     faqs: [
-      { q: "Is hard money the same as private money?", a: "They overlap. Hard money is asset-based lending from a professional lender with set programs; private money is from an individual with negotiable, relationship-based terms. People often use the terms interchangeably." },
-      { q: "Which is cheaper, hard money or private money?", a: "It depends. Private money from someone you know can be cheaper or more flexible, but hard money offers defined terms, reliability, and fast, repeatable closings." },
-      { q: "Can you combine hard money and private money?", a: "Yes. A common structure uses a hard money loan for most of the deal and private money for the down payment or a gap." },
+      { q: "Is hard money the same as private money?", a: "<strong>They overlap.</strong> <strong>Hard money is asset-based lending</strong> from a professional lender with set programs; <strong>private money is from an individual</strong> with negotiable, relationship-based terms. People often use the terms interchangeably." },
+      { q: "Which is cheaper, hard money or private money?", a: "<strong>It depends.</strong> Private money from someone you know can be <strong>cheaper or more flexible</strong>, but hard money offers <strong>defined terms, reliability, and fast, repeatable closings</strong>." },
+      { q: "Can you combine hard money and private money?", a: "<strong>Yes.</strong> A common structure uses a <strong>hard money loan for most of the deal</strong> and <strong>private money for the down payment or a gap</strong>." },
     ],
   },
   {
@@ -660,9 +660,9 @@ export const guides = [
 <p>A private lender can often issue a proof-of-funds letter after a short pre-qualification, sometimes before you are even under contract. Have your basics ready, the kind of deals you target, your entity, and your typical price range, and a lender can turn one around quickly.</p>
 `,
     faqs: [
-      { q: "What is a proof of funds letter?", a: "A document showing a seller or agent that you have the capital or financing to close. For investors, it is usually a lender letter confirming you are approved to fund up to a set amount." },
-      { q: "How do you get a proof of funds letter?", a: "Get pre-qualified with a lender and request the letter. A private lender can often issue one after a short application, sometimes before you are under contract." },
-      { q: "Does a proof of funds letter guarantee a loan?", a: "No. It confirms you are approved to fund up to an amount, but the specific deal still goes through underwriting, title, and insurance before it closes." },
+      { q: "What is a proof of funds letter?", a: "A document showing a seller or agent that you have the <strong>capital or financing to close</strong>. For investors, it is usually a <strong>lender letter</strong> confirming you are <strong>approved to fund up to a set amount</strong>." },
+      { q: "How do you get a proof of funds letter?", a: "Get <strong>pre-qualified</strong> with a lender and request the letter. A private lender can often issue one after a <strong>short application</strong>, sometimes <strong>before you are under contract</strong>." },
+      { q: "Does a proof of funds letter guarantee a loan?", a: "<strong>No.</strong> It confirms you are <strong>approved to fund up to an amount</strong>, but the specific deal still goes through <strong>underwriting, title, and insurance</strong> before it closes." },
     ],
   },
   {
@@ -695,9 +695,9 @@ export const guides = [
 <p>Stop qualifying as a consumer and start qualifying as a business. Once the assets carry the loans, the constraint becomes deal flow, not your personal balance sheet.</p>
 `,
     faqs: [
-      { q: "How do investors finance more than 10 rentals?", a: "By moving to business-purpose loans like DSCR and portfolio loans, which qualify on the properties rather than counting against conventional property limits or your debt-to-income ratio." },
-      { q: "What is the fastest way to scale a rental portfolio?", a: "The BRRRR method, recycling the same capital by refinancing it back out after each deal, combined with DSCR loans that have no property-count cap." },
-      { q: "Should you hold rentals in an LLC to scale?", a: "Most investors do, for liability separation and clean books, and because DSCR and portfolio loans are built to close in an entity's name." },
+      { q: "How do investors finance more than 10 rentals?", a: "By moving to <strong>business-purpose loans like DSCR and portfolio loans</strong>, which <strong>qualify on the properties</strong> rather than counting against conventional property limits or your <strong>debt-to-income ratio</strong>." },
+      { q: "What is the fastest way to scale a rental portfolio?", a: "The <strong>BRRRR method</strong>, <strong>recycling the same capital</strong> by refinancing it back out after each deal, combined with DSCR loans that have <strong>no property-count cap</strong>." },
+      { q: "Should you hold rentals in an LLC to scale?", a: "<strong>Most investors do</strong>, for <strong>liability separation</strong> and clean books, and because DSCR and portfolio loans are built to <strong>close in an entity's name</strong>." },
     ],
   },
   {
@@ -727,9 +727,9 @@ export const guides = [
 <p>A blanket loan fits once you hold several stabilized rentals and want to streamline. If you are still acquiring one property at a time, individual DSCR loans may be the better tool until you have enough to consolidate.</p>
 `,
     faqs: [
-      { q: "What is a blanket loan in real estate?", a: "A single loan secured by multiple properties, with one payment, used by investors to finance or consolidate several rentals at once." },
-      { q: "What is a release clause on a blanket loan?", a: "A provision that lets you sell one property out of the group and pay down a portion of the loan without paying off or refinancing the entire blanket loan." },
-      { q: "Is a blanket loan the same as a portfolio loan?", a: "Often yes. Both describe financing multiple properties under one loan. Terms vary by lender, but the idea is the same." },
+      { q: "What is a blanket loan in real estate?", a: "A <strong>single loan secured by multiple properties</strong>, with <strong>one payment</strong>, used by investors to finance or <strong>consolidate several rentals at once</strong>." },
+      { q: "What is a release clause on a blanket loan?", a: "A provision that lets you <strong>sell one property out of the group</strong> and <strong>pay down a portion of the loan</strong> <strong>without paying off or refinancing the entire blanket loan</strong>." },
+      { q: "Is a blanket loan the same as a portfolio loan?", a: "<strong>Often yes.</strong> Both describe <strong>financing multiple properties under one loan</strong>. Terms vary by lender, but the <strong>idea is the same</strong>." },
     ],
   },
   {
@@ -759,9 +759,9 @@ export const guides = [
 <p>The amount depends on the property's value, the loan-to-value limit, and, for DSCR, whether the rent supports the new payment. A higher value and stronger rent let you pull more.</p>
 `,
     faqs: [
-      { q: "Can you do a cash-out refinance on a rental property?", a: "Yes. A DSCR cash-out refinance qualifies on the property's rent, so you can convert equity to cash without a personal income test." },
-      { q: "How much can you cash out on an investment property?", a: "It depends on the property's value, the lender's loan-to-value limit, and whether the rent covers the new payment. Stronger value and rent let you pull more." },
-      { q: "When should you do a cash-out refinance?", a: "Common uses are the refinance leg of a BRRRR deal, pulling equity to fund the next purchase, or replacing a bridge loan with long-term debt." },
+      { q: "Can you do a cash-out refinance on a rental property?", a: "<strong>Yes.</strong> A <strong>DSCR cash-out refinance</strong> qualifies on the property's rent, so you can <strong>convert equity to cash</strong> <strong>without a personal income test</strong>." },
+      { q: "How much can you cash out on an investment property?", a: "<strong>It depends</strong> on the property's value, the lender's <strong>loan-to-value limit</strong>, and whether the <strong>rent covers the new payment</strong>. Stronger value and rent let you pull more." },
+      { q: "When should you do a cash-out refinance?", a: "Common uses are the <strong>refinance leg of a BRRRR deal</strong>, <strong>pulling equity to fund the next purchase</strong>, or <strong>replacing a bridge loan with long-term debt</strong>." },
     ],
   },
   {
@@ -791,9 +791,9 @@ export const guides = [
 <p>You are not building equity through principal paydown during the interest-only period, so you rely on appreciation or the exit to repay. For short-term deals that is ideal; for a long-term hold, weigh it against amortizing.</p>
 `,
     faqs: [
-      { q: "What does interest-only mean on a loan?", a: "You pay only the interest for a set period, with no principal, which lowers the payment. The principal is repaid later at sale, refinance, or when the loan starts amortizing." },
-      { q: "Why do investors use interest-only loans?", a: "Lower payments mean higher cash flow on rentals (and a better DSCR) and lower carrying cost on short-term flip or bridge deals." },
-      { q: "Is interest-only good for a long-term rental?", a: "It boosts cash flow but builds no equity through principal during the interest-only period. It suits short holds best; for long holds, compare it to an amortizing option." },
+      { q: "What does interest-only mean on a loan?", a: "You <strong>pay only the interest</strong> for a set period, with <strong>no principal</strong>, which <strong>lowers the payment</strong>. The principal is repaid later at sale, refinance, or when the loan <strong>starts amortizing</strong>." },
+      { q: "Why do investors use interest-only loans?", a: "<strong>Lower payments</strong> mean <strong>higher cash flow</strong> on rentals (and a <strong>better DSCR</strong>) and <strong>lower carrying cost</strong> on short-term flip or bridge deals." },
+      { q: "Is interest-only good for a long-term rental?", a: "It <strong>boosts cash flow</strong> but <strong>builds no equity through principal</strong> during the interest-only period. It <strong>suits short holds best</strong>; for long holds, compare it to an amortizing option." },
     ],
   },
   {
@@ -829,9 +829,9 @@ export const guides = [
 <p>Flip when you need capital now or want to fund your holds. Hold when you want durable, growing income. The <strong>BRRRR method</strong> blends both: renovate like a flipper, then keep and refinance like a holder.</p>
 `,
     faqs: [
-      { q: "Is flipping or renting more profitable?", a: "Flipping produces larger lump sums faster; renting produces smaller, recurring income that compounds over time. Which wins depends on your goals and time horizon." },
-      { q: "Which is less risky, flipping or holding?", a: "Holding is generally lower risk because it does not depend on a single quick sale, but it ties up capital longer. Flipping is faster but more exposed to market timing and rehab overruns." },
-      { q: "Can you do both fix and flip and buy and hold?", a: "Yes. Many investors flip for capital and hold for wealth, and the BRRRR method deliberately combines the two." },
+      { q: "Is flipping or renting more profitable?", a: "Flipping produces <strong>larger lump sums faster</strong>; renting produces smaller, <strong>recurring income that compounds</strong> over time. Which wins depends on your <strong>goals and time horizon</strong>." },
+      { q: "Which is less risky, flipping or holding?", a: "Holding is generally <strong>lower risk</strong> because it does not depend on a single quick sale, but it <strong>ties up capital longer</strong>. Flipping is faster but more exposed to <strong>market timing and rehab overruns</strong>." },
+      { q: "Can you do both fix and flip and buy and hold?", a: "<strong>Yes.</strong> Many investors <strong>flip for capital and hold for wealth</strong>, and the <strong>BRRRR method</strong> deliberately combines the two." },
     ],
   },
   {
@@ -861,9 +861,9 @@ export const guides = [
 </ul>
 `,
     faqs: [
-      { q: "How does a construction loan draw work?", a: "Funds release in stages tied to completed, inspected milestones. You pay interest only on the amount drawn so far, and you typically fund each stage before reimbursement." },
-      { q: "How many draws are in a construction loan?", a: "It varies, but draws usually map to major milestones such as foundation, framing, roof, mechanicals, and finish, often a handful across the project." },
-      { q: "Do you pay interest on the full construction loan?", a: "No. You pay interest only on funds that have been drawn, which keeps early-stage carrying costs lower." },
+      { q: "How does a construction loan draw work?", a: "Funds <strong>release in stages</strong> tied to <strong>completed, inspected milestones</strong>. You pay <strong>interest only on the amount drawn so far</strong>, and you typically fund each stage before reimbursement." },
+      { q: "How many draws are in a construction loan?", a: "It varies, but draws usually map to <strong>major milestones</strong> such as <strong>foundation, framing, roof, mechanicals, and finish</strong>, often <strong>a handful across the project</strong>." },
+      { q: "Do you pay interest on the full construction loan?", a: "<strong>No.</strong> You pay <strong>interest only on funds that have been drawn</strong>, which keeps <strong>early-stage carrying costs lower</strong>." },
     ],
   },
   {
@@ -893,9 +893,9 @@ export const guides = [
 <p>Most lenders want at least 1.00. USAM Fund lends with a DSCR as low as 1.00. A higher ratio improves your rate and leverage because it shows more cushion. If a property comes in below the floor, more down payment lowers the payment and raises the ratio.</p>
 `,
     faqs: [
-      { q: "What is the formula for DSCR?", a: "DSCR = monthly rent divided by the monthly payment (PITIA: principal, interest, taxes, insurance, and association dues). A DSCR of 1.00 means the rent exactly covers the payment." },
-      { q: "What is a good DSCR for a rental?", a: "1.00 is the common floor (breakeven). Above that is positive cash flow; 1.20 or higher gives comfortable cushion and better loan terms." },
-      { q: "How do you raise a property's DSCR?", a: "Increase rent, or lower the payment with a larger down payment or a longer term or interest-only structure. Both raise the ratio." },
+      { q: "What is the formula for DSCR?", a: "<strong>DSCR = monthly rent divided by the monthly payment</strong> (<strong>PITIA</strong>: principal, interest, taxes, insurance, and association dues). A <strong>DSCR of 1.00</strong> means the rent exactly covers the payment." },
+      { q: "What is a good DSCR for a rental?", a: "<strong>1.00 is the common floor (breakeven)</strong>. Above that is <strong>positive cash flow</strong>; <strong>1.20 or higher</strong> gives comfortable cushion and better loan terms." },
+      { q: "How do you raise a property's DSCR?", a: "<strong>Increase rent</strong>, or lower the payment with a <strong>larger down payment</strong> or a longer term or <strong>interest-only structure</strong>. Both raise the ratio." },
     ],
   },
   {
@@ -929,9 +929,9 @@ export const guides = [
 <p>Acquire with a bridge loan, execute your business plan to stabilize the asset, then refinance into permanent debt, agency, insurance, or wholesale, at a lower long-term rate. The bridge wins the deal; the permanent loan keeps it.</p>
 `,
     faqs: [
-      { q: "What is the difference between a bridge loan and permanent financing?", a: "A bridge loan is short-term, fast, and flexible for acquiring or repositioning a property. Permanent financing is long-term and cheaper, for stabilized property held for the long run." },
-      { q: "Can you refinance a bridge loan into a permanent loan?", a: "Yes, that is the standard path. You use a bridge to acquire and stabilize, then refinance into long-term permanent debt at a lower rate." },
-      { q: "Why not just use permanent financing from the start?", a: "Permanent lenders require stabilized, documented income and close slower. If a property is not yet stabilized or you need speed, a bridge loan fills the gap." },
+      { q: "What is the difference between a bridge loan and permanent financing?", a: "A bridge loan is <strong>short-term, fast, and flexible</strong> for <strong>acquiring or repositioning</strong> a property. <strong>Permanent financing is long-term and cheaper</strong>, for <strong>stabilized property</strong> held for the long run." },
+      { q: "Can you refinance a bridge loan into a permanent loan?", a: "<strong>Yes</strong>, that is the standard path. You use a bridge to <strong>acquire and stabilize</strong>, then <strong>refinance into long-term permanent debt</strong> at a lower rate." },
+      { q: "Why not just use permanent financing from the start?", a: "Permanent lenders require <strong>stabilized, documented income</strong> and <strong>close slower</strong>. If a property is not yet stabilized or you need speed, a <strong>bridge loan fills the gap</strong>." },
     ],
   },
   {
@@ -965,9 +965,9 @@ export const guides = [
 <p>Title, insurance, and your documents are what drive the timeline, not the lender's decision. A complete file closes in days; a thin one drags.</p>
 `,
     faqs: [
-      { q: "What documents do you need for a hard money loan?", a: "The purchase contract, a scope of work and budget for a rehab, entity documents, bank statements showing reserves, an insurance binder, ID, and an exit plan. No tax returns or W-2s on most programs." },
-      { q: "Do hard money lenders require tax returns?", a: "Generally no. Asset-based loans qualify on the property and your plan, so they skip tax returns and pay stubs, though they verify reserves and the entity." },
-      { q: "What slows down a hard money closing?", a: "Usually title issues, insurance, or slow document turnaround from the borrower, not the lender. A complete file closes in days." },
+      { q: "What documents do you need for a hard money loan?", a: "The <strong>purchase contract</strong>, a <strong>scope of work and budget</strong> for a rehab, entity documents, <strong>bank statements showing reserves</strong>, an insurance binder, ID, and an exit plan. <strong>No tax returns or W-2s</strong> on most programs." },
+      { q: "Do hard money lenders require tax returns?", a: "<strong>Generally no.</strong> Asset-based loans <strong>qualify on the property and your plan</strong>, so they <strong>skip tax returns and pay stubs</strong>, though they verify reserves and the entity." },
+      { q: "What slows down a hard money closing?", a: "Usually <strong>title issues, insurance, or slow document turnaround</strong> from the borrower, <strong>not the lender</strong>. A <strong>complete file closes in days</strong>." },
     ],
   },
   {
@@ -1003,9 +1003,9 @@ export const guides = [
 <p>Building new on a lot or after a teardown? Construction loan. Buying a property to renovate and sell or hold? A fix and flip loan with rehab funding. The deciding factor is whether you are creating a structure or improving one.</p>
 `,
     faqs: [
-      { q: "What is the difference between a construction loan and a renovation loan?", a: "A construction loan funds building a new structure from the ground up and is sized on loan-to-cost. A renovation loan funds improving an existing property and is usually paired with purchase leverage and capped against ARV." },
-      { q: "Do both use draws?", a: "Yes. Both release funds in stages as work is completed and inspected, but construction follows build milestones while renovation follows the scope of work." },
-      { q: "Which loan is for a teardown and rebuild?", a: "A ground-up construction loan, since you are creating a new structure. Improving a standing building uses a renovation or fix and flip loan." },
+      { q: "What is the difference between a construction loan and a renovation loan?", a: "A <strong>construction loan funds building a new structure</strong> from the ground up and is <strong>sized on loan-to-cost</strong>. A <strong>renovation loan funds improving an existing property</strong> and is usually paired with purchase leverage and <strong>capped against ARV</strong>." },
+      { q: "Do both use draws?", a: "<strong>Yes.</strong> Both <strong>release funds in stages</strong> as work is completed and inspected, but construction follows <strong>build milestones</strong> while renovation follows the <strong>scope of work</strong>." },
+      { q: "Which loan is for a teardown and rebuild?", a: "A <strong>ground-up construction loan</strong>, since you are <strong>creating a new structure</strong>. Improving a standing building uses a <strong>renovation or fix and flip loan</strong>." },
     ],
   },
   {
@@ -1038,10 +1038,338 @@ export const guides = [
 <p>Your purchase plus rehab needs to leave room under the after-repair value for profit and the lender's ARV cap. If the budget pushes you past that, re-scope or renegotiate the buy.</p>
 `,
     faqs: [
-      { q: "How do you estimate a rehab budget?", a: "Build a detailed scope of work by area and system, price each line from contractor quotes or known unit costs, and add a contingency (often 10-20%) plus carrying costs." },
-      { q: "How much contingency should a rehab budget include?", a: "Commonly 10-20%, to cover hidden problems that surface once work begins, like wiring, plumbing, or structural issues behind walls." },
-      { q: "Why does the lender care about my rehab budget?", a: "The lender funds the rehab in draws against your budget and caps total loan exposure under the after-repair value, so a realistic budget keeps the deal and your draws on track." },
+      { q: "How do you estimate a rehab budget?", a: "Build a <strong>detailed scope of work</strong> by area and system, price each line from <strong>contractor quotes or known unit costs</strong>, and add a <strong>contingency (often 10-20%)</strong> plus <strong>carrying costs</strong>." },
+      { q: "How much contingency should a rehab budget include?", a: "Commonly <strong>10-20%</strong>, to cover <strong>hidden problems</strong> that surface once work begins, like <strong>wiring, plumbing, or structural issues</strong> behind walls." },
+      { q: "Why does the lender care about my rehab budget?", a: "The lender <strong>funds the rehab in draws</strong> against your budget and <strong>caps total loan exposure under the after-repair value</strong>, so a <strong>realistic budget</strong> keeps the deal and your draws on track." },
     ],
+  },
+  {
+    slug: "bridge-loan-exit-strategies",
+    title: "Bridge Loan Exit Strategies: How to Pay Off Short-Term Debt",
+    metaTitle: "Bridge Loan Exit Strategies Explained | USAM Fund",
+    description:
+      "A bridge loan is only as good as its exit. Learn the three ways investors pay off bridge debt, refinance, sale, or stabilization, and how to plan the exit before you borrow.",
+    category: "Bridge",
+    readMins: 5,
+    datePublished: "2026-06-23",
+    related: ["cre-bridge", "cre-permanent", "rental-dscr"],
+    faqs: [
+      { q: "What is a bridge loan exit strategy?", a: "It is the plan for <strong>how you repay the bridge loan at maturity</strong>, usually a <strong>refinance into long-term debt</strong>, a <strong>sale of the property</strong>, or <strong>stabilizing the asset</strong> so it qualifies for permanent financing." },
+      { q: "What happens if I can't exit a bridge loan on time?", a: "Most bridge loans build in a <strong>cushion of 12 to 36 months</strong>, and a lender can <strong>often extend</strong> if you are close. <strong>Tell us early</strong> so we can arrange more time rather than reach the maturity date by surprise." },
+      { q: "Can I refinance a bridge loan into a DSCR loan?", a: "<strong>Yes.</strong> <strong>Refinancing a stabilized rental</strong> from a bridge loan into a <strong>long-term DSCR loan</strong> is one of the most common exits, and it is the backbone of the <strong>BRRRR method</strong>." },
+    ],
+    body: `
+<p>A <strong>bridge loan</strong> is short-term capital, so the most important question is not the rate, it is the <strong>exit</strong>: how you pay it off before it matures. A great deal with no exit is a problem. Plan the exit before you borrow, and a bridge loan becomes one of the most powerful tools in real estate.</p>
+
+<h2>The three ways out of a bridge loan</h2>
+<ul>
+  <li><strong>Refinance</strong> into long-term debt once the property is stabilized, a DSCR loan on a rental or permanent financing on commercial.</li>
+  <li><strong>Sell</strong> the property, most common on a flip or a value-add repositioning where the plan is to exit at a profit.</li>
+  <li><strong>Stabilize and hold</strong>, leasing the asset up so its cash flow supports the permanent loan that takes out the bridge.</li>
+</ul>
+
+<h2>Match the exit to the deal</h2>
+<p>A fix and flip exits by <strong>sale</strong>. A BRRRR rental exits by <strong>refinance</strong>. A commercial value-add exits by <strong>stabilization</strong> into agency or permanent debt. Before you sign, you should be able to name which one applies and roughly when it happens.</p>
+
+<h2>Build in a time cushion</h2>
+<p>We structure bridge terms with room, often <strong>12 to 36 months</strong>, because title delays, permitting, and lease-up rarely move on a perfect schedule. If your project runs long, an extension is usually available when you flag it early.</p>
+
+<h2>Stress-test the exit before you borrow</h2>
+<p>Ask what happens if the refinance appraises low, the sale takes an extra 90 days, or rates move against you. A deal that still works under a slower or more conservative exit is a deal worth funding.</p>
+`,
+  },
+  {
+    slug: "transactional-funding-vs-hard-money",
+    title: "Transactional Funding vs Hard Money: Which One Fits Your Deal?",
+    metaTitle: "Transactional Funding vs Hard Money | USAM Fund",
+    description:
+      "Transactional funding and hard money solve different problems. Learn when a wholesaler needs same-day double-close capital versus a short-term hard money loan to renovate and resell.",
+    category: "Transactional",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["transactional", "fix-flip"],
+    faqs: [
+      { q: "Is transactional funding the same as hard money?", a: "<strong>No.</strong> Transactional funding covers the <strong>A-to-B leg of a same-day double closing</strong> and is <strong>repaid within hours</strong>. <strong>Hard money is a short-term loan</strong>, often months, used to buy and renovate a property." },
+      { q: "Which is cheaper, transactional funding or hard money?", a: "Transactional funding is priced as a <strong>flat fee</strong>, usually <strong>1% to 3% of the amount funded</strong>, because it is outstanding for a day or two. Hard money charges <strong>interest plus points</strong> over the months you hold the loan." },
+      { q: "When does a wholesaler need transactional funding?", a: "When you are doing a true <strong>back-to-back (double) closing</strong> and your title company <strong>requires your own funds on the A-to-B side</strong> <strong>before the B-to-C sale funds you</strong>." },
+    ],
+    body: `
+<p><strong>Transactional funding</strong> and <strong>hard money</strong> both move fast, but they solve different problems. Picking the wrong one costs you fees or kills the deal, so it helps to know exactly what each is built for.</p>
+
+<h2>Transactional funding: same-day double closings</h2>
+<p>Transactional funding covers the <strong>A-to-B leg of a back-to-back closing</strong> so a wholesaler can take title for a few hours and immediately resell to the end buyer (B-to-C). It is <strong>repaid the same day</strong> from the resale, priced as a flat fee, and requires no credit check or appraisal because a ready, funded end buyer is what makes it safe.</p>
+
+<h2>Hard money: buy, renovate, resell</h2>
+<p>Hard money is a <strong>short-term loan you hold for months</strong>, used to purchase and renovate a property before selling or refinancing. It charges interest plus points, funds rehab in draws, and qualifies on the property and the after-repair value rather than your income.</p>
+
+<h2>How to choose</h2>
+<ul>
+  <li>Reselling to an end buyer the <strong>same day</strong>? Use <strong>transactional funding</strong>.</li>
+  <li>Taking title to <strong>improve and exit later</strong>? Use a <strong>hard money</strong> fix and flip loan.</li>
+  <li>Assigning the contract for a fee with no closing in your name? You may need neither, just an assignment.</li>
+</ul>
+
+<h2>The bottom line</h2>
+<p>Transactional funding is a one-day bridge between two simultaneous closings. Hard money is the capital that carries a project from purchase to exit. Match the tool to how long you actually hold the property.</p>
+`,
+  },
+  {
+    slug: "double-closing-explained-for-wholesalers",
+    title: "Double Closing Explained: How Wholesalers Close A-to-B-to-C",
+    metaTitle: "Double Closing Explained for Wholesalers | USAM Fund",
+    description:
+      "A double closing lets a wholesaler buy and resell a property the same day without using their own cash. Learn how the A-to-B-to-C structure works and what you need to fund it.",
+    category: "Transactional",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["transactional"],
+    faqs: [
+      { q: "What is a double closing?", a: "A double closing is <strong>two back-to-back transactions on the same day</strong>: you <strong>buy from the seller (A-to-B)</strong>, then immediately <strong>resell to your end buyer (B-to-C)</strong>. <strong>Transactional funding covers the first leg</strong>." },
+      { q: "Is a double closing legal?", a: "<strong>Yes</strong>, double closings are a <strong>standard, legal way</strong> to complete a wholesale deal, as long as <strong>both transactions are disclosed</strong> and a title or escrow company that allows <strong>back-to-back closings</strong> handles them." },
+      { q: "How is a double closing different from an assignment?", a: "An <strong>assignment transfers your purchase contract</strong> to the end buyer for a fee and <strong>never puts the property in your name</strong>. A <strong>double closing actually buys and resells</strong> the property, which <strong>keeps your spread private</strong>." },
+    ],
+    body: `
+<p>A <strong>double closing</strong> is how a wholesaler buys a property and resells it the <strong>same day</strong> without ever using their own long-term capital. It is the alternative to an assignment when you want to keep your profit margin private or when the contract cannot be assigned.</p>
+
+<h2>How the A-to-B-to-C structure works</h2>
+<ul>
+  <li><strong>A-to-B:</strong> You (B) buy the property from the seller (A). This leg is funded by <strong>transactional funding</strong>.</li>
+  <li><strong>B-to-C:</strong> You (B) immediately resell to your end buyer (C), often minutes later.</li>
+  <li>The end buyer's funds repay the transactional loan, and your <strong>spread is the difference</strong> between the two prices.</li>
+</ul>
+
+<h2>Why use a double close instead of an assignment</h2>
+<p>An assignment exposes your fee to everyone on the closing statement. A double close keeps the <strong>two prices on separate settlement statements</strong>, so your margin stays private. It is also the right tool when a seller or contract prohibits assignments.</p>
+
+<h2>What you need to fund it</h2>
+<ul>
+  <li>Executed <strong>A-to-B and B-to-C contracts</strong></li>
+  <li>Proof of the <strong>end buyer's funds or financing</strong></li>
+  <li>A title or escrow company that allows <strong>back-to-back closings</strong></li>
+</ul>
+<p>With those in hand, transactional funding can close the same day. The end buyer is the real safety net, which is why no credit check or appraisal is required.</p>
+`,
+  },
+  {
+    slug: "no-doc-investment-property-loans",
+    title: "No-Doc Investment Property Loans: How They Work in 2026",
+    metaTitle: "No-Doc Investment Property Loans Explained | USAM Fund",
+    description:
+      "No-doc loans qualify an investor on the property and reserves instead of income documents. Learn what no-ratio lending is, who it fits, and how it compares to a bank statement loan.",
+    category: "Bank Statement / No-Doc",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["bank-statement", "rental-dscr"],
+    faqs: [
+      { q: "What is a no-doc loan?", a: "A <strong>no-doc (or no-ratio) loan</strong> is a business-purpose investment loan that <strong>qualifies on the property, your credit, and your reserves</strong> rather than any income documentation. There is <strong>no tax return or income calculation</strong>." },
+      { q: "Are no-doc loans legal for investment property?", a: "<strong>Yes.</strong> No-doc lending is <strong>legal for business-purpose, non-owner-occupied property</strong>. The <strong>ability-to-repay rules</strong> that restrict no-doc consumer mortgages <strong>do not apply to investment loans</strong>." },
+      { q: "What credit and down payment do no-doc loans require?", a: "Most programs look for a <strong>credit score around 660 or higher</strong> and a <strong>larger down payment</strong> than a documented loan, often <strong>20% to 30%</strong>, with the best terms going to stronger credit and more equity." },
+    ],
+    body: `
+<p>A <strong>no-doc loan</strong> (also called a no-ratio loan) qualifies an investor on the <strong>property, credit, and reserves</strong> rather than income documents. There is no tax return, no W-2, and no income calculation. For self-employed borrowers and full-time investors, it removes the paperwork that a bank treats as a dealbreaker.</p>
+
+<h2>No-doc vs bank statement vs DSCR</h2>
+<ul>
+  <li><strong>Bank statement loan:</strong> qualifies on 12 to 24 months of deposits.</li>
+  <li><strong>DSCR loan:</strong> qualifies on the <strong>property's rent</strong> versus the payment.</li>
+  <li><strong>No-doc / no-ratio:</strong> skips income entirely and leans on the <strong>asset and your reserves</strong>.</li>
+</ul>
+<p>All three are <strong>business-purpose loans</strong> for investment property, so the consumer ability-to-repay rules that restrict no-doc home loans do not apply.</p>
+
+<h2>Who a no-doc loan fits</h2>
+<p>Investors whose returns understate their income, borrowers with complex finances, and anyone buying through an LLC who would rather not assemble a full income file. The tradeoff is a <strong>higher rate and a larger down payment</strong> in exchange for speed and simplicity.</p>
+
+<h2>What you will still need</h2>
+<ul>
+  <li>A qualifying <strong>credit profile</strong>, typically from around 660</li>
+  <li><strong>Reserves</strong> to show you can carry the property</li>
+  <li>A <strong>down payment</strong> commonly in the 20% to 30% range</li>
+</ul>
+`,
+  },
+  {
+    slug: "bank-statement-loan-requirements",
+    title: "Bank Statement Loan Requirements for Self-Employed Investors",
+    metaTitle: "Bank Statement Loan Requirements | USAM Fund",
+    description:
+      "Bank statement loans let self-employed investors qualify on deposits instead of tax returns. Learn the credit, down payment, and documentation requirements and how income is calculated.",
+    category: "Bank Statement / No-Doc",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["bank-statement", "conventional-investment"],
+    faqs: [
+      { q: "How do lenders calculate income on a bank statement loan?", a: "They <strong>average your deposits over 12 to 24 months</strong>, often applying an <strong>expense factor</strong> to estimate <strong>net business income</strong>. Personal and business statements can both be used depending on the program." },
+      { q: "How many months of bank statements do I need?", a: "Most programs require <strong>12 to 24 months</strong> of <strong>business or personal bank statements</strong>. A <strong>longer, steadier deposit history</strong> generally supports better terms." },
+      { q: "What credit score do bank statement loans require?", a: "Typically a score <strong>around 660 or higher</strong>, with the <strong>best pricing above 700</strong>, plus a larger down payment, often <strong>20% to 30%</strong>, than a fully documented loan." },
+    ],
+    body: `
+<p>A <strong>bank statement loan</strong> lets a self-employed investor qualify on <strong>deposits instead of tax returns</strong>. If your write-offs make your tax return understate what you actually earn, this program lets your real cash flow tell the story.</p>
+
+<h2>How income is calculated</h2>
+<p>Instead of a tax return, the lender <strong>averages your deposits over 12 to 24 months</strong>. Many programs apply an expense factor to estimate net business income, and you can usually choose <strong>business or personal statements</strong>, whichever presents your income most accurately.</p>
+
+<h2>What you need to qualify</h2>
+<ul>
+  <li><strong>12 to 24 months</strong> of business or personal bank statements</li>
+  <li>A <strong>credit score around 660 or higher</strong>, with the best terms above 700</li>
+  <li>A <strong>down payment of roughly 20% to 30%</strong></li>
+  <li><strong>Reserves</strong> to carry the property after closing</li>
+</ul>
+
+<h2>What you do not need</h2>
+<p>No <strong>tax returns, W-2s, or pay stubs</strong>. That is the entire point: a strong borrower with heavy write-offs is not punished for running a tax-efficient business.</p>
+
+<h2>Who it fits best</h2>
+<p>Self-employed investors, business owners, and 1099 or commission earners whose deposits tell a stronger story than their returns. If that is you, a bank statement loan is often the cleanest path to funding.</p>
+`,
+  },
+  {
+    slug: "sba-504-for-owner-occupied-real-estate",
+    title: "SBA 504 Loans for Owner-Occupied Commercial Real Estate",
+    metaTitle: "SBA 504 Loans for Owner-Occupied CRE | USAM Fund",
+    description:
+      "The SBA 504 loan finances owner-occupied commercial real estate with a low down payment and a long-term fixed rate. Learn how the structure works, who qualifies, and how it compares to a 7(a).",
+    category: "SBA",
+    readMins: 5,
+    datePublished: "2026-06-23",
+    related: ["sba", "cre-permanent"],
+    faqs: [
+      { q: "What can an SBA 504 loan be used for?", a: "<strong>Owner-occupied commercial real estate and heavy equipment</strong>. It is built for a business <strong>buying or building the property it operates from</strong>, <strong>not for pure investment real estate</strong>." },
+      { q: "How much do I put down on an SBA 504 loan?", a: "Often <strong>around 10%</strong>, rising to <strong>15% to 20%</strong> for startups or special-purpose properties. A bank funds part of the deal and a <strong>CDC funds the long-term fixed-rate portion</strong>." },
+      { q: "What is the occupancy requirement for SBA 504?", a: "Your business must <strong>occupy at least 51% of an existing building</strong> or <strong>60% of new construction</strong>. That <strong>owner-occupancy rule</strong> is what separates SBA-eligible deals from investment property." },
+    ],
+    body: `
+<p>The <strong>SBA 504 loan</strong> is purpose-built for a business buying or building the <strong>commercial property it operates from</strong>. It pairs a low down payment with a <strong>long-term fixed rate</strong>, which makes it one of the best tools for an owner-user who wants to stop paying rent and build equity.</p>
+
+<h2>How the 504 structure works</h2>
+<ul>
+  <li>A <strong>bank or lender funds roughly 50%</strong> of the project in first position.</li>
+  <li>A <strong>CDC (Certified Development Company) funds about 40%</strong> with a long-term fixed rate, backed by the SBA.</li>
+  <li>You contribute the remaining <strong>down payment, often around 10%</strong>.</li>
+</ul>
+
+<h2>Who qualifies</h2>
+<p>An operating business that will <strong>occupy at least 51%</strong> of an existing building (or 60% of new construction). The property is the collateral and the business is the borrower, so the deal is judged on both.</p>
+
+<h2>504 vs 7(a)</h2>
+<p>The <strong>504</strong> is the better fit for <strong>real estate and heavy equipment</strong> with its long fixed rate. The <strong>7(a)</strong> is more flexible, covering business acquisition, working capital, and partner buyouts under one note. Many owner-users qualify for both, and the right choice depends on what you are financing.</p>
+
+<h2>The tradeoff</h2>
+<p>SBA financing takes <strong>30 to 90 days</strong> and is fully documented. In exchange you get a low down payment and a long-term cost well below bridge pricing. If you need speed now, a bridge loan can close the deal and refinance into SBA later.</p>
+`,
+  },
+  {
+    slug: "sba-loan-down-payment-and-terms",
+    title: "SBA Loan Down Payment, Rates, and Terms Explained",
+    metaTitle: "SBA Loan Down Payment, Rates & Terms | USAM Fund",
+    description:
+      "How much do you put down on an SBA loan, and what rate and term should you expect? A plain-English breakdown of SBA 7(a) and 504 down payments, pricing, and repayment terms for 2026.",
+    category: "SBA",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["sba"],
+    faqs: [
+      { q: "How much is the down payment on an SBA loan?", a: "Often <strong>around 10%</strong>, rising to <strong>15% to 20%</strong> for startups or special-purpose properties. On the right deal an SBA loan can <strong>finance up to 90%</strong> of the project." },
+      { q: "What are SBA loan terms?", a: "<strong>Up to 25 years for real estate</strong>, which keeps payments low. Equipment and working-capital portions carry <strong>shorter terms</strong>. The <strong>long amortization</strong> is a core advantage of SBA financing." },
+      { q: "Are SBA loan rates fixed or variable?", a: "<strong>7(a) rates are usually variable</strong> and <strong>tied to the Prime rate</strong>, while the <strong>SBA 504 carries a long-term fixed rate</strong> on the CDC portion. Placing your file across multiple lenders helps find the strongest pricing." },
+    ],
+    body: `
+<p>SBA loans trade a slower process for a <strong>low down payment and a long, affordable term</strong>. Here is what to expect on the numbers so you can compare an SBA deal against bridge or conventional financing.</p>
+
+<h2>Down payment</h2>
+<p>Most SBA real estate loans require a down payment of <strong>around 10%</strong>, rising to <strong>15% to 20%</strong> for startups or special-purpose properties. On the right deal we <strong>finance up to 90%</strong>, which preserves cash that an owner-user can put back into the business.</p>
+
+<h2>Terms</h2>
+<p>Real estate is amortized <strong>up to 25 years</strong>, which keeps the monthly payment low. That long term is the single biggest reason owner-users choose SBA over a shorter commercial loan that balloons in five to ten years.</p>
+
+<h2>Rates</h2>
+<ul>
+  <li><strong>7(a):</strong> usually <strong>variable</strong>, tied to the Prime rate.</li>
+  <li><strong>504:</strong> a <strong>long-term fixed rate</strong> on the CDC portion, with the bank portion priced separately.</li>
+</ul>
+<p>Because we place your file across <strong>20+ SBA lenders</strong>, we shop the scenario rather than take the first quote.</p>
+
+<h2>The full cost picture</h2>
+<p>Factor in SBA guarantee fees, third-party reports, and a <strong>30 to 90 day</strong> timeline. The payoff is a low-equity, long-term loan whose total cost usually beats short-term financing for a business that plans to hold the property.</p>
+`,
+  },
+  {
+    slug: "blanket-loan-vs-individual-mortgages",
+    title: "Blanket Loan vs Individual Mortgages: Which Scales Better?",
+    metaTitle: "Blanket Loan vs Individual Mortgages | USAM Fund",
+    description:
+      "Should you finance rentals one mortgage at a time or roll them into a single blanket loan? Compare payments, leverage, release clauses, and when a portfolio loan makes scaling easier.",
+    category: "Portfolio",
+    readMins: 4,
+    datePublished: "2026-06-23",
+    related: ["portfolio", "rental-dscr"],
+    faqs: [
+      { q: "What is the difference between a blanket loan and individual mortgages?", a: "A blanket loan finances <strong>several properties under one loan and one monthly payment</strong>, while individual mortgages put a <strong>separate loan on each property</strong>. The blanket structure <strong>simplifies management as you scale</strong>." },
+      { q: "Can I sell one property under a blanket loan?", a: "<strong>Yes.</strong> Most blanket loans include a <strong>release provision</strong>, so you can <strong>sell a single property</strong> and pay down the loan by that property's <strong>allocated amount</strong> while the rest stays in place." },
+      { q: "How many properties do I need for a blanket loan?", a: "These structures usually make sense at <strong>around five or more properties</strong>, though <strong>smaller groups can sometimes qualify</strong>. The mix can include <strong>single-family rentals and small multifamily</strong>." },
+    ],
+    body: `
+<p>As a rental portfolio grows, financing it <strong>one mortgage at a time</strong> gets heavy fast: separate payments, separate statements, separate renewals. A <strong>blanket loan</strong> rolls multiple properties into <strong>one loan with a single payment</strong>. Which is better depends on where you are in your scaling journey.</p>
+
+<h2>Individual mortgages</h2>
+<ul>
+  <li>Often the <strong>lowest rate</strong> per property when each file fits the conventional box.</li>
+  <li>Simple to <strong>sell or refinance one property</strong> without touching the others.</li>
+  <li>But conventional lenders cap the number of financed properties, and the admin compounds with every door.</li>
+</ul>
+
+<h2>Blanket (portfolio) loans</h2>
+<ul>
+  <li><strong>One payment</strong> across many properties, underwritten on combined cash flow.</li>
+  <li>No cap on the number of doors the way conventional financing has.</li>
+  <li>A <strong>release clause</strong> lets you sell an individual property and pay down its allocated share.</li>
+</ul>
+
+<h2>When to make the switch</h2>
+<p>Investors usually consolidate at <strong>around five or more properties</strong>, or when they hit conventional financed-property limits, or when managing a stack of separate loans starts costing real time. A blanket loan also lets you <strong>pull cash out of combined equity</strong> to fund the next acquisition.</p>
+
+<h2>The bottom line</h2>
+<p>Use individual mortgages while you are small and rate-shopping. Move to a blanket loan when <strong>scale and simplicity</strong> matter more than squeezing the last basis point on each door.</p>
+`,
+  },
+  {
+    slug: "how-to-refinance-a-rental-portfolio",
+    title: "How to Refinance a Rental Portfolio Into One Loan",
+    metaTitle: "How to Refinance a Rental Portfolio | USAM Fund",
+    description:
+      "Refinancing scattered rental mortgages into a single portfolio loan can lower admin, free up equity, and fund your next deal. Here's how the process works and what lenders look for.",
+    category: "Portfolio",
+    readMins: 5,
+    datePublished: "2026-06-23",
+    related: ["portfolio", "rental-dscr", "cre-bridge"],
+    faqs: [
+      { q: "Can I refinance multiple rentals into one loan?", a: "<strong>Yes.</strong> A portfolio or blanket refinance <strong>consolidates several rental mortgages into a single loan</strong> with <strong>one payment</strong>, underwritten on the <strong>combined cash flow</strong> of the group." },
+      { q: "How much equity can I pull out in a portfolio refinance?", a: "<strong>Cash-out leverage</strong> is set against the portfolio's <strong>combined value and cash flow</strong>, typically a little lower than a purchase. The equity you free up can <strong>fund your next acquisition</strong>." },
+      { q: "Do I need to document personal income to refinance a portfolio?", a: "<strong>Usually not.</strong> Like a DSCR loan, a blanket rental refinance <strong>qualifies on the portfolio's cash flow</strong> rather than your personal income, so <strong>tax returns are generally not required</strong>." },
+    ],
+    body: `
+<p>If you own several rentals on <strong>separate mortgages</strong>, a <strong>portfolio refinance</strong> rolls them into <strong>one loan with one payment</strong>, often while pulling cash out of your combined equity. It is how investors clean up their financing and fund the next deal at the same time.</p>
+
+<h2>Why investors consolidate</h2>
+<ul>
+  <li><strong>Less admin:</strong> one payment, one renewal, one point of contact.</li>
+  <li><strong>Free up equity:</strong> a <strong>cash-out refinance</strong> across the portfolio turns trapped equity into buying power.</li>
+  <li><strong>Scale past limits:</strong> a blanket loan sidesteps conventional financed-property caps.</li>
+</ul>
+
+<h2>How the underwriting works</h2>
+<p>Instead of qualifying each property alone, the lender underwrites the <strong>combined cash flow and overall leverage</strong> of the group, similar to a DSCR loan across the whole portfolio. Strong, steady rents and reasonable leverage drive the best terms, and <strong>personal income docs are generally not required</strong>.</p>
+
+<h2>What you will need</h2>
+<ul>
+  <li>A <strong>rent roll</strong> and operating history for the portfolio</li>
+  <li>The current <strong>debt and value</strong> on each property</li>
+  <li>A qualifying <strong>credit profile</strong> and reserves</li>
+</ul>
+
+<h2>Keep flexibility with a release clause</h2>
+<p>A good portfolio loan includes a <strong>release provision</strong>, so you can still sell an individual property later and pay down its allocated share without unwinding the whole loan. That keeps you nimble as the portfolio evolves.</p>
+`,
   },
   {
     slug: "how-to-get-your-cash-buyers-funded-fast",

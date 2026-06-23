@@ -177,6 +177,8 @@ body.apply-page .ci { font-size: 17px; border-radius: 12px; padding: 15px 16px; 
 .faq-a a { color: #1A56C4; text-decoration: underline; text-underline-offset: 2px; }
 .faq-a a:hover { color: #123E96; }
 .faq-a strong { color: #0E1A2B; font-weight: 700; }
+.faq-a a.faq-src { display: inline-block; margin-top: 10px; font-size: 13.5px; font-weight: 700; color: #1A56C4; text-decoration: none; }
+.faq-a a.faq-src:hover { text-decoration: underline; }
 .faq-a p { margin: 0 0 12px; }
 .faq-a p:last-child { margin-bottom: 0; }
 .faq-a ul { margin: 8px 0 12px; padding-left: 20px; }
