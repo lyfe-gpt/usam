@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import CtaBand from "../components/CtaBand.jsx";
+import jackLiebermanImg from "../assets/team/jack-lieberman.webp";
+import jackBrewerImg from "../assets/team/jack-brewer.webp";
+import dustinImg from "../assets/team/dustin.webp";
 
 const SCH = "'Schibsted Grotesk',sans-serif";
 
@@ -12,11 +15,11 @@ const VALUES = [
 ];
 
 const TEAM = [
-  ["Jack Lieberman", "Founder", "jack@usam.net"],
-  ["Jack Brewer", "Loan Officer", "jackbrewer@usam.net"],
+  ["Jack Lieberman", "Founder", "jack@usam.net", jackLiebermanImg],
+  ["Jack Brewer", "Loan Officer", "jackbrewer@usam.net", jackBrewerImg],
   ["Harrison String", "Loan Officer Assistant", "harrison@usam.net"],
   ["Krystle Garza", "Funder & Closer", "krystle@usam.net"],
-  ["Dustin Kinney", "Funder & Closer", "dustin@usam.net"],
+  ["Dustin Kinney", "Funder & Closer", "dustin@usam.net", dustinImg],
   ["Roselea Payne", "Administrator", "roselea@usam.net"],
 ];
 
@@ -43,7 +46,14 @@ function initials(name) {
 
 // Branded monogram avatar. Stands in cleanly for a real headshot and swaps out
 // for a photo when one is provided.
-function Avatar({ name, i }) {
+function Avatar({ name, i, img }) {
+  if (img) {
+    return (
+      <div style={{ height: 220, background: AVATAR_BG[i % AVATAR_BG.length], overflow: "hidden" }}>
+        <img src={img} alt={name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
+      </div>
+    );
+  }
   return (
     <div style={{ height: 220, background: AVATAR_BG[i % AVATAR_BG.length], display: "flex", alignItems: "center", justifyContent: "center" }}>
       <span style={{ fontFamily: SCH, fontWeight: 800, fontSize: 60, color: "#fff", letterSpacing: "0.02em" }}>{initials(name)}</span>
@@ -104,9 +114,9 @@ export default function About() {
           </div>
 
           <div className="team-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24 }}>
-            {TEAM.map(([name, role, email], i) => (
+            {TEAM.map(([name, role, email, img], i) => (
               <div key={name} style={{ background: "#fff", border: "1px solid #E6E9EF", borderRadius: 16, overflow: "hidden" }}>
-                <Avatar name={name} i={i} />
+                <Avatar name={name} i={i} img={img} />
                 <div style={{ padding: 22 }}>
                   <h3 style={{ fontFamily: SCH, fontWeight: 700, fontSize: 19, color: "#0E1A2B", margin: "0 0 3px" }}>{name}</h3>
                   <div style={{ fontSize: 14, fontWeight: 700, color: "#1A56C4", marginBottom: 10 }}>{role}</div>
