@@ -24,7 +24,7 @@ export const guides = [
   <li>A <strong>DSCR of 1.00</strong> means the rent exactly covers the payment.</li>
   <li>Above 1.00 means positive cash flow; below 1.00 means the property needs a little support.</li>
 </ul>
-<p>Example: a home that rents for $2,400/month against a $2,000 payment has a DSCR of 1.20. We lend with a <strong>DSCR as low as 1.00</strong>, and in some scenarios below it.</p>
+<p>Example: a home that rents for $2,400/month against a $2,000 payment has a DSCR of 1.20. We lend with a <strong>DSCR as low as 1.00</strong>.</p>
 
 <h2>What you need to qualify</h2>
 <ul>
