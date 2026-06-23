@@ -1,4 +1,4 @@
-# USAM I Fund — Design System
+# USAM Fund — Design System
 
 Reference for the look and feel of usam.net. Derived from the built site (`src/`).
 Keep new work consistent with these tokens and patterns. When something here changes
@@ -17,6 +17,7 @@ with `src/index.css` holding the reset, hover/focus states, and **all media quer
 - **Tone:** Direct, personal, confident, plain-English. "Real people who answer the phone."
 - **Writing rule:** No en dashes (`–`). Use hyphens (`-`) or em dashes (`—`). Ranges use "to" or hyphen ("5-7 days", "$75K to $5M").
 - **Legal footer line:** "Loans for business purpose only · Not a commitment to lend."
+- **Full voice & tone guide:** see `VOICE.md` (Better.com-style plain-spoken, investor-to-investor). Read it before writing or editing any copy.
 
 ---
 

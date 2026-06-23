@@ -1,4 +1,4 @@
-/* USAM I Fund — shared styles.
+/* USAM Fund — shared styles.
    Fonts (Schibsted Grotesk display, Hanken Grotesk body) are loaded per-page
    via <link> in the document head. This file holds the base reset, the hover
    states that the design expressed as inline `style-hover`, and every
@@ -185,3 +185,16 @@ body.apply-page .ci { font-size: 17px; border-radius: 12px; padding: 15px 16px; 
   .faq-cols { grid-template-columns: 1fr !important; gap: 8px !important; }
   .faq-side { position: static !important; }
 }
+
+/* ===================================================================== */
+/* GUIDE / ARTICLE BODY                                                    */
+/* ===================================================================== */
+.guide-body { font-size: 17px; line-height: 1.7; color: #344054; }
+.guide-body h2 { font-family: 'Schibsted Grotesk', sans-serif; font-weight: 800; font-size: 24px; line-height: 1.2; letter-spacing: -0.01em; color: #0E1A2B; margin: 34px 0 12px; }
+.guide-body p { margin: 0 0 16px; }
+.guide-body ul { margin: 0 0 18px; padding-left: 22px; }
+.guide-body li { margin-bottom: 8px; }
+.guide-body strong { color: #0E1A2B; font-weight: 700; }
+.guide-body a { color: #1A56C4; text-decoration: underline; text-underline-offset: 2px; }
+.guide-body a:hover { color: #123E96; }
+@media (max-width: 600px) { .pg-grid { grid-template-columns: 1fr !important; } }

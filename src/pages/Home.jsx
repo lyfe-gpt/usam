@@ -37,6 +37,7 @@ export default function Home() {
     const v = videoRef.current;
     if (!v) return;
     let timer;
+    let started = false;
     const setRate = () => {
       v.playbackRate = 0.75;
     };
@@ -46,12 +47,32 @@ export default function Home() {
         v.play().catch(() => {});
       }, 2000);
     };
-    setRate();
+    // Defer the heavy video load+play until the hero is in view and the browser
+    // is idle, so the static poster is the LCP and the multi-MB file doesn't
+    // compete with first paint.
+    const start = () => {
+      if (started) return;
+      started = true;
+      const go = () => v.play().catch(() => {});
+      if ("requestIdleCallback" in window) requestIdleCallback(go, { timeout: 2500 });
+      else timer = setTimeout(go, 800);
+    };
     v.addEventListener("loadedmetadata", setRate);
     v.addEventListener("play", setRate);
     v.addEventListener("ended", onEnded);
+    const io = new IntersectionObserver(
+      (es) => {
+        if (es.some((e) => e.isIntersecting)) {
+          start();
+          io.disconnect();
+        }
+      },
+      { threshold: 0.25 }
+    );
+    io.observe(v);
     return () => {
       clearTimeout(timer);
+      io.disconnect();
       v.removeEventListener("loadedmetadata", setRate);
       v.removeEventListener("play", setRate);
       v.removeEventListener("ended", onEnded);
@@ -89,10 +110,10 @@ export default function Home() {
               <video
                 ref={videoRef}
                 poster={heroPoster}
-                autoPlay
+                preload="none"
                 muted
                 playsInline
-                aria-label="Renovated residential property"
+                aria-label="Renovated single-family investment property funded by USAM Fund"
                 style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
               >
                 <source src={heroVideoWebm} type="video/webm" />
@@ -109,7 +130,7 @@ export default function Home() {
                 <div style={{ height: 1, background: "#EEF1F5" }} />
                 <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}><span style={{ fontSize: 14, color: "#667085" }}>Rehab</span><span style={{ fontFamily: SCH, fontWeight: 700, fontSize: 17, color: "#0E1A2B" }}>up to 100%</span></div>
                 <div style={{ height: 1, background: "#EEF1F5" }} />
-                <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}><span style={{ fontSize: 14, color: "#667085" }}>Funds in</span><span style={{ fontFamily: SCH, fontWeight: 800, fontSize: 17, color: "#1A56C4" }}>48 hrs</span></div>
+                <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}><span style={{ fontSize: 14, color: "#667085" }}>Term sheet</span><span style={{ fontFamily: SCH, fontWeight: 800, fontSize: 17, color: "#1A56C4" }}>48 hrs</span></div>
               </div>
             </div>
           </div>

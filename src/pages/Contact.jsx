@@ -124,7 +124,7 @@ export default function Contact() {
             </InfoCard>
             <a href="https://www.openstreetmap.org/?mlat=30.3078075&mlon=-97.93361#map=17/30.3078/-97.93361" target="_blank" rel="noopener noreferrer" style={{ display: "block", borderRadius: 16, overflow: "hidden", border: "1px solid #E6E9EF" }}>
               <iframe
-                title="USAM I Fund office, Bee Cave, TX"
+                title="USAM Fund office, Bee Cave, TX"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=-97.9396%2C30.3048%2C-97.9276%2C30.3108&layer=mapnik&marker=30.3078075%2C-97.93361"
                 style={{ width: "100%", height: 160, border: 0, display: "block", pointerEvents: "none" }}
                 loading="lazy"

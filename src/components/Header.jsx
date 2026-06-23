@@ -19,6 +19,8 @@ export default function Header() {
       ? "programs"
       : pathname.startsWith("/about")
       ? "about"
+      : pathname.startsWith("/resources")
+      ? "resources"
       : pathname.startsWith("/faq")
       ? "faq"
       : pathname.startsWith("/contact")
@@ -56,7 +58,7 @@ export default function Header() {
           <Link to="/" style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none" }}>
             <img
               src="https://lirp.cdn-website.com/e6bfcade/dms3rep/multi/opt/horizontal+raw+PSD+file-314w.png"
-              alt="USAM I Fund"
+              alt="USAM Fund"
               className="u-logo"
               style={{ height: 46, width: "auto", display: "block" }}
             />
@@ -76,7 +78,7 @@ export default function Header() {
                   style={{ background: "#fff", border: "1px solid #E6E9EF", borderRadius: 18, boxShadow: "0 28px 60px -18px rgba(14,26,43,0.32)", padding: 14, width: 900, display: "grid", gridTemplateColumns: "218px 1fr", gap: 14 }}
                 >
                   <Link to="/apply" style={{ position: "relative", borderRadius: 13, overflow: "hidden", display: "block", textDecoration: "none", minHeight: 248 }}>
-                    <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=600&q=80" alt="Property" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                    <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=600&q=80" alt="Investment property financing" loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
                     <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(14,26,43,0.15) 0%, rgba(14,26,43,0.88) 100%)" }} />
                     <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: 18 }}>
                       <div style={{ fontFamily: SCH, fontWeight: 700, fontSize: 18, color: "#fff", lineHeight: 1.15, marginBottom: 8 }}>Not sure which loan fits?</div>
@@ -105,6 +107,7 @@ export default function Header() {
             </div>
 
             <Link to="/about" className="nav-lnk" style={{ color: navColor(active, "about"), textDecoration: "none" }}>About</Link>
+            <Link to="/resources" className="nav-lnk" style={{ color: navColor(active, "resources"), textDecoration: "none" }}>Resources</Link>
             <Link to="/faq" className="nav-lnk" style={{ color: navColor(active, "faq"), textDecoration: "none" }}>FAQ</Link>
             <Link to="/contact" className="nav-lnk" style={{ color: navColor(active, "contact"), textDecoration: "none" }}>Contact</Link>
           </nav>
@@ -148,6 +151,7 @@ export default function Header() {
                 )}
               </div>
               <Link to="/about" onClick={() => setMenuOpen(false)} style={{ padding: "14px 6px", color: "#0E1A2B", textDecoration: "none", fontWeight: 600, fontSize: 16, borderBottom: "1px solid #F1F3F7" }}>About</Link>
+              <Link to="/resources" onClick={() => setMenuOpen(false)} style={{ padding: "14px 6px", color: "#0E1A2B", textDecoration: "none", fontWeight: 600, fontSize: 16, borderBottom: "1px solid #F1F3F7" }}>Resources</Link>
               <Link to="/faq" onClick={() => setMenuOpen(false)} style={{ padding: "14px 6px", color: "#0E1A2B", textDecoration: "none", fontWeight: 600, fontSize: 16, borderBottom: "1px solid #F1F3F7" }}>FAQ</Link>
               <Link to="/contact" onClick={() => setMenuOpen(false)} style={{ padding: "14px 6px", color: "#0E1A2B", textDecoration: "none", fontWeight: 600, fontSize: 16, borderBottom: "1px solid #F1F3F7" }}>Contact</Link>
               <a href="tel:512-488-6087" style={{ padding: "14px 6px", color: "#475467", textDecoration: "none", fontWeight: 600, fontSize: 15 }}>Call 512-488-6087</a>

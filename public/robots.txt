@@ -4,3 +4,5 @@
 #   Allow: /
 User-agent: *
 Disallow: /
+
+Sitemap: https://usam.net/sitemap.xml

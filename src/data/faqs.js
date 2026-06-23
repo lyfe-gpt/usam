@@ -62,11 +62,11 @@ export const programFaqs = {
     },
     {
       q: "Do I need flipping experience to qualify?",
-      a: "No. We work with first-time flippers as well as full-time operators. Experience mainly affects your leverage and rate, since a longer track record unlocks higher loan-to-cost and better pricing. A newer investor can still get funded with a sound deal, a realistic budget, and a clear exit.",
+      a: "No. We work with first-time flippers as well as full-time operators. Experience mainly affects your leverage and rate, since a longer track record earns higher loan-to-cost and better pricing. A newer investor can still get funded with a sound deal, a realistic budget, and a clear exit.",
     },
     {
       q: "How fast can a fix and flip loan close?",
-      a: "We can fund a fix and flip in <strong>as little as 48 hours</strong> from a complete application plus title insurance. More often it is a few business days, depending on title, insurance, and how quickly your file comes together. Because we are the lender and underwrite in house, there is no second layer of approval to wait on.",
+      a: "We can get you a term sheet in <strong>as little as 48 hours</strong> from a complete application, and fund most fix and flip loans in <strong>5 to 7 business days</strong> once title and insurance are in. The exact timeline depends on how quickly your file comes together. Because we are the lender and underwrite in house, there is no second layer of approval to wait on.",
     },
     {
       q: "Is there a prepayment penalty if I sell quickly?",

@@ -1,6 +1,6 @@
-# USAM I Fund — Marketing Site
+# USAM Fund — Marketing Site
 
-A React + Vite implementation of the USAM I Fund marketing site ("Hard Money,
+A React + Vite implementation of the USAM Fund marketing site ("Hard Money,
 Soft Terms"), built from the Claude Design handoff in `project/` and `chats/`.
 
 ## Tech stack
@@ -66,4 +66,4 @@ The design medium is **HTML/CSS/JS** — these are prototypes, not production co
 
 - `README.md` — this file
 - `chats/` — conversation transcripts (read these!)
-- `project/` — the `USAM I Fund Design Brief` project files (HTML prototypes, assets, components)
+- `project/` — the `USAM Fund Design Brief` project files (HTML prototypes, assets, components)

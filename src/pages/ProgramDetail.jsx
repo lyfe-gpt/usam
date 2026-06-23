@@ -4,7 +4,7 @@ import Footer from "../components/Footer.jsx";
 import CtaBand from "../components/CtaBand.jsx";
 import Icon from "../components/Icon.jsx";
 import Faq from "../components/Faq.jsx";
-import JsonLd, { faqPageSchema } from "../components/JsonLd.jsx";
+import JsonLd, { faqPageSchema, breadcrumbSchema } from "../components/JsonLd.jsx";
 import { programs, bySlug } from "../data/programs.js";
 import { programFaqs } from "../data/faqs.js";
 
@@ -21,6 +21,11 @@ export default function ProgramDetail({ slug }) {
       {faqs.length > 0 && (
         <JsonLd id={`faq-${slug}-schema`} data={faqPageSchema(faqs)} />
       )}
+      <JsonLd id={`breadcrumb-${slug}`} data={breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Programs", path: "/programs" },
+        { name: p.title, path: `/programs/${slug}` },
+      ])} />
 
       {/* Hero */}
       <section className="sec" style={{ background: "linear-gradient(180deg,#F6F8FB 0%,#ffffff 100%)", padding: "72px 32px 48px" }}>
@@ -41,7 +46,7 @@ export default function ProgramDetail({ slug }) {
             </div>
           </div>
           <div className="ph-heroimg" style={{ height: 380, borderRadius: 20, overflow: "hidden", boxShadow: "0 24px 60px -20px rgba(14,26,43,0.3)" }}>
-            <img src={p.heroImg} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            <img src={p.heroImg} alt={`${p.title} loan — ${p.tagline}`} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           </div>
         </div>
       </section>
