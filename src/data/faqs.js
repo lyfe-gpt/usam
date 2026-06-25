@@ -306,6 +306,10 @@ export const programFaqs = {
       a: "<strong>Yes. SBA real estate loans require owner-occupancy</strong>, at least <strong>51% of an existing building or 60% of new construction</strong>. That requirement is what <strong>separates SBA-eligible deals from pure investment property</strong>, which fits our <strong>other programs</strong>.",
     },
     {
+      q: "Do I have to personally guarantee an SBA loan?",
+      a: "<strong>Yes.</strong> The SBA requires a <strong>personal guarantee from anyone who owns 20% or more</strong> of the business, and on real-estate deals the loan is also <strong>secured by the property</strong>. This is <strong>standard on every SBA loan</strong>, not a sign of a weak file, and it is part of why SBA financing offers <strong>low down payments and long terms</strong>. We will walk you through exactly what you are signing before you commit.",
+    },
+    {
       q: "How long does an SBA loan take to close?",
       a: "SBA loans are slower than our bridge products, <strong>typically 30 to 90 days</strong>, because of the <strong>documentation and approval process</strong>. The tradeoff is a <strong>much lower long-term cost</strong>. If you need speed now, we can <strong>bridge the deal and refinance into SBA later</strong>.",
     },
