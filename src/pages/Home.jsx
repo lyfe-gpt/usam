@@ -26,7 +26,7 @@ const WHY = [
 
 const STATS = [
   ["$1B+", "funded to date"],
-  ["25,000+", "loans closed"],
+  ["25K+", "loans closed"],
   ["Most", "states served"],
   ["30 yrs", "lending experience"],
 ];
