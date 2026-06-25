@@ -16,7 +16,7 @@ export const guides = [
     related: ["rental-dscr", "conventional-investment", "portfolio"],
     faqs: [
       { q: "What does DSCR stand for?", a: "DSCR stands for <strong>debt service coverage ratio</strong>. It compares a property's <strong>rental income</strong> to its <strong>loan payment</strong> to see whether the rent covers the debt." },
-      { q: "What DSCR do you need to qualify?", a: "Most lenders want a <strong>DSCR of at least 1.00</strong>, meaning the <strong>rent covers the payment</strong>. USAM Fund lends with a <strong>DSCR as low as 1.00</strong>." },
+      { q: "What DSCR do you need to qualify?", a: "Most lenders want a <strong>DSCR of at least 1.00</strong>, meaning the <strong>rent covers the payment</strong>. USAM Fund lends with a <strong>DSCR as low as 0.75</strong>." },
       { q: "Do DSCR loans require tax returns?", a: "<strong>No.</strong> A DSCR loan <strong>qualifies on the property's rent</strong> versus its payment, so there are <strong>no W-2s or tax returns required</strong>." },
     ],
     body: `
@@ -29,13 +29,13 @@ export const guides = [
   <li>A <strong>DSCR of 1.00</strong> means the rent exactly covers the payment.</li>
   <li>Above 1.00 means positive cash flow; below 1.00 means the property needs a little support.</li>
 </ul>
-<p>Example: a home that rents for $2,400/month against a $2,000 payment has a DSCR of 1.20. We lend with a <strong>DSCR as low as 1.00</strong>.</p>
+<p>Example: a home that rents for $2,400/month against a $2,000 payment has a DSCR of 1.20. We lend with a <strong>DSCR as low as 0.75</strong>.</p>
 
 <h2>What you need to qualify</h2>
 <ul>
   <li>The rent figure, from a signed lease or the appraiser's market-rent estimate</li>
   <li>A down payment (typically 20-25%) or equity for a refinance</li>
-  <li>A qualifying credit profile (we lend from roughly a 660 score)</li>
+  <li>A qualifying credit profile (we lend from roughly a 640 score)</li>
   <li>The property held in an LLC or your name for business purposes</li>
 </ul>
 
@@ -890,7 +890,7 @@ export const guides = [
 </ul>
 
 <h2>What ratio do you need?</h2>
-<p>Most lenders want at least 1.00. USAM Fund lends with a DSCR as low as 1.00. A higher ratio improves your rate and leverage because it shows more cushion. If a property comes in below the floor, more down payment lowers the payment and raises the ratio.</p>
+<p>Most lenders want at least 1.00. USAM Fund lends with a DSCR as low as 0.75, meaning the rent can cover as little as 75% of the payment. A higher ratio improves your rate and leverage because it shows more cushion. If a property comes in low, more down payment lowers the payment and raises the ratio.</p>
 `,
     faqs: [
       { q: "What is the formula for DSCR?", a: "<strong>DSCR = monthly rent divided by the monthly payment</strong> (<strong>PITIA</strong>: principal, interest, taxes, insurance, and association dues). A <strong>DSCR of 1.00</strong> means the rent exactly covers the payment." },

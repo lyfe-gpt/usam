@@ -61,7 +61,7 @@ export const programFaqs = {
     },
     {
       q: "What interest rate and points should I expect on a flip loan?",
-      a: "Our fix and flip pricing <strong>starts around 9.50%, interest-only</strong>, with origination typically <strong>1 to 3 points</strong> depending on your experience, leverage, and the deal. Across the market most flip loans run roughly <strong>9% to 12%</strong>. You pay <strong>interest on rehab funds only after you draw them</strong>, not on the full budget up front.",
+      a: "Our fix and flip pricing <strong>starts around 7.99%, interest-only</strong>, with origination typically <strong>1 to 3 points</strong> depending on your experience, leverage, and the deal. Across the market most flip loans run roughly <strong>9% to 12%</strong>. You pay <strong>interest on rehab funds only after you draw them</strong>, not on the full budget up front.",
     },
     {
       q: "Do I need flipping experience to qualify?",
@@ -83,7 +83,7 @@ export const programFaqs = {
   "rental-dscr": [
     {
       q: "What is a DSCR loan, and how do I qualify without tax returns?",
-      a: "A DSCR (debt service coverage ratio) loan qualifies on the <strong>property's rental income instead of your personal income</strong>, so there are <strong>no W-2s or tax returns required</strong>. We compare the rent, from a <strong>signed lease or the appraiser's market-rent estimate</strong>, against the monthly payment. A DSCR of 1.00 means the rent covers the payment, and we lend with a <strong>DSCR as low as 1.00</strong>.",
+      a: "A DSCR (debt service coverage ratio) loan qualifies on the <strong>property's rental income instead of your personal income</strong>, so there are <strong>no W-2s or tax returns required</strong>. We compare the rent, from a <strong>signed lease or the appraiser's market-rent estimate</strong>, against the monthly payment. A DSCR of 1.00 means the rent covers the payment, and we lend with a <strong>DSCR as low as 0.75</strong>.",
     },
     {
       q: "What rate and terms can I get on a rental loan?",
@@ -91,7 +91,7 @@ export const programFaqs = {
     },
     {
       q: "How much can I borrow, and what is the maximum LTV?",
-      a: "We finance up to <strong>80% loan-to-value</strong> on a purchase, with <strong>rate-and-term and cash-out refinances</strong> available, on loan amounts from <strong>$75K to $3M</strong>. <strong>Cash-out leverage is typically a little lower</strong> than purchase. The property's cash flow and your credit set your final leverage.",
+      a: "We finance up to <strong>80% loan-to-value</strong> on a purchase, with <strong>rate-and-term and cash-out refinances</strong> available, on loan amounts from <strong>$100K to $3M</strong>. <strong>Cash-out leverage is typically a little lower</strong> than purchase. The property's cash flow and your credit set your final leverage.",
     },
     {
       q: "What credit score do I need for a DSCR loan?",
@@ -109,7 +109,7 @@ export const programFaqs = {
   construction: [
     {
       q: "How much of my construction project will you finance?",
-      a: "We fund new construction <strong>up to 80% of value and up to 85% of total cost</strong> (<strong>land plus build</strong>), nationwide, on <strong>loans up to $5M</strong>. Experienced builders reach the higher end of leverage. We finance <strong>both the lot and the vertical construction</strong> within those caps.",
+      a: "We fund new construction <strong>up to 70% of value and up to 85% of total cost</strong> (<strong>land plus build</strong>), nationwide, on <strong>loans up to $5M</strong>. Experienced builders reach the higher end of leverage. We finance <strong>both the lot and the vertical construction</strong> within those caps.",
     },
     {
       q: "Will you finance the land or lot purchase?",
@@ -139,7 +139,7 @@ export const programFaqs = {
     },
     {
       q: "What rates, leverage, and terms should I expect?",
-      a: "Our commercial bridge pricing <strong>starts around 8%, interest-only, up to roughly 75% loan-to-value</strong>, on <strong>terms up to 24 to 36 months</strong>. Published bridge pricing generally runs <strong>8% to 12% with 1 to 3 points</strong>. Final terms depend on the <strong>asset, the business plan, and sponsor strength</strong>.",
+      a: "Our commercial bridge pricing <strong>starts around 9%, interest-only, up to roughly 75% loan-to-value</strong>, on <strong>terms up to 24 to 36 months</strong>. Published bridge pricing generally runs <strong>8% to 12% with 1 to 3 points</strong>. Final terms depend on the <strong>asset, the business plan, and sponsor strength</strong>.",
     },
     {
       q: "How fast can a commercial bridge loan close?",
@@ -225,7 +225,7 @@ export const programFaqs = {
     },
     {
       q: "What credit score do I need?",
-      a: "Conventional investment financing generally wants a <strong>credit score around 680 or higher</strong>, and your <strong>rate improves meaningfully</strong> as your <strong>score and reserves go up</strong>. We will tell you up front <strong>where your file lands</strong>.",
+      a: "Conventional investment financing generally wants a <strong>credit score around 580 or higher</strong>, and your <strong>rate improves meaningfully</strong> as your <strong>score and reserves go up</strong>. We will tell you up front <strong>where your file lands</strong>.",
     },
     {
       q: "What can I use it for?",
