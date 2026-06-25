@@ -535,7 +535,7 @@ export const guides = [
     faqs: [
       { q: "How long does a hard money loan take to close?", a: "Often <strong>5 to 7 business days</strong> for bridge and fix and flip loans, compared with <strong>30 to 60+ days for a bank</strong>. DSCR rental loans take a little longer, and <strong>SBA loans much longer</strong>." },
       { q: "What slows down a hard money closing?", a: "Usually <strong>title issues, insurance, or slow document turnaround</strong> from the borrower, <strong>not the lender's underwriting</strong>. A <strong>clean file closes fast</strong>." },
-      { q: "Can a hard money loan close in 48 hours?", a: "A term sheet can come <strong>within about 48 hours</strong> on a complete file, and we <strong>fund within 48 hours of clear title</strong>. The main variable is how fast title and insurance come together, which is why a full close typically takes <strong>5 to 7 days</strong>." },
+      { q: "Can a hard money loan close in 48 hours?", a: "A term sheet can come <strong>the same day</strong> on a complete file, and we <strong>fund within 48 hours of clear title</strong>. The main variable is how fast title and insurance come together, which is why a full close typically takes <strong>5 to 7 days</strong>." },
     ],
   },
   {
@@ -1382,7 +1382,7 @@ export const guides = [
     datePublished: "2026-06-23",
     related: ["fix-flip", "transactional"],
     body: `
-<p>The fastest way to get your buyers funded is to <strong>line up a direct lender before the deal, not after</strong>. When your buyer already has a relationship with a fast, asset-based lender, they can get a term sheet in about 48 hours and fund within 48 hours of clear title, so your assignment or double close stays on schedule.</p>
+<p>The fastest way to get your buyers funded is to <strong>line up a direct lender before the deal, not after</strong>. When your buyer already has a relationship with a fast, asset-based lender, they can get a same-day term sheet and fund within 48 hours of clear title, so your assignment or double close stays on schedule.</p>
 
 <h2>Why "cash buyer" rarely means actual cash</h2>
 <p>Most of your "cash" buyers are really using short-term hard money. They look like cash to the seller because they close fast and skip the bank, but the financing still has to perform. If their lender is slow, your deal slips.</p>
@@ -1399,7 +1399,7 @@ export const guides = [
 <p>When you bring a preferred lender to your buyers, you stop losing deals at the finish line and you become the wholesaler whose contracts actually close. That reputation is what fills your buyers list.</p>
 `,
     faqs: [
-      { q: "How do wholesalers get their buyers funded quickly?", a: "By connecting buyers with a direct, asset-based lender before the deal. Pre-qualified buyers with a proof-of-funds letter can get a term sheet in about 48 hours and fund within 48 hours of clear title." },
+      { q: "How do wholesalers get their buyers funded quickly?", a: "By connecting buyers with a direct, asset-based lender before the deal. Pre-qualified buyers with a proof-of-funds letter can get a same-day term sheet and fund within 48 hours of clear title." },
       { q: "Do cash buyers really pay all cash?", a: "Often not. Many cash buyers use short-term hard money that closes fast and skips the bank, which looks like cash to the seller. The financing still has to perform on time." },
       { q: "How can I keep deals from falling through at financing?", a: "Line up a fast lender up front, get a proof-of-funds letter before offers, and pre-qualify the buyer so the only remaining variable is title and insurance." },
     ],
@@ -1463,7 +1463,7 @@ export const guides = [
 <p>When your buyers know the financing will perform, they bid with confidence and come back for your next deal. A buyers list that closes is worth far more than a big list that flakes, and a preferred lender is what makes the difference.</p>
 
 <h2>How to choose one</h2>
-<p>Look for a <strong>direct lender</strong> (not a broker) that underwrites in house, funds on the asset, and moves fast, term sheet in about 48 hours, funding within 48 hours of clear title. Speed and certainty are the whole point.</p>
+<p>Look for a <strong>direct lender</strong> (not a broker) that underwrites in house, funds on the asset, and moves fast, same-day term sheet, funding within 48 hours of clear title. Speed and certainty are the whole point.</p>
 `,
     faqs: [
       { q: "What is a preferred lender?", a: "The financing partner a wholesaler or agent points their buyers to by default, chosen because they close fast and reliably, turning the buyer's ability to close into a known outcome." },

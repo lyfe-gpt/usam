@@ -13,7 +13,7 @@ const SCH = "'Schibsted Grotesk',sans-serif";
 
 const STEPS = [
   ["STEP 01", "Tell us about your deal", "Answer a few quick questions about the property and the numbers. About two minutes, no credit pull to start."],
-  ["STEP 02", "Get a term sheet in 48 hours", "A real underwriter reviews your scenario and sends clear terms: rate, leverage, and structure, in plain English."],
+  ["STEP 02", "Get a same-day term sheet", "A real underwriter reviews your scenario and sends clear terms: rate, leverage, and structure, in plain English."],
   ["STEP 03", "Close in 5-7 days", "We fund within 48 hours of clear title, so most deals close in 5-7 days. We handle docs and funding fast so you hit your contract date, and we're here for the next deal too."],
 ];
 
@@ -25,7 +25,7 @@ const WHY = [
 ];
 
 const STATS = [
-  ["$100M+", "funded to date"],
+  ["$1B+", "funded to date"],
   ["25,000+", "loans closed"],
   ["Most", "states served"],
   ["30 yrs", "lending experience"],
@@ -100,7 +100,7 @@ export default function Home() {
               <Link to="/programs" className="btn-outline" style={{ background: "#fff", color: "#0E1A2B", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "15px 28px", borderRadius: 999, border: "1.5px solid #D6DDE8" }}>See loan programs</Link>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 22, flexWrap: "wrap", fontSize: 14.5, fontWeight: 600, color: "#667085" }}>
-              <span style={{ display: "flex", alignItems: "center", gap: 8 }}><Icon name="check" size={17} color="#1A56C4" width={2.4} /> Term sheet within 48 hrs</span>
+              <span style={{ display: "flex", alignItems: "center", gap: 8 }}><Icon name="check" size={17} color="#1A56C4" width={2.4} /> Same-day term sheets</span>
               <span style={{ display: "flex", alignItems: "center", gap: 8 }}><Icon name="check" size={17} color="#1A56C4" width={2.4} /> Loans up to $10M</span>
             </div>
           </div>

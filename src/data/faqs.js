@@ -32,7 +32,7 @@ export const generalFaqs = [
   },
   {
     q: "Do you check credit, and is there a minimum score?",
-    a: "We do run credit, but on our asset-based loans it <strong>carries far less weight than at a bank</strong>, and weaker credit can often be offset with a <strong>larger down payment or lower leverage</strong>. There is <strong>no personal income test</strong> on these programs. Credit matters most on <strong>long-term rental loans</strong>, where most lenders look for a score around <strong>660 to 680</strong> and it affects your rate and leverage.",
+    a: "We do run credit, but on our asset-based loans it <strong>carries far less weight than at a bank</strong>, and weaker credit can often be offset with a <strong>larger down payment or lower leverage</strong>. There is <strong>no personal income test</strong> on these programs. Credit matters most on <strong>long-term rental loans</strong>, where we look for a <strong>640 minimum</strong> and it affects your rate and leverage.",
   },
   {
     q: "Do I need to provide income documents or tax returns?",
@@ -69,7 +69,7 @@ export const programFaqs = {
     },
     {
       q: "How fast can a fix and flip loan close?",
-      a: "We can get you a term sheet in <strong>as little as 48 hours</strong> from a complete application, and we <strong>fund within 48 hours of clear title</strong>. The main variable is how fast title and insurance come together, which is why a full close usually runs <strong>5 to 7 business days</strong>. Because we are the lender and underwrite in house, there is <strong>no second layer of approval</strong> to wait on.",
+      a: "We can get you a term sheet the <strong>same day</strong> on a complete application, and we <strong>fund within 48 hours of clear title</strong>. The main variable is how fast title and insurance come together, which is why a full close usually runs <strong>5 to 7 business days</strong>. Because we are the lender and underwrite in house, there is <strong>no second layer of approval</strong> to wait on.",
     },
     {
       q: "Is there a prepayment penalty if I sell quickly?",
@@ -95,7 +95,7 @@ export const programFaqs = {
     },
     {
       q: "What credit score do I need for a DSCR loan?",
-      a: "Most DSCR lenders look for a <strong>minimum around 660 to 680</strong>, and the <strong>best pricing goes to strong credit</strong>. Because the loan <strong>qualifies on the asset</strong>, your score affects your <strong>rate and leverage</strong> more than whether you are approved.",
+      a: "We start at <strong>640</strong>, and the <strong>best pricing goes to strong credit</strong>. Because the loan <strong>qualifies on the asset</strong>, your score affects your <strong>rate and leverage</strong> more than whether you are approved.",
     },
     {
       q: "Can I get a DSCR loan on a short-term rental (Airbnb)?",

@@ -14,7 +14,7 @@ const partnerGuides = guides.filter((g) => g.category === "For Partners");
 const labelStyle = { display: "block", fontSize: 13, fontWeight: 700, color: "#344054", marginBottom: 7 };
 
 const VALUE = [
-  ["clock", "We fund your buyers fast", "Term sheet in about 48 hours, and we fund within 48 hours of clear title. Your deals don't die waiting on financing."],
+  ["clock", "We fund your buyers fast", "Same-day term sheet, and we fund within 48 hours of clear title. Your deals don't die waiting on financing."],
   ["check", "A smooth, simple system", "Co-branded proof-of-funds letters, fast pre-quals, and one named contact who knows your pipeline."],
   ["phone", "We make you look good", "Reliable closings and real people who answer the phone, so your investors keep coming back to you."],
 ];
@@ -27,8 +27,8 @@ const STEPS = [
 
 const PARTNER_FAQS = [
   { q: "Who can partner with USAM Fund?", a: "Wholesalers and dispo teams, investor-focused real estate agents, off-market marketplaces, and anyone who regularly works with real estate investors who need financing." },
-  { q: "What do I get as a partner?", a: "Speed and certainty. We fund your buyers fast (term sheet in about 48 hours, close in 5-7 days), give you co-branded proof-of-funds letters and fast pre-quals, and assign one named contact, so your deals close and you look reliable to your investors." },
-  { q: "How fast can you fund my buyer?", a: "We can issue a term sheet in as little as 48 hours and fund most fix and flip and bridge loans in 5 to 7 business days once title and insurance are in." },
+  { q: "What do I get as a partner?", a: "Speed and certainty. We fund your buyers fast (same-day term sheet, close in 5-7 days), give you co-branded proof-of-funds letters and fast pre-quals, and assign one named contact, so your deals close and you look reliable to your investors." },
+  { q: "How fast can you fund my buyer?", a: "We can issue a same-day term sheet and fund most fix and flip and bridge loans in 5 to 7 business days once title and insurance are in." },
   { q: "Do my buyers need to be experienced investors?", a: "No. Experience helps with leverage and pricing, but a first-time investor with a sound deal, a realistic budget, and a clear exit can still get funded." },
   { q: "What kinds of deals do you fund?", a: "Business-purpose investment loans across the board: fix and flip, DSCR rental, ground-up construction, bridge, transactional, and more. We do not do owner-occupied consumer mortgages." },
 ];
