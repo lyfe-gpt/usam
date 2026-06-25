@@ -221,22 +221,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonial */}
-      <section className="sec" style={{ background: "#F6F8FB", padding: "72px 32px" }}>
-        <div style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
-          <div style={{ fontFamily: SCH, fontWeight: 800, fontSize: 56, lineHeight: 0.5, color: "#1A56C4", marginBottom: 6 }}>“</div>
-          <p style={{ fontFamily: SCH, fontWeight: 600, fontSize: "clamp(24px,3vw,32px)", lineHeight: 1.3, letterSpacing: "-0.01em", color: "#0E1A2B", margin: "0 0 26px" }}>They funded our flip in six days when two banks had already passed. USAM is the first call on every deal now.</p>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 13 }}>
-            <div style={{ width: 46, height: 46, borderRadius: "50%", background: "linear-gradient(150deg,#1A56C4,#123E96)", display: "flex", alignItems: "center", justifyContent: "center", flex: "none" }}>
-              <span style={{ fontFamily: SCH, fontWeight: 800, fontSize: 18, color: "#fff" }}>M</span>
-            </div>
-            <div style={{ textAlign: "left" }}>
-              <div style={{ fontWeight: 700, fontSize: 15.5, color: "#0E1A2B" }}>Marcus R.</div>
-              <div style={{ fontSize: 14, color: "#667085" }}>Fix &amp; flip investor · Austin, TX</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Testimonial — hidden until real client provided */}
 
       <CtaBand
         title="Have a deal on the table?"

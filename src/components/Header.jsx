@@ -42,7 +42,7 @@ export default function Header() {
         >
           <div style={{ display: "flex", alignItems: "center", gap: 9, minWidth: 0 }}>
             <span style={{ flex: "none", display: "inline-block", width: 7, height: 7, borderRadius: "50%", background: "#C9362E" }} />
-            <span className="u-tagline">Direct private lending, nationwide in all 50 states</span>
+            <span className="u-tagline">Direct private lending, nationwide in most states</span>
           </div>
           <div className="u-bar-contact" style={{ display: "flex", alignItems: "center", gap: 22, flex: "none" }}>
             <a href="tel:512-488-6087" style={{ color: "#E7ECF3", textDecoration: "none", fontWeight: 600, whiteSpace: "nowrap" }}>512-488-6087</a>
