@@ -410,7 +410,7 @@ export default function Apply() {
         {s.step === 4 && (
           <div>
             <h1 style={h1Style}>How many deals have you done?</h1>
-            <p style={subStyle}>Completed in the last 36 months. It helps us tailor leverage.</p>
+            <p style={subStyle}>First deal? That is completely fine, it just helps us tailor leverage. Count what you have completed in the last 36 months.</p>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {EXPERIENCE.map(([label, value]) => (
                 <button key={value} className="opt" onClick={choose("experience", value)}>

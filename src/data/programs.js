@@ -33,7 +33,8 @@ export const programs = [
     ],
     how: "Draws are reimbursed quickly as work is completed, and a dedicated closer stays with your file from term sheet to payoff. You can get a term sheet the same day, and we fund within 48 hours of clear title, so most flips close in 5-7 days as soon as title and insurance come together.",
     who: [
-      "Active fix & flip investors",
+      "Active fix and flip investors",
+      "First-time flippers welcome",
       "Single-family and 1-4 units",
       "Value-add and distressed buys",
       "Auction and on-market deals",
@@ -154,7 +155,7 @@ export const programs = [
       ["All types", "property"],
       ["Cash-out", "available"],
     ],
-    how: "Use bridge capital to reposition an asset, buy out a partner, or stabilize before a refinance. We move quickly on commercial deals that banks find too time-sensitive.",
+    how: "Use bridge capital to reposition an asset, buy out a partner, or stabilize before a refinance. We move quickly on commercial deals that banks find too time-sensitive. When the asset is stabilized, we refinance you out of the bridge and into long-term permanent debt, which we also place in house, so you have a clear exit from day one.",
     who: [
       "Value-add commercial real estate",
       "Repositioning and lease-up",
