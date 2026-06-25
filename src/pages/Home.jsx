@@ -123,7 +123,7 @@ export default function Home() {
             <div className="u-termcard" style={{ position: "absolute", left: -26, bottom: -26, width: 280, background: "#fff", border: "1px solid #E6E9EF", borderRadius: 16, boxShadow: "0 18px 44px -14px rgba(14,26,43,0.28)", padding: 20 }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
                 <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: "#8A97A8" }}>Sample term sheet</span>
-                <span style={{ fontSize: 11, fontWeight: 700, color: "#1A56C4", background: "#EEF3FC", padding: "3px 9px", borderRadius: 999 }}>Fix &amp; Flip</span>
+                <span style={{ fontSize: 11, fontWeight: 700, color: "#1A56C4", background: "#EEF3FC", padding: "3px 9px", borderRadius: 999 }}>Fix and Flip</span>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 11 }}>
                 <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}><span style={{ fontSize: 14, color: "#667085" }}>Purchase</span><span style={{ fontFamily: SCH, fontWeight: 700, fontSize: 17, color: "#0E1A2B" }}>up to 90%</span></div>

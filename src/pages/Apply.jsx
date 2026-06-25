@@ -105,7 +105,7 @@ const labelStyle = { display: "block", fontSize: 13, fontWeight: 700, color: "#3
 const continueBtn = { width: "100%", background: "#1A56C4", color: "#fff", border: "none", borderRadius: 999, padding: 16, fontWeight: 700, fontSize: 17, fontFamily: "inherit", cursor: "pointer", boxShadow: "0 6px 20px rgba(26,86,196,0.28)" };
 
 const LOAN_TYPES = [
-  { value: "Fix & Flip", label: "Fix & Flip", sub: "Buy, renovate, sell", icon: "fixFlip" },
+  { value: "Fix and Flip", label: "Fix and Flip", sub: "Buy, renovate, sell", icon: "fixFlip" },
   { value: "Rental / DSCR", label: "Rental / DSCR", sub: "Long-term hold", icon: "rental" },
   { value: "Ground-Up Construction", label: "Ground-Up", sub: "New construction", icon: "construction" },
   { value: "CRE Bridge", label: "CRE Bridge", sub: "Commercial bridge", icon: "bridge" },
@@ -143,7 +143,7 @@ const DEFAULT_NUMBERS = [
 ];
 
 const NUMBERS_BY_PROGRAM = {
-  "Fix & Flip": DEFAULT_NUMBERS,
+  "Fix and Flip": DEFAULT_NUMBERS,
   "Ground-Up Construction": [
     { key: "purchase", label: "Land / lot cost", type: "currency" },
     { key: "rehab", label: "Construction budget", type: "currency" },

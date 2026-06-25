@@ -6,7 +6,7 @@ export const geoPages = [
   {
     slug: "texas-hard-money-lender",
     region: "Texas",
-    metaTitle: "Texas Hard Money Lender | Fix & Flip, DSCR | USAM Fund",
+    metaTitle: "Texas Hard Money Lender | Fix and Flip, DSCR | USAM Fund",
     description:
       "Direct Texas hard money and private lender for real estate investors. Fix & flip, DSCR rental, ground-up, and bridge loans across Texas. Based in Bee Cave, funding fast.",
     h1: "Texas Hard Money Lender",
@@ -23,7 +23,7 @@ export const geoPages = [
   {
     slug: "austin-hard-money-lender",
     region: "Austin",
-    metaTitle: "Austin Hard Money Lender | Fix & Flip & DSCR | USAM Fund",
+    metaTitle: "Austin Hard Money Lender | Fix and Flip & DSCR | USAM Fund",
     description:
       "Local Austin hard money lender for fix & flip, DSCR rental, and bridge loans. Based in Bee Cave, minutes from Austin. Fast closings and real people who answer the phone.",
     h1: "Austin Hard Money Lender",

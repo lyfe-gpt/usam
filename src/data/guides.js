@@ -52,7 +52,7 @@ export const guides = [
     metaTitle: "Fix and Flip Loan Requirements | USAM Fund",
     description:
       "What lenders look for on a fix and flip loan: down payment, ARV, rehab budget, experience, and credit. Plus how leverage on purchase and rehab actually works.",
-    category: "Fix & Flip",
+    category: "Fix and Flip",
     readMins: 6,
     datePublished: "2026-06-23",
     related: ["fix-flip", "construction", "transactional"],
@@ -164,7 +164,7 @@ export const guides = [
     metaTitle: "What Is ARV? How to Calculate After-Repair Value | USAM Fund",
     description:
       "ARV is what a property will be worth after renovation. Learn how to calculate after-repair value from comps, why lenders cap loans at a percentage of ARV, and how it drives your flip.",
-    category: "Fix & Flip",
+    category: "Fix and Flip",
     readMins: 5,
     datePublished: "2026-06-23",
     related: ["fix-flip", "construction"],
@@ -438,7 +438,7 @@ export const guides = [
     metaTitle: "Fix and Flip With No Money Down: Is It Possible? | USAM Fund",
     description:
       "True zero-down flips are rare, but high-leverage financing plus the right deal can get you close. Here's what 'no money down' really means and how investors structure it.",
-    category: "Fix & Flip",
+    category: "Fix and Flip",
     readMins: 5,
     datePublished: "2026-06-23",
     related: ["fix-flip", "transactional"],
@@ -576,7 +576,7 @@ export const guides = [
     metaTitle: "Fix and Flip Down Payment: How Much? | USAM Fund",
     description:
       "Most fix and flip lenders fund up to 90% of purchase, so plan on roughly 10% down plus closing costs and your share of rehab. Here's how the cash adds up.",
-    category: "Fix & Flip",
+    category: "Fix and Flip",
     readMins: 4,
     datePublished: "2026-06-23",
     related: ["fix-flip", "construction"],
@@ -1014,7 +1014,7 @@ export const guides = [
     metaTitle: "How to Estimate a Rehab Budget for a Flip | USAM Fund",
     description:
       "A realistic rehab budget makes or breaks a flip and your loan. Learn how to build a scope of work, price it, and add the right contingency.",
-    category: "Fix & Flip",
+    category: "Fix and Flip",
     readMins: 5,
     datePublished: "2026-06-23",
     related: ["fix-flip", "construction"],

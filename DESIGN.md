@@ -16,7 +16,7 @@ with `src/index.css` holding the reset, hover/focus states, and **all media quer
 - **Positioning:** Direct private / hard-money lender. "A lender that thinks like an investor."
 - **Tone:** Direct, personal, confident, plain-English. "Real people who answer the phone."
 - **Writing rule:** No en dashes (`–`). Use hyphens (`-`) or em dashes (`—`). Ranges use "to" or hyphen ("5-7 days", "$100K to $5M").
-- **Program name convention:** "Fix & Flip" with ampersand for UI labels/tabs/program names; "Fix and Flip" (spelled out) in prose guide titles and meta descriptions (better SEO).
+- **Program name convention:** Always "Fix and Flip" — spelled out, no ampersand. Consistent everywhere: labels, tabs, meta titles, prose.
 - **Legal footer line:** "Loans for business purpose only · Not a commitment to lend."
 - **Full voice & tone guide:** see `VOICE.md` (Better.com-style plain-spoken, investor-to-investor). Read it before writing or editing any copy.
 
