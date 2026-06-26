@@ -28,7 +28,7 @@ const STATS = [
   ["30 yrs", "lending experience"],
   ["5-7 days", "typical close"],
   ["$10M", "max loan size"],
-  ["50", "states served"],
+  ["Most", "states served"],
 ];
 
 const AVATAR_BG = [
