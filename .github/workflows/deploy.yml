@@ -35,10 +35,9 @@ jobs:
           # needs base=/usam/. (AWS Amplify serves at root and omits this, so
           # it builds with base=/.)
           VITE_BASE: /usam/
-          # Airtable PAT (write-only, this base) injected at build time so it
-          # is never committed to the repo. Set in repo Settings → Secrets and
-          # variables → Actions → New repository secret.
-          VITE_AIRTABLE_TOKEN: ${{ secrets.VITE_AIRTABLE_TOKEN }}
+          # Forms POST to the API Gateway + Lambda; the Airtable token lives
+          # server-side on the Lambda, so it is no longer needed at build time.
+          VITE_API_URL: https://gofe0jrl29.execute-api.us-east-1.amazonaws.com
       # SPA fallback: GitHub Pages serves 404.html for unknown deep links
       # (e.g. /usam/faq); reusing the app shell lets React Router handle them.
       - run: cp dist/index.html dist/404.html
