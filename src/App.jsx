@@ -13,6 +13,8 @@ import Partners from "./pages/Partners.jsx";
 import GeoLanding from "./pages/GeoLanding.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import JsonLd, { organizationSchema, localBusinessSchema, SITE_URL } from "./components/JsonLd.jsx";
+import ConsentBanner from "./components/ConsentBanner.jsx";
+import { initAnalytics, trackPageView, trackPhoneClick } from "./lib/analytics.js";
 import { programs, bySlug } from "./data/programs.js";
 import { guides, guideBySlug } from "./data/guides.js";
 import { geoPages, geoBySlug } from "./data/geo.js";
@@ -22,6 +24,27 @@ function ScrollToTop() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+  return null;
+}
+
+// Initializes analytics once (loads tags only if consent was previously
+// granted) and fires an SPA page view on every route change.
+function Analytics() {
+  const { pathname, search } = useLocation();
+  useEffect(() => {
+    initAnalytics();
+    // One delegated listener captures every tel: click site-wide, so we don't
+    // have to instrument each phone link individually.
+    const onClick = (e) => {
+      const link = e.target.closest && e.target.closest('a[href^="tel:"]');
+      if (link) trackPhoneClick({ phone: link.getAttribute("href").replace("tel:", "") });
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, []);
+  useEffect(() => {
+    trackPageView(pathname + search);
+  }, [pathname, search]);
   return null;
 }
 
@@ -103,6 +126,7 @@ export default function App() {
     <>
       <ScrollToTop />
       <PageMeta />
+      <Analytics />
       {/* Site-wide structured data: publisher + local business */}
       <JsonLd id="schema-organization" data={organizationSchema()} />
       <JsonLd id="schema-localbusiness" data={localBusinessSchema()} />
@@ -131,6 +155,7 @@ export default function App() {
         ))}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      <ConsentBanner />
     </>
   );
 }

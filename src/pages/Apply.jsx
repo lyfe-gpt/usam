@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Icon from "../components/Icon.jsx";
 import { submitLead } from "../lib/crm.js";
+import { trackLead, trackApplicationComplete } from "../lib/analytics.js";
 
 function AddressAutocomplete({ value, onChange }) {
   const [query, setQuery] = useState(value || "");
@@ -222,6 +223,7 @@ export default function Apply() {
       return;
     }
     submitLead({ name: s.name, email: s.email, phone: s.phone, smsConsent: s.smsConsent, leadSource: "Website apply / quote", salesStage: "Inquiry", partnerCode });
+    trackLead({ lead_source: "apply_step1" });
     setS((st) => ({ ...st, step: 1, leadCaptured: true, step0Error: "" }));
   };
 
@@ -267,6 +269,7 @@ export default function Apply() {
       partnerCode,
       smsConsent: st.smsConsent,
     });
+    trackApplicationComplete({ loan_program: st.loanType, timeline: st.timeline });
     setS((cur) => ({ ...cur, ...override, step: cur.step + 1 }));
   };
 

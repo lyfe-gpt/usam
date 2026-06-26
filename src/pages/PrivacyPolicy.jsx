@@ -79,6 +79,7 @@ export default function PrivacyPolicy() {
           <ul style={{ paddingLeft: 22, margin: "0 0 14px" }}>
             <LI><strong>Google Ads</strong> (Google LLC) for conversion tracking and remarketing.</LI>
             <LI><strong>Meta Pixel</strong> (Meta Platforms, Inc.) for conversion tracking, retargeting, and building custom or lookalike audiences.</LI>
+            <LI><strong>LinkedIn Insight Tag</strong> (LinkedIn Corporation) for conversion tracking and retargeting to professional audiences.</LI>
           </ul>
           <P>These tools may set cookies and share certain identifiers (such as a hashed email or device data) with the advertising platform to match you to an ad audience. You can manage interest-based advertising here:</P>
           <ul style={{ paddingLeft: 22, margin: "0 0 14px" }}>
@@ -92,7 +93,7 @@ export default function PrivacyPolicy() {
           <P>We do not sell your personal information. We share it only as described here:</P>
           <ul style={{ paddingLeft: 22, margin: "0 0 14px" }}>
             <LI><strong>Service providers (processors)</strong> that help us operate, such as Twilio and SendGrid (messaging and email), ElevenLabs (voice AI), our CRM and form-intake tools (Airtable), and our website hosting. They may use your information only to provide services to us.</LI>
-            <LI><strong>Analytics and advertising partners</strong>, such as Google (Google Analytics and Google Ads), Meta (Meta Pixel), and Microsoft (Clarity), as described in "Cookies and analytics" and "Advertising and retargeting." This does not include your SMS opt-in data.</LI>
+            <LI><strong>Analytics and advertising partners</strong>, such as Google (Google Analytics and Google Ads), Meta (Meta Pixel), Microsoft (Clarity), and LinkedIn (Insight Tag), as described in "Cookies and analytics" and "Advertising and retargeting." This does not include your SMS opt-in data.</LI>
             <LI><strong>Lending and closing partners</strong> as needed to evaluate, structure, fund, or service your loan, with your involvement.</LI>
             <LI><strong>Legal and safety</strong> reasons, to comply with law, enforce our terms, or protect rights, property, and safety.</LI>
             <LI><strong>Business transfers</strong>, in connection with a merger, acquisition, or sale of assets.</LI>
