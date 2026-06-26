@@ -1,8 +1,10 @@
 name: Deploy to GitHub Pages
 
+# DEPRECATED — the site is now hosted on AWS Amplify (see the vault note
+# "AWS Hosting — usam.net"). This workflow is disabled and the auto-deploy-on-push
+# trigger has been removed so it never rebuilds GitHub Pages again. It is kept
+# only for manual dispatch in case the GitHub Pages fallback is ever needed.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
