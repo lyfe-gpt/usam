@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import Icon from "../components/Icon.jsx";
 import { submitLead } from "../lib/crm.js";
+import { trackContactFormStart, trackContactLead } from "../lib/analytics.js";
 
 const SCH = "'Schibsted Grotesk',sans-serif";
 const labelStyle = { display: "block", fontSize: 13, fontWeight: 700, color: "#344054", marginBottom: 7 };
@@ -23,8 +24,13 @@ export default function Contact() {
   const [form, setForm] = useState({ name: "", phone: "", email: "", subject: "", message: "" });
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
+  const started = useRef(false);
 
-  const set = (k) => (e) => { setForm((f) => ({ ...f, [k]: e.target.value })); setError(""); };
+  const set = (k) => (e) => {
+    if (!started.current) { started.current = true; trackContactFormStart(); }
+    setForm((f) => ({ ...f, [k]: e.target.value }));
+    setError("");
+  };
   const submit = () => {
     if (!form.name.trim()) {
       setError("Please enter your name.");
@@ -44,6 +50,7 @@ export default function Contact() {
         ? `Subject: ${form.subject}\n\n${form.message}`
         : form.message,
     });
+    trackContactLead({ email: form.email, phone: form.phone });
   };
   const reset = () => {
     setForm({ name: "", phone: "", email: "", subject: "", message: "" });

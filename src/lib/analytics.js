@@ -31,7 +31,18 @@ const ADS_LABELS = {
   lead: env.VITE_GOOGLE_ADS_LEAD_LABEL,
   apply: env.VITE_GOOGLE_ADS_APPLY_LABEL,
   call: env.VITE_GOOGLE_ADS_CALL_LABEL,
+  partner: env.VITE_GOOGLE_ADS_PARTNER_LABEL,
 };
+
+// Debug log: every track* call records here regardless of consent/vendor
+// state, so the wiring can be verified in dev and in automated tests via
+// `window.__usamAnalytics`. Enabled in dev or with VITE_ANALYTICS_DEBUG=true.
+const DEBUG = env.DEV || env.VITE_ANALYTICS_DEBUG === "true";
+function record(event, params) {
+  if (!DEBUG || typeof window === "undefined") return;
+  window.__usamAnalytics = window.__usamAnalytics || [];
+  window.__usamAnalytics.push({ event, params: params || {}, t: Date.now() });
+}
 
 const CONSENT_KEY = "usam_consent_v1"; // "granted" | "denied"
 
@@ -200,16 +211,13 @@ function loadLinkedIn() {
 }
 
 // ---------------------------------------------------------------------------
-// Event helpers — safe no-ops until tags are loaded
+// Event helpers
+//
+// MACRO conversions fan out to the ad platforms (GA4 + Meta + Google Ads +
+// LinkedIn) — these are what you bid toward. MICRO/funnel events go to GA4
+// ONLY, so the ad platforms aren't polluted and a single user isn't counted
+// at every step. Both tiers always write to the debug log.
 // ---------------------------------------------------------------------------
-
-export function trackPageView(path) {
-  if (!loaded) return;
-  if (IDS.ga4 && window.gtag) {
-    window.gtag("event", "page_view", { page_path: path, page_location: window.location.href });
-  }
-  if (IDS.metaPixel && window.fbq) window.fbq("track", "PageView");
-}
 
 // Fire a Google Ads conversion if a label is configured for this action.
 function googleAdsConversion(label, params = {}) {
@@ -217,27 +225,111 @@ function googleAdsConversion(label, params = {}) {
   window.gtag("event", "conversion", { send_to: label, ...params });
 }
 
-// Lead captured (step 0 of the apply flow / any contact form submit).
-export function trackLead(params = {}) {
+// Enhanced conversions: hand Google the lead's email/phone so it can match the
+// conversion to an ad click even when cookies fail (big lift to match rate and
+// attribution). Google hashes client-side. OFF unless VITE_ENHANCED_CONVERSIONS
+// is "true", and PII only leaves the browser after consent (loaded === true).
+const ENHANCED = env.VITE_ENHANCED_CONVERSIONS === "true";
+function setEnhancedUserData(email, phone) {
+  if (!ENHANCED || !window.gtag || (!email && !phone)) return;
+  const ud = {};
+  if (email) ud.email = String(email).trim().toLowerCase();
+  if (phone) ud.phone_number = String(phone).replace(/[^\d+]/g, "");
+  window.gtag("set", "user_data", ud);
+}
+
+// Build a value-bearing params object for value-based bidding. A lead worth a
+// $2M loan should outweigh a $100K one; Smart Bidding uses this.
+function withValue(value, currency, params) {
+  const v = Number(value);
+  return v > 0 ? { value: v, currency: currency || "USD", ...params } : { ...params };
+}
+
+// GA4-only micro/funnel event.
+function ga4Event(name, params = {}) {
+  record(name, params);
+  if (!loaded || !IDS.ga4 || !window.gtag) return;
+  window.gtag("event", name, params);
+}
+
+export function trackPageView(path) {
+  record("page_view", { page_path: path });
   if (!loaded) return;
-  if (window.gtag) window.gtag("event", "generate_lead", params);
-  googleAdsConversion(ADS_LABELS.lead, params);
-  if (window.fbq) window.fbq("track", "Lead");
+  if (IDS.ga4 && window.gtag) {
+    window.gtag("event", "page_view", { page_path: path, page_location: window.location.href });
+  }
+  if (IDS.metaPixel && window.fbq) window.fbq("track", "PageView");
+}
+
+// ---- MACRO conversions ----------------------------------------------------
+
+// Lead captured (apply step 1). Optional: value, currency, email, phone.
+export function trackLead({ value, currency, email, phone, ...params } = {}) {
+  const p = withValue(value, currency, params);
+  record("lead", p);
+  if (!loaded) return;
+  setEnhancedUserData(email, phone);
+  if (window.gtag) window.gtag("event", "generate_lead", p);
+  googleAdsConversion(ADS_LABELS.lead, p);
+  if (window.fbq) window.fbq("track", "Lead", p.value ? { value: p.value, currency: p.currency } : {});
   if (window.lintrk) window.lintrk("track", { conversion_id: ADS_LABELS.lead });
 }
 
-// Full application submitted (final step of the apply flow).
-export function trackApplicationComplete(params = {}) {
+// Contact form submitted — also a lead, tagged with its source method.
+export function trackContactLead({ value, currency, email, phone, ...params } = {}) {
+  const p = withValue(value, currency, { method: "contact_form", ...params });
+  record("contact_form_submit", p);
   if (!loaded) return;
-  if (window.gtag) window.gtag("event", "submit_application", params);
-  googleAdsConversion(ADS_LABELS.apply, params);
-  if (window.fbq) window.fbq("track", "SubmitApplication");
+  setEnhancedUserData(email, phone);
+  if (window.gtag) window.gtag("event", "generate_lead", p);
+  googleAdsConversion(ADS_LABELS.lead, p);
+  if (window.fbq) window.fbq("track", "Lead", p.value ? { value: p.value, currency: p.currency } : {});
+  if (window.lintrk) window.lintrk("track", { conversion_id: ADS_LABELS.lead });
+}
+
+// Full application submitted (final apply step). Carries loan value.
+export function trackApplicationComplete({ value, currency, email, phone, ...params } = {}) {
+  const p = withValue(value, currency, params);
+  record("application_complete", p);
+  if (!loaded) return;
+  setEnhancedUserData(email, phone);
+  if (window.gtag) window.gtag("event", "submit_application", p);
+  googleAdsConversion(ADS_LABELS.apply, p);
+  if (window.fbq) window.fbq("track", "SubmitApplication", p.value ? { value: p.value, currency: p.currency } : {});
+}
+
+// SMS opt-in rate — measures list growth (GA4 only; never shared with ad platforms).
+export const trackSmsOptIn = (params = {}) => ga4Event("sms_opt_in", params);
+
+// Partner application submitted — a distinct audience, kept separate from
+// loan leads so lead-gen ad optimization isn't muddied.
+export function trackPartnerApplication(params = {}) {
+  record("partner_application", params);
+  if (!loaded) return;
+  if (window.gtag) window.gtag("event", "partner_application", params);
+  googleAdsConversion(ADS_LABELS.partner, params);
+  if (window.fbq) window.fbq("trackCustom", "PartnerApplication", params);
 }
 
 // Click-to-call — the highest-intent action for a lender.
 export function trackPhoneClick(params = {}) {
+  record("phone_call_click", params);
   if (!loaded) return;
   if (window.gtag) window.gtag("event", "phone_call_click", params);
   googleAdsConversion(ADS_LABELS.call, params);
   if (window.fbq) window.fbq("track", "Contact");
 }
+
+// ---- MICRO / funnel events (GA4 only) -------------------------------------
+
+export const trackApplyStart = (params = {}) => ga4Event("apply_start", params);
+export const trackApplyStep = (stepNumber, stepName, params = {}) =>
+  ga4Event("apply_step", { step_number: stepNumber, step_name: stepName, ...params });
+export const trackApplyQualified = (params = {}) => ga4Event("apply_qualified", params);
+export const trackPartnerFormStart = (params = {}) => ga4Event("partner_form_start", params);
+export const trackContactFormStart = (params = {}) => ga4Event("contact_form_start", params);
+export const trackEmailClick = (params = {}) => ga4Event("email_click", params);
+export const trackCtaClick = (params = {}) => ga4Event("cta_click", params);
+export const trackScrollDepth = (percent) => ga4Event("scroll_depth", { percent });
+export const trackContentView = (contentType, slug) =>
+  ga4Event("content_view", { content_type: contentType, slug });

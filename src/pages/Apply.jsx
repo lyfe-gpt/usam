@@ -2,7 +2,10 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Icon from "../components/Icon.jsx";
 import { submitLead } from "../lib/crm.js";
-import { trackLead, trackApplicationComplete } from "../lib/analytics.js";
+import { trackLead, trackApplicationComplete, trackApplyStart, trackApplyStep, trackApplyQualified, trackSmsOptIn } from "../lib/analytics.js";
+
+// Names for the funnel events fired when advancing FROM each step.
+const STEP_NAMES = { 1: "loan_type", 2: "property", 3: "numbers", 4: "experience" };
 
 function AddressAutocomplete({ value, onChange }) {
   const [query, setQuery] = useState(value || "");
@@ -201,12 +204,24 @@ export default function Apply() {
 
   useEffect(() => {
     document.body.classList.add("apply-page");
+    trackApplyStart();
     return () => document.body.classList.remove("apply-page");
   }, []);
 
+  // Fire the funnel event when the result screen is reached.
+  useEffect(() => {
+    if (s.step === 6) trackApplyQualified({ loan_program: s.loanType });
+  }, [s.step, s.loanType]);
+
   const set = (k) => (e) => setS((st) => ({ ...st, [k]: e.target.value }));
-  const choose = (k, v) => () => setS((st) => ({ ...st, [k]: v, step: st.step + 1 }));
-  const next = () => setS((st) => ({ ...st, step: st.step + 1 }));
+  // Advance one step, firing the funnel event for the step being completed.
+  // Fired outside setS so StrictMode's double-invoked updater can't double-count.
+  const advance = (extra = {}) => {
+    if (STEP_NAMES[s.step]) trackApplyStep(s.step, STEP_NAMES[s.step]);
+    setS((st) => ({ ...st, ...extra, step: st.step + 1 }));
+  };
+  const choose = (k, v) => () => advance({ [k]: v });
+  const next = () => advance();
   const back = () => setS((st) => ({ ...st, step: Math.max(0, st.step - 1) }));
 
   // Referral attribution: a partner link like /apply?ref=CODE tags the lead so
@@ -223,7 +238,7 @@ export default function Apply() {
       return;
     }
     submitLead({ name: s.name, email: s.email, phone: s.phone, smsConsent: s.smsConsent, leadSource: "Website apply / quote", salesStage: "Inquiry", partnerCode });
-    trackLead({ lead_source: "apply_step1" });
+    trackLead({ email: s.email, phone: s.phone, lead_source: "apply_step1" });
     setS((st) => ({ ...st, step: 1, leadCaptured: true, step0Error: "" }));
   };
 
@@ -269,7 +284,14 @@ export default function Apply() {
       partnerCode,
       smsConsent: st.smsConsent,
     });
-    trackApplicationComplete({ loan_program: st.loanType, timeline: st.timeline });
+    trackApplicationComplete({
+      value: toNumber(st.loanAmount) || toNumber(st.purchase),
+      email: st.email,
+      phone: st.phone,
+      loan_program: st.loanType,
+      timeline: st.timeline,
+    });
+    if (st.smsConsent) trackSmsOptIn();
     setS((cur) => ({ ...cur, ...override, step: cur.step + 1 }));
   };
 

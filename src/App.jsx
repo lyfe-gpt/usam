@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Programs from "./pages/Programs.jsx";
@@ -14,7 +14,15 @@ import GeoLanding from "./pages/GeoLanding.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import JsonLd, { organizationSchema, localBusinessSchema, SITE_URL } from "./components/JsonLd.jsx";
 import ConsentBanner from "./components/ConsentBanner.jsx";
-import { initAnalytics, trackPageView, trackPhoneClick } from "./lib/analytics.js";
+import {
+  initAnalytics,
+  trackPageView,
+  trackPhoneClick,
+  trackEmailClick,
+  trackCtaClick,
+  trackScrollDepth,
+  trackContentView,
+} from "./lib/analytics.js";
 import { programs, bySlug } from "./data/programs.js";
 import { guides, guideBySlug } from "./data/guides.js";
 import { geoPages, geoBySlug } from "./data/geo.js";
@@ -31,19 +39,52 @@ function ScrollToTop() {
 // granted) and fires an SPA page view on every route change.
 function Analytics() {
   const { pathname, search } = useLocation();
+  const scrollFired = useRef(new Set());
   useEffect(() => {
     initAnalytics();
-    // One delegated listener captures every tel: click site-wide, so we don't
-    // have to instrument each phone link individually.
+    // One delegated listener captures clicks site-wide so we don't have to
+    // instrument every phone, email, and Apply CTA link individually.
     const onClick = (e) => {
-      const link = e.target.closest && e.target.closest('a[href^="tel:"]');
-      if (link) trackPhoneClick({ phone: link.getAttribute("href").replace("tel:", "") });
+      const a = e.target.closest && e.target.closest("a");
+      if (!a) return;
+      const href = a.getAttribute("href") || "";
+      if (href.startsWith("tel:")) {
+        trackPhoneClick({ phone: href.replace("tel:", "") });
+      } else if (href.startsWith("mailto:")) {
+        trackEmailClick({ email: href.replace("mailto:", "") });
+      } else if (/(^|\/)apply(\?|$)/.test(a.pathname || href)) {
+        // A click on any link into the apply flow = funnel entry intent.
+        trackCtaClick({ label: (a.textContent || "").trim().slice(0, 60), to: "/apply" });
+      }
     };
     document.addEventListener("click", onClick);
-    return () => document.removeEventListener("click", onClick);
+
+    // Scroll-depth milestones, reset each route change via scrollFired ref.
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (max <= 0) return;
+      const pct = Math.round((window.scrollY / max) * 100);
+      [25, 50, 75, 100].forEach((m) => {
+        if (pct >= m && !scrollFired.current.has(m)) {
+          scrollFired.current.add(m);
+          trackScrollDepth(m);
+        }
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      document.removeEventListener("click", onClick);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
   useEffect(() => {
+    scrollFired.current = new Set();
     trackPageView(pathname + search);
+    // Content-view events let us build retargeting audiences by interest.
+    const parts = pathname.split("/").filter(Boolean);
+    if (parts[0] === "programs" && parts[1]) trackContentView("program", parts[1]);
+    else if (parts[0] === "resources" && parts[1]) trackContentView("guide", parts[1]);
   }, [pathname, search]);
   return null;
 }

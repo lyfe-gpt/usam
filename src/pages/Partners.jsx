@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import Icon from "../components/Icon.jsx";
 import Faq from "../components/Faq.jsx";
 import JsonLd, { faqPageSchema } from "../components/JsonLd.jsx";
 import { submitPartner } from "../lib/crm.js";
+import { trackPartnerFormStart, trackPartnerApplication } from "../lib/analytics.js";
 import { Link } from "react-router-dom";
 import { guides } from "../data/guides.js";
 import partnersBanner from "../assets/banners/partners.webp";
@@ -37,9 +38,11 @@ export default function Partners() {
   const [form, setForm] = useState({ name: "", company: "", email: "", phone: "", type: "", market: "", volume: "", message: "", smsConsent: false });
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
+  const started = useRef(false);
 
-  const set = (k) => (e) => { setForm((f) => ({ ...f, [k]: e.target.value })); setError(""); };
-  const toggle = (k) => (e) => { setForm((f) => ({ ...f, [k]: e.target.checked })); };
+  const markStart = () => { if (!started.current) { started.current = true; trackPartnerFormStart(); } };
+  const set = (k) => (e) => { markStart(); setForm((f) => ({ ...f, [k]: e.target.value })); setError(""); };
+  const toggle = (k) => (e) => { markStart(); setForm((f) => ({ ...f, [k]: e.target.checked })); };
   const submit = () => {
     if (!form.name.trim()) { setError("Please enter your name."); return; }
     if (!form.email.trim() && !form.phone.trim()) { setError("Please provide an email or phone number so we can reach you."); return; }
@@ -55,6 +58,7 @@ export default function Partners() {
       notes: form.message,
       smsConsent: form.smsConsent,
     });
+    trackPartnerApplication({ partner_type: form.type });
   };
   const reset = () => { setForm({ name: "", company: "", email: "", phone: "", type: "", market: "", volume: "", message: "", smsConsent: false }); setSent(false); };
 
