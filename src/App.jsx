@@ -12,6 +12,7 @@ import Guide from "./pages/Guide.jsx";
 import Partners from "./pages/Partners.jsx";
 import GeoLanding from "./pages/GeoLanding.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
+import Terms from "./pages/Terms.jsx";
 import JsonLd, { organizationSchema, localBusinessSchema, SITE_URL } from "./components/JsonLd.jsx";
 import ConsentBanner from "./components/ConsentBanner.jsx";
 import {
@@ -107,6 +108,7 @@ function metaFor(pathname) {
   if (pathname.startsWith("/apply")) return [`Apply | ${BASE}`, "Get a real rate in minutes. No obligation and no hard credit pull to start your USAM Fund application."];
   if (pathname.startsWith("/partners")) return [`Partner Program | ${BASE}`, "Partner with a direct lender that closes. We fund your investor buyers fast, so your deals close. For wholesalers, investor agents, and off-market marketplaces."];
   if (pathname.startsWith("/privacy")) return [`Privacy Policy | ${BASE}`, "How USAM Fund collects, uses, and protects your information, including our SMS, email, AI voice assistant, analytics, and advertising practices."];
+  if (pathname.startsWith("/terms")) return [`Terms of Service | ${BASE}`, "The terms that govern use of the USAM Fund website. Business-purpose lending only; nothing here is a commitment to lend."];
   if (pathname === "/resources") return [`Investor Guides | ${BASE}`, "Plain-English guides on DSCR loans, fix and flip financing, the BRRRR method, and more from USAM Fund."];
   if (pathname.startsWith("/resources/")) {
     const g = guideBySlug[pathname.split("/")[2]];
@@ -187,6 +189,7 @@ export default function App() {
         <Route path="/apply" element={<Apply />} />
         <Route path="/partners" element={<Partners />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<Terms />} />
         <Route path="/resources" element={<Resources />} />
         {guides.map((g) => (
           <Route key={g.slug} path={`/resources/${g.slug}`} element={<Guide slug={g.slug} />} />

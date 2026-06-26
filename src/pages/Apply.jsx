@@ -57,6 +57,7 @@ function AddressAutocomplete({ value, onChange }) {
       <input
         className="ci"
         type="text"
+        aria-label="Property address"
         placeholder="Street, city, state"
         value={query}
         onChange={handleChange}

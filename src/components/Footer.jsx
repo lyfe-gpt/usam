@@ -57,6 +57,7 @@ export default function Footer() {
           <span>© {year} USAM Fund. All rights reserved.</span>
           <span style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
             <Link to="/privacy" className="ftr-lnk" style={{ color: "#6E7E92", textDecoration: "none" }}>Privacy Policy</Link>
+            <Link to="/terms" className="ftr-lnk" style={{ color: "#6E7E92", textDecoration: "none" }}>Terms of Service</Link>
             <span>Loans for business purpose only · Not a commitment to lend.</span>
           </span>
         </div>
