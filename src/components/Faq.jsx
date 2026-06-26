@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Icon from "./Icon.jsx";
+import { sanitizeHtml } from "../lib/sanitize.js";
 
 const SCH = "'Schibsted Grotesk',sans-serif";
 
@@ -84,7 +85,7 @@ export default function Faq({ items }) {
                   color: "#475467",
                   maxWidth: 760,
                 }}
-                dangerouslySetInnerHTML={{ __html: a }}
+                dangerouslySetInnerHTML={{ __html: sanitizeHtml(a) }}
               />
             )}
           </div>

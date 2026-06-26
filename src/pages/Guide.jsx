@@ -7,6 +7,7 @@ import Faq from "../components/Faq.jsx";
 import JsonLd, { articleSchema, breadcrumbSchema, faqPageSchema } from "../components/JsonLd.jsx";
 import { guideBySlug } from "../data/guides.js";
 import { bySlug as programBySlug } from "../data/programs.js";
+import { sanitizeHtml } from "../lib/sanitize.js";
 
 const SCH = "'Schibsted Grotesk',sans-serif";
 
@@ -40,7 +41,7 @@ export default function Guide({ slug }) {
       </section>
 
       <section className="sec" style={{ background: "#fff", padding: "8px 32px 56px" }}>
-        <div className="guide-body" style={{ maxWidth: 760, margin: "0 auto" }} dangerouslySetInnerHTML={{ __html: g.body }} />
+        <div className="guide-body" style={{ maxWidth: 760, margin: "0 auto" }} dangerouslySetInnerHTML={{ __html: sanitizeHtml(g.body) }} />
 
         {g.faqs && g.faqs.length > 0 && (
           <div style={{ maxWidth: 760, margin: "44px auto 0" }}>

@@ -94,6 +94,7 @@ export default function PrivacyPolicy() {
           <ul style={{ paddingLeft: 22, margin: "0 0 14px" }}>
             <LI><strong>Service providers (processors)</strong> that help us operate, such as Twilio and SendGrid (messaging and email), ElevenLabs (voice AI), our CRM and form-intake tools (Airtable), and our website hosting. They may use your information only to provide services to us.</LI>
             <LI><strong>Analytics and advertising partners</strong>, such as Google (Google Analytics and Google Ads), Meta (Meta Pixel), Microsoft (Clarity), and LinkedIn (Insight Tag), as described in "Cookies and analytics" and "Advertising and retargeting." This does not include your SMS opt-in data.</LI>
+            <LI><strong>Address lookup</strong>: when you type a property address into our application form, the text you enter is sent to OpenStreetMap's Nominatim service so it can suggest matching addresses. Only the address text is sent.</LI>
             <LI><strong>Lending and closing partners</strong> as needed to evaluate, structure, fund, or service your loan, with your involvement.</LI>
             <LI><strong>Legal and safety</strong> reasons, to comply with law, enforce our terms, or protect rights, property, and safety.</LI>
             <LI><strong>Business transfers</strong>, in connection with a merger, acquisition, or sale of assets.</LI>

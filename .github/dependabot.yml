@@ -1,0 +1,20 @@
+# Enables GitHub Dependabot so shipped dependency vulnerabilities are flagged
+# automatically via PRs (security audit #7). Note: the only current `npm audit`
+# findings are dev-server-only (esbuild/vite) and do not ship in the build.
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      # Batch minor/patch bumps into a single PR to reduce noise.
+      minor-and-patch:
+        update-types:
+          - "minor"
+          - "patch"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"

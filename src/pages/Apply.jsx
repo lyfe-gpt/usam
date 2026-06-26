@@ -43,7 +43,9 @@ function AddressAutocomplete({ value, onChange }) {
       } catch {
         setSuggestions([]); setOpen(false);
       }
-    }, 200);
+      // 500ms debounce: respects OpenStreetMap Nominatim's usage policy and
+      // sends fewer keystrokes of the typed address to the third-party service.
+    }, 500);
   };
 
   const pick = (addr) => {
