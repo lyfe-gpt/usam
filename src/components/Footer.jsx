@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { programs } from "../data/programs.js";
+import logoWhite from "../assets/usam-logo-white.png";
 
 const head = { fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#fff", marginBottom: 16 };
 const lnk = { color: "#AEB9C9", textDecoration: "none" };
@@ -12,7 +13,7 @@ export default function Footer() {
         <div className="ftr-grid" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr 1.2fr", gap: 48, paddingBottom: 48, borderBottom: "1px solid #21324A" }}>
           <div>
             <div style={{ marginBottom: 18 }}>
-              <img src="https://lirp.cdn-website.com/e6bfcade/dms3rep/multi/opt/whiteLogo+copy-230w.png" alt="USAM Fund" style={{ height: 48, width: "auto", display: "block" }} />
+              <img src={logoWhite} alt="USAM Fund" style={{ height: 48, width: "auto", display: "block" }} />
             </div>
             <p style={{ fontSize: 14.5, lineHeight: 1.6, color: "#8A97A8", maxWidth: 280, margin: 0 }}>
               Direct private &amp; hard-money lending for real estate investors, operators, and developers nationwide.

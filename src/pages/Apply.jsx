@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Icon from "../components/Icon.jsx";
 import { submitLead } from "../lib/crm.js";
 import { trackLead, trackApplicationComplete, trackApplyStart, trackApplyStep, trackApplyQualified, trackSmsOptIn } from "../lib/analytics.js";
+import logoHorizontal from "../assets/usam-logo-horizontal.png";
 
 // Names for the funnel events fired when advancing FROM each step.
 const STEP_NAMES = { 1: "loan_type", 2: "property", 3: "numbers", 4: "experience" };
@@ -310,7 +311,7 @@ export default function Apply() {
       {/* Minimal flow header */}
       <div style={{ position: "sticky", top: 0, zIndex: 40, background: "#fff", borderBottom: "1px solid #E6E9EF" }}>
         <div className="flow-pad" style={{ maxWidth: 680, margin: "0 auto", padding: "14px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16 }}>
-          <Link to="/"><img src="https://lirp.cdn-website.com/e6bfcade/dms3rep/multi/opt/horizontal+raw+PSD+file-314w.png" alt="USAM Fund" style={{ height: 38, width: "auto", display: "block" }} /></Link>
+          <Link to="/"><img src={logoHorizontal} alt="USAM Fund" style={{ height: 38, width: "auto", display: "block" }} /></Link>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             {showProgress && <span style={{ fontSize: 13, fontWeight: 700, color: "#8A97A8" }}>Step {stepNum} of 6</span>}
             <Link to="/" aria-label="Exit" style={{ width: 34, height: 34, borderRadius: 9, border: "1px solid #E6E9EF", display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}>

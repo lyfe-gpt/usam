@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Icon from "./Icon.jsx";
 import { programs } from "../data/programs.js";
+import logoHorizontal from "../assets/usam-logo-horizontal.png";
 
 const SCH = "'Schibsted Grotesk',sans-serif";
 
@@ -59,7 +60,7 @@ export default function Header() {
         >
           <Link to="/" style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none" }}>
             <img
-              src="https://lirp.cdn-website.com/e6bfcade/dms3rep/multi/opt/horizontal+raw+PSD+file-314w.png"
+              src={logoHorizontal}
               alt="USAM Fund"
               className="u-logo"
               style={{ height: 46, width: "auto", display: "block" }}
