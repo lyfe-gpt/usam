@@ -105,6 +105,10 @@ export const programFaqs = {
       q: "Is there a prepayment penalty?",
       a: "Long-term rental loans usually carry a prepayment penalty, commonly a <strong>step-down such as 5/4/3/2/1</strong>. We offer <strong>flexible prepay structures</strong>, including <strong>buying down to a shorter penalty</strong> for a slightly higher rate, and we will <strong>lay out the options on your term sheet</strong>.",
     },
+    {
+      q: "Can I close a DSCR loan in an LLC?",
+      a: "<strong>Yes. DSCR loans routinely close in an LLC</strong> or other entity, since they are <strong>business-purpose loans</strong>. Holding each rental in a <strong>single-purpose LLC is standard practice</strong> for investors building a portfolio, and we can <strong>close in your entity</strong> rather than your personal name.",
+    },
   ],
   construction: [
     {
