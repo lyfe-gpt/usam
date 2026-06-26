@@ -86,7 +86,6 @@ export const programs = [
       ["DSCR", "From 0.75"],
       ["Term", "30-yr fixed / 5-7-10 ARM"],
       ["Rate", "From 5.50% IO*"],
-      ["Vesting", "Closes in LLC"],
       ["Prepay", "Flexible structures"],
     ],
     applyLabel: "Apply for Rental / DSCR",
