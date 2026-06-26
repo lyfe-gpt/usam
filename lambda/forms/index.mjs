@@ -3,7 +3,10 @@
 // never ships in the public browser bundle. Routes: POST /leads, POST /partners.
 //
 // Mirrors the field mapping that used to live in src/lib/crm.js. Node 20 runtime
-// (global fetch, no dependencies). CORS is handled by API Gateway, not here.
+// (global fetch + bundled AWS SDK v3, no extra deps). CORS is handled by API
+// Gateway, not here. Abuse controls: per-IP rate limit (DynamoDB) + validation.
+
+import { DynamoDBClient, UpdateItemCommand } from "@aws-sdk/client-dynamodb";
 
 const BASE_ID = "appJPMRkPVWMwxjsu";
 const LEADS_TABLE = "tblpfqONyahzor2Pn"; // Sales Deals (borrower leads)
@@ -92,13 +95,48 @@ const json = (statusCode, body) => ({
   body: JSON.stringify(body),
 });
 
+// Per-IP rate limit via DynamoDB fixed-minute buckets. Fail-open on any DB error
+// so an infra hiccup never blocks a legitimate lead.
+const ddb = new DynamoDBClient({});
+const THROTTLE_TABLE = process.env.THROTTLE_TABLE || "usam-forms-throttle";
+const PER_IP_PER_MINUTE = 8;
+
+async function rateLimited(ip) {
+  if (!ip) return false;
+  const minute = Math.floor(Date.now() / 60000);
+  try {
+    const res = await ddb.send(new UpdateItemCommand({
+      TableName: THROTTLE_TABLE,
+      Key: { pk: { S: `${ip}#${minute}` } },
+      UpdateExpression: "ADD #c :one SET #t = :ttl",
+      ExpressionAttributeNames: { "#c": "count", "#t": "ttl" },
+      ExpressionAttributeValues: { ":one": { N: "1" }, ":ttl": { N: String(minute * 60 + 120) } },
+      ReturnValues: "UPDATED_NEW",
+    }));
+    return Number(res.Attributes?.count?.N || "0") > PER_IP_PER_MINUTE;
+  } catch (err) {
+    console.error("rate-limit check failed (fail-open):", err);
+    return false;
+  }
+}
+
 export const handler = async (event) => {
   const path = event.rawPath || event.requestContext?.http?.path || "";
+  const ip = event.requestContext?.http?.sourceIp;
+
+  // Abuse control: cap submissions per IP per minute.
+  if (await rateLimited(ip)) return json(429, { ok: false, error: "rate limited" });
+
   let payload;
   try {
     payload = JSON.parse(event.body || "{}");
   } catch {
     return json(400, { ok: false, error: "invalid JSON" });
+  }
+
+  // Reject obvious junk: a real lead or partner always has an email or phone.
+  if (!payload.email && !payload.phone) {
+    return json(400, { ok: false, error: "missing contact info" });
   }
 
   let ok = false;
