@@ -31,6 +31,10 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
+          # GitHub Pages serves this repo at the /usam/ subpath, so the build
+          # needs base=/usam/. (AWS Amplify serves at root and omits this, so
+          # it builds with base=/.)
+          VITE_BASE: /usam/
           # Airtable PAT (write-only, this base) injected at build time so it
           # is never committed to the repo. Set in repo Settings → Secrets and
           # variables → Actions → New repository secret.

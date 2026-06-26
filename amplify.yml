@@ -1,0 +1,18 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      # base defaults to "/" (root domain) since VITE_BASE is not set here.
+      # VITE_AIRTABLE_TOKEN is provided as an Amplify environment variable.
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
