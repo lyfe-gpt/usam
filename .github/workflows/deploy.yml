@@ -1,58 +1,55 @@
-name: Deploy to GitHub Pages
+name: Deploy (Amplify)
 
-# DEPRECATED — the site is now hosted on AWS Amplify (see the vault note
-# "AWS Hosting — usam.net"). This workflow is disabled and the auto-deploy-on-push
-# trigger has been removed so it never rebuilds GitHub Pages again. It is kept
-# only for manual dispatch in case the GitHub Pages fallback is ever needed.
+# Builds the SPA and deploys it to AWS Amplify on push to main.
+#
+# Gated by the repo variable AUTO_DEPLOY: until it is set to 'true' the job is
+# SKIPPED (shown grey, not red), so pushing code doesn't deploy until the AWS side
+# is wired up and you choose to flip it on:  gh variable set AUTO_DEPLOY --body true
+#
+# Auth is OIDC — no long-lived AWS keys are stored in GitHub. The role ARN comes
+# from the repo variable AWS_DEPLOY_ROLE_ARN (created by deploy/setup-github-oidc.sh).
+#
+# The Airtable token is NOT here — it lives on the usam-forms Lambda. The only build
+# config is VITE_API_URL (public API Gateway URL) from the repo variable of the same name.
+#
+# (This replaced the old GitHub Pages workflow; the site is hosted on Amplify now.)
+
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
+  id-token: write   # required to request the OIDC token
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
 
 jobs:
-  build:
+  deploy:
+    if: ${{ vars.AUTO_DEPLOY == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
           cache: npm
-      # Auto-enables GitHub Pages (source = Actions) on first run, so no manual
-      # toggle in repo Settings is needed.
-      - uses: actions/configure-pages@v5
+      - uses: aws-actions/configure-aws-credentials@v4
         with:
-          enablement: true
-      - run: npm ci
-      - run: npm run build
-        env:
-          # GitHub Pages serves this repo at the /usam/ subpath, so the build
-          # needs base=/usam/. (AWS Amplify serves at root and omits this, so
-          # it builds with base=/.)
-          VITE_BASE: /usam/
-          # Forms POST to the API Gateway + Lambda; the Airtable token lives
-          # server-side on the Lambda, so it is no longer needed at build time.
-          VITE_API_URL: https://gofe0jrl29.execute-api.us-east-1.amazonaws.com
-      # SPA fallback: GitHub Pages serves 404.html for unknown deep links
-      # (e.g. /usam/faq); reusing the app shell lets React Router handle them.
-      - run: cp dist/index.html dist/404.html
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          # base defaults to "/" (Amplify root). VITE_API_URL tells the forms where
+          # to POST; it's a public URL, set as a repo variable.
+          VITE_API_URL: ${{ vars.VITE_API_URL }}
+
+      - name: Deploy to Amplify
+        run: bash deploy/deploy-amplify.sh
+        env:
+          AMPLIFY_APP_ID: d26k7ln1hnf44p
+          AMPLIFY_BRANCH: main

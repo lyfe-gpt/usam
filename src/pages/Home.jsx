@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import CtaBand from "../components/CtaBand.jsx";
+import DealShowcase from "../components/DealShowcase.jsx";
 import Icon from "../components/Icon.jsx";
 import { programs } from "../data/programs.js";
 import heroVideoWebm from "../assets/home-hero.webm";
@@ -148,6 +149,9 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* Closed-deal showcase (renders only once SHOW_DEALS is enabled in data/deals.js) */}
+      <DealShowcase />
 
       {/* Programs preview */}
       <section id="programs" className="sec" style={{ background: "#fff", padding: "72px 32px" }}>

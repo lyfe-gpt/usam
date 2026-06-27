@@ -95,6 +95,96 @@ const json = (statusCode, body) => ({
   body: JSON.stringify(body),
 });
 
+// ── Email notifications (SendGrid) ──────────────────────────────────────────
+// Two emails fire after a successful write: (1) an instant lead alert to Jack
+// for speed-to-lead, and (2) an auto-reply confirmation to the applicant. Both
+// are gated on SENDGRID_API_KEY + SENDGRID_FROM being set, so until Jack adds a
+// key in the Lambda env this is a complete no-op and changes nothing. Failures
+// are logged and swallowed — a flaky email must never fail a real submission.
+//   Env: SENDGRID_API_KEY (secret), SENDGRID_FROM (verified sender),
+//        ALERT_EMAIL (where Jack gets alerts; defaults to SENDGRID_FROM).
+async function sendEmail({ to, subject, text, replyTo }) {
+  const key = process.env.SENDGRID_API_KEY;
+  const from = process.env.SENDGRID_FROM;
+  if (!key || !from || !to) return; // not configured yet — no-op
+  const body = {
+    personalizations: [{ to: [{ email: to }] }],
+    from: { email: from, name: "USAM Fund" },
+    subject,
+    content: [{ type: "text/plain", value: text }],
+  };
+  if (replyTo) body.reply_to = { email: replyTo };
+  const res = await fetch("https://api.sendgrid.com/v3/mail/send", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) console.error("SendGrid send failed:", res.status, await res.text());
+}
+
+// Master pause switch for the email layer. Set true to keep all the code below
+// but send nothing (lead alert + applicant auto-reply both off). Flip to false
+// to re-enable; sends still also require SENDGRID_API_KEY + SENDGRID_FROM.
+const NOTIFY_PAUSED = true;
+
+// Fire the lead alert + applicant auto-reply for a submission. `kind` is
+// "lead" or "partner". Never throws.
+async function notify(kind, payload) {
+  if (NOTIFY_PAUSED) return; // paused — code kept, nothing sent
+  if (!process.env.SENDGRID_API_KEY) return; // skip the work entirely if unset
+  const alertTo = process.env.ALERT_EMAIL || process.env.SENDGRID_FROM;
+  const who = payload.name || "Someone";
+  const contact = [payload.email, payload.phone].filter(Boolean).join(" · ");
+
+  const alertLines =
+    kind === "lead"
+      ? [
+          `New lead from the website.`,
+          ``,
+          `Name: ${payload.name || "—"}`,
+          `Contact: ${contact || "—"}`,
+          `Program: ${payload.loanProgram || "—"}`,
+          `Property: ${payload.propertyAddress || "—"}`,
+          `Loan amount: ${payload.loanAmount || "—"}`,
+          `Timeline: ${payload.timeline || "—"}`,
+          payload.notes ? `Notes: ${payload.notes}` : ``,
+        ]
+      : [
+          `New partner application from the website.`,
+          ``,
+          `Name: ${payload.name || "—"}`,
+          `Company: ${payload.company || "—"}`,
+          `Contact: ${contact || "—"}`,
+          `Type: ${payload.partnerType || "—"}`,
+          `Market: ${payload.market || "—"}`,
+        ];
+
+  const replyText =
+    kind === "lead"
+      ? `Hi ${who},\n\nThanks for reaching out to USAM Fund. We received your request and a member of our team will follow up shortly to talk through your deal. If you need us sooner, call 512-488-6087.\n\nUSAM Fund\nDirect private and hard-money lending`
+      : `Hi ${who},\n\nThanks for your interest in partnering with USAM Fund. We received your application and will be in touch soon. Questions in the meantime? Call 512-488-6087.\n\nUSAM Fund\nDirect private and hard-money lending`;
+
+  const tasks = [
+    sendEmail({
+      to: alertTo,
+      subject: kind === "lead" ? `New lead: ${who}` : `New partner: ${who}`,
+      text: alertLines.filter((l) => l !== undefined).join("\n"),
+      replyTo: payload.email || undefined,
+    }),
+  ];
+  if (payload.email) {
+    tasks.push(
+      sendEmail({
+        to: payload.email,
+        subject: "We got your request — USAM Fund",
+        text: replyText,
+      })
+    );
+  }
+  const results = await Promise.allSettled(tasks);
+  results.forEach((r) => r.status === "rejected" && console.error("notify error:", r.reason));
+}
+
 // Per-IP rate limit via DynamoDB fixed-minute buckets. Fail-open on any DB error
 // so an infra hiccup never blocks a legitimate lead.
 const ddb = new DynamoDBClient({});
@@ -140,13 +230,16 @@ export const handler = async (event) => {
   }
 
   let ok = false;
+  let kind = null;
   if (path.endsWith("/leads")) {
+    kind = "lead";
     ok = await postRecord(
       LEADS_TABLE,
       LEAD_FIELDS,
       withConsent({ salesStage: "Qualification", lastContact: today(), ...payload })
     );
   } else if (path.endsWith("/partners")) {
+    kind = "partner";
     ok = await postRecord(
       PARTNERS_TABLE,
       PARTNER_FIELDS,
@@ -154,6 +247,16 @@ export const handler = async (event) => {
     );
   } else {
     return json(404, { ok: false, error: "unknown route" });
+  }
+
+  // Fire alert + auto-reply on success. Wrapped so an email failure never
+  // changes the response the visitor sees.
+  if (ok && kind) {
+    try {
+      await notify(kind, payload);
+    } catch (err) {
+      console.error("notify failed (non-blocking):", err);
+    }
   }
 
   return json(ok ? 200 : 502, { ok });

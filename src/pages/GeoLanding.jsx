@@ -68,7 +68,7 @@ export default function GeoLanding({ slug }) {
       {/* Cities served */}
       <section className="sec" style={{ background: "#F6F8FB", padding: "40px 32px" }}>
         <div style={{ maxWidth: 880, margin: "0 auto" }}>
-          <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#8A97A8", marginBottom: 14 }}>Areas we serve</div>
+          <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#667085", marginBottom: 14 }}>Areas we serve</div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
             {g.cities.map((c) => (
               <span key={c} style={{ fontSize: 14.5, fontWeight: 600, color: "#475467", background: "#fff", border: "1px solid #E6E9EF", padding: "8px 14px", borderRadius: 999 }}>{c}</span>

@@ -1,0 +1,124 @@
+import { useState, useMemo } from "react";
+
+const SCH = "'Schibsted Grotesk',sans-serif";
+
+const fieldWrap = { display: "flex", flexDirection: "column", gap: 6 };
+const labelStyle = { fontSize: 13.5, fontWeight: 600, color: "#475467" };
+const inputStyle = {
+  fontFamily: "inherit",
+  fontSize: 16,
+  padding: "11px 13px",
+  border: "1.5px solid #D6DDE8",
+  borderRadius: 10,
+  color: "#0E1A2B",
+  outline: "none",
+  width: "100%",
+  boxSizing: "border-box",
+};
+
+function NumberField({ label, prefix, suffix, value, onChange, step = 1 }) {
+  return (
+    <label style={fieldWrap}>
+      <span style={labelStyle}>{label}</span>
+      <span style={{ position: "relative", display: "flex", alignItems: "center" }}>
+        {prefix && <span style={{ position: "absolute", left: 13, color: "#667085", fontSize: 16 }}>{prefix}</span>}
+        <input
+          type="number"
+          inputMode="decimal"
+          min="0"
+          step={step}
+          value={Number.isFinite(value) ? value : ""}
+          onChange={(e) => onChange(e.target.value === "" ? 0 : parseFloat(e.target.value))}
+          style={{ ...inputStyle, paddingLeft: prefix ? 26 : 13, paddingRight: suffix ? 36 : 13 }}
+        />
+        {suffix && <span style={{ position: "absolute", right: 13, color: "#667085", fontSize: 15 }}>{suffix}</span>}
+      </span>
+    </label>
+  );
+}
+
+const fmt = (n) =>
+  n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+
+export default function FixFlipCalculator() {
+  const [purchase, setPurchase] = useState(240000);
+  const [rehab, setRehab] = useState(60000);
+  const [arv, setArv] = useState(390000);
+  const [holding, setHolding] = useState(14000);
+  const [sellingPct, setSellingPct] = useState(8);
+
+  const r = useMemo(() => {
+    const sellingCosts = arv * (sellingPct / 100);
+    const totalInvested = purchase + rehab + holding;
+    const allIn = totalInvested + sellingCosts;
+    const profit = arv - allIn;
+    const roi = totalInvested > 0 ? (profit / totalInvested) * 100 : 0;
+    const profitPctArv = arv > 0 ? (profit / arv) * 100 : 0;
+    const mao = arv * 0.7 - rehab; // 70% rule
+    const withinMao = purchase <= mao;
+    return { sellingCosts, totalInvested, allIn, profit, roi, profitPctArv, mao, withinMao };
+  }, [purchase, rehab, arv, holding, sellingPct]);
+
+  const profitColor = r.profit >= 0 ? "#0E7C4A" : "#B42318";
+
+  return (
+    <div className="calc-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 28, alignItems: "start" }}>
+      {/* Inputs */}
+      <div style={{ background: "#fff", border: "1px solid #E6E9EF", borderRadius: 16, padding: 26 }}>
+        <div className="calc-inputs" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+          <NumberField label="Purchase price" prefix="$" value={purchase} onChange={setPurchase} step={5000} />
+          <NumberField label="Rehab budget" prefix="$" value={rehab} onChange={setRehab} step={2500} />
+          <NumberField label="After-repair value (ARV)" prefix="$" value={arv} onChange={setArv} step={5000} />
+          <NumberField label="Holding / carry costs" prefix="$" value={holding} onChange={setHolding} step={1000} />
+          <NumberField label="Selling costs" suffix="%" value={sellingPct} onChange={setSellingPct} step={0.5} />
+        </div>
+
+        {/* 70% rule callout */}
+        <div style={{ marginTop: 20, background: r.withinMao ? "#ECFDF3" : "#FFF4ED", border: `1px solid ${r.withinMao ? "#ABEFC6" : "#FED4BC"}`, borderRadius: 12, padding: "14px 16px" }}>
+          <div style={{ fontSize: 13, fontWeight: 700, color: r.withinMao ? "#067647" : "#B54708", marginBottom: 4 }}>
+            70% rule max offer: {fmt(r.mao)}
+          </div>
+          <div style={{ fontSize: 13.5, lineHeight: 1.45, color: "#475467" }}>
+            {r.withinMao
+              ? "Your purchase price is at or below the 70% rule ceiling. Good margin of safety."
+              : `Your purchase price is ${fmt(purchase - r.mao)} above the 70% rule ceiling. Tighten the price or rehab, or confirm the ARV.`}
+          </div>
+        </div>
+      </div>
+
+      {/* Result */}
+      <div style={{ background: "linear-gradient(160deg,#0E1A2B,#15294A)", borderRadius: 16, padding: 26, color: "#fff", position: "sticky", top: 96 }}>
+        <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#6FA0F0" }}>Projected net profit</div>
+        <div style={{ fontFamily: SCH, fontWeight: 800, fontSize: 46, lineHeight: 1, letterSpacing: "-0.02em", margin: "8px 0 4px", color: r.profit >= 0 ? "#fff" : "#FCA5A5" }}>
+          {fmt(r.profit)}
+        </div>
+        <div style={{ display: "inline-block", fontSize: 13.5, fontWeight: 700, color: profitColor, background: "#fff", padding: "5px 12px", borderRadius: 999, marginBottom: 18 }}>
+          {r.roi.toFixed(0)}% ROI · {r.profitPctArv.toFixed(0)}% of ARV
+        </div>
+
+        <div style={{ borderTop: "1px solid #21324A", paddingTop: 16, display: "flex", flexDirection: "column", gap: 10 }}>
+          <Row label="Purchase + rehab" value={fmt(purchase + rehab)} />
+          <Row label="Holding costs" value={fmt(holding)} />
+          <Row label={`Selling costs (${sellingPct}%)`} value={fmt(r.sellingCosts)} />
+          <Row label="All-in cost" value={fmt(r.allIn)} />
+        </div>
+
+        <a
+          href="/apply"
+          style={{ display: "block", textAlign: "center", marginTop: 22, background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: "14px 20px", borderRadius: 999 }}
+        >
+          Fund this flip
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function Row({ label, value, accent }) {
+  return (
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", fontSize: 14.5 }}>
+      <span style={{ color: "#AEB9C9" }}>{label}</span>
+      <span style={{ fontWeight: 700, color: accent || "#fff" }}>{value}</span>
+    </div>
+  );
+}

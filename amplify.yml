@@ -6,7 +6,9 @@ frontend:
         - npm ci
     build:
       # base defaults to "/" (root domain) since VITE_BASE is not set here.
-      # VITE_AIRTABLE_TOKEN is provided as an Amplify environment variable.
+      # VITE_API_URL (the public API Gateway URL) is set as an Amplify env var so
+      # the forms know where to POST. The Airtable token is NOT here — it lives
+      # only on the usam-forms Lambda; never add it as a frontend env var.
       commands:
         - npm run build
   artifacts:

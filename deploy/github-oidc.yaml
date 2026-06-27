@@ -1,0 +1,63 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  USAM Fund site — IAM role that GitHub Actions assumes via OIDC to deploy the
+  built SPA to AWS Amplify. No long-lived keys leave AWS. Trust is locked to one
+  repo + the main branch. Mirrors the usam-crm CI role, but scoped to Amplify only.
+
+Parameters:
+  GitHubOrg:
+    Type: String
+    Default: lyfe-gpt
+  RepoName:
+    Type: String
+    Default: usam
+  AmplifyAppId:
+    Type: String
+    Default: d26k7ln1hnf44p
+  OidcProviderArn:
+    Type: String
+    Description: ARN of the existing token.actions.githubusercontent.com OIDC provider.
+
+Resources:
+  DeployRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: usam-fund-github-deploy
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Ref OidcProviderArn
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                token.actions.githubusercontent.com:aud: sts.amazonaws.com
+              StringLike:
+                # Only the main branch of this one repo can assume the role.
+                token.actions.githubusercontent.com:sub: !Sub repo:${GitHubOrg}/${RepoName}:ref:refs/heads/main
+      Policies:
+        - PolicyName: usam-fund-amplify-deploy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              # Just enough to run a manual Amplify deployment for this one app:
+              # create a deployment slot, start it, and poll the job. The artifact
+              # upload uses the presigned S3 URL Amplify returns, so no S3 perms.
+              - Effect: Allow
+                Action:
+                  - amplify:CreateDeployment
+                  - amplify:StartDeployment
+                  - amplify:GetJob
+                  - amplify:GetApp
+                  - amplify:GetBranch
+                Resource: !Sub arn:aws:amplify:${AWS::Region}:${AWS::AccountId}:apps/${AmplifyAppId}/*
+              - Effect: Allow
+                Action: sts:GetCallerIdentity
+                Resource: '*'
+
+Outputs:
+  DeployRoleArn:
+    Description: Set this as the GitHub repo variable AWS_DEPLOY_ROLE_ARN
+    Value: !GetAtt DeployRole.Arn

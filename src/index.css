@@ -206,3 +206,19 @@ body.apply-page .ci { font-size: 17px; border-radius: 12px; padding: 15px 16px; 
 .guide-body a { color: #1A56C4; text-decoration: underline; text-underline-offset: 2px; }
 .guide-body a:hover { color: #123E96; }
 @media (max-width: 600px) { .pg-grid { grid-template-columns: 1fr !important; } }
+
+/* Calculators: stack the input/result panes and the hub cards on narrow screens.
+   The result pane also drops its sticky positioning so it flows under the inputs. */
+@media (max-width: 860px) {
+  .calc-grid { grid-template-columns: 1fr !important; }
+  .calc-grid > div:last-child { position: static !important; }
+  .calc-hub { grid-template-columns: 1fr !important; }
+  .calc-related { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 460px) {
+  .calc-inputs { grid-template-columns: 1fr !important; }
+}
+
+/* Closed-deal showcase grid */
+@media (max-width: 920px) { .deal-grid { grid-template-columns: 1fr 1fr !important; } }
+@media (max-width: 600px) { .deal-grid { grid-template-columns: 1fr !important; } }

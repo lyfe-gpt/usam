@@ -11,6 +11,8 @@ import Resources from "./pages/Resources.jsx";
 import Guide from "./pages/Guide.jsx";
 import Partners from "./pages/Partners.jsx";
 import GeoLanding from "./pages/GeoLanding.jsx";
+import Calculators from "./pages/Calculators.jsx";
+import CalculatorDetail from "./pages/CalculatorDetail.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import Terms from "./pages/Terms.jsx";
 import JsonLd, { organizationSchema, localBusinessSchema, SITE_URL } from "./components/JsonLd.jsx";
@@ -27,6 +29,7 @@ import {
 import { programs, bySlug } from "./data/programs.js";
 import { guides, guideBySlug } from "./data/guides.js";
 import { geoPages, geoBySlug } from "./data/geo.js";
+import { calculators, calcBySlug } from "./data/calculators.js";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -109,6 +112,12 @@ function metaFor(pathname) {
   if (pathname.startsWith("/partners")) return [`Partner Program | ${BASE}`, "Partner with a direct lender that closes. We fund your investor buyers fast, so your deals close. For wholesalers, investor agents, and off-market marketplaces."];
   if (pathname.startsWith("/privacy")) return [`Privacy Policy | ${BASE}`, "How USAM Fund collects, uses, and protects your information, including our SMS, email, AI voice assistant, analytics, and advertising practices."];
   if (pathname.startsWith("/terms")) return [`Terms of Service | ${BASE}`, "The terms that govern use of the USAM Fund website. Business-purpose lending only; nothing here is a commitment to lend."];
+  if (pathname === "/calculators") return [`Loan Calculators | ${BASE}`, "Free calculators for real estate investors. Run DSCR, fix and flip profit, and the 70% rule before you make an offer or apply."];
+  if (pathname.startsWith("/calculators/")) {
+    const c = calcBySlug[pathname.split("/")[2]];
+    if (c) return [c.metaTitle, c.description];
+    return [`Loan Calculators | ${BASE}`, DEFAULT_DESC];
+  }
   if (pathname === "/resources") return [`Investor Guides | ${BASE}`, "Plain-English guides on DSCR loans, fix and flip financing, the BRRRR method, and more from USAM Fund."];
   if (pathname.startsWith("/resources/")) {
     const g = guideBySlug[pathname.split("/")[2]];
@@ -193,6 +202,10 @@ export default function App() {
         <Route path="/resources" element={<Resources />} />
         {guides.map((g) => (
           <Route key={g.slug} path={`/resources/${g.slug}`} element={<Guide slug={g.slug} />} />
+        ))}
+        <Route path="/calculators" element={<Calculators />} />
+        {calculators.map((c) => (
+          <Route key={c.slug} path={`/calculators/${c.slug}`} element={<CalculatorDetail slug={c.slug} />} />
         ))}
         {geoPages.map((g) => (
           <Route key={g.slug} path={`/${g.slug}`} element={<GeoLanding slug={g.slug} />} />
