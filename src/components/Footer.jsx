@@ -36,6 +36,9 @@ export default function Footer() {
               <Link to="/programs" className="ftr-lnk" style={lnk}>Programs</Link>
               <Link to="/resources" className="ftr-lnk" style={lnk}>Resources</Link>
               <Link to="/calculators" className="ftr-lnk" style={lnk}>Calculators</Link>
+              <Link to="/compare" className="ftr-lnk" style={lnk}>Compare loans</Link>
+              <Link to="/qualify" className="ftr-lnk" style={lnk}>Find your program</Link>
+              <Link to="/glossary" className="ftr-lnk" style={lnk}>Glossary</Link>
               <Link to="/partners" className="ftr-lnk" style={lnk}>Partners</Link>
               <Link to="/faq" className="ftr-lnk" style={lnk}>FAQ</Link>
               <Link to="/contact" className="ftr-lnk" style={lnk}>Contact</Link>

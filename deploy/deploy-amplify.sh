@@ -16,6 +16,16 @@ fi
 echo "▶ Zipping dist/…"
 ( cd dist && rm -f /tmp/site.zip && zip -q -r /tmp/site.zip . )
 
+# Amplify allows only one in-flight deployment per branch. A previous aborted
+# manual deploy can leave PENDING slots (never started) that block new ones, so
+# cancel any PENDING (never RUNNING) jobs first — they are always stale.
+echo "▶ Clearing any stale pending deployments…"
+for J in $(aws amplify list-jobs --app-id "$APP_ID" --branch-name "$BRANCH" --region "$REGION" \
+  --query "jobSummaries[?status=='PENDING'].jobId" --output text); do
+  echo "   cancelling stale pending job $J"
+  aws amplify stop-job --app-id "$APP_ID" --branch-name "$BRANCH" --job-id "$J" --region "$REGION" >/dev/null 2>&1 || true
+done
+
 echo "▶ Creating Amplify deployment slot…"
 read -r JOB URL < <(aws amplify create-deployment \
   --app-id "$APP_ID" --branch-name "$BRANCH" --region "$REGION" \

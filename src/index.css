@@ -222,3 +222,11 @@ body.apply-page .ci { font-size: 17px; border-radius: 12px; padding: 15px 16px; 
 /* Closed-deal showcase grid */
 @media (max-width: 920px) { .deal-grid { grid-template-columns: 1fr 1fr !important; } }
 @media (max-width: 600px) { .deal-grid { grid-template-columns: 1fr !important; } }
+
+/* Comparison table: tighten padding/font on phones so 3 columns stay readable */
+@media (max-width: 560px) {
+  .cmp-row > div { padding: 11px 10px !important; font-size: 13px !important; }
+}
+
+/* Pre-qual quiz option hover */
+.quiz-opt:hover { border-color: #1A56C4 !important; background: #EEF3FC !important; }

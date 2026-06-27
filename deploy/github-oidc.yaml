@@ -50,6 +50,8 @@ Resources:
                   - amplify:CreateDeployment
                   - amplify:StartDeployment
                   - amplify:GetJob
+                  - amplify:ListJobs
+                  - amplify:StopJob
                   - amplify:GetApp
                   - amplify:GetBranch
                 Resource: !Sub arn:aws:amplify:${AWS::Region}:${AWS::AccountId}:apps/${AmplifyAppId}/*

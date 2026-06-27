@@ -8,7 +8,14 @@ import { calculators } from "../data/calculators.js";
 
 const SCH = "'Schibsted Grotesk',sans-serif";
 
-const ICONS = { dscr: "rental", fixflip: "fixFlip" };
+const ICONS = {
+  dscr: "rental",
+  fixflip: "fixFlip",
+  brrrr: "construction",
+  hardmoneycost: "transactional",
+  caprate: "conventional",
+  cashout: "bridge",
+};
 
 export default function Calculators() {
   return (

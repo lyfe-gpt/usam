@@ -13,6 +13,11 @@ import Partners from "./pages/Partners.jsx";
 import GeoLanding from "./pages/GeoLanding.jsx";
 import Calculators from "./pages/Calculators.jsx";
 import CalculatorDetail from "./pages/CalculatorDetail.jsx";
+import Glossary from "./pages/Glossary.jsx";
+import Compare from "./pages/Compare.jsx";
+import Comparison from "./pages/Comparison.jsx";
+import Qualify from "./pages/Qualify.jsx";
+import CityProgram from "./pages/CityProgram.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import Terms from "./pages/Terms.jsx";
 import JsonLd, { organizationSchema, localBusinessSchema, SITE_URL } from "./components/JsonLd.jsx";
@@ -30,6 +35,8 @@ import { programs, bySlug } from "./data/programs.js";
 import { guides, guideBySlug } from "./data/guides.js";
 import { geoPages, geoBySlug } from "./data/geo.js";
 import { calculators, calcBySlug } from "./data/calculators.js";
+import { comparisons, comparisonBySlug } from "./data/comparisons.js";
+import { cityPrograms, cityProgramBySlug } from "./data/cityPrograms.js";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -118,6 +125,14 @@ function metaFor(pathname) {
     if (c) return [c.metaTitle, c.description];
     return [`Loan Calculators | ${BASE}`, DEFAULT_DESC];
   }
+  if (pathname === "/qualify") return [`Find Your Loan Program | ${BASE}`, "Answer three quick questions and we'll point you to the USAM Fund loan program that fits your deal. No credit pull, no obligation."];
+  if (pathname === "/glossary") return [`Investor Glossary | ${BASE}`, "Plain-English definitions of real estate investor financing terms: DSCR, ARV, LTV, points, cap rate, BRRRR, and more."];
+  if (pathname === "/compare") return [`Compare Loan Options | ${BASE}`, "Side-by-side comparisons of investor financing: DSCR vs hard money, hard money vs private money, DSCR vs conventional."];
+  if (pathname.startsWith("/compare/")) {
+    const c = comparisonBySlug[pathname.split("/")[2]];
+    if (c) return [c.metaTitle, c.description];
+    return [`Compare Loan Options | ${BASE}`, DEFAULT_DESC];
+  }
   if (pathname === "/resources") return [`Investor Guides | ${BASE}`, "Plain-English guides on DSCR loans, fix and flip financing, the BRRRR method, and more from USAM Fund."];
   if (pathname.startsWith("/resources/")) {
     const g = guideBySlug[pathname.split("/")[2]];
@@ -126,6 +141,14 @@ function metaFor(pathname) {
   }
   const geo = geoBySlug[pathname.replace(/^\//, "")];
   if (geo) return [geo.metaTitle, geo.description];
+  const cp = cityProgramBySlug[pathname.replace(/^\//, "")];
+  if (cp) {
+    const prog = bySlug[cp.program];
+    return [
+      `${cp.region} ${cp.label} | ${BASE}`,
+      `${cp.region} ${cp.label.toLowerCase()} from a direct private lender. ${prog ? prog.tagline : ""} Fast closings, in-house decisions. Get a real rate.`,
+    ];
+  }
   return [`${BASE} | Hard Money, Soft Terms`, DEFAULT_DESC];
 }
 
@@ -207,8 +230,17 @@ export default function App() {
         {calculators.map((c) => (
           <Route key={c.slug} path={`/calculators/${c.slug}`} element={<CalculatorDetail slug={c.slug} />} />
         ))}
+        <Route path="/qualify" element={<Qualify />} />
+        <Route path="/glossary" element={<Glossary />} />
+        <Route path="/compare" element={<Compare />} />
+        {comparisons.map((c) => (
+          <Route key={c.slug} path={`/compare/${c.slug}`} element={<Comparison slug={c.slug} />} />
+        ))}
         {geoPages.map((g) => (
           <Route key={g.slug} path={`/${g.slug}`} element={<GeoLanding slug={g.slug} />} />
+        ))}
+        {cityPrograms.map((c) => (
+          <Route key={c.slug} path={`/${c.slug}`} element={<CityProgram slug={c.slug} />} />
         ))}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

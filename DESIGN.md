@@ -179,6 +179,11 @@ Class `.ci` (shared input/select/textarea):
 - **Avatar** (About) — monogram initials on a blue gradient; swaps to a photo when `img` is provided.
 - **Calculators** (`components/calculators/DscrCalculator.jsx`, `FixFlipCalculator.jsx`) — interactive input panel (white card, 2-col `.calc-inputs` → 1-col at ≤460px) beside a dark sticky result panel (`#0E1A2B→#15294A` gradient, big Schibsted figure, pass/fail pill, line-item breakdown, apply CTA). Wrapper `.calc-grid` (1.1fr / 0.9fr) stacks at ≤860px and drops the result panel's `position: sticky`. Input adornments use `#667085` (NOT `#8A97A8`) so the `$`/`%` glyphs clear WCAG AA on white. Hub + detail pages in `pages/Calculators.jsx` / `pages/CalculatorDetail.jsx`; each detail page emits breadcrumb + `FAQPage` JSON-LD.
 - **DealShowcase** (`components/DealShowcase.jsx`) — closed-deal proof grid on Home (3-up `.deal-grid` → 2 → 1), each card = location + close-time pill + loan figure + program. **Gated by `SHOW_DEALS` in `data/deals.js` (currently `false`)**: renders nothing until real, publishable deals replace the placeholder data — same FTC caution as the testimonial slot.
+- **Calculator kit** (`components/calculators/fields.jsx`) — shared `NumberField`, `ResultPanel`, `InputCard`, `Row`, `fmt`/`pct`, and `monthlyPI`. All six calculators (DSCR, fix/flip, BRRRR, hard-money-cost, cap-rate, cash-out-refi) compose from this; reuse it for any new one rather than re-styling.
+- **Comparison table** (`pages/Comparison.jsx`, data in `data/comparisons.js`) — 3-column grid (attribute / option A / option B) with a dark header and a "bottom line" callout; `.cmp-row` tightens on ≤560px. Hub at `/compare`.
+- **Glossary** (`pages/Glossary.jsx`, `data/glossary.js`) — anchored term list + jump-pill index, emits `DefinedTermSet` JSON-LD. Internal-linking hub.
+- **QualifyQuiz** (`components/QualifyQuiz.jsx`) — 3-step program finder with a progress bar; `.quiz-opt` option buttons; maps answers to a program and routes to `/apply`. Frame copy as guidance, never a credit decision.
+- **CityProgram** (`pages/CityProgram.jsx`, `data/cityPrograms.js`) — programmatic city × program SEO pages (`/<city>-<program>-loans`). Composes unique geo data (points, cities) with unique program data (stats, desc, FAQs) so no two pages duplicate. Generated from `COMBO_PROGRAMS` × `geoPages`.
 
 ---
 

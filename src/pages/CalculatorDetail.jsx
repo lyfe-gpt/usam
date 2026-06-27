@@ -6,6 +6,10 @@ import Faq from "../components/Faq.jsx";
 import JsonLd, { breadcrumbSchema, faqPageSchema } from "../components/JsonLd.jsx";
 import DscrCalculator from "../components/calculators/DscrCalculator.jsx";
 import FixFlipCalculator from "../components/calculators/FixFlipCalculator.jsx";
+import BrrrrCalculator from "../components/calculators/BrrrrCalculator.jsx";
+import HardMoneyCostCalculator from "../components/calculators/HardMoneyCostCalculator.jsx";
+import CapRateCalculator from "../components/calculators/CapRateCalculator.jsx";
+import CashOutRefiCalculator from "../components/calculators/CashOutRefiCalculator.jsx";
 import { calcBySlug } from "../data/calculators.js";
 import { bySlug as programBySlug } from "../data/programs.js";
 import { guideBySlug } from "../data/guides.js";
@@ -42,7 +46,12 @@ export default function CalculatorDetail({ slug }) {
       {/* Calculator */}
       <section className="sec" style={{ background: "#fff", padding: "16px 32px 48px" }}>
         <div style={{ maxWidth: 1080, margin: "0 auto" }}>
-          {c.kind === "dscr" ? <DscrCalculator /> : <FixFlipCalculator />}
+          {c.kind === "dscr" && <DscrCalculator />}
+          {c.kind === "fixflip" && <FixFlipCalculator />}
+          {c.kind === "brrrr" && <BrrrrCalculator />}
+          {c.kind === "hardmoneycost" && <HardMoneyCostCalculator />}
+          {c.kind === "caprate" && <CapRateCalculator />}
+          {c.kind === "cashout" && <CashOutRefiCalculator />}
           <p style={{ fontSize: 12.5, lineHeight: 1.5, color: "#667085", margin: "20px 0 0", maxWidth: 720 }}>
             Estimates only, for planning purposes. Results are not an offer, a quote, or a commitment to lend, and actual terms depend on a full review of your deal.
           </p>
