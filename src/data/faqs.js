@@ -4,7 +4,7 @@
 // (Kiavi, Lima One, RCN, Easy Street, Visio, CoreVest, Roc, Anchor, SBA norms)
 // and phrased as real borrower questions for answer-engine optimization (AEO).
 // `a` may contain light inline HTML (links, <strong>). No user input here.
-// Convention (DESIGN.md §12): bold 3 to 5 key terms or summarizing phrases in
+// Convention (DESIGN.md section 12): bold 3 to 5 key terms or summarizing phrases in
 // every answer so a reader scanning lands on the crux, the figures, and the
 // decision points. Bold phrases, not whole sentences or paragraphs.
 

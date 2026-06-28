@@ -8,11 +8,11 @@ export const geoPages = [
     region: "Texas",
     metaTitle: "Texas Hard Money Lender | Fix and Flip, DSCR | USAM Fund",
     description:
-      "Direct Texas hard money and private lender for real estate investors. Fix & flip, DSCR rental, ground-up, and bridge loans across Texas. Based in Bee Cave, funding fast.",
+      "Direct Texas hard money and private lender for real estate investors. Fix and flip, DSCR rental, ground-up, and bridge loans across Texas. Based in Bee Cave, funding fast.",
     h1: "Texas Hard Money Lender",
     tagline: "Direct private capital for Texas real estate investors.",
     intro:
-      "USAM Fund is a direct private and hard-money lender headquartered in Bee Cave, Texas. We fund fix & flip, DSCR rental, ground-up construction, and bridge loans for investors across the state, with our own capital and our own decisions, so you close on your timeline.",
+      "USAM Fund is a direct private and hard-money lender headquartered in Bee Cave, Texas. We fund fix and flip, DSCR rental, ground-up construction, and bridge loans for investors across the state, with our own capital and our own decisions, so you close on your timeline.",
     cities: ["Austin", "San Antonio", "Houston", "Dallas", "Fort Worth", "Bee Cave", "Round Rock", "Georgetown"],
     points: [
       ["Texas-based, Texas-savvy", "We know the markets, the title companies, and the speed Texas deals move at, because we operate here."],
@@ -25,7 +25,7 @@ export const geoPages = [
     region: "Austin",
     metaTitle: "Austin Hard Money Lender | Fix and Flip & DSCR | USAM Fund",
     description:
-      "Local Austin hard money lender for fix & flip, DSCR rental, and bridge loans. Based in Bee Cave, minutes from Austin. Fast closings and real people who answer the phone.",
+      "Local Austin hard money lender for fix and flip, DSCR rental, and bridge loans. Based in Bee Cave, minutes from Austin. Fast closings and real people who answer the phone.",
     h1: "Austin Hard Money Lender",
     tagline: "Local capital for Austin-area real estate investors.",
     intro:
@@ -42,7 +42,7 @@ export const geoPages = [
     region: "Dallas",
     metaTitle: "Dallas Hard Money Lender | Fix and Flip & DSCR | USAM Fund",
     description:
-      "Texas-based hard money and private lender for Dallas-Fort Worth investors. Fix & flip, DSCR rental, ground-up, and bridge loans with fast closings and in-house decisions.",
+      "Texas-based hard money and private lender for Dallas-Fort Worth investors. Fix and flip, DSCR rental, ground-up, and bridge loans with fast closings and in-house decisions.",
     h1: "Dallas Hard Money Lender",
     tagline: "Direct capital for Dallas-Fort Worth real estate investors.",
     intro:
@@ -59,7 +59,7 @@ export const geoPages = [
     region: "Houston",
     metaTitle: "Houston Hard Money Lender | Fix and Flip & DSCR | USAM Fund",
     description:
-      "Texas-based private lender for Houston real estate investors. Fast fix & flip, DSCR rental, ground-up construction, and bridge loans funded with our own capital.",
+      "Texas-based private lender for Houston real estate investors. Fast fix and flip, DSCR rental, ground-up construction, and bridge loans funded with our own capital.",
     h1: "Houston Hard Money Lender",
     tagline: "Private capital for Houston-area investors.",
     intro:
@@ -74,9 +74,9 @@ export const geoPages = [
   {
     slug: "san-antonio-hard-money-lender",
     region: "San Antonio",
-    metaTitle: "San Antonio Hard Money Lender | Fix & Flip, DSCR | USAM Fund",
+    metaTitle: "San Antonio Hard Money Lender | Fix and Flip, DSCR | USAM Fund",
     description:
-      "Texas-based hard money lender for San Antonio investors. Fix & flip, DSCR rental, and bridge loans with fast closings, funded with our own capital. Based up I-35 in Bee Cave.",
+      "Texas-based hard money lender for San Antonio investors. Fix and flip, DSCR rental, and bridge loans with fast closings, funded with our own capital. Based up I-35 in Bee Cave.",
     h1: "San Antonio Hard Money Lender",
     tagline: "Direct lending for San Antonio real estate investors.",
     intro:
@@ -91,9 +91,9 @@ export const geoPages = [
   {
     slug: "fort-worth-hard-money-lender",
     region: "Fort Worth",
-    metaTitle: "Fort Worth Hard Money Lender | Fix & Flip, DSCR | USAM Fund",
+    metaTitle: "Fort Worth Hard Money Lender | Fix and Flip, DSCR | USAM Fund",
     description:
-      "Texas-based private lender for Fort Worth and west DFW investors. Fix & flip, DSCR rental, ground-up, and bridge loans, underwritten and funded in-house.",
+      "Texas-based private lender for Fort Worth and west DFW investors. Fix and flip, DSCR rental, ground-up, and bridge loans, underwritten and funded in-house.",
     h1: "Fort Worth Hard Money Lender",
     tagline: "Private capital for Fort Worth-area investors.",
     intro:
@@ -110,7 +110,7 @@ export const geoPages = [
     region: "Phoenix",
     metaTitle: "Phoenix Hard Money Lender | Fix and Flip & DSCR | USAM Fund",
     description:
-      "Direct private lender funding Phoenix-area real estate investors nationwide. Fast fix & flip, DSCR rental, and bridge loans with in-house underwriting and our own capital.",
+      "Direct private lender funding Phoenix-area real estate investors nationwide. Fast fix and flip, DSCR rental, and bridge loans with in-house underwriting and our own capital.",
     h1: "Phoenix Hard Money Lender",
     tagline: "Fast private capital for Phoenix-area investors.",
     intro:
@@ -127,7 +127,7 @@ export const geoPages = [
     region: "Tampa",
     metaTitle: "Tampa Hard Money Lender | Fix and Flip & DSCR | USAM Fund",
     description:
-      "Direct private lender funding Tampa Bay real estate investors. Fast fix & flip, DSCR rental, and bridge loans, underwritten in-house and funded with our own capital.",
+      "Direct private lender funding Tampa Bay real estate investors. Fast fix and flip, DSCR rental, and bridge loans, underwritten in-house and funded with our own capital.",
     h1: "Tampa Hard Money Lender",
     tagline: "Private capital for Tampa Bay investors.",
     intro:
@@ -144,7 +144,7 @@ export const geoPages = [
     region: "Atlanta",
     metaTitle: "Atlanta Hard Money Lender | Fix and Flip & DSCR | USAM Fund",
     description:
-      "Direct private lender funding metro Atlanta real estate investors. Fast fix & flip, DSCR rental, ground-up, and bridge loans with in-house underwriting and our own capital.",
+      "Direct private lender funding metro Atlanta real estate investors. Fast fix and flip, DSCR rental, ground-up, and bridge loans with in-house underwriting and our own capital.",
     h1: "Atlanta Hard Money Lender",
     tagline: "Private capital for metro Atlanta investors.",
     intro:
@@ -161,7 +161,7 @@ export const geoPages = [
     region: "Nashville",
     metaTitle: "Nashville Hard Money Lender | Fix and Flip & DSCR | USAM Fund",
     description:
-      "Direct private lender funding Nashville-area real estate investors. Fast fix & flip, DSCR rental, ground-up, and bridge loans, underwritten in-house with our own capital.",
+      "Direct private lender funding Nashville-area real estate investors. Fast fix and flip, DSCR rental, ground-up, and bridge loans, underwritten in-house with our own capital.",
     h1: "Nashville Hard Money Lender",
     tagline: "Private capital for Nashville-area investors.",
     intro:
