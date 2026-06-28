@@ -14,7 +14,8 @@ export default function DscrCalculator() {
     const RN = num(rent), LN = num(loan), RT = num(rate), AM = num(amort), TX = num(taxes), IN = num(insurance), HO = num(hoa);
     const pi = monthlyPI(LN, RT, AM);
     const pitia = pi + TX + IN + HO;
-    const dscr = pitia > 0 ? RN / pitia : 0;
+    const rawDscr = pitia > 0 ? RN / pitia : 0;
+    const dscr = Number.isFinite(rawDscr) ? rawDscr : 0; // guard the raw .toFixed() display
     const cashFlow = RN - pitia;
     let verdict, color;
     if (dscr >= 1.25) {

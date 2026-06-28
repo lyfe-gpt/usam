@@ -44,7 +44,11 @@ export function NumberField({ label, prefix, suffix, value, onChange, step = 1, 
             let v = parseFloat(raw);
             if (!Number.isFinite(v)) return onChange(NaN);
             v = Math.max(0, v); // never negative
-            if (Number.isFinite(max)) v = Math.min(max, v); // clamp percentages
+            // Cap every field: explicit `max` for percentages, else a sane $10B
+            // ceiling. Keeps values well under 1e21 so sums/products never overflow
+            // to Infinity and labels never render in scientific notation.
+            const cap = Number.isFinite(max) ? max : 1e10;
+            v = Math.min(cap, v);
             onChange(v);
           }}
           style={{ ...inputStyle, paddingLeft: prefix ? 26 : 13, paddingRight: suffix ? 40 : 13 }}

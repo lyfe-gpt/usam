@@ -33,18 +33,18 @@ export default function CalculatorDetail({ slug }) {
       ])} />
       <JsonLd id={`faq-calc-${slug}`} data={faqPageSchema(c.faqs)} />
 
-      {/* Hero */}
-      <section className="sec" style={{ background: "linear-gradient(180deg,#F6F8FB 0%,#ffffff 100%)", padding: "64px 32px 24px" }}>
+      {/* Hero — compact so the calculator itself is in the first mobile viewport.
+          The longer explainer moves below the tool. */}
+      <section className="sec calc-hero" style={{ background: "linear-gradient(180deg,#F6F8FB 0%,#ffffff 100%)", padding: "48px 32px 12px" }}>
         <div style={{ maxWidth: 1080, margin: "0 auto" }}>
-          <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#1A56C4", marginBottom: 12 }}>Free investor tool</div>
-          <h1 style={{ fontFamily: SCH, fontWeight: 800, fontSize: "clamp(36px,4.4vw,54px)", lineHeight: 1.0, letterSpacing: "-0.02em", color: "#0E1A2B", margin: "0 0 12px" }}>{c.h1}</h1>
-          <p style={{ fontSize: 19, fontWeight: 600, color: "#1A56C4", margin: "0 0 14px" }}>{c.tagline}</p>
-          <p style={{ fontSize: 17, lineHeight: 1.6, color: "#475467", maxWidth: 720, margin: 0 }}>{c.intro}</p>
+          <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#1A56C4", marginBottom: 10 }}>Free investor tool</div>
+          <h1 style={{ fontFamily: SCH, fontWeight: 800, fontSize: "clamp(30px,4.4vw,52px)", lineHeight: 1.02, letterSpacing: "-0.02em", color: "#0E1A2B", margin: "0 0 8px" }}>{c.h1}</h1>
+          <p style={{ fontSize: 18, fontWeight: 600, color: "#1A56C4", margin: 0 }}>{c.tagline}</p>
         </div>
       </section>
 
-      {/* Calculator */}
-      <section className="sec" style={{ background: "#fff", padding: "16px 32px 48px" }}>
+      {/* Calculator — sits right under the compact hero so it's usable immediately */}
+      <section className="sec calc-section" style={{ background: "#fff", padding: "16px 32px 36px" }}>
         <div style={{ maxWidth: 1080, margin: "0 auto" }}>
           {c.kind === "dscr" && <DscrCalculator />}
           {c.kind === "fixflip" && <FixFlipCalculator />}
@@ -55,6 +55,13 @@ export default function CalculatorDetail({ slug }) {
           <p style={{ fontSize: 12.5, lineHeight: 1.5, color: "#667085", margin: "20px 0 0", maxWidth: 720 }}>
             Inputs are pre-filled with example figures, edit them to match your deal. Estimates only, for planning purposes: results are not an offer, a quote, or a commitment to lend, and the rates shown are illustrative, not USAM Fund's current pricing. Actual terms depend on a full review of your deal.
           </p>
+        </div>
+      </section>
+
+      {/* Explainer — moved below the tool so the calculator leads on mobile */}
+      <section className="sec" style={{ background: "#fff", padding: "8px 32px 32px" }}>
+        <div style={{ maxWidth: 720, margin: "0 auto" }}>
+          <p style={{ fontSize: 17, lineHeight: 1.6, color: "#475467", margin: 0 }}>{c.intro}</p>
         </div>
       </section>
 

@@ -14,8 +14,9 @@ export default function FixFlipCalculator() {
     const totalInvested = P + R + H;
     const allIn = totalInvested + sellingCosts;
     const profit = A - allIn;
-    const roi = totalInvested > 0 ? (profit / totalInvested) * 100 : 0;
-    const profitPctArv = A > 0 ? (profit / A) * 100 : 0;
+    const fin = (x) => (Number.isFinite(x) ? x : 0); // guard the raw .toFixed() displays
+    const roi = fin(totalInvested > 0 ? (profit / totalInvested) * 100 : 0);
+    const profitPctArv = fin(A > 0 ? (profit / A) * 100 : 0);
     const mao = A * 0.7 - R; // 70% rule
     const withinMao = P <= mao;
     return { sellingCosts, totalInvested, allIn, profit, roi, profitPctArv, mao, withinMao };

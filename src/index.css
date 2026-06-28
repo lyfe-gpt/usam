@@ -210,10 +210,16 @@ body.apply-page .ci { font-size: 17px; border-radius: 12px; padding: 15px 16px; 
 /* Calculators: stack the input/result panes and the hub cards on narrow screens.
    The result pane also drops its sticky positioning so it flows under the inputs. */
 @media (max-width: 860px) {
-  .calc-grid { grid-template-columns: 1fr !important; }
-  .calc-grid > div:last-child { position: static !important; }
+  .calc-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  /* Mobile-first: the result (headline figure) leads, inputs follow, so the
+     answer is in the first viewport and updates as you scroll up to it. */
+  .calc-grid > *:last-child { order: -1; position: static !important; padding: 20px !important; }
   .calc-hub { grid-template-columns: 1fr !important; }
   .calc-related { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 640px) {
+  .calc-hero { padding: 28px 20px 8px !important; }
+  .calc-section { padding: 12px 20px 28px !important; }
 }
 @media (max-width: 460px) {
   .calc-inputs { grid-template-columns: 1fr !important; }
