@@ -225,6 +225,12 @@ body.apply-page .ci { font-size: 17px; border-radius: 12px; padding: 15px 16px; 
   .calc-hero { padding: 28px 20px 8px !important; }
   .calc-section { padding: 12px 20px 28px !important; }
   .calc-inputs { grid-template-columns: 1fr !important; }
+  /* Home hero: CTAs side by side, trust badges stacked. */
+  .hero-cta { flex-wrap: nowrap !important; gap: 10px !important; }
+  .hero-cta > a { flex: 1 1 0 !important; text-align: center; padding-left: 10px !important; padding-right: 10px !important; font-size: 15px !important; white-space: nowrap; }
+  /* Stacked on their own lines, so size them up for prominence. */
+  .hero-trust { flex-direction: column !important; align-items: flex-start !important; gap: 14px !important; font-size: 17.5px !important; }
+  .hero-trust svg { width: 21px !important; height: 21px !important; }
 }
 
 /* Closed-deal showcase grid */
