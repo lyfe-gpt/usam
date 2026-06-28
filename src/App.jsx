@@ -41,10 +41,23 @@ import { comparisons, comparisonBySlug } from "./data/comparisons.js";
 import { cityPrograms, cityProgramBySlug } from "./data/cityPrograms.js";
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
+    // Honor an in-page anchor (e.g. /privacy#choices) when present. The target
+    // page may be lazy-loaded, so retry once after paint if it isn't in the DOM yet.
+    if (hash) {
+      const id = hash.slice(1);
+      const scroll = () => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView();
+        return !!el;
+      };
+      if (scroll()) return;
+      const t = setTimeout(scroll, 200);
+      return () => clearTimeout(t);
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
   return null;
 }
 

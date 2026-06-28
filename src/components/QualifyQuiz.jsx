@@ -86,7 +86,7 @@ export default function QualifyQuiz() {
         >
           Start over
         </button>
-        <p style={{ fontSize: 12.5, color: "#8A97A8", margin: "18px 0 0" }}>
+        <p style={{ fontSize: 12.5, color: "#667085", margin: "18px 0 0" }}>
           A suggestion, not an offer, a quote, or a credit decision. Actual terms depend on a full review of your deal.
         </p>
       </div>

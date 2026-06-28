@@ -30,7 +30,7 @@ export default function Guide({ slug }) {
       <section className="sec" style={{ background: "linear-gradient(180deg,#F6F8FB 0%,#ffffff 100%)", padding: "40px 32px 24px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13.5, fontWeight: 600, color: "#8A97A8", marginBottom: 22 }}>
+          <nav aria-label="Breadcrumb" style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13.5, fontWeight: 600, color: "#667085", marginBottom: 22 }}>
             <Link to="/" className="link-blue" style={{ color: "#667085", textDecoration: "none" }}>Home</Link>
             <span>/</span>
             <Link to="/resources" className="link-blue" style={{ color: "#667085", textDecoration: "none" }}>Resources</Link>
@@ -61,7 +61,7 @@ export default function Guide({ slug }) {
 
         {related.length > 0 && (
           <div style={{ maxWidth: 760, margin: "40px auto 0" }}>
-            <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#8A97A8", marginBottom: 16 }}>Related programs</div>
+            <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#667085", marginBottom: 16 }}>Related programs</div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
               {related.map((p) => (
                 <Link key={p.slug} to={`/programs/${p.slug}`} className="card-link" style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "#fff", border: "1px solid #E6E9EF", borderRadius: 12, padding: "12px 16px", textDecoration: "none" }}>

@@ -13,7 +13,7 @@ function InfoCard({ icon, label, children }) {
     <div style={{ background: "#F6F8FB", border: "1px solid #EEF1F5", borderRadius: 16, padding: 24 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 11, marginBottom: 8 }}>
         <Icon name={icon} size={20} color="#1A56C4" />
-        <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: "#8A97A8" }}>{label}</span>
+        <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: "#667085" }}>{label}</span>
       </div>
       {children}
     </div>
@@ -109,7 +109,7 @@ export default function Contact() {
                 </div>
                 {error && <p style={{ color: "#C0392B", fontSize: 14, margin: "0 0 12px" }}>{error}</p>}
                 <button onClick={submit} className="btn-primary" style={{ width: "100%", background: "#1A56C4", color: "#fff", border: "none", borderRadius: 999, padding: 16, fontWeight: 700, fontSize: 17, fontFamily: "inherit", cursor: "pointer", boxShadow: "0 6px 20px rgba(26,86,196,0.28)" }}>Send message</button>
-                <p style={{ fontSize: 13, color: "#98A2B3", textAlign: "center", margin: "14px 0 0" }}>We'll never share your information.</p>
+                <p style={{ fontSize: 13, color: "#667085", textAlign: "center", margin: "14px 0 0" }}>We'll never share your information.</p>
               </div>
             )}
           </div>

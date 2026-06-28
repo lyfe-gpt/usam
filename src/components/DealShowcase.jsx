@@ -32,7 +32,7 @@ export default function DealShowcase() {
           ))}
         </div>
 
-        <p style={{ fontSize: 12.5, color: "#8A97A8", margin: "18px 0 0" }}>
+        <p style={{ fontSize: 12.5, color: "#667085", margin: "18px 0 0" }}>
           Representative closed transactions. Loan amounts and timelines vary by deal.{" "}
           <Link to="/apply" style={{ color: "#1A56C4", fontWeight: 700 }}>Get your rate.</Link>
         </p>

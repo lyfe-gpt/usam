@@ -24,7 +24,7 @@ export const generalFaqs = [
   },
   {
     q: "What states do you lend in?",
-    a: "We are a <strong>direct private lender</strong> working <strong>nationwide, across all 50 states</strong>. A few programs carry <strong>state-specific nuances</strong>, so we will <strong>confirm availability for your exact scenario</strong> the first time we talk.",
+    a: "We are a <strong>direct private lender</strong> working <strong>nationwide, in most states</strong>. A few programs carry <strong>state-specific nuances</strong>, so we will <strong>confirm availability for your exact scenario</strong> the first time we talk.",
   },
   {
     q: "How fast can you close?",

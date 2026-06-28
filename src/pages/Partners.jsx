@@ -187,7 +187,7 @@ export default function Partners() {
                 </label>
                 {error && <p style={{ color: "#C0392B", fontSize: 14, margin: "0 0 12px" }}>{error}</p>}
                 <button onClick={submit} className="btn-primary" style={{ width: "100%", background: "#1A56C4", color: "#fff", border: "none", borderRadius: 999, padding: 16, fontWeight: 700, fontSize: 17, fontFamily: "inherit", cursor: "pointer", boxShadow: "0 6px 20px rgba(26,86,196,0.28)" }}>Apply to partner</button>
-                <p style={{ fontSize: 13, color: "#98A2B3", textAlign: "center", margin: "14px 0 0" }}>We'll never share your information.</p>
+                <p style={{ fontSize: 13, color: "#667085", textAlign: "center", margin: "14px 0 0" }}>We'll never share your information.</p>
               </div>
             )}
           </div>

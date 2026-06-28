@@ -362,7 +362,7 @@ export default function Apply() {
         <div className="flow-pad" style={{ maxWidth: 680, margin: "0 auto", padding: "14px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16 }}>
           <Link to="/"><img src={logoHorizontal} alt="USAM Fund" style={{ height: 38, width: "auto", display: "block" }} /></Link>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-            {showProgress && <span style={{ fontSize: 13, fontWeight: 700, color: "#8A97A8" }}>Step {stepNum} of 6</span>}
+            {showProgress && <span style={{ fontSize: 13, fontWeight: 700, color: "#667085" }}>Step {stepNum} of 6</span>}
             <Link to="/" aria-label="Exit" style={{ width: 34, height: 34, borderRadius: 9, border: "1px solid #E6E9EF", display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}>
               <Icon name="close" size={18} color="#667085" width={2.2} />
             </Link>
@@ -424,7 +424,7 @@ export default function Apply() {
                   </span>
                   <span>
                     <span style={{ display: "block", fontSize: 16, fontWeight: 700, color: "#0E1A2B" }}>{t.label}</span>
-                    <span style={{ display: "block", fontSize: 13, color: "#8A97A8" }}>{t.sub}</span>
+                    <span style={{ display: "block", fontSize: 13, color: "#667085" }}>{t.sub}</span>
                   </span>
                 </button>
               ))}
@@ -466,7 +466,7 @@ export default function Apply() {
               <div key={f.key} style={{ marginBottom: i === arr.length - 1 ? 30 : 18 }}>
                 <label style={labelStyle}>
                   {f.label}
-                  {f.hint && <span style={{ fontWeight: 500, color: "#98A2B3" }}> {f.hint}</span>}
+                  {f.hint && <span style={{ fontWeight: 500, color: "#667085" }}> {f.hint}</span>}
                 </label>
                 {f.type === "select" ? (
                   <select className="ci" value={s[f.key]} onChange={set(f.key)}>
@@ -509,7 +509,7 @@ export default function Apply() {
                 </button>
               ))}
             </div>
-            <p style={{ fontSize: 13, color: "#98A2B3", textAlign: "center", margin: "18px 0 0" }}>By continuing you agree to be contacted about your inquiry.</p>
+            <p style={{ fontSize: 13, color: "#667085", textAlign: "center", margin: "18px 0 0" }}>By continuing you agree to be contacted about your inquiry.</p>
           </div>
         )}
 
@@ -523,7 +523,7 @@ export default function Apply() {
             <p style={{ fontSize: 18, lineHeight: 1.55, color: "#667085", margin: "0 auto 30px", maxWidth: 520 }}>Thanks{nameComma} Based on what you shared, your deal looks like a strong fit. Finish the full application now to fast-track your file, or a USAM underwriter will reach out within one business day.</p>
 
             <div style={{ background: "#fff", border: "1px solid #E6E9EF", borderRadius: 18, padding: 24, textAlign: "left", maxWidth: 460, margin: "0 auto 28px", boxShadow: "0 1px 2px rgba(14,26,43,0.04)" }}>
-              <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#8A97A8", marginBottom: 16 }}>Your request</div>
+              <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#667085", marginBottom: 16 }}>Your request</div>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}><span style={{ fontSize: 14.5, color: "#667085" }}>Program</span><span style={{ fontSize: 15, fontWeight: 700, color: "#0E1A2B" }}>{loanTypeLabel}</span></div>
                 <div style={{ height: 1, background: "#EEF1F5" }} />

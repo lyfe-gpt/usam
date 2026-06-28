@@ -53,16 +53,17 @@ export default function Footer() {
               3821 Juniper Trace, Suite 210<br />Bee Cave, TX 78738<br />
               <a href="tel:512-488-6087" className="ftr-lnk" style={{ color: "#E7ECF3", textDecoration: "none", fontWeight: 600 }}>512-488-6087</a><br />
               <a href="mailto:jack@usam.net" className="ftr-lnk" style={lnk}>jack@usam.net</a><br />
-              <span style={{ color: "#7A8AA0" }}>Mon to Fri, 9 AM to 5 PM CT</span>
+              <span style={{ color: "#8A97A8" }}>Mon to Fri, 9 AM to 5 PM CT</span>
             </div>
           </div>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 20, flexWrap: "wrap", paddingTop: 26, fontSize: 13, color: "#7A8AA0" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 20, flexWrap: "wrap", paddingTop: 26, fontSize: 13, color: "#8A97A8" }}>
           <span>© {year} USAM Fund. All rights reserved.</span>
           <span style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
-            <Link to="/privacy" className="ftr-lnk" style={{ color: "#7A8AA0", textDecoration: "none" }}>Privacy Policy</Link>
-            <Link to="/terms" className="ftr-lnk" style={{ color: "#7A8AA0", textDecoration: "none" }}>Terms of Service</Link>
+            <Link to="/privacy" className="ftr-lnk" style={{ color: "#8A97A8", textDecoration: "none" }}>Privacy Policy</Link>
+            <Link to="/terms" className="ftr-lnk" style={{ color: "#8A97A8", textDecoration: "none" }}>Terms of Service</Link>
+            <Link to="/privacy#choices" className="ftr-lnk" style={{ color: "#8A97A8", textDecoration: "none" }}>Your Privacy Choices</Link>
             <span>Loans for business purpose only · Not a commitment to lend.</span>
           </span>
         </div>

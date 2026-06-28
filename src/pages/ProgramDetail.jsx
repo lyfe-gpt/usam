@@ -42,7 +42,7 @@ export default function ProgramDetail({ slug }) {
               <span style={{ flex: "none", width: 54, height: 54, borderRadius: 14, background: "#EEF3FC", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <Icon name={p.icon} size={27} color="#1A56C4" />
               </span>
-              <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#8A97A8" }}>Program {p.num}</span>
+              <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#667085" }}>Program {p.num}</span>
             </div>
             <h1 style={{ fontFamily: SCH, fontWeight: 800, fontSize: "clamp(36px,4.6vw,56px)", lineHeight: 1.0, letterSpacing: "-0.02em", color: "#0E1A2B", margin: "0 0 14px" }}>{p.title}</h1>
             <p style={{ fontSize: 19, fontWeight: 600, color: "#1A56C4", margin: "0 0 18px" }}>{p.tagline}</p>
@@ -68,6 +68,7 @@ export default function ProgramDetail({ slug }) {
             </div>
           ))}
         </div>
+        <p style={{ maxWidth: 1140, margin: "12px auto 0", fontSize: 12, color: "#667085", textAlign: "center", lineHeight: 1.4 }}>Typical figures, subject to underwriting and market conditions. Not a commitment to lend.</p>
       </section>
 
       {/* How it works + terms */}
@@ -76,7 +77,7 @@ export default function ProgramDetail({ slug }) {
           <div>
             <h2 style={{ fontFamily: SCH, fontWeight: 800, fontSize: "clamp(26px,3vw,34px)", lineHeight: 1.1, letterSpacing: "-0.02em", color: "#0E1A2B", margin: "0 0 16px" }}>How it works</h2>
             <p style={{ fontSize: 17, lineHeight: 1.65, color: "#475467", margin: "0 0 30px", maxWidth: 580 }}>{p.how}</p>
-            <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#8A97A8", marginBottom: 18 }}>Who it's for</div>
+            <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#667085", marginBottom: 18 }}>Who it's for</div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, maxWidth: 560 }}>
               {p.who.map((w, i) => (
                 <div key={i} style={{ display: "flex", alignItems: "center", gap: 12 }}>
@@ -87,7 +88,7 @@ export default function ProgramDetail({ slug }) {
             </div>
           </div>
           <div className="ph-termcard" style={{ position: "sticky", top: 96, background: "#F6F8FB", border: "1px solid #E6E9EF", borderRadius: 18, padding: 26 }}>
-            <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#8A97A8", marginBottom: 18 }}>Typical terms</div>
+            <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#667085", marginBottom: 18 }}>Typical terms</div>
             <div>
               {p.terms.map(([label, value], i) => {
                 const last = i === p.terms.length - 1;
@@ -100,7 +101,7 @@ export default function ProgramDetail({ slug }) {
               })}
             </div>
             <Link to="/apply" className="btn-primary" style={{ display: "block", textAlign: "center", marginTop: 22, background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: 14, borderRadius: 999 }}>Get my rate</Link>
-            <p style={{ fontSize: 12, color: "#98A2B3", textAlign: "center", margin: "12px 0 0", lineHeight: 1.4 }}>*Typical terms, subject to underwriting and market conditions.</p>
+            <p style={{ fontSize: 12, color: "#667085", textAlign: "center", margin: "12px 0 0", lineHeight: 1.4 }}>*Typical terms, subject to underwriting and market conditions.</p>
           </div>
         </div>
       </section>
@@ -167,7 +168,7 @@ export default function ProgramDetail({ slug }) {
                 </span>
                 <span style={{ flex: 1 }}>
                   <span style={{ display: "block", fontFamily: SCH, fontWeight: 700, fontSize: 16, color: "#0E1A2B" }}>{o.title}</span>
-                  <span style={{ display: "block", fontSize: 13, color: "#8A97A8", marginTop: 2 }}>{o.short}</span>
+                  <span style={{ display: "block", fontSize: 13, color: "#667085", marginTop: 2 }}>{o.short}</span>
                 </span>
                 <Icon name="chevronRight" size={15} color="#1A56C4" width={2.6} />
               </Link>

@@ -36,6 +36,8 @@ export default function Header() {
   const [progOpen, setProgOpen] = useState(false);
 
   return (
+    <>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
     <div className="hdr">
       {/* Utility bar */}
       <div style={{ background: "#0E1A2B", color: "#AEB9C9", fontSize: 13, letterSpacing: "0.01em" }}>
@@ -98,7 +100,7 @@ export default function Header() {
                         </span>
                         <span style={{ display: "flex", flexDirection: "column", gap: 1 }}>
                           <span style={{ fontSize: 14, fontWeight: 700, color: "#0E1A2B" }}>{p.navTitle}</span>
-                          <span style={{ fontSize: 12, fontWeight: 500, color: "#8A97A8", lineHeight: 1.3 }}>{p.navSub}</span>
+                          <span style={{ fontSize: 12, fontWeight: 500, color: "#667085", lineHeight: 1.3 }}>{p.navSub}</span>
                         </span>
                       </Link>
                     ))}
@@ -143,7 +145,7 @@ export default function Header() {
               <div style={{ borderBottom: "1px solid #F1F3F7" }}>
                 <button onClick={() => setProgOpen((v) => !v)} aria-label="Programs" style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 6px", background: "none", border: "none", cursor: "pointer", color: "#0E1A2B", fontWeight: 600, fontSize: 16, fontFamily: "inherit", textAlign: "left" }}>
                   Programs
-                  <Icon name="chevronDown" size={16} color="#8A97A8" width={2.4} style={{ transform: progOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform .18s ease" }} />
+                  <Icon name="chevronDown" size={16} color="#667085" width={2.4} style={{ transform: progOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform .18s ease" }} />
                 </button>
                 {progOpen && (
                   <div style={{ display: "flex", flexDirection: "column", padding: "2px 4px 12px" }}>
@@ -166,5 +168,7 @@ export default function Header() {
         )}
       </header>
     </div>
+      <span id="main-content" tabIndex={-1} />
+    </>
   );
 }

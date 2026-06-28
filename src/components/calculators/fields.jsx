@@ -60,7 +60,7 @@ export function Wizard({ mobile, steps }) {
     <div style={{ gridColumn: "1 / -1" }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
         <span style={{ fontFamily: SCH, fontSize: 16, fontWeight: 700, color: "#0E1A2B" }}>{step.title}</span>
-        <span style={{ fontSize: 12.5, fontWeight: 700, color: "#8A97A8" }}>Step {idx + 1} of {steps.length}</span>
+        <span style={{ fontSize: 12.5, fontWeight: 700, color: "#667085" }}>Step {idx + 1} of {steps.length}</span>
       </div>
       <div style={{ display: "grid", gap: 16 }}>{step.content}</div>
       <div style={{ display: "flex", gap: 10, marginTop: 18 }}>
