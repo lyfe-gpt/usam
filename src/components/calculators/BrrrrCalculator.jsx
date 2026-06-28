@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { NumberField, InputCard, ResultPanel, Row, fmt, pct, monthlyPI, useNum, num } from "./fields.jsx";
+import { NumberField, InputCard, ResultPanel, Row, fmt, pct, monthlyPI, useNum, num, applyUrl } from "./fields.jsx";
 
 // BRRRR = Buy, Rehab, Rent, Refinance, Repeat. The number that matters is how
 // much cash you pull back out at the refi vs. how much stays trapped in the deal.
@@ -29,6 +29,7 @@ export default function BrrrrCalculator() {
   }, [purchase, rehab, holding, arv, refiLtv, rate, amort, rent, opex]);
 
   const full = r.leftIn <= 0;
+  const href = applyUrl("fix-flip", { purchase, rehab, arv, monthlyRent: rent });
   return (
     <div className="calc-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 28, alignItems: "start" }}>
       <InputCard>
@@ -53,6 +54,7 @@ export default function BrrrrCalculator() {
           ? "The refinance returns all the cash you put in. Infinite cash-on-cash — repeat the process."
           : `You recover ${fmt(r.pulledOut)} at refinance and leave ${fmt(r.leftIn)} in the deal.`}
         cta="Fund my BRRRR"
+        ctaHref={href}
       >
         <Row label="Total invested" value={fmt(r.invested)} />
         <Row label="Refinance loan (ARV × LTV)" value={fmt(r.refiLoan)} />

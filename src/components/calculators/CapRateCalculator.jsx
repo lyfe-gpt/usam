@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { NumberField, InputCard, ResultPanel, Row, fmt, pct, monthlyPI, useNum, num } from "./fields.jsx";
+import { NumberField, InputCard, ResultPanel, Row, fmt, pct, monthlyPI, useNum, num, applyUrl } from "./fields.jsx";
 
 // Cap rate + cash flow + cash-on-cash for a rental. Cap rate is unlevered
 // (NOI / price); cash-on-cash factors in the financing.
@@ -43,6 +43,7 @@ export default function CapRateCalculator() {
         pill={`${pct(r.coc)} cash-on-cash`}
         note="Cap rate is the unlevered yield (NOI ÷ price). Cash-on-cash adds your financing and down payment."
         cta="Finance this rental"
+        ctaHref={applyUrl("rental-dscr", { purchase: price, monthlyRent: rent })}
       >
         <Row label="Effective gross income" value={fmt(r.egi)} />
         <Row label="Net operating income (NOI)" value={fmt(r.noi)} />

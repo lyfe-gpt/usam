@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { NumberField, InputCard, Row, fmt, monthlyPI, useNum, num, SCH } from "./fields.jsx";
+import { NumberField, InputCard, Row, fmt, monthlyPI, useNum, num, SCH, applyUrl } from "./fields.jsx";
 
 export default function DscrCalculator() {
   const [rent, setRent] = useNum(2400);
@@ -63,7 +63,7 @@ export default function DscrCalculator() {
           <Row label="Monthly cash flow" value={fmt(cashFlow)} accent={cashFlow >= 0 ? "#6EE7A8" : "#FCA5A5"} />
         </div>
 
-        <a href="/apply" style={{ display: "block", textAlign: "center", marginTop: 22, background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: "14px 20px", borderRadius: 999 }}>
+        <a href={applyUrl("rental-dscr", { monthlyRent: rent, loanAmount: loan })} style={{ display: "block", textAlign: "center", marginTop: 22, background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: "14px 20px", borderRadius: 999 }}>
           Get a real rate
         </a>
       </div>

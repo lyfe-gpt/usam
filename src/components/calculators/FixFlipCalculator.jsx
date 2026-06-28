@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { NumberField, InputCard, Row, fmt, useNum, num, SCH } from "./fields.jsx";
+import { NumberField, InputCard, Row, fmt, useNum, num, SCH, applyUrl } from "./fields.jsx";
 
 export default function FixFlipCalculator() {
   const [purchase, setPurchase] = useNum(240000);
@@ -65,7 +65,7 @@ export default function FixFlipCalculator() {
           <Row label="All-in cost" value={fmt(r.allIn)} />
         </div>
 
-        <a href="/apply" style={{ display: "block", textAlign: "center", marginTop: 22, background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: "14px 20px", borderRadius: 999 }}>
+        <a href={applyUrl("fix-flip", { purchase, rehab, arv })} style={{ display: "block", textAlign: "center", marginTop: 22, background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: "14px 20px", borderRadius: 999 }}>
           Fund this flip
         </a>
       </div>

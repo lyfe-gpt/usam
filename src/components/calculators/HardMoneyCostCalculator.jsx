@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { NumberField, InputCard, ResultPanel, Row, fmt, pct, useNum, num } from "./fields.jsx";
+import { NumberField, InputCard, ResultPanel, Row, fmt, pct, useNum, num, applyUrl } from "./fields.jsx";
 
 // What a hard-money loan actually costs: origination points + interest over the
 // hold + flat fees, plus a rough annualized cost rate so it's comparable.
@@ -37,6 +37,7 @@ export default function HardMoneyCostCalculator() {
         pill={`${pct(r.effAnnual)} effective annual cost`}
         note={`Over a ${num(months)}-month hold, interest-only. The shorter you hold, the less interest you pay, points and fees are fixed.`}
         cta="Get my rate"
+        ctaHref={applyUrl("fix-flip", { loanAmount: loan })}
       >
         <Row label={`Origination (${num(points)}%)`} value={fmt(r.origination)} />
         <Row label="Monthly interest (interest-only)" value={fmt(r.monthlyInterest)} />

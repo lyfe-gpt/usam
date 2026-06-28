@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { NumberField, InputCard, ResultPanel, Row, fmt, monthlyPI, useNum, num } from "./fields.jsx";
+import { NumberField, InputCard, ResultPanel, Row, fmt, monthlyPI, useNum, num, applyUrl } from "./fields.jsx";
 
 // How much cash you can pull out of a property: new loan at max LTV, minus the
 // existing balance and closing costs, plus what the new payment looks like.
@@ -42,6 +42,7 @@ export default function CashOutRefiCalculator() {
           ? "At this LTV the new loan does not clear your existing balance plus costs. Raise the LTV or pay down the balance."
           : "Tax-free at closing (it's a loan, not income). Common BRRRR and portfolio-growth move."}
         cta="Start my cash-out"
+        ctaHref={applyUrl("rental-dscr", { purchase: value, loanAmount: r.newLoan })}
       >
         <Row label={`New loan (value × ${num(ltv)}%)`} value={fmt(r.newLoan)} />
         <Row label="Pays off current balance" value={fmt(balance)} />

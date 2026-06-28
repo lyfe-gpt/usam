@@ -68,6 +68,19 @@ export const fmt = (n) =>
 
 export const pct = (n) => `${(Number.isFinite(n) ? n : 0).toFixed(1)}%`;
 
+// Build an /apply deep link that carries the program + the figures the visitor
+// already entered, so the apply flow can prefill them. Only positive finite
+// values are passed (blank/zero fields are skipped). Field keys must match the
+// apply form's keys (purchase, rehab, arv, monthlyRent, loanAmount, noi).
+export function applyUrl(program, fields = {}) {
+  const p = new URLSearchParams();
+  if (program) p.set("program", program);
+  for (const [k, v] of Object.entries(fields)) {
+    if (Number.isFinite(v) && v > 0) p.set(k, String(Math.round(v)));
+  }
+  return `/apply?${p.toString()}`;
+}
+
 // One line in the result panel's breakdown.
 export function Row({ label, value, accent }) {
   return (
@@ -80,7 +93,7 @@ export function Row({ label, value, accent }) {
 
 // The dark, sticky result panel shell: eyebrow, big headline figure, an optional
 // pill, optional supporting note, a breakdown (children), and an apply CTA.
-export function ResultPanel({ eyebrow, figure, figureColor = "#fff", pill, pillColor, note, children, cta = "Get a real rate" }) {
+export function ResultPanel({ eyebrow, figure, figureColor = "#fff", pill, pillColor, note, children, cta = "Get a real rate", ctaHref = "/apply" }) {
   return (
     <div style={{ background: "linear-gradient(160deg,#0E1A2B,#15294A)", borderRadius: 16, padding: 26, color: "#fff", position: "sticky", top: 96 }}>
       <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#6FA0F0" }}>{eyebrow}</div>
@@ -90,7 +103,7 @@ export function ResultPanel({ eyebrow, figure, figureColor = "#fff", pill, pillC
       )}
       {note && <p style={{ fontSize: 14.5, lineHeight: 1.5, color: "#C4D2E8", margin: "0 0 20px" }}>{note}</p>}
       <div style={{ borderTop: "1px solid #21324A", paddingTop: 16, display: "flex", flexDirection: "column", gap: 10 }}>{children}</div>
-      <a href="/apply" style={{ display: "block", textAlign: "center", marginTop: 22, background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: "14px 20px", borderRadius: 999 }}>{cta}</a>
+      <a href={ctaHref} style={{ display: "block", textAlign: "center", marginTop: 22, background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: "14px 20px", borderRadius: 999 }}>{cta}</a>
     </div>
   );
 }

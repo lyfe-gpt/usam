@@ -227,12 +227,21 @@ export default function Apply() {
   // once, while still allowing Back to reach it normally.
   const prefilled = useRef(false);
   useEffect(() => {
-    const slug = new URLSearchParams(window.location.search).get("program");
+    const q = new URLSearchParams(window.location.search);
+    const slug = q.get("program");
     const lt = slug && PROGRAM_TO_LOANTYPE[slug];
+    const patch = {};
     if (lt) {
       prefilled.current = true;
-      setS((st) => ({ ...st, loanType: lt }));
+      patch.loanType = lt;
     }
+    // Carry figures from a calculator into the form. Keys match the numbers-step
+    // fields; only plain integers are accepted.
+    ["purchase", "rehab", "arv", "monthlyRent", "loanAmount", "noi"].forEach((k) => {
+      const v = q.get(k);
+      if (v && /^\d+$/.test(v)) patch[k] = v;
+    });
+    if (Object.keys(patch).length) setS((st) => ({ ...st, ...patch }));
   }, []);
 
   // When the borrower step is done and the program was prefilled, skip the
