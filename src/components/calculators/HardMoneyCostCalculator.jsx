@@ -5,7 +5,7 @@ import { NumberField, InputCard, ResultPanel, Row, fmt, pct, useNum, num, applyU
 // hold + flat fees, plus a rough annualized cost rate so it's comparable.
 export default function HardMoneyCostCalculator() {
   const [loan, setLoan] = useNum(300000);
-  const [rate, setRate] = useNum(10.5);
+  const [rate, setRate] = useNum(7.99); // USAM fix/flip hard-money rates from 7.99%
   const [points, setPoints] = useNum(2);
   const [months, setMonths] = useNum(9);
   const [fees, setFees] = useNum(1500);

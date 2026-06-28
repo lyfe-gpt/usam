@@ -9,7 +9,7 @@ export default function BrrrrCalculator() {
   const [holding, setHolding] = useNum(12000);
   const [arv, setArv] = useNum(320000);
   const [refiLtv, setRefiLtv] = useNum(75);
-  const [rate, setRate] = useNum(7.5);
+  const [rate, setRate] = useNum(7); // editable placeholder for a 30-yr amortizing refi; not an advertised rate
   const [amort, setAmort] = useNum(30);
   const [rent, setRent] = useNum(2350);
   const [opex, setOpex] = useNum(520);

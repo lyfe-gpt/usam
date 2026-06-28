@@ -5,11 +5,11 @@ import { NumberField, InputCard, ResultPanel, Row, fmt, pct, monthlyPI, useNum, 
 // (NOI / price); cash-on-cash factors in the financing.
 export default function CapRateCalculator() {
   const [price, setPrice] = useNum(310000);
-  const [rent, setRent] = useNum(2600);
+  const [rent, setRent] = useNum(2750);
   const [vacancy, setVacancy] = useNum(5);
   const [opex, setOpex] = useNum(9200);
   const [down, setDown] = useNum(20);
-  const [rate, setRate] = useNum(7.75);
+  const [rate, setRate] = useNum(7); // editable placeholder for a 30-yr amortizing rental loan; not an advertised rate
   const [amort, setAmort] = useNum(30);
 
   const r = useMemo(() => {

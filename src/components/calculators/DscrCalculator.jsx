@@ -4,7 +4,7 @@ import { NumberField, InputCard, Row, fmt, monthlyPI, useNum, num, SCH, applyUrl
 export default function DscrCalculator() {
   const [rent, setRent] = useNum(2400);
   const [loan, setLoan] = useNum(225000);
-  const [rate, setRate] = useNum(7.75);
+  const [rate, setRate] = useNum(5.5); // USAM DSCR rates from 5.50%
   const [amort, setAmort] = useNum(30);
   const [taxes, setTaxes] = useNum(320);
   const [insurance, setInsurance] = useNum(120);

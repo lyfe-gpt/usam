@@ -2,10 +2,10 @@ import { useMemo } from "react";
 import { NumberField, InputCard, Row, fmt, useNum, num, SCH, applyUrl } from "./fields.jsx";
 
 export default function FixFlipCalculator() {
-  const [purchase, setPurchase] = useNum(240000);
-  const [rehab, setRehab] = useNum(60000);
-  const [arv, setArv] = useNum(390000);
-  const [holding, setHolding] = useNum(14000);
+  const [purchase, setPurchase] = useNum(210000);
+  const [rehab, setRehab] = useNum(55000);
+  const [arv, setArv] = useNum(385000);
+  const [holding, setHolding] = useNum(13000);
   const [sellingPct, setSellingPct] = useNum(8);
 
   const r = useMemo(() => {

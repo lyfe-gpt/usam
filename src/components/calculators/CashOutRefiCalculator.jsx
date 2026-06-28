@@ -7,7 +7,7 @@ export default function CashOutRefiCalculator() {
   const [value, setValue] = useNum(450000);
   const [balance, setBalance] = useNum(210000);
   const [ltv, setLtv] = useNum(75);
-  const [rate, setRate] = useNum(7.5);
+  const [rate, setRate] = useNum(7); // editable placeholder for a 30-yr amortizing refi; not an advertised rate
   const [amort, setAmort] = useNum(30);
   const [costs, setCosts] = useNum(6000);
 
