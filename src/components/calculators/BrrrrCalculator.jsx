@@ -1,9 +1,10 @@
 import { useMemo } from "react";
-import { NumberField, InputCard, ResultPanel, Row, fmt, pct, monthlyPI, useNum, num, applyUrl } from "./fields.jsx";
+import { NumberField, InputCard, ResultPanel, Row, fmt, pct, monthlyPI, useNum, num, applyUrl, useIsMobile, StickyResult, Wizard } from "./fields.jsx";
 
 // BRRRR = Buy, Rehab, Rent, Refinance, Repeat. The number that matters is how
 // much cash you pull back out at the refi vs. how much stays trapped in the deal.
 export default function BrrrrCalculator() {
+  const mobile = useIsMobile();
   const [purchase, setPurchase] = useNum(180000);
   const [rehab, setRehab] = useNum(55000);
   const [holding, setHolding] = useNum(12000);
@@ -31,17 +32,37 @@ export default function BrrrrCalculator() {
   const full = r.leftIn <= 0;
   const href = applyUrl("fix-flip", { purchase, rehab, arv, monthlyRent: rent });
   return (
+    <>
+    {mobile && (
+      <StickyResult
+        label="Cash left in the deal"
+        value={full ? "$0" : fmt(r.leftIn)}
+        valueColor={full ? "#6EE7A8" : "#fff"}
+        pill={full ? "Full BRRRR" : `${fmt(r.pulledOut)} out`}
+        pillColor={full ? "#067647" : "#123E96"}
+        cta="Fund my BRRRR"
+        ctaHref={href}
+      />
+    )}
     <div className="calc-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 28, alignItems: "start" }}>
       <InputCard>
-        <NumberField label="Purchase price" prefix="$" value={purchase} onChange={setPurchase} step={5000} />
-        <NumberField label="Rehab budget" prefix="$" value={rehab} onChange={setRehab} step={2500} />
-        <NumberField label="Holding costs" prefix="$" value={holding} onChange={setHolding} step={1000} />
-        <NumberField label="After-repair value" prefix="$" value={arv} onChange={setArv} step={5000} />
-        <NumberField label="Refinance LTV" suffix="%" value={refiLtv} onChange={setRefiLtv} step={1} max={100} />
-        <NumberField label="New loan rate" suffix="%" value={rate} onChange={setRate} step={0.125} />
-        <NumberField label="Amortization" suffix="yrs" value={amort} onChange={setAmort} step={5} />
-        <NumberField label="Monthly rent" prefix="$" value={rent} onChange={setRent} step={50} />
-        <NumberField label="Monthly expenses" prefix="$" value={opex} onChange={setOpex} step={25} />
+        <Wizard mobile={mobile} steps={[
+          { title: "Buy & rehab", content: <>
+            <NumberField label="Purchase price" prefix="$" value={purchase} onChange={setPurchase} step={5000} />
+            <NumberField label="Rehab budget" prefix="$" value={rehab} onChange={setRehab} step={2500} />
+            <NumberField label="Holding costs" prefix="$" value={holding} onChange={setHolding} step={1000} />
+          </> },
+          { title: "Refinance", content: <>
+            <NumberField label="After-repair value" prefix="$" value={arv} onChange={setArv} step={5000} />
+            <NumberField label="Refinance LTV" suffix="%" value={refiLtv} onChange={setRefiLtv} step={1} max={100} />
+            <NumberField label="New loan rate" suffix="%" value={rate} onChange={setRate} step={0.125} />
+            <NumberField label="Amortization" suffix="yrs" value={amort} onChange={setAmort} step={5} />
+          </> },
+          { title: "Rent", content: <>
+            <NumberField label="Monthly rent" prefix="$" value={rent} onChange={setRent} step={50} />
+            <NumberField label="Monthly expenses" prefix="$" value={opex} onChange={setOpex} step={25} />
+          </> },
+        ]} />
       </InputCard>
 
       <ResultPanel
@@ -63,5 +84,6 @@ export default function BrrrrCalculator() {
         <Row label="Cash-on-cash return" value={full ? "Infinite" : pct(r.coc)} accent="#6FA0F0" />
       </ResultPanel>
     </div>
+    </>
   );
 }

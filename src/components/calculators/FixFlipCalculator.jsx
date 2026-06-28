@@ -1,7 +1,8 @@
 import { useMemo } from "react";
-import { NumberField, InputCard, Row, fmt, useNum, num, SCH, applyUrl } from "./fields.jsx";
+import { NumberField, Row, fmt, useNum, num, SCH, applyUrl, useIsMobile, StickyResult, Wizard } from "./fields.jsx";
 
 export default function FixFlipCalculator() {
+  const mobile = useIsMobile();
   const [purchase, setPurchase] = useNum(210000);
   const [rehab, setRehab] = useNum(55000);
   const [arv, setArv] = useNum(385000);
@@ -25,14 +26,32 @@ export default function FixFlipCalculator() {
   const profitColor = r.profit >= 0 ? "#0E7C4A" : "#B42318";
 
   return (
+    <>
+    {mobile && (
+      <StickyResult
+        label="Projected net profit"
+        value={fmt(r.profit)}
+        valueColor={r.profit >= 0 ? "#fff" : "#FCA5A5"}
+        pill={`${r.roi.toFixed(0)}% ROI`}
+        pillColor={profitColor}
+        cta="Fund this flip"
+        ctaHref={applyUrl("fix-flip", { purchase, rehab, arv })}
+      />
+    )}
     <div className="calc-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 28, alignItems: "start" }}>
       <div style={{ background: "#fff", border: "1px solid #E6E9EF", borderRadius: 16, padding: 26 }}>
         <div className="calc-inputs" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-          <NumberField label="Purchase price" prefix="$" value={purchase} onChange={setPurchase} step={5000} />
-          <NumberField label="Rehab budget" prefix="$" value={rehab} onChange={setRehab} step={2500} />
-          <NumberField label="After-repair value (ARV)" prefix="$" value={arv} onChange={setArv} step={5000} />
-          <NumberField label="Holding / carry costs" prefix="$" value={holding} onChange={setHolding} step={1000} />
-          <NumberField label="Selling costs" suffix="%" value={sellingPct} onChange={setSellingPct} step={0.5} max={100} />
+          <Wizard mobile={mobile} steps={[
+            { title: "The deal", content: <>
+              <NumberField label="Purchase price" prefix="$" value={purchase} onChange={setPurchase} step={5000} />
+              <NumberField label="Rehab budget" prefix="$" value={rehab} onChange={setRehab} step={2500} />
+              <NumberField label="After-repair value (ARV)" prefix="$" value={arv} onChange={setArv} step={5000} />
+            </> },
+            { title: "Costs", content: <>
+              <NumberField label="Holding / carry costs" prefix="$" value={holding} onChange={setHolding} step={1000} />
+              <NumberField label="Selling costs" suffix="%" value={sellingPct} onChange={setSellingPct} step={0.5} max={100} />
+            </> },
+          ]} />
         </div>
 
         {/* 70% rule callout */}
@@ -70,5 +89,6 @@ export default function FixFlipCalculator() {
         </a>
       </div>
     </div>
+    </>
   );
 }

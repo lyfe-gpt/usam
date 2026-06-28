@@ -1,9 +1,10 @@
 import { useMemo } from "react";
-import { NumberField, InputCard, ResultPanel, Row, fmt, pct, useNum, num, applyUrl } from "./fields.jsx";
+import { NumberField, InputCard, ResultPanel, Row, fmt, pct, useNum, num, applyUrl, useIsMobile, StickyResult, Wizard } from "./fields.jsx";
 
 // What a hard-money loan actually costs: origination points + interest over the
 // hold + flat fees, plus a rough annualized cost rate so it's comparable.
 export default function HardMoneyCostCalculator() {
+  const mobile = useIsMobile();
   const [loan, setLoan] = useNum(300000);
   const [rate, setRate] = useNum(7.99); // USAM fix/flip hard-money rates from 7.99%
   const [points, setPoints] = useNum(2);
@@ -22,13 +23,29 @@ export default function HardMoneyCostCalculator() {
   }, [loan, rate, points, months, fees]);
 
   return (
+    <>
+    {mobile && (
+      <StickyResult
+        label="Total cost of the loan"
+        value={fmt(r.allIn)}
+        pill={`${pct(r.effAnnual)} eff.`}
+        cta="Get my rate"
+        ctaHref={applyUrl("fix-flip", { loanAmount: loan })}
+      />
+    )}
     <div className="calc-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 28, alignItems: "start" }}>
       <InputCard>
-        <NumberField label="Loan amount" prefix="$" value={loan} onChange={setLoan} step={5000} />
-        <NumberField label="Interest rate" suffix="%" value={rate} onChange={setRate} step={0.25} />
-        <NumberField label="Points (origination)" suffix="%" value={points} onChange={setPoints} step={0.25} />
-        <NumberField label="Loan term" suffix="mo" value={months} onChange={setMonths} step={1} />
-        <NumberField label="Other fees" prefix="$" value={fees} onChange={setFees} step={250} />
+        <Wizard mobile={mobile} steps={[
+          { title: "Loan", content: <>
+            <NumberField label="Loan amount" prefix="$" value={loan} onChange={setLoan} step={5000} />
+            <NumberField label="Interest rate" suffix="%" value={rate} onChange={setRate} step={0.25} />
+          </> },
+          { title: "Terms & fees", content: <>
+            <NumberField label="Points (origination)" suffix="%" value={points} onChange={setPoints} step={0.25} />
+            <NumberField label="Loan term" suffix="mo" value={months} onChange={setMonths} step={1} />
+            <NumberField label="Other fees" prefix="$" value={fees} onChange={setFees} step={250} />
+          </> },
+        ]} />
       </InputCard>
 
       <ResultPanel
@@ -46,5 +63,6 @@ export default function HardMoneyCostCalculator() {
         <Row label="All-in cost" value={fmt(r.allIn)} accent="#6FA0F0" />
       </ResultPanel>
     </div>
+    </>
   );
 }

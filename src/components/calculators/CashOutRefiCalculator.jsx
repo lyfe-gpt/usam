@@ -1,9 +1,10 @@
 import { useMemo } from "react";
-import { NumberField, InputCard, ResultPanel, Row, fmt, monthlyPI, useNum, num, applyUrl } from "./fields.jsx";
+import { NumberField, InputCard, ResultPanel, Row, fmt, monthlyPI, useNum, num, applyUrl, useIsMobile, StickyResult, Wizard } from "./fields.jsx";
 
 // How much cash you can pull out of a property: new loan at max LTV, minus the
 // existing balance and closing costs, plus what the new payment looks like.
 export default function CashOutRefiCalculator() {
+  const mobile = useIsMobile();
   const [value, setValue] = useNum(450000);
   const [balance, setBalance] = useNum(210000);
   const [ltv, setLtv] = useNum(75);
@@ -22,14 +23,32 @@ export default function CashOutRefiCalculator() {
 
   const negative = r.netCashOut <= 0;
   return (
+    <>
+    {mobile && (
+      <StickyResult
+        label="Cash you can pull out"
+        value={negative ? fmt(0) : fmt(r.netCashOut)}
+        valueColor={negative ? "#FCA5A5" : "#6EE7A8"}
+        pill={negative ? "No equity at this LTV" : "Net of costs"}
+        pillColor={negative ? "#B42318" : "#067647"}
+        cta="Start my cash-out"
+        ctaHref={applyUrl("rental-dscr", { purchase: value, loanAmount: r.newLoan })}
+      />
+    )}
     <div className="calc-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 28, alignItems: "start" }}>
       <InputCard>
-        <NumberField label="Current property value" prefix="$" value={value} onChange={setValue} step={5000} />
-        <NumberField label="Current loan balance" prefix="$" value={balance} onChange={setBalance} step={5000} />
-        <NumberField label="Max LTV" suffix="%" value={ltv} onChange={setLtv} step={1} max={100} />
-        <NumberField label="New loan rate" suffix="%" value={rate} onChange={setRate} step={0.125} />
-        <NumberField label="Amortization" suffix="yrs" value={amort} onChange={setAmort} step={5} />
-        <NumberField label="Closing costs" prefix="$" value={costs} onChange={setCosts} step={500} />
+        <Wizard mobile={mobile} steps={[
+          { title: "Property", content: <>
+            <NumberField label="Current property value" prefix="$" value={value} onChange={setValue} step={5000} />
+            <NumberField label="Current loan balance" prefix="$" value={balance} onChange={setBalance} step={5000} />
+          </> },
+          { title: "New loan", content: <>
+            <NumberField label="Max LTV" suffix="%" value={ltv} onChange={setLtv} step={1} max={100} />
+            <NumberField label="New loan rate" suffix="%" value={rate} onChange={setRate} step={0.125} />
+            <NumberField label="Amortization" suffix="yrs" value={amort} onChange={setAmort} step={5} />
+            <NumberField label="Closing costs" prefix="$" value={costs} onChange={setCosts} step={500} />
+          </> },
+        ]} />
       </InputCard>
 
       <ResultPanel
@@ -50,5 +69,6 @@ export default function CashOutRefiCalculator() {
         <Row label="New monthly payment" value={fmt(r.pi)} accent="#6FA0F0" />
       </ResultPanel>
     </div>
+    </>
   );
 }

@@ -1,9 +1,10 @@
 import { useMemo } from "react";
-import { NumberField, InputCard, ResultPanel, Row, fmt, pct, monthlyPI, useNum, num, applyUrl } from "./fields.jsx";
+import { NumberField, InputCard, ResultPanel, Row, fmt, pct, monthlyPI, useNum, num, applyUrl, useIsMobile, StickyResult, Wizard } from "./fields.jsx";
 
 // Cap rate + cash flow + cash-on-cash for a rental. Cap rate is unlevered
 // (NOI / price); cash-on-cash factors in the financing.
 export default function CapRateCalculator() {
+  const mobile = useIsMobile();
   const [price, setPrice] = useNum(310000);
   const [rent, setRent] = useNum(2750);
   const [vacancy, setVacancy] = useNum(5);
@@ -26,15 +27,33 @@ export default function CapRateCalculator() {
   }, [price, rent, vacancy, opex, down, rate, amort]);
 
   return (
+    <>
+    {mobile && (
+      <StickyResult
+        label="Cap rate"
+        value={pct(r.capRate)}
+        pill={`${pct(r.coc)} CoC`}
+        cta="Finance this rental"
+        ctaHref={applyUrl("rental-dscr", { purchase: price, monthlyRent: rent })}
+      />
+    )}
     <div className="calc-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 28, alignItems: "start" }}>
       <InputCard>
-        <NumberField label="Purchase price" prefix="$" value={price} onChange={setPrice} step={5000} />
-        <NumberField label="Monthly rent" prefix="$" value={rent} onChange={setRent} step={50} />
-        <NumberField label="Vacancy" suffix="%" value={vacancy} onChange={setVacancy} step={1} max={100} />
-        <NumberField label="Annual operating expenses" prefix="$" value={opex} onChange={setOpex} step={500} />
-        <NumberField label="Down payment" suffix="%" value={down} onChange={setDown} step={5} max={100} />
-        <NumberField label="Loan rate" suffix="%" value={rate} onChange={setRate} step={0.125} />
-        <NumberField label="Amortization" suffix="yrs" value={amort} onChange={setAmort} step={5} />
+        <Wizard mobile={mobile} steps={[
+          { title: "Property & rent", content: <>
+            <NumberField label="Purchase price" prefix="$" value={price} onChange={setPrice} step={5000} />
+            <NumberField label="Monthly rent" prefix="$" value={rent} onChange={setRent} step={50} />
+          </> },
+          { title: "Operating", content: <>
+            <NumberField label="Vacancy" suffix="%" value={vacancy} onChange={setVacancy} step={1} max={100} />
+            <NumberField label="Annual operating expenses" prefix="$" value={opex} onChange={setOpex} step={500} />
+          </> },
+          { title: "Financing", content: <>
+            <NumberField label="Down payment" suffix="%" value={down} onChange={setDown} step={5} max={100} />
+            <NumberField label="Loan rate" suffix="%" value={rate} onChange={setRate} step={0.125} />
+            <NumberField label="Amortization" suffix="yrs" value={amort} onChange={setAmort} step={5} />
+          </> },
+        ]} />
       </InputCard>
 
       <ResultPanel
@@ -51,5 +70,6 @@ export default function CapRateCalculator() {
         <Row label="Monthly cash flow" value={fmt(r.monthlyCF)} accent={r.monthlyCF >= 0 ? "#6EE7A8" : "#FCA5A5"} />
       </ResultPanel>
     </div>
+    </>
   );
 }

@@ -1,9 +1,84 @@
 // Shared building blocks for every calculator widget: the number input, the
 // result-row, the dark result panel shell, and currency/percent formatters.
 // Keeps the six calculators consistent and avoids re-defining these per file.
-import { useState } from "react";
+import { useState, useEffect, Fragment } from "react";
 
 export const SCH = "'Schibsted Grotesk',sans-serif";
+
+// True when the viewport is phone-width. Drives the mobile-only calculator
+// layout (sticky compact result + collapsed "more details"); desktop is left
+// untouched. Updates live on resize/orientation change.
+export function useIsMobile(bp = 640) {
+  const query = `(max-width: ${bp}px)`;
+  const [m, setM] = useState(() => typeof window !== "undefined" && window.matchMedia(query).matches);
+  useEffect(() => {
+    const mq = window.matchMedia(query);
+    const onChange = (e) => setM(e.matches);
+    setM(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, [query]);
+  return m;
+}
+
+// Compact, mobile-only result bar pinned just under the header so the headline
+// number and the apply CTA stay in view while the visitor edits inputs below.
+// The full result panel still renders (with the breakdown) lower on the page.
+export function StickyResult({ label, value, valueColor = "#fff", pill, pillColor, cta = "Apply", ctaHref = "/apply" }) {
+  return (
+    <div style={{ position: "sticky", top: 56, zIndex: 30, background: "linear-gradient(160deg,#0E1A2B,#15294A)", borderRadius: 14, padding: "11px 14px", color: "#fff", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, marginBottom: 16, boxShadow: "0 8px 22px rgba(14,26,43,0.22)" }}>
+      <div style={{ minWidth: 0 }}>
+        <div style={{ fontSize: 10.5, fontWeight: 700, letterSpacing: "0.07em", textTransform: "uppercase", color: "#6FA0F0", marginBottom: 3 }}>{label}</div>
+        <div style={{ display: "flex", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}>
+          <span style={{ fontFamily: SCH, fontWeight: 800, fontSize: 26, lineHeight: 1, letterSpacing: "-0.02em", color: valueColor }}>{value}</span>
+          {pill && <span style={{ fontSize: 11.5, fontWeight: 700, color: pillColor || "#0E1A2B", background: "#fff", padding: "2px 9px", borderRadius: 999, whiteSpace: "nowrap" }}>{pill}</span>}
+        </div>
+      </div>
+      <a href={ctaHref} style={{ flex: "none", background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 14, padding: "10px 16px", borderRadius: 999, whiteSpace: "nowrap" }}>{cta}</a>
+    </div>
+  );
+}
+
+// Mobile-only multi-step input wizard: shows one small group of fields at a time
+// with Back/Next and tappable progress dots, so the calculator fits a phone
+// screen while the live result (StickyResult) stays pinned above. On desktop it's
+// a no-op: every field renders inline in the inputs grid, exactly as before.
+// `steps` is [{ title, content }] where content is a fragment of NumberFields.
+export function Wizard({ mobile, steps }) {
+  const [i, setI] = useState(0);
+  if (!mobile) return steps.map((s, k) => <Fragment key={k}>{s.content}</Fragment>);
+  const idx = Math.min(i, steps.length - 1);
+  const step = steps[idx];
+  const first = idx === 0;
+  const last = idx === steps.length - 1;
+  const backBtn = { flex: "none", background: "#fff", color: "#0E1A2B", border: "1.5px solid #D6DDE8", borderRadius: 999, padding: "12px 20px", fontFamily: "inherit", fontSize: 15, fontWeight: 700, cursor: "pointer" };
+  const nextBtn = { flex: 1, background: "#1A56C4", color: "#fff", border: "none", borderRadius: 999, padding: "12px 20px", fontFamily: "inherit", fontSize: 15, fontWeight: 700, cursor: "pointer" };
+  return (
+    <div style={{ gridColumn: "1 / -1" }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
+        <span style={{ fontFamily: SCH, fontSize: 16, fontWeight: 700, color: "#0E1A2B" }}>{step.title}</span>
+        <span style={{ fontSize: 12.5, fontWeight: 700, color: "#8A97A8" }}>Step {idx + 1} of {steps.length}</span>
+      </div>
+      <div style={{ display: "grid", gap: 16 }}>{step.content}</div>
+      <div style={{ display: "flex", gap: 10, marginTop: 18 }}>
+        {!first && <button type="button" onClick={() => setI(idx - 1)} style={backBtn}>Back</button>}
+        {!last && <button type="button" onClick={() => setI(idx + 1)} style={nextBtn}>Next</button>}
+        {last && <div style={{ flex: 1, textAlign: "center", alignSelf: "center", fontSize: 13.5, fontWeight: 700, color: "#0E7C4A" }}>All set — your result is up top</div>}
+      </div>
+      <div style={{ display: "flex", gap: 6, justifyContent: "center", marginTop: 16 }}>
+        {steps.map((_, k) => (
+          <button
+            key={k}
+            type="button"
+            onClick={() => setI(k)}
+            aria-label={`Go to step ${k + 1}`}
+            style={{ width: k === idx ? 22 : 8, height: 8, borderRadius: 999, border: "none", padding: 0, cursor: "pointer", background: k === idx ? "#1A56C4" : "#D6DDE8", transition: "width .2s ease" }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const inputStyle = {
   fontFamily: "inherit",

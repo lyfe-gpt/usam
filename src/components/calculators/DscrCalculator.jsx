@@ -1,7 +1,8 @@
 import { useMemo } from "react";
-import { NumberField, InputCard, Row, fmt, monthlyPI, useNum, num, SCH, applyUrl } from "./fields.jsx";
+import { NumberField, InputCard, Row, fmt, monthlyPI, useNum, num, SCH, applyUrl, useIsMobile, StickyResult, Wizard } from "./fields.jsx";
 
 export default function DscrCalculator() {
+  const mobile = useIsMobile();
   const [rent, setRent] = useNum(2400);
   const [loan, setLoan] = useNum(225000);
   const [rate, setRate] = useNum(5.5); // USAM DSCR rates from 5.50%
@@ -35,15 +36,34 @@ export default function DscrCalculator() {
   }, [rent, loan, rate, amort, taxes, insurance, hoa]);
 
   return (
+    <>
+    {mobile && (
+      <StickyResult
+        label="Your DSCR"
+        value={dscr > 0 ? dscr.toFixed(2) : "--"}
+        pill={dscr >= 1.25 ? "Strong" : dscr >= 1.0 ? "Qualifies" : dscr > 0 ? "Below 1.0" : null}
+        pillColor={color}
+        cta="Get my rate"
+        ctaHref={applyUrl("rental-dscr", { monthlyRent: rent, loanAmount: loan })}
+      />
+    )}
     <div className="calc-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 28, alignItems: "start" }}>
       <InputCard>
-        <NumberField label="Monthly rent" prefix="$" value={rent} onChange={setRent} step={50} />
-        <NumberField label="Loan amount" prefix="$" value={loan} onChange={setLoan} step={1000} />
-        <NumberField label="Interest rate" suffix="%" value={rate} onChange={setRate} step={0.125} />
-        <NumberField label="Amortization" suffix="yrs" value={amort} onChange={setAmort} step={5} />
-        <NumberField label="Monthly taxes" prefix="$" value={taxes} onChange={setTaxes} step={10} />
-        <NumberField label="Monthly insurance" prefix="$" value={insurance} onChange={setInsurance} step={10} />
-        <NumberField label="Monthly HOA" prefix="$" value={hoa} onChange={setHoa} step={10} />
+        <Wizard mobile={mobile} steps={[
+          { title: "Rent & loan", content: <>
+            <NumberField label="Monthly rent" prefix="$" value={rent} onChange={setRent} step={50} />
+            <NumberField label="Loan amount" prefix="$" value={loan} onChange={setLoan} step={1000} />
+          </> },
+          { title: "Rate & term", content: <>
+            <NumberField label="Interest rate" suffix="%" value={rate} onChange={setRate} step={0.125} />
+            <NumberField label="Amortization" suffix="yrs" value={amort} onChange={setAmort} step={5} />
+          </> },
+          { title: "Monthly costs", content: <>
+            <NumberField label="Monthly taxes" prefix="$" value={taxes} onChange={setTaxes} step={10} />
+            <NumberField label="Monthly insurance" prefix="$" value={insurance} onChange={setInsurance} step={10} />
+            <NumberField label="Monthly HOA" prefix="$" value={hoa} onChange={setHoa} step={10} />
+          </> },
+        ]} />
       </InputCard>
 
       {/* Result (custom: oversized DSCR figure) */}
@@ -68,5 +88,6 @@ export default function DscrCalculator() {
         </a>
       </div>
     </div>
+    </>
   );
 }
