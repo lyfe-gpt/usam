@@ -81,9 +81,12 @@ img { display: block; }
 .u-bar-contact { display: none !important; }
 @media (min-width: 981px) { .u-menu { display: none !important; } }
 @media (max-width: 980px) {
-  .u-nav, .u-phone { display: none !important; }
+  .u-nav { display: none !important; }
   .u-burger { display: flex !important; }
   .u-bar-contact { display: flex !important; }
+  /* On mobile, surface the phone icon and hide the Apply-now button. */
+  .u-phone { display: block !important; }
+  .hdr-apply { display: none !important; }
 }
 @media (max-width: 640px) {
   .hdr-sec { padding-left: 18px !important; padding-right: 18px !important; }

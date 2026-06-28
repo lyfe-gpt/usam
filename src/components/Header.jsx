@@ -129,7 +129,7 @@ export default function Header() {
                 </div>
               </div>
             </div>
-            <Link to="/apply" className="btn-primary" style={{ background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 15, padding: "11px 22px", borderRadius: 999, boxShadow: "0 1px 2px rgba(26,86,196,0.4)" }}>Apply now</Link>
+            <Link to="/apply" className="btn-primary hdr-apply" style={{ background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 15, padding: "11px 22px", borderRadius: 999, boxShadow: "0 1px 2px rgba(26,86,196,0.4)" }}>Apply now</Link>
             <button className="u-burger" onClick={() => setMenuOpen((v) => !v)} aria-label="Menu" style={{ display: "none", alignItems: "center", justifyContent: "center", width: 44, height: 44, borderRadius: 11, border: "1px solid #E6E9EF", background: "#fff", cursor: "pointer", padding: 0 }}>
               <Icon name="menu" size={22} color="#0E1A2B" width={2.2} />
             </button>
