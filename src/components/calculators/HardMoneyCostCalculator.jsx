@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { NumberField, InputCard, ResultPanel, Row, fmt, pct, useNum } from "./fields.jsx";
+import { NumberField, InputCard, ResultPanel, Row, fmt, pct, useNum, num } from "./fields.jsx";
 
 // What a hard-money loan actually costs: origination points + interest over the
 // hold + flat fees, plus a rough annualized cost rate so it's comparable.
@@ -11,12 +11,13 @@ export default function HardMoneyCostCalculator() {
   const [fees, setFees] = useNum(1500);
 
   const r = useMemo(() => {
-    const origination = loan * (points / 100);
-    const monthlyInterest = (loan * (rate / 100)) / 12; // interest-only, typical for HML
-    const totalInterest = monthlyInterest * months;
-    const allIn = origination + totalInterest + fees;
+    const LN = num(loan), RT = num(rate), PT = num(points), MO = num(months), FE = num(fees);
+    const origination = LN * (PT / 100);
+    const monthlyInterest = (LN * (RT / 100)) / 12; // interest-only, typical for HML
+    const totalInterest = monthlyInterest * MO;
+    const allIn = origination + totalInterest + FE;
     // Rough annualized cost of capital: total cost as a share of loan, per year.
-    const effAnnual = loan > 0 && months > 0 ? (allIn / loan) / (months / 12) * 100 : 0;
+    const effAnnual = LN > 0 && MO > 0 ? (allIn / LN) / (MO / 12) * 100 : 0;
     return { origination, monthlyInterest, totalInterest, allIn, effAnnual };
   }, [loan, rate, points, months, fees]);
 
@@ -34,12 +35,12 @@ export default function HardMoneyCostCalculator() {
         eyebrow="Total cost of the loan"
         figure={fmt(r.allIn)}
         pill={`${pct(r.effAnnual)} effective annual cost`}
-        note={`Over a ${months}-month hold, interest-only. The shorter you hold, the less interest you pay — points and fees are fixed.`}
+        note={`Over a ${num(months)}-month hold, interest-only. The shorter you hold, the less interest you pay, points and fees are fixed.`}
         cta="Get my rate"
       >
-        <Row label={`Origination (${points}%)`} value={fmt(r.origination)} />
+        <Row label={`Origination (${num(points)}%)`} value={fmt(r.origination)} />
         <Row label="Monthly interest (interest-only)" value={fmt(r.monthlyInterest)} />
-        <Row label={`Total interest (${months} mo)`} value={fmt(r.totalInterest)} />
+        <Row label={`Total interest (${num(months)} mo)`} value={fmt(r.totalInterest)} />
         <Row label="Other fees" value={fmt(fees)} />
         <Row label="All-in cost" value={fmt(r.allIn)} accent="#6FA0F0" />
       </ResultPanel>

@@ -48,6 +48,18 @@ export default function Programs() {
               </Link>
             ))}
           </div>
+
+          {/* Not-sure helpers: route to the quiz + comparison pages */}
+          <div className="prog-help" style={{ marginTop: 40, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+            <Link to="/qualify" className="card-link" style={{ display: "block", background: "#EEF3FC", border: "1px solid #DCE6F9", borderRadius: 16, padding: "24px 26px", textDecoration: "none" }}>
+              <div style={{ fontFamily: SCH, fontWeight: 800, fontSize: 19, color: "#0E1A2B", marginBottom: 6 }}>Not sure which fits?</div>
+              <div style={{ fontSize: 15, color: "#475467" }}>Answer 3 quick questions and we'll point you to the right program. <span style={{ color: "#1A56C4", fontWeight: 700 }}>Take the 60-second finder →</span></div>
+            </Link>
+            <Link to="/compare" className="card-link" style={{ display: "block", background: "#F6F8FB", border: "1px solid #E6E9EF", borderRadius: 16, padding: "24px 26px", textDecoration: "none" }}>
+              <div style={{ fontFamily: SCH, fontWeight: 800, fontSize: 19, color: "#0E1A2B", marginBottom: 6 }}>Weighing two options?</div>
+              <div style={{ fontSize: 15, color: "#475467" }}>DSCR vs hard money, conventional, and more, side by side. <span style={{ color: "#1A56C4", fontWeight: 700 }}>Compare loans →</span></div>
+            </Link>
+          </div>
         </div>
       </section>
 

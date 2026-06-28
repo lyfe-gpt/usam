@@ -1,25 +1,27 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, lazy, Suspense } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
-import Home from "./pages/Home.jsx";
-import Programs from "./pages/Programs.jsx";
-import ProgramDetail from "./pages/ProgramDetail.jsx";
-import About from "./pages/About.jsx";
-import Contact from "./pages/Contact.jsx";
-import Apply from "./pages/Apply.jsx";
-import FaqPage from "./pages/Faq.jsx";
-import Resources from "./pages/Resources.jsx";
-import Guide from "./pages/Guide.jsx";
-import Partners from "./pages/Partners.jsx";
-import GeoLanding from "./pages/GeoLanding.jsx";
-import Calculators from "./pages/Calculators.jsx";
-import CalculatorDetail from "./pages/CalculatorDetail.jsx";
-import Glossary from "./pages/Glossary.jsx";
-import Compare from "./pages/Compare.jsx";
-import Comparison from "./pages/Comparison.jsx";
-import Qualify from "./pages/Qualify.jsx";
-import CityProgram from "./pages/CityProgram.jsx";
-import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
-import Terms from "./pages/Terms.jsx";
+import Home from "./pages/Home.jsx"; // eager: landing page / LCP
+// Route-level code splitting: each page ships its own chunk so the initial bundle
+// stays small. The shared Header/Footer/Icon live in the common chunk.
+const Programs = lazy(() => import("./pages/Programs.jsx"));
+const ProgramDetail = lazy(() => import("./pages/ProgramDetail.jsx"));
+const About = lazy(() => import("./pages/About.jsx"));
+const Contact = lazy(() => import("./pages/Contact.jsx"));
+const Apply = lazy(() => import("./pages/Apply.jsx"));
+const FaqPage = lazy(() => import("./pages/Faq.jsx"));
+const Resources = lazy(() => import("./pages/Resources.jsx"));
+const Guide = lazy(() => import("./pages/Guide.jsx"));
+const Partners = lazy(() => import("./pages/Partners.jsx"));
+const GeoLanding = lazy(() => import("./pages/GeoLanding.jsx"));
+const Calculators = lazy(() => import("./pages/Calculators.jsx"));
+const CalculatorDetail = lazy(() => import("./pages/CalculatorDetail.jsx"));
+const Glossary = lazy(() => import("./pages/Glossary.jsx"));
+const Compare = lazy(() => import("./pages/Compare.jsx"));
+const Comparison = lazy(() => import("./pages/Comparison.jsx"));
+const Qualify = lazy(() => import("./pages/Qualify.jsx"));
+const CityProgram = lazy(() => import("./pages/CityProgram.jsx"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy.jsx"));
+const Terms = lazy(() => import("./pages/Terms.jsx"));
 import JsonLd, { organizationSchema, localBusinessSchema, SITE_URL } from "./components/JsonLd.jsx";
 import ConsentBanner from "./components/ConsentBanner.jsx";
 import {
@@ -205,6 +207,7 @@ export default function App() {
       {/* Site-wide structured data: publisher + local business */}
       <JsonLd id="schema-organization" data={organizationSchema()} />
       <JsonLd id="schema-localbusiness" data={localBusinessSchema()} />
+      <Suspense fallback={<div style={{ minHeight: "60vh" }} />}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/programs" element={<Programs />} />
@@ -244,6 +247,7 @@ export default function App() {
         ))}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      </Suspense>
       <ConsentBanner />
     </>
   );

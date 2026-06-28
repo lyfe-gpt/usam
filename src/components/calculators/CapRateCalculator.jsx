@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { NumberField, InputCard, ResultPanel, Row, fmt, pct, monthlyPI, useNum } from "./fields.jsx";
+import { NumberField, InputCard, ResultPanel, Row, fmt, pct, monthlyPI, useNum, num } from "./fields.jsx";
 
 // Cap rate + cash flow + cash-on-cash for a rental. Cap rate is unlevered
 // (NOI / price); cash-on-cash factors in the financing.
@@ -13,12 +13,13 @@ export default function CapRateCalculator() {
   const [amort, setAmort] = useNum(30);
 
   const r = useMemo(() => {
-    const egi = rent * 12 * (1 - vacancy / 100); // effective gross income
-    const noi = egi - opex;
-    const capRate = price > 0 ? (noi / price) * 100 : 0;
-    const loan = price * (1 - down / 100);
-    const cashInvested = price - loan;
-    const annualDebt = monthlyPI(loan, rate, amort) * 12;
+    const PR = num(price), RN = num(rent), VA = num(vacancy), OP = num(opex), DN = num(down), RT = num(rate), AM = num(amort);
+    const egi = RN * 12 * (1 - VA / 100); // effective gross income
+    const noi = egi - OP;
+    const capRate = PR > 0 ? (noi / PR) * 100 : 0;
+    const loan = PR * (1 - DN / 100);
+    const cashInvested = PR - loan;
+    const annualDebt = monthlyPI(loan, RT, AM) * 12;
     const annualCF = noi - annualDebt;
     const coc = cashInvested > 0 ? (annualCF / cashInvested) * 100 : 0;
     return { egi, noi, capRate, loan, cashInvested, annualCF, coc, monthlyCF: annualCF / 12 };
@@ -29,9 +30,9 @@ export default function CapRateCalculator() {
       <InputCard>
         <NumberField label="Purchase price" prefix="$" value={price} onChange={setPrice} step={5000} />
         <NumberField label="Monthly rent" prefix="$" value={rent} onChange={setRent} step={50} />
-        <NumberField label="Vacancy" suffix="%" value={vacancy} onChange={setVacancy} step={1} />
+        <NumberField label="Vacancy" suffix="%" value={vacancy} onChange={setVacancy} step={1} max={100} />
         <NumberField label="Annual operating expenses" prefix="$" value={opex} onChange={setOpex} step={500} />
-        <NumberField label="Down payment" suffix="%" value={down} onChange={setDown} step={5} />
+        <NumberField label="Down payment" suffix="%" value={down} onChange={setDown} step={5} max={100} />
         <NumberField label="Loan rate" suffix="%" value={rate} onChange={setRate} step={0.125} />
         <NumberField label="Amortization" suffix="yrs" value={amort} onChange={setAmort} step={5} />
       </InputCard>

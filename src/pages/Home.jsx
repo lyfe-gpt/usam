@@ -159,7 +159,11 @@ export default function Home() {
           <div style={{ maxWidth: 640, marginBottom: 46 }}>
             <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#1A56C4", marginBottom: 14 }}>Our programs</div>
             <h2 style={{ fontFamily: SCH, fontWeight: 800, fontSize: "clamp(32px,3.8vw,46px)", lineHeight: 1.04, letterSpacing: "-0.02em", color: "#0E1A2B", margin: "0 0 16px" }}>Financing for every play.</h2>
-            <p style={{ fontSize: 18, lineHeight: 1.55, color: "#475467", margin: 0 }}>A full lineup of programs covering acquisition through exit. If your deal doesn't fit a box, we'll structure something that does.</p>
+            <p style={{ fontSize: 18, lineHeight: 1.55, color: "#475467", margin: "0 0 18px" }}>A full lineup of programs covering acquisition through exit. If your deal doesn't fit a box, we'll structure something that does.</p>
+            <Link to="/qualify" style={{ display: "inline-flex", alignItems: "center", gap: 7, fontSize: 15.5, fontWeight: 700, color: "#1A56C4", textDecoration: "none" }}>
+              Not sure which fits? Take the 60-second finder
+              <Icon name="chevronRight" size={15} color="#1A56C4" width={2.6} />
+            </Link>
           </div>
 
           <div className="u-prog" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 22 }}>

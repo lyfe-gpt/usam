@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { NumberField, InputCard, ResultPanel, Row, fmt, pct, monthlyPI, useNum } from "./fields.jsx";
+import { NumberField, InputCard, ResultPanel, Row, fmt, pct, monthlyPI, useNum, num } from "./fields.jsx";
 
 // BRRRR = Buy, Rehab, Rent, Refinance, Repeat. The number that matters is how
 // much cash you pull back out at the refi vs. how much stays trapped in the deal.
@@ -15,14 +15,16 @@ export default function BrrrrCalculator() {
   const [opex, setOpex] = useNum(520);
 
   const r = useMemo(() => {
-    const invested = purchase + rehab + holding;
-    const refiLoan = arv * (refiLtv / 100);
+    const P = num(purchase), R = num(rehab), H = num(holding), A = num(arv);
+    const L = num(refiLtv), RT = num(rate), AM = num(amort), RN = num(rent), OP = num(opex);
+    const invested = P + R + H;
+    const refiLoan = A * (L / 100);
     const pulledOut = Math.min(refiLoan, invested);
     const leftIn = Math.max(0, invested - refiLoan);
-    const pi = monthlyPI(refiLoan, rate, amort);
-    const cashFlow = rent - pi - opex;
+    const pi = monthlyPI(refiLoan, RT, AM);
+    const cashFlow = RN - pi - OP;
     const annualCF = cashFlow * 12;
-    const coc = leftIn > 0 ? (annualCF / leftIn) * 100 : Infinity;
+    const coc = leftIn > 0 ? (annualCF / leftIn) * 100 : (invested > 0 ? Infinity : 0);
     return { invested, refiLoan, pulledOut, leftIn, pi, cashFlow, coc };
   }, [purchase, rehab, holding, arv, refiLtv, rate, amort, rent, opex]);
 
@@ -34,7 +36,7 @@ export default function BrrrrCalculator() {
         <NumberField label="Rehab budget" prefix="$" value={rehab} onChange={setRehab} step={2500} />
         <NumberField label="Holding costs" prefix="$" value={holding} onChange={setHolding} step={1000} />
         <NumberField label="After-repair value" prefix="$" value={arv} onChange={setArv} step={5000} />
-        <NumberField label="Refinance LTV" suffix="%" value={refiLtv} onChange={setRefiLtv} step={1} />
+        <NumberField label="Refinance LTV" suffix="%" value={refiLtv} onChange={setRefiLtv} step={1} max={100} />
         <NumberField label="New loan rate" suffix="%" value={rate} onChange={setRate} step={0.125} />
         <NumberField label="Amortization" suffix="yrs" value={amort} onChange={setAmort} step={5} />
         <NumberField label="Monthly rent" prefix="$" value={rent} onChange={setRent} step={50} />

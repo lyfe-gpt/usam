@@ -5,7 +5,7 @@ import CtaBand from "../components/CtaBand.jsx";
 import Faq from "../components/Faq.jsx";
 import Icon from "../components/Icon.jsx";
 import JsonLd, { breadcrumbSchema, faqPageSchema } from "../components/JsonLd.jsx";
-import { cityProgramBySlug } from "../data/cityPrograms.js";
+import { cityProgramBySlug, metroAngle } from "../data/cityPrograms.js";
 import { geoBySlug } from "../data/geo.js";
 import { bySlug as programBySlug } from "../data/programs.js";
 import { programFaqs } from "../data/faqs.js";
@@ -45,7 +45,10 @@ export default function CityProgram({ slug }) {
           <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#1A56C4", marginBottom: 12 }}>Now lending in {cp.region}</div>
           <h1 style={{ fontFamily: SCH, fontWeight: 800, fontSize: "clamp(34px,4.4vw,54px)", lineHeight: 1.02, letterSpacing: "-0.02em", color: "#0E1A2B", margin: "0 0 14px" }}>{h1}</h1>
           <p style={{ fontSize: 19, fontWeight: 600, color: "#1A56C4", margin: "0 0 16px" }}>{program.tagline}</p>
-          <p style={{ fontSize: 17, lineHeight: 1.6, color: "#475467", maxWidth: 720, margin: "0 0 26px" }}>{lead}</p>
+          <p style={{ fontSize: 17, lineHeight: 1.6, color: "#475467", maxWidth: 720, margin: "0 0 14px" }}>{lead}</p>
+          {metroAngle[cp.geoSlug] && (
+            <p style={{ fontSize: 16, lineHeight: 1.6, color: "#667085", maxWidth: 720, margin: "0 0 26px" }}>{metroAngle[cp.geoSlug]}</p>
+          )}
           <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
             <Link to="/apply" className="btn-primary" style={{ background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "15px 28px", borderRadius: 999, boxShadow: "0 6px 20px rgba(26,86,196,0.28)" }}>Get my rate</Link>
             <a href="tel:512-488-6087" className="btn-outline" style={{ background: "#fff", color: "#0E1A2B", textDecoration: "none", fontWeight: 700, fontSize: 17, padding: "14px 26px", borderRadius: 999, border: "1.5px solid #D6DDE8" }}>Call us</a>

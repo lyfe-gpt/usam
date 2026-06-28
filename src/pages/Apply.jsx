@@ -125,6 +125,22 @@ const LOAN_TYPES = [
   { value: "SBA Financing", label: "SBA", sub: "7(a) & 504", icon: "sba" },
 ];
 
+// Maps a program slug (from the /qualify quiz or a program-page deep link, e.g.
+// /apply?program=fix-flip) to the matching loan-type value above, so the choice
+// carries through and we can skip the redundant loan-type step.
+const PROGRAM_TO_LOANTYPE = {
+  "fix-flip": "Fix and Flip",
+  "rental-dscr": "Rental / DSCR",
+  "construction": "Ground-Up Construction",
+  "cre-bridge": "CRE Bridge",
+  "transactional": "Transactional",
+  "bank-statement": "Bank Statement / No-Doc",
+  "conventional-investment": "Conventional Investment",
+  "portfolio": "Portfolio Loans",
+  "cre-permanent": "CRE Permanent",
+  "sba": "SBA Financing",
+};
+
 const EXPERIENCE = [
   ["This is my first", "First deal"],
   ["1-2 deals", "1-2 deals"],
@@ -205,6 +221,28 @@ export default function Apply() {
     noi: "", creditBand: "", useOfFunds: "", timeInBusiness: "", avgDeposits: "",
     experience: "", timeline: "", name: "", email: "", phone: "", smsConsent: false, leadCaptured: false, step0Error: "",
   });
+
+  // Prefill the loan type from a ?program= deep link (the /qualify quiz and
+  // program pages link in this way). prefilled lets us skip the loan-type step
+  // once, while still allowing Back to reach it normally.
+  const prefilled = useRef(false);
+  useEffect(() => {
+    const slug = new URLSearchParams(window.location.search).get("program");
+    const lt = slug && PROGRAM_TO_LOANTYPE[slug];
+    if (lt) {
+      prefilled.current = true;
+      setS((st) => ({ ...st, loanType: lt }));
+    }
+  }, []);
+
+  // When the borrower step is done and the program was prefilled, skip the
+  // redundant loan-type pick (once — Back from step 2 still shows it).
+  useEffect(() => {
+    if (s.step === 1 && prefilled.current && s.loanType) {
+      prefilled.current = false;
+      setS((st) => ({ ...st, step: 2 }));
+    }
+  }, [s.step, s.loanType]);
 
   useEffect(() => {
     document.body.classList.add("apply-page");

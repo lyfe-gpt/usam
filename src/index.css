@@ -230,3 +230,6 @@ body.apply-page .ci { font-size: 17px; border-radius: 12px; padding: 15px 16px; 
 
 /* Pre-qual quiz option hover */
 .quiz-opt:hover { border-color: #1A56C4 !important; background: #EEF3FC !important; }
+
+/* Programs page "not sure" helper cards */
+@media (max-width: 640px) { .prog-help { grid-template-columns: 1fr !important; } }

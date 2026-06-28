@@ -8,6 +8,8 @@ import JsonLd, { faqPageSchema, breadcrumbSchema } from "../components/JsonLd.js
 import { programs, bySlug } from "../data/programs.js";
 import { programFaqs } from "../data/faqs.js";
 import { guides } from "../data/guides.js";
+import { cityPrograms } from "../data/cityPrograms.js";
+import CalculatorCta from "../components/CalculatorCta.jsx";
 
 const SCH = "'Schibsted Grotesk',sans-serif";
 
@@ -16,6 +18,8 @@ export default function ProgramDetail({ slug }) {
   const others = programs.filter((x) => x.slug !== slug);
   const faqs = programFaqs[slug] || [];
   const relatedGuides = guides.filter((g) => (g.related || []).includes(slug)).slice(0, 4);
+  // City-specific pages for this program (e.g. all the fix-and-flip metros).
+  const cityLinks = cityPrograms.filter((c) => c.program === slug);
 
   return (
     <div>
@@ -100,6 +104,9 @@ export default function ProgramDetail({ slug }) {
         </div>
       </section>
 
+      {/* Calculator CTA — only for programs that have a related calculator */}
+      <CalculatorCta programSlug={slug} programTitle={p.title} />
+
       {/* FAQ */}
       {faqs.length > 0 && (
         <section className="sec" style={{ background: "#fff", padding: "8px 32px 64px" }}>
@@ -167,6 +174,21 @@ export default function ProgramDetail({ slug }) {
           </div>
         </div>
       </section>
+
+      {cityLinks.length > 0 && (
+        <section className="sec" style={{ background: "#F6F8FB", padding: "40px 32px" }}>
+          <div style={{ maxWidth: 1080, margin: "0 auto" }}>
+            <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#667085", marginBottom: 14 }}>{p.title} by market</div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+              {cityLinks.map((c) => (
+                <Link key={c.slug} to={`/${c.slug}`} className="card-link" style={{ fontSize: 14.5, fontWeight: 700, color: "#1A56C4", background: "#fff", border: "1px solid #DCE6F9", padding: "10px 16px", borderRadius: 999, textDecoration: "none" }}>
+                  {c.region} {c.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <CtaBand
         title={p.ctaTitle}

@@ -53,7 +53,7 @@ export default function CalculatorDetail({ slug }) {
           {c.kind === "caprate" && <CapRateCalculator />}
           {c.kind === "cashout" && <CashOutRefiCalculator />}
           <p style={{ fontSize: 12.5, lineHeight: 1.5, color: "#667085", margin: "20px 0 0", maxWidth: 720 }}>
-            Estimates only, for planning purposes. Results are not an offer, a quote, or a commitment to lend, and actual terms depend on a full review of your deal.
+            Inputs are pre-filled with example figures, edit them to match your deal. Estimates only, for planning purposes: results are not an offer, a quote, or a commitment to lend, and the rates shown are illustrative, not USAM Fund's current pricing. Actual terms depend on a full review of your deal.
           </p>
         </div>
       </section>

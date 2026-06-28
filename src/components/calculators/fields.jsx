@@ -17,8 +17,15 @@ const inputStyle = {
   boxSizing: "border-box",
 };
 
-// Number input with an optional $ prefix or % / unit suffix.
-export function NumberField({ label, prefix, suffix, value, onChange, step = 1 }) {
+// Coalesce a possibly-empty (NaN) field value to 0 for math. Use in every
+// calculator's useMemo so a blank field computes cleanly instead of as NaN.
+export const num = (x) => (Number.isFinite(x) ? x : 0);
+
+// Number input with an optional $ prefix or % / unit suffix. An empty field is
+// allowed (stored as NaN, shown blank) so clearing it lets you type fresh rather
+// than fighting a stuck "0"; negatives are clamped to 0; an optional max clamps
+// percentage fields. Pair with num() in the calculator's math.
+export function NumberField({ label, prefix, suffix, value, onChange, step = 1, max }) {
   return (
     <label style={{ display: "flex", flexDirection: "column", gap: 6 }}>
       <span style={{ fontSize: 13.5, fontWeight: 600, color: "#475467" }}>{label}</span>
@@ -28,9 +35,18 @@ export function NumberField({ label, prefix, suffix, value, onChange, step = 1 }
           type="number"
           inputMode="decimal"
           min="0"
+          max={max}
           step={step}
           value={Number.isFinite(value) ? value : ""}
-          onChange={(e) => onChange(e.target.value === "" ? 0 : parseFloat(e.target.value))}
+          onChange={(e) => {
+            const raw = e.target.value;
+            if (raw === "") return onChange(NaN); // allow a blank field while typing
+            let v = parseFloat(raw);
+            if (!Number.isFinite(v)) return onChange(NaN);
+            v = Math.max(0, v); // never negative
+            if (Number.isFinite(max)) v = Math.min(max, v); // clamp percentages
+            onChange(v);
+          }}
           style={{ ...inputStyle, paddingLeft: prefix ? 26 : 13, paddingRight: suffix ? 40 : 13 }}
         />
         {suffix && <span style={{ position: "absolute", right: 13, color: "#667085", fontSize: 15 }}>{suffix}</span>}

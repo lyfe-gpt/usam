@@ -6,12 +6,15 @@ import Icon from "../components/Icon.jsx";
 import JsonLd, { breadcrumbSchema } from "../components/JsonLd.jsx";
 import { geoBySlug } from "../data/geo.js";
 import { programs } from "../data/programs.js";
+import { cityPrograms } from "../data/cityPrograms.js";
 
 const SCH = "'Schibsted Grotesk',sans-serif";
 
 export default function GeoLanding({ slug }) {
   const g = geoBySlug[slug];
   if (!g) return <Navigate to="/" replace />;
+  // City-specific program pages (e.g. dallas-fix-and-flip-loans) for this metro.
+  const combos = cityPrograms.filter((c) => c.geoSlug === slug);
 
   return (
     <div>
@@ -64,6 +67,22 @@ export default function GeoLanding({ slug }) {
           </div>
         </div>
       </section>
+
+      {/* Popular city-specific programs (internal links to the city x program pages) */}
+      {combos.length > 0 && (
+        <section className="sec" style={{ background: "#fff", padding: "8px 32px 40px" }}>
+          <div style={{ maxWidth: 880, margin: "0 auto" }}>
+            <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#667085", marginBottom: 14 }}>Popular in {g.region}</div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+              {combos.map((c) => (
+                <Link key={c.slug} to={`/${c.slug}`} className="card-link" style={{ fontSize: 14.5, fontWeight: 700, color: "#1A56C4", background: "#EEF3FC", border: "1px solid #DCE6F9", padding: "10px 16px", borderRadius: 999, textDecoration: "none" }}>
+                  {c.region} {c.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Cities served */}
       <section className="sec" style={{ background: "#F6F8FB", padding: "40px 32px" }}>
