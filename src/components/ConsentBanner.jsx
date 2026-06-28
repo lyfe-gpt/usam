@@ -9,6 +9,9 @@ export default function ConsentBanner() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
+    // Skip during prerender so the static HTML matches the client's first render
+    // (this is a fixed-position overlay; it appears after hydration with no shift).
+    if (window.__PRERENDER__) return;
     if (gpcEnabled()) {
       denyConsent();
       return;

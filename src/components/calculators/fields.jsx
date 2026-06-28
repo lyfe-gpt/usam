@@ -10,7 +10,10 @@ export const SCH = "'Schibsted Grotesk',sans-serif";
 // untouched. Updates live on resize/orientation change.
 export function useIsMobile(bp = 640) {
   const query = `(max-width: ${bp}px)`;
-  const [m, setM] = useState(() => typeof window !== "undefined" && window.matchMedia(query).matches);
+  // Start false on the first render so it matches the prerendered/desktop HTML
+  // (avoids React hydration mismatches), then resolve the real viewport after
+  // mount. Mobile users briefly see the desktop layout, then it switches.
+  const [m, setM] = useState(false);
   useEffect(() => {
     const mq = window.matchMedia(query);
     const onChange = (e) => setM(e.matches);

@@ -1,8 +1,36 @@
-# PRE-LAUNCH: disallow all crawling until ready to publish.
-# When launching, replace with:
-#   User-agent: *
-#   Allow: /
+# PRE-LAUNCH: the entire site is intentionally hidden from ALL crawlers
+# (including AI assistants) until go-live. Keep the block below as-is for now.
 User-agent: *
 Disallow: /
+
+# === AT LAUNCH: delete the two lines above and uncomment everything below ===
+#
+# # Default: allow all standard crawlers
+# User-agent: *
+# Allow: /
+#
+# # AI assistants and answer engines: explicitly welcomed (drives cited referrals)
+# User-agent: GPTBot
+# Allow: /
+# User-agent: OAI-SearchBot
+# Allow: /
+# User-agent: ChatGPT-User
+# Allow: /
+# User-agent: ClaudeBot
+# Allow: /
+# User-agent: Claude-Web
+# Allow: /
+# User-agent: anthropic-ai
+# Allow: /
+# User-agent: PerplexityBot
+# Allow: /
+# User-agent: Perplexity-User
+# Allow: /
+# User-agent: Google-Extended
+# Allow: /
+# User-agent: Applebot-Extended
+# Allow: /
+# User-agent: CCBot
+# Allow: /
 
 Sitemap: https://usam.net/sitemap.xml

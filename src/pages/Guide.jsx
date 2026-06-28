@@ -41,6 +41,14 @@ export default function Guide({ slug }) {
       </section>
 
       <section className="sec" style={{ background: "#fff", padding: "8px 32px 56px" }}>
+        {/* Answer-first TL;DR: a quotable one-line summary up top for readers and
+            answer engines. Uses the guide's own meta description. */}
+        {g.description && (
+          <div style={{ maxWidth: 760, margin: "0 auto 28px", background: "#F6F8FB", borderLeft: "3px solid #1A56C4", borderRadius: "0 12px 12px 0", padding: "16px 20px" }}>
+            <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#1A56C4", marginBottom: 6 }}>The short answer</div>
+            <p style={{ fontSize: 16.5, lineHeight: 1.55, color: "#0E1A2B", margin: 0, fontWeight: 500 }}>{g.description}</p>
+          </div>
+        )}
         <div className="guide-body" style={{ maxWidth: 760, margin: "0 auto" }} dangerouslySetInnerHTML={{ __html: sanitizeHtml(g.body) }} />
 
         {g.faqs && g.faqs.length > 0 && (

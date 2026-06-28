@@ -4,7 +4,7 @@ import Footer from "../components/Footer.jsx";
 import CtaBand from "../components/CtaBand.jsx";
 import Icon from "../components/Icon.jsx";
 import Faq from "../components/Faq.jsx";
-import JsonLd, { faqPageSchema, breadcrumbSchema } from "../components/JsonLd.jsx";
+import JsonLd, { faqPageSchema, breadcrumbSchema, loanSchema } from "../components/JsonLd.jsx";
 import { programs, bySlug } from "../data/programs.js";
 import { programFaqs } from "../data/faqs.js";
 import { guides } from "../data/guides.js";
@@ -32,6 +32,7 @@ export default function ProgramDetail({ slug }) {
         { name: "Programs", path: "/programs" },
         { name: p.title, path: `/programs/${slug}` },
       ])} />
+      <JsonLd id={`loan-${slug}-schema`} data={loanSchema(p)} />
 
       {/* Hero */}
       <section className="sec" style={{ background: "linear-gradient(180deg,#F6F8FB 0%,#ffffff 100%)", padding: "72px 32px 48px" }}>
