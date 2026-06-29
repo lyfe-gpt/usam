@@ -1,97 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Icon from "../components/Icon.jsx";
+import AddressAutocomplete from "../components/AddressAutocomplete.jsx";
+import { LOAN_TYPES, PROGRAM_TO_LOANTYPE, EXPERIENCE, TIMELINE, DEFAULT_NUMBERS, NUMBERS_BY_PROGRAM } from "../data/applyConfig.js";
 import { submitLead } from "../lib/crm.js";
 import { trackLead, trackApplicationComplete, trackApplyStart, trackApplyStep, trackApplyQualified, trackSmsOptIn } from "../lib/analytics.js";
 import logoHorizontal from "../assets/usam-logo-horizontal.png";
 
 // Names for the funnel events fired when advancing FROM each step.
 const STEP_NAMES = { 1: "loan_type", 2: "property", 3: "numbers", 4: "experience" };
-
-function AddressAutocomplete({ value, onChange }) {
-  const [query, setQuery] = useState(value || "");
-  const [suggestions, setSuggestions] = useState([]);
-  const [open, setOpen] = useState(false);
-  const timerRef = useRef(null);
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    const handler = (e) => {
-      if (containerRef.current && !containerRef.current.contains(e.target)) {
-        setOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
-
-  const handleChange = (e) => {
-    const q = e.target.value;
-    setQuery(q);
-    onChange(q);
-    clearTimeout(timerRef.current);
-    if (q.length < 2) { setSuggestions([]); setOpen(false); return; }
-    timerRef.current = setTimeout(async () => {
-      try {
-        const res = await fetch(
-          `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q)}&format=json&addressdetails=1&countrycodes=us&limit=5`,
-          { headers: { "Accept-Language": "en" } }
-        );
-        const data = await res.json();
-        setSuggestions(data.map((r) => r.display_name));
-        setOpen(data.length > 0);
-      } catch {
-        setSuggestions([]); setOpen(false);
-      }
-      // 500ms debounce: respects OpenStreetMap Nominatim's usage policy and
-      // sends fewer keystrokes of the typed address to the third-party service.
-    }, 500);
-  };
-
-  const pick = (addr) => {
-    setQuery(addr);
-    onChange(addr);
-    setSuggestions([]);
-    setOpen(false);
-  };
-
-  return (
-    <div ref={containerRef} style={{ position: "relative" }}>
-      <input
-        className="ci"
-        type="text"
-        aria-label="Property address"
-        placeholder="Street, city, state"
-        value={query}
-        onChange={handleChange}
-        onFocus={() => suggestions.length > 0 && setOpen(true)}
-        autoComplete="off"
-      />
-      {open && (
-        <ul style={{
-          position: "absolute", zIndex: 999, top: "calc(100% + 4px)", left: 0, right: 0,
-          background: "#fff", border: "1px solid #D0D5DD", borderRadius: 10,
-          boxShadow: "0 8px 24px rgba(0,0,0,0.10)", margin: 0, padding: 0, listStyle: "none",
-        }}>
-          {suggestions.map((addr, i) => (
-            <li
-              key={i}
-              onMouseDown={() => pick(addr)}
-              style={{
-                padding: "10px 14px", fontSize: 14, color: "#0E1A2B", cursor: "pointer",
-                borderBottom: i < suggestions.length - 1 ? "1px solid #F2F4F7" : "none",
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.background = "#F9FAFB"}
-              onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
-            >
-              {addr}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-}
 
 // Strips "$", commas, and spaces from a currency input, returning a number
 // (or undefined when empty) so Airtable's currency fields receive clean values.
@@ -112,107 +29,6 @@ const subStyle = { fontSize: 17, color: "#667085", margin: "0 0 30px" };
 const labelStyle = { display: "block", fontSize: 13, fontWeight: 700, color: "#344054", marginBottom: 8 };
 const continueBtn = { width: "100%", background: "#1A56C4", color: "#fff", border: "none", borderRadius: 999, padding: 16, fontWeight: 700, fontSize: 17, fontFamily: "inherit", cursor: "pointer", boxShadow: "0 6px 20px rgba(26,86,196,0.28)" };
 
-const LOAN_TYPES = [
-  { value: "Fix and Flip", label: "Fix and Flip", sub: "Buy, renovate, sell", icon: "fixFlip" },
-  { value: "Rental / DSCR", label: "Rental / DSCR", sub: "Long-term hold", icon: "rental" },
-  { value: "Ground-Up Construction", label: "Ground-Up", sub: "New construction", icon: "construction" },
-  { value: "CRE Bridge", label: "CRE Bridge", sub: "Commercial bridge", icon: "bridge" },
-  { value: "Transactional", label: "Transactional", sub: "Double closing", icon: "transactional" },
-  { value: "Bank Statement / No-Doc", label: "Bank Statement", sub: "No tax returns", icon: "bankStatement" },
-  { value: "Conventional Investment", label: "Conventional", sub: "Investment property", icon: "conventional" },
-  { value: "Portfolio Loans", label: "Portfolio", sub: "Multiple properties", icon: "portfolio" },
-  { value: "CRE Permanent", label: "CRE Permanent", sub: "Long-term commercial", icon: "commercial" },
-  { value: "SBA Financing", label: "SBA", sub: "7(a) & 504", icon: "sba" },
-];
-
-// Maps a program slug (from the /qualify quiz or a program-page deep link, e.g.
-// /apply?program=fix-flip) to the matching loan-type value above, so the choice
-// carries through and we can skip the redundant loan-type step.
-const PROGRAM_TO_LOANTYPE = {
-  "fix-flip": "Fix and Flip",
-  "rental-dscr": "Rental / DSCR",
-  "construction": "Ground-Up Construction",
-  "cre-bridge": "CRE Bridge",
-  "transactional": "Transactional",
-  "bank-statement": "Bank Statement / No-Doc",
-  "conventional-investment": "Conventional Investment",
-  "portfolio": "Portfolio Loans",
-  "cre-permanent": "CRE Permanent",
-  "sba": "SBA Financing",
-};
-
-const EXPERIENCE = [
-  ["This is my first", "First deal"],
-  ["1-2 deals", "1-2 deals"],
-  ["3-5 deals", "3-5 deals"],
-  ["6 or more", "6+ deals"],
-];
-
-const TIMELINE = [
-  ["As soon as possible", "ASAP"],
-  ["Within 30 days", "Within 30 days"],
-  ["60+ days out", "60+ days"],
-  ["Just exploring", "Just exploring"],
-];
-
-// The "numbers" step (step 2) asks different questions per program. Each entry
-// is the ordered list of fields to render. Currency keys "purchase", "rehab",
-// "arv" reuse the existing Airtable columns (the primary amount flexes by
-// program); "monthlyRent" and "loanAmount" have their own columns; everything
-// else (noi, downPayment, etc.) is folded into Notes in finish().
-const DEFAULT_NUMBERS = [
-  { key: "purchase", label: "Purchase price", type: "currency" },
-  { key: "rehab", label: "Rehab budget", type: "currency", hint: "(if any)" },
-  { key: "arv", label: "After-repair value (ARV)", type: "currency", hint: "(if known)" },
-];
-
-const NUMBERS_BY_PROGRAM = {
-  "Fix and Flip": DEFAULT_NUMBERS,
-  "Ground-Up Construction": [
-    { key: "purchase", label: "Land / lot cost", type: "currency" },
-    { key: "rehab", label: "Construction budget", type: "currency" },
-    { key: "arv", label: "Completed value", type: "currency", hint: "(if known)" },
-  ],
-  "Rental / DSCR": [
-    { key: "purchase", label: "Purchase price", type: "currency" },
-    { key: "monthlyRent", label: "Expected monthly rent", type: "currency" },
-    { key: "rehab", label: "Light rehab budget", type: "currency", hint: "(if any)" },
-  ],
-  "CRE Bridge": [
-    { key: "loanAmount", label: "Loan amount needed", type: "currency" },
-    { key: "purchase", label: "Property value", type: "currency" },
-    { key: "noi", label: "Annual net operating income (NOI)", type: "currency", hint: "(if known)" },
-  ],
-  "CRE Permanent": [
-    { key: "loanAmount", label: "Loan amount needed", type: "currency" },
-    { key: "purchase", label: "Property value", type: "currency" },
-    { key: "noi", label: "Annual net operating income (NOI)", type: "currency", hint: "(if known)" },
-  ],
-  "Transactional": [
-    { key: "purchase", label: "Your purchase price (A to B)", type: "currency" },
-    { key: "resalePrice", label: "Resale price (B to C)", type: "currency" },
-  ],
-  "Bank Statement / No-Doc": [
-    { key: "purchase", label: "Purchase price", type: "currency" },
-    { key: "downPayment", label: "Down payment", type: "select", options: ["25% or more", "20%", "15%", "10% or less"] },
-    { key: "avgDeposits", label: "Avg monthly bank deposits", type: "currency", hint: "(if known)" },
-  ],
-  "Conventional Investment": [
-    { key: "purchase", label: "Purchase price", type: "currency" },
-    { key: "downPayment", label: "Down payment", type: "select", options: ["25% or more", "20%", "15%", "Less than 15%"] },
-    { key: "creditBand", label: "Estimated credit score", type: "select", options: ["740+", "700-739", "660-699", "Below 660"] },
-  ],
-  "Portfolio Loans": [
-    { key: "numProperties", label: "Number of properties", type: "number", placeholder: "e.g. 6" },
-    { key: "purchase", label: "Total portfolio value", type: "currency" },
-    { key: "monthlyRent", label: "Total monthly rent", type: "currency", hint: "(if known)" },
-  ],
-  "SBA Financing": [
-    { key: "loanAmount", label: "Loan amount", type: "currency" },
-    { key: "useOfFunds", label: "Use of funds", type: "select", options: ["Owner-occupied real estate", "Business acquisition", "Equipment", "Working capital"] },
-    { key: "timeInBusiness", label: "Time in business", type: "select", options: ["Startup / pre-revenue", "Less than 2 years", "2-5 years", "5+ years"] },
-  ],
-};
 
 export default function Apply() {
   const [s, setS] = useState({
