@@ -1,0 +1,8 @@
+#!/bin/sh
+# Blocks commits that violate the brand copy rules (en dashes, §, "Fix & Flip").
+# Inline-style bloat is reported as a warning only. Enabled via core.hooksPath,
+# which the package.json "prepare" script sets on npm install.
+node scripts/check-conventions.mjs || {
+  echo "\nCommit blocked: fix the copy-rule violations above (or add a copy-check-ignore comment for legitimate code)."
+  exit 1
+}

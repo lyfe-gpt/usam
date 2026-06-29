@@ -157,7 +157,7 @@ export function loanSchema(program) {
   };
   const amt = terms["loan amount"] || terms["loan size"];
   if (amt) {
-    const parts = String(amt).split(/\s*(?:to|-|–|—)\s*/);
+    const parts = String(amt).split(/\s*(?:to|-|–|—)\s*/); // copy-check-ignore: regex parses en/em-dashed input
     const lo = parseMoney(parts[0]);
     const hi = parseMoney(parts[1] || parts[0]);
     if (lo != null) out.amount = { "@type": "MonetaryAmount", currency: "USD", minValue: lo, ...(hi != null && hi !== lo ? { maxValue: hi } : {}) };

@@ -1,0 +1,20 @@
+name: Checks
+
+# Brand copy-rule + inline-style guard. Runs on every push and PR, independent
+# of the deploy gate, so violations are caught before they can merge or deploy.
+# Pure Node, no install needed.
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  conventions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Check conventions (copy rules + inline-style bloat)
+        run: node scripts/check-conventions.mjs
