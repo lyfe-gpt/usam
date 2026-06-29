@@ -219,7 +219,7 @@ export default function Apply() {
     step: 0, loanType: "", address: "", propType: "", purchase: "", rehab: "", arv: "",
     monthlyRent: "", loanAmount: "", resalePrice: "", downPayment: "", numProperties: "",
     noi: "", creditBand: "", useOfFunds: "", timeInBusiness: "", avgDeposits: "",
-    experience: "", timeline: "", name: "", email: "", phone: "", smsConsent: false, leadCaptured: false, step0Error: "",
+    experience: "", timeline: "", name: "", email: "", phone: "", smsConsent: false, marketingConsent: false, leadCaptured: false, step0Error: "",
   });
 
   // Prefill the loan type from a ?program= deep link (the /qualify quiz and
@@ -288,7 +288,7 @@ export default function Apply() {
       setS((st) => ({ ...st, step0Error: "Please provide an email or phone number so we can reach you." }));
       return;
     }
-    submitLead({ name: s.name, email: s.email, phone: s.phone, smsConsent: s.smsConsent, leadSource: "Website apply / quote", salesStage: "Inquiry", partnerCode });
+    submitLead({ name: s.name, email: s.email, phone: s.phone, smsConsent: s.smsConsent, marketingConsent: s.marketingConsent, leadSource: "Website apply / quote", salesStage: "Inquiry", partnerCode });
     trackLead({ email: s.email, phone: s.phone, lead_source: "apply_step1" });
     setS((st) => ({ ...st, step: 1, leadCaptured: true, step0Error: "" }));
   };
@@ -334,6 +334,7 @@ export default function Apply() {
       notes,
       partnerCode,
       smsConsent: st.smsConsent,
+      marketingConsent: st.marketingConsent,
     });
     trackApplicationComplete({
       value: toNumber(st.loanAmount) || toNumber(st.purchase),
@@ -403,6 +404,10 @@ export default function Apply() {
             <label style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: s.step0Error ? 12 : 30, cursor: s.leadCaptured ? "default" : "pointer" }}>
               <input type="checkbox" checked={s.smsConsent} onChange={(e) => setS((st) => ({ ...st, smsConsent: e.target.checked }))} disabled={s.leadCaptured} style={{ marginTop: 3, flex: "none", width: 16, height: 16, accentColor: "#1A56C4", cursor: "inherit" }} />
               <span style={{ fontSize: 12.5, lineHeight: 1.5, color: "#667085" }}>I agree to receive text messages from USAM Fund about my inquiry. Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to opt out, HELP for help. See our <Link to="/privacy" target="_blank" onClick={(e) => e.stopPropagation()} style={{ color: "#1A56C4", fontWeight: 600 }}>Privacy Policy</Link>.</span>
+            </label>
+            <label style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: s.step0Error ? 12 : 30, cursor: s.leadCaptured ? "default" : "pointer" }}>
+              <input type="checkbox" checked={s.marketingConsent} onChange={(e) => setS((st) => ({ ...st, marketingConsent: e.target.checked }))} disabled={s.leadCaptured} style={{ marginTop: 3, flex: "none", width: 16, height: 16, accentColor: "#1A56C4", cursor: "inherit" }} />
+              <span style={{ fontSize: 12.5, lineHeight: 1.5, color: "#667085" }}>Optional: I'd like to receive occasional financing tips and offers from USAM Fund. You can unsubscribe anytime.</span>
             </label>
             {s.step0Error && (
               <p style={{ color: "#C0392B", fontSize: 14, margin: "0 0 18px" }}>{s.step0Error}</p>

@@ -64,7 +64,7 @@ export default function Footer() {
             <Link to="/privacy" className="ftr-lnk" style={{ color: "#8A97A8", textDecoration: "none" }}>Privacy Policy</Link>
             <Link to="/terms" className="ftr-lnk" style={{ color: "#8A97A8", textDecoration: "none" }}>Terms of Service</Link>
             <Link to="/privacy#choices" className="ftr-lnk" style={{ color: "#8A97A8", textDecoration: "none" }}>Your Privacy Choices</Link>
-            <span>Loans for business purpose only · Not a commitment to lend.</span>
+            <span>Business-purpose loans only · Not a commitment to lend · Not available in all states.</span>
           </span>
         </div>
       </div>

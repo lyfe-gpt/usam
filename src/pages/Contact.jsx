@@ -21,7 +21,7 @@ function InfoCard({ icon, label, children }) {
 }
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", phone: "", email: "", subject: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", subject: "", message: "", marketingConsent: false });
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
   const started = useRef(false);
@@ -46,6 +46,7 @@ export default function Contact() {
       email: form.email,
       phone: form.phone,
       leadSource: "Website contact",
+      marketingConsent: form.marketingConsent,
       notes: form.subject
         ? `Subject: ${form.subject}\n\n${form.message}`
         : form.message,
@@ -53,7 +54,7 @@ export default function Contact() {
     trackContactLead({ email: form.email, phone: form.phone });
   };
   const reset = () => {
-    setForm({ name: "", phone: "", email: "", subject: "", message: "" });
+    setForm({ name: "", phone: "", email: "", subject: "", message: "", marketingConsent: false });
     setSent(false);
   };
 
@@ -107,6 +108,10 @@ export default function Contact() {
                   <label style={labelStyle}>Message</label>
                   <textarea className="ci" rows={5} style={{ resize: "vertical" }} placeholder="Tell us about your deal or question" value={form.message} onChange={set("message")} />
                 </div>
+                <label style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 18, cursor: "pointer" }}>
+                  <input type="checkbox" checked={form.marketingConsent} onChange={(e) => setForm((f) => ({ ...f, marketingConsent: e.target.checked }))} style={{ marginTop: 3, flex: "none", width: 16, height: 16, accentColor: "#1A56C4" }} />
+                  <span style={{ fontSize: 12.5, lineHeight: 1.5, color: "#667085" }}>Optional: I'd like to receive occasional financing tips and offers from USAM Fund. You can unsubscribe anytime.</span>
+                </label>
                 {error && <p style={{ color: "#C0392B", fontSize: 14, margin: "0 0 12px" }}>{error}</p>}
                 <button onClick={submit} className="btn-primary" style={{ width: "100%", background: "#1A56C4", color: "#fff", border: "none", borderRadius: 999, padding: 16, fontWeight: 700, fontSize: 17, fontFamily: "inherit", cursor: "pointer", boxShadow: "0 6px 20px rgba(26,86,196,0.28)" }}>Send message</button>
                 <p style={{ fontSize: 13, color: "#667085", textAlign: "center", margin: "14px 0 0" }}>We'll never share your information.</p>
@@ -118,6 +123,7 @@ export default function Contact() {
           <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
             <InfoCard icon="phone" label="Call">
               <a href="tel:512-488-6087" className="link-blue" style={{ fontFamily: SCH, fontWeight: 700, fontSize: 21, color: "#0E1A2B", textDecoration: "none" }}>512-488-6087</a>
+              <div style={{ fontSize: 13.5, lineHeight: 1.5, color: "#667085", marginTop: 4 }}>Calls may be monitored or recorded for quality and training.</div>
             </InfoCard>
             <InfoCard icon="mail" label="Email">
               <a href="mailto:jack@usam.net" className="link-blue" style={{ fontWeight: 700, fontSize: 17, color: "#0E1A2B", textDecoration: "none" }}>jack@usam.net</a>

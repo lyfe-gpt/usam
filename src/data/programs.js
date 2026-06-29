@@ -401,7 +401,7 @@ export const programs = [
       ["25-yr", "terms"],
       ["20+", "SBA lenders"],
     ],
-    how: "SBA loans offer low down payments and long amortizations for owner-occupied property and business acquisition. We shop your file across our lender network so you get the strongest approval.",
+    how: "SBA loans offer low down payments and long amortizations for owner-occupied property and business acquisition. USAM Fund arranges and places SBA financing through our network of partner lenders; we are not ourselves an SBA lender. We shop your file across that network so you get the strongest approval.",
     who: [
       "Owner-occupied commercial RE",
       "Business acquisition",
