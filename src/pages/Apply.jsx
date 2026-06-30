@@ -19,11 +19,6 @@ function toNumber(v) {
 
 const SCH = "'Schibsted Grotesk',sans-serif";
 
-// USAM's live loan-origination application (LendingWise). The prequal flow
-// captures the lead, then hands off here to complete the full application.
-const LENDINGWISE_URL =
-  "https://app.lendingwise.com/HMLOWebForm.php?bRc=4e485a437c545935&fOpt=8e614f58c0d670e4&op=aa4465703ef4b17e";
-
 const h1Style = { fontFamily: SCH, fontWeight: 800, fontSize: "clamp(28px,4vw,38px)", lineHeight: 1.08, letterSpacing: "-0.02em", color: "#0E1A2B", margin: "0 0 10px" };
 const subStyle = { fontSize: 17, color: "#667085", margin: "0 0 30px" };
 const labelStyle = { display: "block", fontSize: 13, fontWeight: 700, color: "#344054", marginBottom: 8 };
@@ -355,7 +350,7 @@ export default function Apply() {
             </div>
 
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, flexWrap: "wrap" }}>
-              <a href={LENDINGWISE_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: "15px 28px", borderRadius: 999, boxShadow: "0 6px 20px rgba(26,86,196,0.28)" }}>Complete your application</a>
+              <Link to={s.email ? `/application?email=${encodeURIComponent(s.email)}` : "/application"} className="btn-primary" style={{ background: "#1A56C4", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: "15px 28px", borderRadius: 999, boxShadow: "0 6px 20px rgba(26,86,196,0.28)" }}>Complete your application</Link>
               <a href="tel:512-488-6087" className="btn-outline" style={{ background: "#fff", color: "#0E1A2B", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: "14px 26px", borderRadius: 999, border: "1.5px solid #D6DDE8" }}>Call to fast-track</a>
             </div>
             <div style={{ marginTop: 18 }}>

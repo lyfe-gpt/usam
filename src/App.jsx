@@ -8,6 +8,7 @@ const ProgramDetail = lazy(() => import("./pages/ProgramDetail.jsx"));
 const About = lazy(() => import("./pages/About.jsx"));
 const Contact = lazy(() => import("./pages/Contact.jsx"));
 const Apply = lazy(() => import("./pages/Apply.jsx"));
+const Application = lazy(() => import("./pages/Application.jsx"));
 const FaqPage = lazy(() => import("./pages/Faq.jsx"));
 const Resources = lazy(() => import("./pages/Resources.jsx"));
 const Guide = lazy(() => import("./pages/Guide.jsx"));
@@ -130,6 +131,7 @@ function metaFor(pathname) {
   if (pathname.startsWith("/about")) return [`About | ${BASE}`, "A direct private lender based in Bee Cave, Texas, lending nationwide with 30 years of real estate finance experience."];
   if (pathname.startsWith("/faq")) return [`FAQ | ${BASE}`, "Answers to common questions about private and hard-money loan programs, rates, terms, and how to get funded."];
   if (pathname.startsWith("/contact")) return [`Contact | ${BASE}`, "Talk to a real person about your deal. Call 512-488-6087 or send a message to USAM Fund."];
+  if (pathname.startsWith("/application")) return [`Complete Your Application | ${BASE}`, "Finish your USAM Fund loan application. Business-purpose lending only; nothing here is a commitment to lend."];
   if (pathname.startsWith("/apply")) return [`Apply | ${BASE}`, "Get a real rate in minutes. No obligation and no hard credit pull to start your USAM Fund application."];
   if (pathname.startsWith("/partners")) return [`Partner Program | ${BASE}`, "Partner with a direct lender that closes. We fund your investor buyers fast, so your deals close. For wholesalers, investor agents, and off-market marketplaces."];
   if (pathname.startsWith("/privacy")) return [`Privacy Policy | ${BASE}`, "How USAM Fund collects, uses, and protects your information, including our SMS, email, AI voice assistant, analytics, and advertising practices."];
@@ -235,6 +237,7 @@ export default function App() {
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/apply" element={<Apply />} />
+        <Route path="/application" element={<Application />} />
         <Route path="/partners" element={<Partners />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<Terms />} />
