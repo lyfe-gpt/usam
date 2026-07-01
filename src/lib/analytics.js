@@ -44,6 +44,15 @@ function record(event, params) {
   window.__usamAnalytics.push({ event, params: params || {}, t: Date.now() });
 }
 
+// Never load real tracking vendors during local development (npm run dev) or on
+// a localhost host — this keeps the live GA4/Clarity/etc. properties free of
+// localhost noise regardless of what IDs are present. The debug record path
+// above (window.__usamAnalytics) still works, so wiring can be verified in dev.
+const isLocalhost =
+  typeof window !== "undefined" &&
+  /^(localhost|127\.0\.0\.1|0\.0\.0\.0|\[::1\])$/.test(window.location.hostname);
+const TRACKING_DISABLED = env.DEV || isLocalhost;
+
 const CONSENT_KEY = "usam_consent_v1"; // "granted" | "denied"
 
 // ---------------------------------------------------------------------------
@@ -112,10 +121,14 @@ function injectScript(src, attrs = {}) {
 function loadAll() {
   if (loaded) return;
   loaded = true;
-  loadGoogle();
-  loadMeta();
-  loadClarity();
-  loadLinkedIn();
+  // On localhost / dev, skip loading every real vendor (no gtag/fbq/clarity is
+  // created, so all track* sends below no-op). Debug records still fire.
+  if (!TRACKING_DISABLED) {
+    loadGoogle();
+    loadMeta();
+    loadClarity();
+    loadLinkedIn();
+  }
   // Record the first page view now that tags exist.
   trackPageView(window.location.pathname + window.location.search);
 }
