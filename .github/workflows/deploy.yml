@@ -47,6 +47,8 @@ jobs:
           # base defaults to "/" (Amplify root). VITE_API_URL tells the forms where
           # to POST; it's a public URL, set as a repo variable.
           VITE_API_URL: ${{ vars.VITE_API_URL }}
+          # GA4 measurement ID (public). Loaded consent-gated by src/lib/analytics.js.
+          VITE_GA4_ID: ${{ vars.VITE_GA4_ID }}
 
       - name: Deploy to Amplify
         run: bash deploy/deploy-amplify.sh
